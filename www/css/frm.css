@@ -1,0 +1,162 @@
+body {
+  #min-height: 2000px;
+  padding-top: 70px;
+  min-height:100%;
+}
+
+.reading-done {
+	background-color: #e7e7e7;
+}
+
+.msgread {
+	background-color: pink;
+	display:;
+}
+
+.msg-urgent {
+	float: left;
+	height: 50px;
+	width: 20px;
+}
+
+.msg-header {
+	height: 50px;
+}
+
+.msg-body-closed {
+	display:none;
+}
+
+.msg-body-open {
+	display:inline;
+}
+
+
+.flagtestarea {
+	#padding: 5px;
+	height: 90px;
+	margin-top: 10px;
+}
+
+.flagarea {
+    background-color: lightgray;
+	float: left;
+	width: 47%;
+	#margin: 5px;
+}
+
+.testarea {
+    background-color: lightgray;
+	float: right;
+	width: 47%;
+	#margin: 5px;
+}
+
+.messagearea {
+    #background-color: lightgray;
+	margin-top: 10px;
+	height: 250px;
+}
+
+
+.daysarea {
+    background-color: lightgray;
+	padding: 5px;
+	height: 100px;
+}
+
+.daysleft {
+    background-color: lightgray;
+	float: left;
+}
+
+.daysright {
+    background-color: lightgray;
+	float: right;
+}
+
+.workhead {
+    background-color: lightgray;
+	padding: 5px;
+    text-align: center;
+}
+
+
+.workarea {
+    background-color: lightgray;
+    height: 300px;
+	padding: 5px;
+}
+
+.centerhead {
+    text-align: center;
+}
+
+.readingscrollregion {
+    height: 415px;
+	border-bottom: 1px solid;
+	border-left: 1px solid;
+	border-color: #dddddd;		
+}
+
+.msgscrollregion {
+	height: 230px;
+	border-bottom: 1px solid;
+	border-left: 1px solid;
+	border-color: #dddddd;	
+}
+
+.sectiontext {
+	font-weight: bold;
+}
+
+.scrollbar
+{
+	overflow-y: scroll;
+	margin-bottom: 10px;
+}
+
+#style-2::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #D62929;
+}
+
+#style-9::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-9::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-9::-webkit-scrollbar-thumb
+{
+	background-color: #F90;	
+	background-image: -webkit-linear-gradient(90deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}

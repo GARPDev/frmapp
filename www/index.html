@@ -39,6 +39,12 @@
 		<script src="js/filters.js"></script>
 		<script src="js/services.js"></script>	
 		
+		<!-- Bootstrap core CSS -->
+		<link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="css/frm.css" rel="stylesheet">
+		
 		
         <title>FRM Study App</title>
     </head>
@@ -50,7 +56,17 @@
                 <p class="event received">Device is Ready</p>
 				<p>Nothing here {{'yet' + '!'}}</p>
             </div>
+			<div class="view-container">
+				<div ng-view class="view-frame"></div>
+			</div>
         </div>
+		
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="lib/bootstrap/js/bootstrap.min.js"></script>		
+		
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
