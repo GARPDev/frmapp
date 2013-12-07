@@ -15,8 +15,14 @@ phonecatApp.config(['$routeProvider',
     $routeProvider.
       when('/dash', {
         templateUrl: 'partials/frm-dash.html',
-        controller: 'FRMAppDashCtrl'
-      }).
+        controller: 'FRMAppDashCtrl'}).
+      when('/examday', {
+        templateUrl: 'partials/frm-examday.html',
+        controller: 'FRMAppDashCtrl'}).      
+      when('/readings', {
+        templateUrl: 'partials/frm-readings.html',
+        controller: 'FRMReadingsCtrl'
+      }).      
 	  /*
 	  .		
       when('/phones', {

@@ -4,6 +4,21 @@ body {
   min-height:100%;
 }
 
+.readings-list-item {
+  min-height: 50px;
+}
+
+.examname {
+font-family: cursive;
+font-weight: bold;
+font-size: x-large;
+}
+
+.addBorder {
+	#border: 2px solid;
+	#border-color: #dddddd;		
+}
+
 .reading-done {
 	background-color: #e7e7e7;
 }
@@ -76,9 +91,9 @@ body {
 }
 
 .workhead {
-    background-color: lightgray;
+  background-color: lightgray;
 	padding: 5px;
-    text-align: center;
+  text-align: center;
 }
 
 

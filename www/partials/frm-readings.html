@@ -1,0 +1,57 @@
+<script>
+    $('ul.nav').find('li').removeClass('active')
+    $('#mainnav-dashboard').addClass('active');
+</script>
+
+<!-- Fixed navbar -->
+<div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>    
+    
+  <div class="container">
+		<div class="row addBorder">
+		  <div class="col-md-12  addBorder">
+        <div class="row addBorder">
+          <div class="col-md-10  addBorder">
+          Lesson Name
+          </div>
+          <div class="col-md-2  addBorder">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Select Lesson <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Lesson 1</a></li>
+                <li><a href="#">Lesson 2</a></li>
+                <li><a href="#">Lesson 3</a></li>
+              </ul>
+            </div>        
+          </div>
+        </div>
+        <div class="row addBorder">
+          <ul class="list-group">
+            <li class="list-group-item readings-list-item addBorder">
+                <div class="col-md-9 addBorder">
+                Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)
+                </div>
+                <div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>                    
+            </li>
+            <li class="list-group-item readings-list-item addBorder">
+                <div class="col-md-9 addBorder">
+                Reading Name 1
+                </div>
+                <div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>                    
+            </li>
+            <li class="list-group-item readings-list-item addBorder">
+                <div class="col-md-9 addBorder">
+                Reading Name 1
+                </div>
+                <div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>                    
+            </li>
+            </ul>        
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+    
+    

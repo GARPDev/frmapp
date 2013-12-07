@@ -24,6 +24,15 @@ window.onresize = tellAngular;
 
 /* Controllers */
 var frmControllers = angular.module('frmControllers', []);
+frmControllers.controller('NavController', ['$scope', '$location',
+  function($scope, $location) {
+    $scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };    
+  }
+]);
+
+
 
 frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages',
   function($scope, Readings, Messages) {
@@ -75,6 +84,18 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages',
     
   }
 ]);
+
+frmControllers.controller('FRMReadingsCtrl', ['$scope', 'Readings', 'Messages',
+  function($scope, Readings, Messages) {
+    $scope.readings = Readings.query();
+    $scope.messages = Messages.query();
+    
+    $('ul.nav').find('li').removeClass('active')
+    $('#mainnav-readings').addClass('active');
+  }
+]);
+
+
 
 /*
 frmControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
