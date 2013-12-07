@@ -1,0 +1,132 @@
+<!-- Fixed navbar -->
+<div class="navHeader">
+  <div class=minHeight">
+  </div>
+  <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">FRM Study App</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Dashboard</a></li>
+          <li><a href="#about">Readings</a></li>
+          <li><a href="#about">Tests</a></li>
+          <li><a href="#about">Flagged</a></li>
+          <li><a href="#about">Messages</a></li>
+          <li><a href="#about">Exam Day</a></li>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">Other <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#contact">Resources</a></li>
+              <li><a href="#contact">Tutorial</a></li>
+              <li class="divider"></li>
+              <li><a href="../navbar/">My Account</a></li>
+              <li><a href="./">Logout</a></li>
+            </ul>
+          </li>		  
+    
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+	<div class="progress">
+	  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="progressStyle">
+		<span class="sr-only">60% Complete</span>
+	  </div>
+ </div>
+
+
+
+  
+ </div>
+
+
+  <div class="container container-fullheight">
+
+		<div class="row row-fullheight">
+
+      <div class="col-md-6 borderall fullHeight">      
+        <div class="workhead">
+          <h3 class="centerhead">Current Readings</h3>
+        </div>
+        <div class="readingscrollregion scrollbar">
+          <ul class="list-group">				
+            <li ng-repeat="reading in readings" class="list-group-item" ng-class="{ 'reading-done': isItemClicked($index, selectedReadingArray) > -1 }">				
+              <div class="checkbox">
+              <label>
+                <input type="checkbox" ng-click="itemClicked($index, selectedReadingArray, 1)">
+                <p>{{reading.description}}</p>
+              </label>
+              </div>
+              <div ng-if="reading.attachmentURL">
+                <span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{reading.attachmentName}}</span> <span>{{reading.attachmentDesc}}</span>
+              </div>
+            </li>				
+          </ul>    			
+        </div>      
+      </div>
+
+		  <div class="col-md-6 borderall fullHeight">
+
+        <div class="">
+          <div class="daysarea">
+            <div class="daysleft">
+              <h3>Exam day details</h3>
+              <span>29</span> <span>day until the exam</span>
+            </div>
+            <div class="daysright">
+              <h1>></h1>
+            </div>
+          </div>
+          <div class="flagtestarea">
+            <div class="flagarea workhead">
+              <h3>Flagged Items</h3>
+              <span class="glyphicon glyphicon-flag"></span>
+            </div>
+            <div class="testarea workhead">
+              <h3>Sample Tests</h3>
+              <span class="glyphicon glyphicon-play-circle"></span>
+            </div>          
+          </div>
+          
+        </div>
+        <div class="msgscrollregion scrollbar">
+ 				<ul class="nav nav-tabs">
+					<li class="active"><a href="#">Messages</a></li>
+					<li><a href="#">Twitter</a></li>
+					<li><a href="#">Facebook</a></li>
+				</ul>				
+
+          <ul class="list-group">				
+            <li ng-repeat="reading in readings" class="list-group-item" ng-class="{ 'reading-done': isItemClicked($index, selectedReadingArray) > -1 }">				
+              <div class="checkbox">
+              <label>
+                <input type="checkbox" ng-click="itemClicked($index, selectedReadingArray, 1)">
+                <p>{{reading.description}}</p>
+              </label>
+              </div>
+              <div ng-if="reading.attachmentURL">
+                <span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{reading.attachmentName}}</span> <span>{{reading.attachmentDesc}}</span>
+              </div>
+            </li>				
+          </ul>    			
+        </div>      
+      
+      
+			</div>
+			
+		</div> <!-- row -->
+
+  </div> <!-- /container -->
