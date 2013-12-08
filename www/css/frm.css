@@ -4,6 +4,14 @@ body {
   min-height:100%;
 }
 
+.reading-item-left {
+  float: left;
+}
+
+.reading-item-right {
+  float: right;
+}
+
 .readings-list-item {
   min-height: 50px;
 }
@@ -15,8 +23,8 @@ font-size: x-large;
 }
 
 .addBorder {
-	#border: 2px solid;
-	#border-color: #dddddd;		
+	border: 2px solid;
+	border-color: #dddddd;		
 }
 
 .reading-done {

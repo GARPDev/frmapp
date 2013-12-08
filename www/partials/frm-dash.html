@@ -18,20 +18,21 @@
 		<div class="row">
 		  <div class="col-md-6">
 			<div class="workhead">
-				<h3 class="centerhead">Current Readings Oli</h3>
+				<h3 class="centerhead">Current Readings</h3>
 			</div>
 			<div class="readingscrollregion scrollbar" id="style-2">
 				<ul class="list-group">				
 					<li ng-repeat="reading in readings" class="list-group-item" ng-class="{ 'reading-done': isItemClicked($index, selectedReadingArray) > -1 }">				
-						<div class="checkbox">
-						<label>
-						  <input type="checkbox" ng-click="itemClicked($index, selectedReadingArray, 1)">
-							<p>{{reading.description}}</p>
-						</label>
-						</div>
-						<div ng-if="reading.attachmentURL">
-							<span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{reading.attachmentName}}</span> <span>{{reading.attachmentDesc}}</span>
-						</div>
+            <div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
+              <div>
+                <p>{{reading.description}}</p>
+                <div ng-if="reading.attachmentURL">
+                  <span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{reading.attachmentName}}</span> <span>{{reading.attachmentDesc}}</span>
+                </div>
+              </div>
+
+
+            
 					</li>				
 				</ul>    			
 			</div>
