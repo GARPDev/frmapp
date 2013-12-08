@@ -23,6 +23,14 @@ phonecatApp.config(['$routeProvider',
         templateUrl: 'partials/frm-readings.html',
         controller: 'FRMReadingsCtrl'
       }).      
+      when('/login', {
+        templateUrl: 'partials/frm-login.html',
+        controller: 'FRMReadingsCtrl'
+      }).      
+      when('/myaccount', {
+        templateUrl: 'partials/frm-myaccount.html',
+        controller: 'FRMReadingsCtrl'
+      }).      
 	  /*
 	  .		
       when('/phones', {
@@ -34,7 +42,7 @@ phonecatApp.config(['$routeProvider',
         controller: 'PhoneDetailCtrl'
       }).*/
       otherwise({
-        redirectTo: '/dash'
+        redirectTo: '/login'
       });
 	  
   }]);

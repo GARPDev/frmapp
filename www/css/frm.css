@@ -4,6 +4,113 @@ body {
   min-height:100%;
 }
 
+# My Account 
+.insperation-area {
+  padding: 5px;
+}
+
+.user-info-area {
+  margin: 10px;
+  padding: 5px;
+  height: 120px;
+}
+
+.schedulebar {
+  float: left;
+}
+
+.schedulebar-area {
+    height: 80px;
+  	padding: 10px;
+    margin: 0 auto;
+}
+
+.schedulebar-block {
+  #border: 1px solid;
+  float: left;
+}
+
+.schedulebar-item {
+    border-right: 1pt solid;
+  	width: 50px;
+    height: 50px;
+    float: left;    
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.schedule-item-area {
+  	background-color: #00000000;
+    margin-top: 10px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid;
+    margin-right: 5px;
+    margin-left: 5px;    
+}
+
+.schedulebar-item-done {
+  background-color: #dddddd;
+}
+
+
+.photo-area {
+  padding-right: 10px;
+  float: left;
+}
+
+.photo {
+  width:200px; 
+  height: 100px;
+  #margin: 0 auto;
+	border: 1px solid;
+	border-color: #dddddd;		
+}
+
+.user-info-area {
+  padding: 10px;
+}
+
+.video-area {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.video {
+  width:300px; 
+  height: 200px;
+}
+
+.login-area { 
+}
+
+.login-area div {
+  padding: 5px;
+}
+
+.login-buttons {
+    width: 220px;
+    margin: 0 auto;
+}
+
+.login-header-area {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.login-footer-area {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.hoz-center {
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .reading-item-left {
   float: left;
 }
