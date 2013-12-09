@@ -1,34 +1,33 @@
 <!-- Fixed navbar -->
 <div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>
 	
- <div class="container"> 
-  <div class="schedulebar-area" ng-include="'partials/frm-schedularbar.html'"></div>
-	<!-- div class="progress">
-	  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="progressStyle">
-		<span class="sr-only">60% Complete</span>
-	  </div>
-	</div -->
 	
     <div class="container">
-
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-10">
+				<div class="schedulebar-area" ng-include="'partials/frm-schedularbar.html'"></div>
+			</div>
+			<div class="col-md-1">
+			</div>
+		</div>
+	  
 		<div class="row">
 		  <div class="col-md-6">
 			<div class="workhead">
-				<h3 class="centerhead">Week 4 - Lesson 4</h3>
+				<h3 class="centerhead">Week {{lessonIndex + 1}} Lessons</h3>
 			</div>
 			<div class="readingscrollregion scrollbar" id="style-2">
 				<ul class="list-group">				
-					<li ng-repeat="reading in readings" class="list-group-item" ng-class="{ 'reading-done': isItemClicked($index, selectedReadingArray) > -1 }">				
-            <div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
-              <div>
-                <p>{{reading.description}}</p>
-                <div ng-if="reading.attachmentURL">
-                  <span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{reading.attachmentName}}</span> <span>{{reading.attachmentDesc}}</span>
-                </div>
-              </div>
-
-
-            
+					<li ng-repeat="reading in lessons[lessonIndex].readings" class="list-group-item" ng-class="{ 'reading-done': isItemClicked($index, selectedReadingArray) }" ng-animate="'animate'">				
+						<div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
+						<div>
+							<p>{{reading.description}}</p>
+							<div ng-if="reading.attachmentURL">
+								<span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{reading.attachmentName}}</span> <span>{{reading.attachmentDesc}}</span>
+							</div>
+						</div>
 					</li>				
 				</ul>    			
 			</div>

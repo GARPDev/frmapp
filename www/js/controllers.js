@@ -33,19 +33,69 @@ frmControllers.controller('NavController', ['$scope', '$location',
   }
 ]);
 
-frmControllers.controller('ScheduleBarController', ['$scope', '$location',
-  function($scope, $location) {
-    $scope.isActive = function (viewLocation) { 
+frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readings', 'Messages','Lessons','scheudlarBarSharedService',
+  function($scope, $location, Readings, Messages, Lessons, scheudlarBarSharedService) {
+
+    $scope.lessons = Lessons.query();
+    $scope.readings = Readings.query();
+    $scope.messages = Messages.query();
+
+	$scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
-    };    
+    };
+	
+	$scope.itemSelect = function(item) {
+		$scope.selected = item;
+		scheudlarBarSharedService.selectItem(item);
+    };
+
+	$scope.isItemSelected = function(item) {
+		if(item == $scope.selected) {
+			return 1;
+		} else {
+			return 0;
+		}
+	};
+
+	$scope.$on('handleDoneReadingItem', function() {
+		var li = scheudlarBarSharedService.lessonIndex;
+		var ri = scheudlarBarSharedService.readingIndex;
+		
+		if($scope.lessons[li].readings[ri].checked) {
+			$scope.lessons[li].readings[ri].checked = 0;
+		} else {
+			$scope.lessons[li].readings[ri].checked = 1;
+		}
+	});
+	
+	$scope.isItemInProgress = function(item) {
+		var readings = $scope.lessons[item].readings;
+		
+		var found = 0;
+		var foundItem = _.findWhere(readings, {checked: 1});
+		if(foundItem) {
+			found = foundItem.checked;
+		}
+		return found;
+	};
+
+	
   }
 ]);
 
 
-frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages',
-  function($scope, Readings, Messages) {
+frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','Lessons','scheudlarBarSharedService',
+  function($scope, Readings, Messages, Lessons, scheudlarBarSharedService) {
+  
+	$scope.lessons = Lessons.query();
     $scope.readings = Readings.query();
     $scope.messages = Messages.query();
+	
+	$scope.lessonIndex = 0;
+	
+	$scope.$on('handleSelectItem', function() {
+		$scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
+	});       
 
     // Init height;
     var nhRead = window.innerHeight - 210;
@@ -68,26 +118,16 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages',
     $scope.selectedReadingArray = [];
 
     $scope.itemClicked = function ($index, selectedArray, showProgress) {
-      var value = selectedArray.indexOf($index);
-      console.log($index + ":" + value);
-      if(value >= 0) {
-        
-        selectedArray.splice(value, 1);
-        if(showProgress) {
-          $scope.progressCnt-=10;
-          $scope.progressStyle={width: $scope.progressCnt + '%'};
-        }
-      } else {
-        selectedArray.push($index);
-        if(showProgress) {
-          $scope.progressCnt+=10;
-          $scope.progressStyle={width: $scope.progressCnt + '%'};
-        }
-      }
-      
+		var li = scheudlarBarSharedService.lessonIndex;
+		scheudlarBarSharedService.doneReadingItem($index);
+		if($scope.lessons[li].readings[$index].checked)
+			$scope.lessons[li].readings[$index].checked=0;
+		else $scope.lessons[li].readings[$index].checked=1;
     };
-    $scope.isItemClicked = function ($index, selectedArray) {
-      return selectedArray.indexOf($index);
+	
+    $scope.isItemClicked = function ($index, selectedArray) {	
+		var li = scheudlarBarSharedService.lessonIndex;
+		return $scope.lessons[li].readings[$index].checked;
     }
     
   }

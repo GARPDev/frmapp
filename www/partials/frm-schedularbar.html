@@ -1,77 +1,20 @@
-      <div class="schedulebar" ng-controller="ScheduleBarController">
-        <div class="schedulebar-block">
-          <div class="schedulebar-item" onclick="document.location.hash = '#/readings';">
-            <div class="schedule-item-area schedulebar-item-done"><span class="glyphicon glyphicon-check"></span></div>
-            <span class="schedulebar-item-label">1</span>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area schedulebar-item-done"><span class="glyphicon glyphicon-check"></span></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area schedulebar-item-done"><span class="glyphicon glyphicon-check"></span></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area schedulebar-item-active"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area schedulebar-item-done"><span class="glyphicon glyphicon-check"></span></div>
-            <span class="schedulebar-item-label">5</span>
-          </div>
-        </div>
-        
-        <div class="schedulebar-block">
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-            <span class="schedulebar-item-label">10</span>
-          </div>
-        </div>
+<div ng-controller="ScheduleBarController">
 
-        <div class="schedulebar-block">
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-            <span class="schedulebar-item-label">15</span>
-          </div>
-        </div>
+	<div class="schedulebar-path-area">
+		<div>
+			Weekly Schedule XXX
+		<div>
+	</div>
+	
+	<div ng-repeat="lesson in lessons" class="schedulebar">     
 
-        <div class="schedulebar-block">
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-          </div>
-          <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
-            <span class="schedulebar-item-label">20</span>
-          </div>
-        </div>
+		<div class="schedulebar-item">
+			<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected($index), 'schedulebar-item-inProgress': isItemInProgress($index)}" ng-click="itemSelect($index)">
+			<span ng-class="{ 'glyphicon glyphicon-check': itemActive($index)}"></span>	
+			</div>
+			<span ng-if="$index == 0 || ($index+1)%5 == 0" class="schedulebar-item-label">{{$index + 1}}</span>
+			
+		</div>		
+	</div>	
+
+</div>
