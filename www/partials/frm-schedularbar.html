@@ -1,4 +1,4 @@
-      <div class="schedulebar">
+      <div class="schedulebar" ng-controller="ScheduleBarController">
         <div class="schedulebar-block">
           <div class="schedulebar-item" onclick="document.location.hash = '#/readings';">
             <div class="schedule-item-area schedulebar-item-done"><span class="glyphicon glyphicon-check"></span></div>
@@ -11,7 +11,7 @@
             <div class="schedule-item-area schedulebar-item-done"><span class="glyphicon glyphicon-check"></span></div>
           </div>
           <div class="schedulebar-item">
-            <div class="schedule-item-area"></div>
+            <div class="schedule-item-area schedulebar-item-active"></div>
           </div>
           <div class="schedulebar-item">
             <div class="schedule-item-area schedulebar-item-done"><span class="glyphicon glyphicon-check"></span></div>

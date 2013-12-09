@@ -53,6 +53,9 @@ body {
   background-color: #dddddd;
 }
 
+.schedulebar-item-active {
+    background-color: green;
+}
 
 .photo-area {
   padding-right: 10px;

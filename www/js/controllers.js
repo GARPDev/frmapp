@@ -24,6 +24,7 @@ window.onresize = tellAngular;
 
 /* Controllers */
 var frmControllers = angular.module('frmControllers', []);
+
 frmControllers.controller('NavController', ['$scope', '$location',
   function($scope, $location) {
     $scope.isActive = function (viewLocation) { 
@@ -32,6 +33,13 @@ frmControllers.controller('NavController', ['$scope', '$location',
   }
 ]);
 
+frmControllers.controller('ScheduleBarController', ['$scope', '$location',
+  function($scope, $location) {
+    $scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };    
+  }
+]);
 
 
 frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages',
