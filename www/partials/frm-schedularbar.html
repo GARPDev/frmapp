@@ -9,8 +9,10 @@
 	<div ng-repeat="lesson in lessons" class="schedulebar">     
 
 		<div class="schedulebar-item">
-			<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected($index), 'schedulebar-item-inProgress': isItemInProgress($index)}" ng-click="itemSelect($index)">
-			<span ng-class="{ 'glyphicon glyphicon-check': itemActive($index)}"></span>	
+			<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected($index), 
+														'schedulebar-item-inProgress': isItemInProgress($index),
+														'schedulebar-item-done': isItemDone($index)}" ng-click="itemSelect($index)">
+			<span ng-class="{ 'glyphicon glyphicon-check': isItemDone($index)}"></span>	
 			</div>
 			<span ng-if="$index == 0 || ($index+1)%5 == 0" class="schedulebar-item-label">{{$index + 1}}</span>
 			

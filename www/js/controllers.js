@@ -79,6 +79,17 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
 		return found;
 	};
 
+	$scope.isItemDone = function(item) {
+		var readings = $scope.lessons[item].readings;
+		
+		var allDone = 1;
+		var foundItem = _.findWhere(readings, {checked: 0});
+		if(foundItem) {
+			allDone = 0;
+		}
+		return allDone;
+	};
+
 	
   }
 ]);
