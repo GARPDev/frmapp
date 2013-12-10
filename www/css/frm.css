@@ -4,9 +4,12 @@ body {
   min-height:100%;
 }
 
-# My Account 
 .insperation-area {
   padding: 5px;
+}
+
+.readings-filter {
+  padding-top: 30px;
 }
 
 .user-info-area {

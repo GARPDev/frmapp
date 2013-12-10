@@ -99,8 +99,8 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
   function($scope, Readings, Messages, Lessons, scheudlarBarSharedService) {
   
 	$scope.lessons = Lessons.query();
-    $scope.readings = Readings.query();
-    $scope.messages = Messages.query();
+  $scope.readings = Readings.query();
+  $scope.messages = Messages.query();
 	
 	$scope.lessonIndex = 0;
 	
@@ -122,6 +122,7 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
     //Progress
     $scope.progressCnt=0;
     $scope.progressStyle={width: $scope.progressCnt + '%'};
+    $scope.selectedLessonName='BOb';
     
     // For Messages
     $scope.selectedMessageArray = [];
@@ -129,20 +130,28 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
     $scope.selectedReadingArray = [];
 
     $scope.itemClicked = function ($index, selectedArray, showProgress) {
-		var li = scheudlarBarSharedService.lessonIndex;
-		scheudlarBarSharedService.doneReadingItem($index);
-		if($scope.lessons[li].readings[$index].checked)
-			$scope.lessons[li].readings[$index].checked=0;
-		else $scope.lessons[li].readings[$index].checked=1;
-    };
+  		var li = scheudlarBarSharedService.lessonIndex;
+  		scheudlarBarSharedService.doneReadingItem($index);
+  		if($scope.lessons[li].readings[$index].checked)
+  			$scope.lessons[li].readings[$index].checked=0;
+  		else $scope.lessons[li].readings[$index].checked=1;
+      };
 	
     $scope.isItemClicked = function ($index, selectedArray) {	
-		var li = scheudlarBarSharedService.lessonIndex;
-		return $scope.lessons[li].readings[$index].checked;
+  		var li = scheudlarBarSharedService.lessonIndex;
+      $scope.selectedLessonName=$scope.lessons[li].readings[$index].title;
+  		return $scope.lessons[li].readings[$index].checked;
     }
+
+    $scope.getSelectedLesson = function ($index) { 
+      var li = scheudlarBarSharedService.lessonIndex;
+      return $scope.lessons[li].readings[$index];
+    }
+
     
   }
 ]);
+
 
 frmControllers.controller('FRMReadingsCtrl', ['$scope', 'Readings', 'Messages',
   function($scope, Readings, Messages) {

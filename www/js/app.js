@@ -15,21 +15,28 @@ phonecatApp.config(['$routeProvider',
     $routeProvider.
       when('/dash', {
         templateUrl: 'partials/frm-dash.html',
-        controller: 'FRMAppDashCtrl'}).
+        controller: 'FRMAppDashCtrl',
+        resolve: {
+          myVar: function(){
+            //code to be executed before route change goes here
+            //alert('hi');
+          }
+        }
+      }).
       when('/examday', {
         templateUrl: 'partials/frm-examday.html',
         controller: 'FRMAppDashCtrl'}).      
       when('/readings', {
         templateUrl: 'partials/frm-readings.html',
-        controller: 'FRMReadingsCtrl'
+        controller: 'FRMAppDashCtrl'
       }).      
       when('/login', {
         templateUrl: 'partials/frm-login.html',
-        controller: 'FRMReadingsCtrl'
+        controller: 'FRMAppDashCtrl'
       }).      
       when('/myaccount', {
         templateUrl: 'partials/frm-myaccount.html',
-        controller: 'FRMReadingsCtrl'
+        controller: 'FRMAppDashCtrl'
       }).      
 	  /*
 	  .		
@@ -46,3 +53,5 @@ phonecatApp.config(['$routeProvider',
       });
 	  
   }]);
+
+
