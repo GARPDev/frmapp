@@ -31,7 +31,7 @@ body {
 }
 
 .schedulebar-item {
-    border-right: 1pt solid;
+    #border-right: 1pt solid;
   	width: 45px;
     height: 45px;
     float: left;    
