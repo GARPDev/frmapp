@@ -8,8 +8,8 @@ function tellAngular() {
         scope.width = window.innerWidth;
         scope.height = window.innerHeight;
     });
-    var nhRead = window.innerHeight - 210;
-    var nhMsg = window.innerHeight - 400;
+    var nhRead = window.innerHeight - 240;
+    var nhMsg = window.innerHeight - 430;
     $(".readingscrollregion").css("height", nhRead + "px");
     $(".msgscrollregion").css("height", nhMsg + "px");
 }
@@ -57,6 +57,13 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
 		}
 	};
 
+  $scope.filterMatch = function( criteria ) {
+    return function( item ) {
+      var li = scheudlarBarSharedService.lessonIndex;
+      return $scope.lessons[li].readings[criteria.index][criteria.field] == criteria.value;
+    };
+  };
+  
 	$scope.$on('handleDoneReadingItem', function() {
 		var li = scheudlarBarSharedService.lessonIndex;
 		var ri = scheudlarBarSharedService.readingIndex;
@@ -103,14 +110,19 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
   $scope.messages = Messages.query();
 	
 	$scope.lessonIndex = 0;
+  $scope.search = {};
 	
 	$scope.$on('handleSelectItem', function() {
+    $('.readings-list-area').hide("slow");
 		$scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
+    $('.readings-list-area').show("fast", function() {
+    //alert( "Animation complete." );
+  });
 	});       
 
     // Init height;
-    var nhRead = window.innerHeight - 210;
-    var nhMsg = window.innerHeight - 400;
+    var nhRead = window.innerHeight - 240;
+    var nhMsg = window.innerHeight - 430;
     $(".readingscrollregion").css("height", nhRead + "px");
     $(".msgscrollregion").css("height", nhMsg + "px");
 
@@ -126,8 +138,19 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
     
     // For Messages
     $scope.selectedMessageArray = [];
+
     // For Readings
     $scope.selectedReadingArray = [];
+    $scope.filterList = function(filterType,value) {
+      if($scope.search[filterType] != null && $scope.search[filterType] != '') {
+        $scope.search[filterType]='';
+      } else {
+        $scope.search[filterType]=value;
+      }
+        
+      //$scope.search.checked=1;
+    }
+
 
     $scope.itemClicked = function ($index, selectedArray, showProgress) {
   		var li = scheudlarBarSharedService.lessonIndex;

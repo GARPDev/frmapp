@@ -8,6 +8,10 @@ body {
   padding: 5px;
 }
 
+.readings-list-area {
+  
+}
+
 .readings-filter {
   padding-top: 30px;
 }
@@ -63,6 +67,10 @@ body {
 .schedulebar-item-selected {
 	border: 2px solid;
 	border-color: green;
+}
+
+.schedule-item-area:hover{
+   background-color:blue
 }
 
 

@@ -1,5 +1,5 @@
-<ul class="list-group">				
-	<li ng-repeat="reading in lessons[lessonIndex].readings" class="list-group-item" ng-class="{ 'reading-done': isItemClicked($index, selectedReadingArray) }" ng-animate="'animate'">				
+<ul class="readings-list-area list-group">				
+	<li ng-repeat="reading in lessons[lessonIndex].readings | filter:search:strict" class="list-group-item" ng-class="{ 'reading-done': isItemClicked($index, selectedReadingArray) }" ng-animate="'animate'">				
 		<div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
 		<div>
 			<p>{{reading.description}}</p>
