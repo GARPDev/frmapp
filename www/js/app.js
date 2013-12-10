@@ -17,9 +17,12 @@ phonecatApp.config(['$routeProvider',
         templateUrl: 'partials/frm-dash.html',
         controller: 'FRMAppDashCtrl',
         resolve: {
-          myVar: function(){
+          myVar: function($q,$http,remoteDataService){
             //code to be executed before route change goes here
-            //alert('hi');
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+
           }
         }
       }).
@@ -28,7 +31,7 @@ phonecatApp.config(['$routeProvider',
         controller: 'FRMAppDashCtrl'}).      
       when('/readings', {
         templateUrl: 'partials/frm-readings.html',
-        controller: 'FRMAppDashCtrl'
+        controller: 'FRMReadings'
       }).      
       when('/login', {
         templateUrl: 'partials/frm-login.html',
@@ -53,5 +56,3 @@ phonecatApp.config(['$routeProvider',
       });
 	  
   }]);
-
-
