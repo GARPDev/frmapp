@@ -1,11 +1,11 @@
 
-  <button type="button" class="btn btn-default btn-xs" ng-click="itemClicked($index, selectedReadingArray, 1)">
+  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isItemClicked($index, 'checked') }" ng-click="itemClicked($index,'checked')">
     <span class="glyphicon glyphicon-check"></span> Done
   </button>
-  <button type="button" class="btn btn-default btn-xs">
+  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isItemClicked($index, 'flagged') }" ng-click="itemClicked($index,'flagged')">
     <span class="glyphicon glyphicon-flag"></span> Flag
   </button>
-  <button type="button" class="btn btn-default btn-xs">
+  <button type="button" class="btn btn-default btn-xs" ng-click="itemClicked($index,'notes')">
     <span class="glyphicon glyphicon-list-alt"></span> Notes
   </button>
 

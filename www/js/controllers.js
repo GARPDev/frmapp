@@ -108,29 +108,41 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarShare
     $scope.lessons = remoteDataService.data;
     $scope.readings = $scope.lessons[0].readings;
     $scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
+    $scope.
 
     // Readings List
-    $scope.itemClicked = function ($index, selectedArray, showProgress) {
+    $scope.itemClicked = function ($index, type) {
       var li = scheudlarBarSharedService.lessonIndex;
       //scheudlarBarSharedService.doneReadingItem($index);
-      if($scope.lessons[li].readings[$index].checked)
-        $scope.lessons[li].readings[$index].checked=0;
-      else $scope.lessons[li].readings[$index].checked=1;
+      if($scope.lessons[li].readings[$index][type])
+        $scope.lessons[li].readings[$index][type]=0;
+      else $scope.lessons[li].readings[$index][type]=1;
       };
   
-    $scope.isItemClicked = function ($index, selectedArray) { 
+    $scope.isItemClicked = function ($index, type) { 
       var li = scheudlarBarSharedService.lessonIndex;
-      $scope.selectedLessonName=$scope.lessons[li].readings[$index].title;
-      return $scope.lessons[li].readings[$index].checked;
+      return $scope.lessons[li].readings[$index][type];
     }
 
+    $scope.getSelectedLessonIndex = function ($index) { 
+      return scheudlarBarSharedService.lessonIndex;;
+    }
+
+    $scope.criteriaMatch = function(value) {
+      return function( item ) {
+        return item.checked === sharedService.checkedFilter;
+      }
+    }   
 
     $scope.$on('handleSelectItem', function() {
-      $('.readings-list-area').hide("slow");
-      $scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
-      $('.readings-list-area').show("fast", function() {
-      //alert( "Animation complete." );
-    });
+      if($scope.lessonIndex != scheudlarBarSharedService.lessonIndex) {
+        $scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
+        $('.readings-list-area').hide("fast", function() {
+          $('.readings-list-area').show("fast", function() {
+          //alert( "Animation complete." );
+          });
+        });
+      }      
 
   });       
 
@@ -152,10 +164,15 @@ frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','
     $scope.selectedReadingArray = [];
     $scope.filterList = function(filterType,value) {
       if($scope.search[filterType] != null && $scope.search[filterType] != '') {
-        $scope.search[filterType]='';
+        //$scope.search[filterType]='';
+        $scope.search = {};
+        sharedService.checkedFilter = 0;
       } else {
         $scope.search[filterType]=value;
+        $scope.search.checked=1;
+        sharedService.checkedFilter = 1;
       }
+      
     }
 
     $scope.getSelectedLesson = function ($index) { 

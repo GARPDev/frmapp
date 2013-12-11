@@ -4,12 +4,16 @@ body {
   min-height:100%;
 }
 
+.button-on {
+  background-color: lightblue;
+}
+
 .insperation-area {
   padding: 5px;
 }
 
 .readings-list-area {
-  
+
 }
 
 .readings-filter {

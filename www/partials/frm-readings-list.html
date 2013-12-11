@@ -1,5 +1,5 @@
 <ul class="readings-list-area list-group" ng-controller="FRMAppReadingsListCtrl">				
-	<li ng-repeat="reading in lessons[lessonIndex].readings | filter:search:strict" class="list-group-item" ng-class="{ 'reading-done': isItemClicked($index, selectedReadingArray) }" ng-animate="'animate'">				
+	<li ng-repeat="reading in lessons[getSelectedLessonIndex()].readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked($index, 'checked') }" ng-animate="'animate'">				
 		<div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
 		<div>
 			<p>{{reading.description}}</p>

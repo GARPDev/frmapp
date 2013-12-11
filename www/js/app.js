@@ -15,16 +15,7 @@ phonecatApp.config(['$routeProvider',
     $routeProvider.
       when('/dash', {
         templateUrl: 'partials/frm-dash.html',
-        controller: 'FRMAppDashCtrl',
-        resolve: {
-          myVar: function($q,$http,remoteDataService){
-            //code to be executed before route change goes here
-            var defer = $q.defer();
-            remoteDataService.fetchData(defer, $http);
-            return defer.promise;
-
-          }
-        }
+        controller: 'FRMAppDashCtrl'
       }).
       when('/examday', {
         templateUrl: 'partials/frm-examday.html',
@@ -35,7 +26,17 @@ phonecatApp.config(['$routeProvider',
       }).      
       when('/login', {
         templateUrl: 'partials/frm-login.html',
-        controller: 'FRMAppDashCtrl'
+        controller: 'FRMAppDashCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+
+          }
+        }
+        
       }).      
       when('/myaccount', {
         templateUrl: 'partials/frm-myaccount.html',

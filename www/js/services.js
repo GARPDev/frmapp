@@ -52,6 +52,8 @@ frmServices.factory('scheudlarBarSharedService', function($rootScope) {
 
 	sharedService.lessonIndex = 0;
 	sharedService.readingIndex = 0;
+  sharedService.flagFilter = 0;
+  sharedService.checkedFilter = 0;
   
   sharedService.selectItem = function(item) {
   	sharedService.lessonIndex = item;
