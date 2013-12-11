@@ -33,6 +33,20 @@ frmControllers.controller('NavController', ['$scope', '$location',
   }
 ]);
 
+frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$location','remoteDataService',
+  function($scope, $location, remoteDataService) {
+    $scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };
+
+    $scope.clearData = function() {
+      remoteDataService.clearData();
+    }
+  }
+]);
+
+
+
 frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readings', 'Messages','Lessons','scheudlarBarSharedService','remoteDataService',
   function($scope, $location, Readings, Messages, Lessons, scheudlarBarSharedService, remoteDataService) {
 
@@ -118,6 +132,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarShare
       var foundItem = _.findWhere(readings, {id: id});
 
       foundItem[type]=!foundItem[type];
+      remoteDataService.commitData();
     };
   
     $scope.isItemClicked = function (id, type) { 
@@ -206,15 +221,20 @@ frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','
 frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','Lessons','scheudlarBarSharedService','remoteDataService','readlingListSharedService',
   function($scope, Readings, Messages, Lessons, scheudlarBarSharedService, remoteDataService, readlingListSharedService) {
   
-	//$scope.lessons = Lessons.query();
-  $scope.lessons = remoteDataService.data;
-  $scope.readings = $scope.lessons[0].readings;
+  	//$scope.lessons = Lessons.query();
+    $scope.lessons = remoteDataService.data;
+    $scope.readings = $scope.lessons[0].readings;
 
-  $scope.messages = Messages.query();
-	
-	$scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
+    $scope.messages = Messages.query();
+  	
+  	$scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
 
-  readlingListSharedService.clearFilters();
+    readlingListSharedService.clearFilters();
+
+    $scope.$watchCollection('lessons', function() { 
+      //alert('change');
+    });
+
 
     // Init height;
     var nhRead = window.innerHeight - 240;

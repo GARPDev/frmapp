@@ -28,20 +28,32 @@ frmServices.factory('Messages', ['$resource',
 frmServices.factory('remoteDataService', ['$resource','$http',
   function($resource, $http){
 
-  var remoteDataService = {};
-  remoteDataService.$http = $http;
+    var remoteDataService = {};
+    remoteDataService.$http = $http;
 
-   //our service accepts a promise object which 
-   //it will resolve on behalf of the calling function
-   remoteDataService.fetchData = function(q,$http) {
+    //our service accepts a promise object which 
+    //it will resolve on behalf of the calling function
+    remoteDataService.fetchData = function(q,$http) {
 
-     $http({method:'GET',url:'data/lessons.json'}).success(function(data){
-         remoteDataService.data = data;
-         q.resolve();
-     });
+      if(localStorage.frmData == 'null') {
+        $http({method:'GET',url:'data/lessons.json'}).success(function(data){
+           remoteDataService.data = data;
+           localStorage.frmData = JSON.stringify(data);
+           q.resolve();
+        });        
+      } else {
+        remoteDataService.data = JSON.parse(localStorage.frmData);
+        q.resolve();
+      }
+    };
 
+   remoteDataService.commitData = function() {
+      localStorage.frmData = JSON.stringify(remoteDataService.data);
+   }
 
-   };
+   remoteDataService.clearData = function() {
+      localStorage.frmData = null;
+   }
 
   return remoteDataService;
 

@@ -26,7 +26,7 @@ phonecatApp.config(['$routeProvider',
       }).      
       when('/login', {
         templateUrl: 'partials/frm-login.html',
-        controller: 'FRMAppDashCtrl',
+        controller: 'FRMAppLoginCtrl',
         resolve: {
           myVar: function($q,$http,remoteDataService){
             //code to be executed before route change goes here
