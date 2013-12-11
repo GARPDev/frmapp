@@ -123,10 +123,12 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarShare
     $scope.readings = $scope.lessons[0].readings;
     $scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
 
+
     // Readings List
     $scope.itemClicked = function (id, type) {
       var li = scheudlarBarSharedService.lessonIndex;
       var readings = $scope.lessons[li].readings;
+      readlingListSharedService.setReadingIndex(id);
 
       var found = 0;
       var foundItem = _.findWhere(readings, {id: id});
@@ -189,15 +191,13 @@ frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.data;
     $scope.readings = $scope.lessons[0].readings;
-    $scope.lessonIndex = scheudlarBarSharedService.lessonIndex;;
-    $scope.search = {};
+    $scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
+    $scope.currentReading=null;
 
     // For Readings
     $scope.selectedReadingArray = [];
     $scope.filterList = function(filterType,value) {
-
-      readlingListSharedService.filterList(filterType);
-      
+      readlingListSharedService.filterList(filterType);      
     }
 
     $scope.getSelectedLesson = function ($index) { 
@@ -213,6 +213,17 @@ frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','
     $scope.isFilterOn = function(type) {
       return readlingListSharedService.filters[type];
     }
+
+    $scope.$on('handleSetReadingIndex', function() {
+      var li = scheudlarBarSharedService.lessonIndex;
+      var readings = $scope.lessons[li].readings;
+
+      var found = 0;
+      var foundItem = _.findWhere(readings, {id: readlingListSharedService.readingIndex});
+      if(foundItem)
+        $scope.currentReading = foundItem;
+      else $scope.currentReading = null;
+    });
 
   }
 ]);
@@ -258,6 +269,18 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
     $scope.getSelectedLessonIndex = function ($index) { 
       return scheudlarBarSharedService.lessonIndex;;
     }
+
+
+    $scope.$on('handleSetReadingIndex', function() {
+      var li = scheudlarBarSharedService.lessonIndex;
+      var readings = $scope.lessons[li].readings;
+
+      var found = 0;
+      var foundItem = _.findWhere(readings, {id: readlingListSharedService.readingIndex});
+      if(foundItem)
+        $scope.currentReading = foundItem;
+      else $scope.currentReading = null;
+    });
 
   }
 ]);

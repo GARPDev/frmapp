@@ -1,38 +1,41 @@
 <!-- Fixed navbar -->
 <div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>    
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-      <div class="col-md-10">
-        <div class="schedulebar-area" ng-include="'partials/frm-schedularbar.html'"></div>
-      </div>
-      <div class="col-md-1">
+<div class="container">
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+      <div class="schedulebar-area" ng-include="'partials/frm-schedularbar.html'"></div>
+    </div>
+    <div class="col-md-1">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 ">
+      <h3 class="">Week {{getSelectedLessonIndex() + 1}} Lessons</h3>
+    </div>
+    <div class="col-md-4 ">
+    </div>
+    <div class="col-md-4 ">
+      <div class="readings-filter">
+        <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isFilterOn('checked') }" ng-click="filterList('checked',1)">
+          <span class="glyphicon glyphicon-check"></span> Done
+        </button>
+        <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isFilterOn('flagged') }" ng-click="filterList('flagged',1)">
+          <span class="glyphicon glyphicon-flag"></span> Flag
+        </button>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="schedulebar-area" ng-include="'partials/frm-readings-list.html'"></div>
+    </div>
+  </div>
+</div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 ">
-        <h3 class="">Week {{getSelectedLessonIndex() + 1}} Lessons</h3>
-      </div>
-      <div class="col-md-4 ">
-      </div>
-      <div class="col-md-4 ">
-        <div class="readings-filter">
-          <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isFilterOn('checked') }" ng-click="filterList('checked',1)">
-            <span class="glyphicon glyphicon-check"></span> Done
-          </button>
-          <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isFilterOn('flagged') }" ng-click="filterList('flagged',1)">
-            <span class="glyphicon glyphicon-flag"></span> Flag
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 ">
-        <div class="schedulebar-area" ng-include="'partials/frm-readings-list.html'"></div>
-      </div>
-    </div>
+<div ng-include="'partials/frm-notes.html'"></div>

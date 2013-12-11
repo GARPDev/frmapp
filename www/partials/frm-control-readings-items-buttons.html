@@ -5,7 +5,7 @@
   <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isItemClicked(reading.id, 'flagged') }" ng-click="itemClicked(reading.id,'flagged')">
     <span class="glyphicon glyphicon-flag"></span> Flag
   </button>
-  <button type="button" class="btn btn-default btn-xs" ng-click="itemClicked($index,'notes')">
+  <button type="button" class="btn btn-default btn-xs" ng-click="itemClicked(reading.id,'notes')" data-toggle="modal" data-target="#myModal">
     <span class="glyphicon glyphicon-list-alt"></span> Notes
   </button>
 

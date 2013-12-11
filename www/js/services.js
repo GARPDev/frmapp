@@ -84,6 +84,12 @@ frmServices.factory('readlingListSharedService', function($rootScope) {
     flagged: 0,
     checked: 0
   };
+  sharedService.readingIndex = "";
+
+  sharedService.setReadingIndex = function(id) {
+    sharedService.readingIndex = id;
+    $rootScope.$broadcast('handleSetReadingIndex');
+  }
 
   sharedService.filterList = function(filterType) {
     sharedService.filters[filterType] = !sharedService.filters[filterType];
@@ -91,7 +97,6 @@ frmServices.factory('readlingListSharedService', function($rootScope) {
   };
 
   sharedService.clearFilters = function() {
-
     sharedService.filters = {
       flagged: 0,
       checked: 0
