@@ -78,6 +78,15 @@ frmServices.factory('readlingListSharedService', function($rootScope) {
     //$rootScope.$broadcast('handleFilterList');
   };
 
+  sharedService.clearFilters = function() {
+
+    sharedService.filters = {
+      flagged: 0,
+      checked: 0
+    };
+
+  }
+
     
   return sharedService;
 });

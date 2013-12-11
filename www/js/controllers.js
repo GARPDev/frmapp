@@ -78,9 +78,9 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
   		var readings = $scope.lessons[item].readings;
   		
   		var found = 0;
-  		var foundItem = _.findWhere(readings, {checked: 1});
-  		if(foundItem) {
-  			found = foundItem.checked;
+  		var foundItem = _.where(readings, {checked: true});
+  		if(foundItem.length > 0) {
+  			found = 1;
   		}
   		return found;
   	};
@@ -89,8 +89,8 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
   		var readings = $scope.lessons[item].readings;
   		
   		var allDone = 1;
-  		var foundItem = _.findWhere(readings, {checked: 0});
-  		if(foundItem) {
+  		var foundItem = _.where(readings, {checked: true});
+  		if(foundItem.length != readings.length ) {
   			allDone = 0;
   		}
   		return allDone;
@@ -203,8 +203,8 @@ frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','
 ]);
 
 
-frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','Lessons','scheudlarBarSharedService','remoteDataService',
-  function($scope, Readings, Messages, Lessons, scheudlarBarSharedService, remoteDataService) {
+frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','Lessons','scheudlarBarSharedService','remoteDataService','readlingListSharedService',
+  function($scope, Readings, Messages, Lessons, scheudlarBarSharedService, remoteDataService, readlingListSharedService) {
   
 	//$scope.lessons = Lessons.query();
   $scope.lessons = remoteDataService.data;
@@ -213,6 +213,8 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
   $scope.messages = Messages.query();
 	
 	$scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
+
+  readlingListSharedService.clearFilters();
 
     // Init height;
     var nhRead = window.innerHeight - 240;
