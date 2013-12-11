@@ -101,27 +101,34 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
 ]);
 
 
-frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarSharedService','remoteDataService',
-  function($scope, scheudlarBarSharedService, remoteDataService) {
+frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarSharedService','remoteDataService','readlingListSharedService',
+  function($scope, scheudlarBarSharedService, remoteDataService, readlingListSharedService) {
   
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.data;
     $scope.readings = $scope.lessons[0].readings;
     $scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
-    $scope.
 
     // Readings List
-    $scope.itemClicked = function ($index, type) {
+    $scope.itemClicked = function (id, type) {
       var li = scheudlarBarSharedService.lessonIndex;
-      //scheudlarBarSharedService.doneReadingItem($index);
-      if($scope.lessons[li].readings[$index][type])
-        $scope.lessons[li].readings[$index][type]=0;
-      else $scope.lessons[li].readings[$index][type]=1;
-      };
+      var readings = $scope.lessons[li].readings;
+
+      var found = 0;
+      var foundItem = _.findWhere(readings, {id: id});
+
+      foundItem[type]=!foundItem[type];
+    };
   
-    $scope.isItemClicked = function ($index, type) { 
+    $scope.isItemClicked = function (id, type) { 
       var li = scheudlarBarSharedService.lessonIndex;
-      return $scope.lessons[li].readings[$index][type];
+      var readings = $scope.lessons[li].readings;
+
+      var found = 0;
+      var foundItem = _.findWhere(readings, {id: id});
+      if(foundItem)
+        return foundItem[type];
+      else return 0;
     }
 
     $scope.getSelectedLessonIndex = function ($index) { 
@@ -130,7 +137,17 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarShare
 
     $scope.criteriaMatch = function(value) {
       return function( item ) {
-        return item.checked === sharedService.checkedFilter;
+
+        if(readlingListSharedService.filters.flagged && readlingListSharedService.filters.checked) {
+          return (item.flagged === true && item.checked === true);
+        } else if(readlingListSharedService.filters.flagged) {
+          return item.flagged === true;
+        } else if(readlingListSharedService.filters.checked) {
+          return item.checked === true;
+        } else {
+          return 1;  
+        }
+        
       }
     }   
 
@@ -151,8 +168,8 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarShare
 ]);
 
 
-frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','remoteDataService',
-  function($scope, scheudlarBarSharedService, remoteDataService) {
+frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','remoteDataService','readlingListSharedService',
+  function($scope, scheudlarBarSharedService, remoteDataService,readlingListSharedService) {
   
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.data;
@@ -163,15 +180,8 @@ frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','
     // For Readings
     $scope.selectedReadingArray = [];
     $scope.filterList = function(filterType,value) {
-      if($scope.search[filterType] != null && $scope.search[filterType] != '') {
-        //$scope.search[filterType]='';
-        $scope.search = {};
-        sharedService.checkedFilter = 0;
-      } else {
-        $scope.search[filterType]=value;
-        $scope.search.checked=1;
-        sharedService.checkedFilter = 1;
-      }
+
+      readlingListSharedService.filterList(filterType);
       
     }
 
@@ -181,9 +191,13 @@ frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','
     }
 
     $scope.getSelectedLessonIndex = function ($index) { 
-      return scheudlarBarSharedService.lessonIndex;;
+      return scheudlarBarSharedService.lessonIndex;
     }
 
+
+    $scope.isFilterOn = function(type) {
+      return readlingListSharedService.filters[type];
+    }
 
   }
 ]);

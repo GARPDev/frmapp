@@ -52,8 +52,6 @@ frmServices.factory('scheudlarBarSharedService', function($rootScope) {
 
 	sharedService.lessonIndex = 0;
 	sharedService.readingIndex = 0;
-  sharedService.flagFilter = 0;
-  sharedService.checkedFilter = 0;
   
   sharedService.selectItem = function(item) {
   	sharedService.lessonIndex = item;
@@ -64,11 +62,22 @@ frmServices.factory('scheudlarBarSharedService', function($rootScope) {
 	sharedService.readingIndex = item;
     $rootScope.$broadcast('handleDoneReadingItem');
   };
-  
-  sharedService.loadData = function() {
-  
-  }
-  
+    
+  return sharedService;
+});
 
+frmServices.factory('readlingListSharedService', function($rootScope) {
+  var sharedService = {};
+  sharedService.filters = {
+    flagged: 0,
+    checked: 0
+  };
+
+  sharedService.filterList = function(filterType) {
+    sharedService.filters[filterType] = !sharedService.filters[filterType];
+    //$rootScope.$broadcast('handleFilterList');
+  };
+
+    
   return sharedService;
 });

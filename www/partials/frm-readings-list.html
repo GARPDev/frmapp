@@ -1,8 +1,8 @@
 <ul class="readings-list-area list-group" ng-controller="FRMAppReadingsListCtrl">				
-	<li ng-repeat="reading in lessons[getSelectedLessonIndex()].readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked($index, 'checked') }" ng-animate="'animate'">				
+	<li ng-repeat="reading in lessons[getSelectedLessonIndex()].readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'checked') }">
 		<div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
 		<div>
-			<p>{{reading.description}}</p>
+			<p>{{reading.id}} - {{reading.description}}</p>
 			<div ng-if="reading.attachmentURL">
 				<span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{reading.attachmentName}}</span> <span>{{reading.attachmentDesc}}</span>
 			</div>

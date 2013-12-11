@@ -1,8 +1,8 @@
 
-  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isItemClicked($index, 'checked') }" ng-click="itemClicked($index,'checked')">
+  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isItemClicked(reading.id, 'checked') }" ng-click="itemClicked(reading.id,'checked')">
     <span class="glyphicon glyphicon-check"></span> Done
   </button>
-  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isItemClicked($index, 'flagged') }" ng-click="itemClicked($index,'flagged')">
+  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isItemClicked(reading.id, 'flagged') }" ng-click="itemClicked(reading.id,'flagged')">
     <span class="glyphicon glyphicon-flag"></span> Flag
   </button>
   <button type="button" class="btn btn-default btn-xs" ng-click="itemClicked($index,'notes')">
