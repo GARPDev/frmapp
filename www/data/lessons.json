@@ -1,5 +1,6 @@
 [
     {
+    	"id":"L01",
 		"title":"Week 1 Lesson",
 		"readings": [		
 			{
@@ -40,6 +41,7 @@
 		]
     },
     {
+    	"id":"L02",    	
 		"title":"Week 2 Lesson",
 		"readings": [		
 			{
@@ -80,6 +82,7 @@
 		]
     },
     {
+    	"id":"L03",    	    	
 		"title":"Week 1 Lesson",
 		"readings": [		
 			{
@@ -120,6 +123,7 @@
 		]
     },
     {
+    	"id":"L04",    	    	
 		"title":"Week 1 Lesson",
 		"readings": [		
 			{
