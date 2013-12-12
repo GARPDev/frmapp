@@ -22,7 +22,11 @@ phonecatApp.config(['$routeProvider',
         controller: 'FRMAppDashCtrl'}).      
       when('/readings', {
         templateUrl: 'partials/frm-readings.html',
-        controller: 'FRMReadings'
+        controller: 'FRMReadingsCtrl'
+      }).      
+      when('/examsettings', {
+        templateUrl: 'partials/frm-examSettings.html',
+        controller: 'FRMExamSettingsCtrl'
       }).      
       when('/login', {
         templateUrl: 'partials/frm-login.html',

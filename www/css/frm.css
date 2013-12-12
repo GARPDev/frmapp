@@ -4,6 +4,34 @@ body {
   min-height:100%;
 }
 
+.myaccount-continue {
+  float: right;
+  margin-right: 10px;
+}
+
+.exam-setting-title {
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.exam-setting {
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: #e7e7e7; 
+  min-height: 75px;
+}
+
+.exam-setting-button {
+  float: right;
+  margin-right: 10px;
+}
+
+.exam-setting-on {
+  background-color: lightblue;
+}
+
 .button-on {
   background-color: lightblue;
 }

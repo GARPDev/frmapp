@@ -35,11 +35,11 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
 
-      localStorage.frmData = null;
+      //localStorage.frmData = null;
 
       if(localStorage.frmData == 'null' || typeof localStorage.frmData === "undefined" || localStorage.frmData === null) {
         $http({method:'GET',url:'data/lessons.json'}).success(function(data){
-           remoteDataService.frmData = data;
+           remoteDataService.frmData = data.lessons;
            localStorage.frmData = JSON.stringify(data);
 
            localStorage.userMeta = []; // In future fetch from API

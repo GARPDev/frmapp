@@ -241,7 +241,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarShare
 ]);
 
 
-frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','remoteDataService','readlingListSharedService',
+frmControllers.controller('FRMReadingsCtrl', ['$scope','scheudlarBarSharedService','remoteDataService','readlingListSharedService',
   function($scope, scheudlarBarSharedService, remoteDataService,readlingListSharedService) {
   
     //$scope.lessons = Lessons.query();
@@ -270,17 +270,6 @@ frmControllers.controller('FRMReadings', ['$scope','scheudlarBarSharedService','
       return readlingListSharedService.filters[type];
     }
 
-    $scope.$on('handleSetReadingIndex', function() {
-      var li = scheudlarBarSharedService.lessonIndex;
-      var readings = $scope.lessons[li].readings;
-
-      var found = 0;
-      var foundItem = _.findWhere(readings, {id: readlingListSharedService.readingIndex});
-      if(foundItem)
-        $scope.currentReading = foundItem;
-      else $scope.currentReading = null;
-    });
-
   }
 ]);
 
@@ -291,17 +280,10 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
   	//$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.frmData;
     $scope.readings = $scope.lessons[0].readings;
-
     $scope.messages = Messages.query();
-  	
   	$scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
 
     readlingListSharedService.clearFilters();
-
-    $scope.$watchCollection('lessons', function() { 
-      //alert('change');
-    });
-
 
     // Init height;
     var nhRead = window.innerHeight - 240;
@@ -326,37 +308,47 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
       return scheudlarBarSharedService.lessonIndex;;
     }
 
+  }
+]);
+
+frmControllers.controller('FRMExamSettingsCtrl', ['$scope',
+  function($scope) {
+
+    $scope.settings = {
+      mode:0,
+      topics:0,
+      questions:1
+    }
+
+    $scope.isSettingOn = function(type, value) {
+      return $scope.settings[type] === value;
+    }
+
+
+  }
+]);
+
+
+
+frmControllers.controller('FRMNotesCtrl', ['$scope','scheudlarBarSharedService','remoteDataService','readlingListSharedService',
+  function($scope,scheudlarBarSharedService,remoteDataService,readlingListSharedService) {
+    
+    $scope.notes = [];
+    $scope.currentReading = null;
 
     $scope.$on('handleSetReadingIndex', function() {
+
       var li = scheudlarBarSharedService.lessonIndex;
-      var readings = $scope.lessons[li].readings;
+      var readings = remoteDataService.frmData[li].readings;
 
       var found = 0;
       var foundItem = _.findWhere(readings, {id: readlingListSharedService.readingIndex});
       if(foundItem)
         $scope.currentReading = foundItem;
       else $scope.currentReading = null;
-    });
-
-  }
-]);
 
 
-frmControllers.controller('FRMReadingsCtrl', ['$scope',
-  function($scope) {
-    
-    $('ul.nav').find('li').removeClass('active')
-    $('#mainnav-readings').addClass('active');
-  }
-]);
-
-frmControllers.controller('FRMNotesCtrl', ['$scope','remoteDataService','readlingListSharedService',
-  function($scope,remoteDataService,readlingListSharedService) {
-    
-    $scope.notes = [];
-
-    $scope.$on('handleSetReadingIndex', function() {
-       $scope.notes = [];
+      $scope.notes = [];
       var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
       if(foundItem !== null && typeof foundItem !== "undefined") {
         if(foundItem.notes !== null && typeof foundItem.notes !== "undefined") {

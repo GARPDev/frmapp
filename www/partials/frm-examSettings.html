@@ -1,0 +1,100 @@
+<!-- Fixed navbar -->
+<div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>    
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+        <div class="exam-setting-title">
+          <h3>Mode</h3>
+        </div>
+    </div>
+    <div class="col-md-5">
+      <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('mode', 0) }" ng-click="settings.mode=0">
+        <h2>Study</h2>
+        <span>gives advise during the quiz</span>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="exam-setting"  ng-class="{ 'exam-setting-on': isSettingOn('mode', 1) }" ng-click="settings.mode=1">
+        <h2>Exam Prep</h2>
+        <span>resembles the exam with helpful advice at the end</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+        <div class="exam-setting-title">
+          <h3>Topics</h3>
+        </div>
+    </div>
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-3">
+            <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('topics', 0) }" ng-click="settings.topics=0">
+              <h4>Everything I have learned so far</h4>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('topics', 1) }" ng-click="settings.topics=1">
+              <h4>My Trouble Everything Areas</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('topics', 2) }" ng-click="settings.topics=2">
+              <h4>By Section</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('topics', 3) }" ng-click="settings.topics=3">
+              <h4>Everything</h2>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+        <div class="exam-setting-title">
+          <h3>Number of Questions</h3>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('questions', 1) }" ng-click="settings.questions=1">
+          <h2>1</h2>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('questions', 4) }" ng-click="settings.questions=4">
+          <h2>4</h2>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('questions', 10) }" ng-click="settings.questions=10">
+          <h2>10</h2>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('questions', 20) }" ng-click="settings.questions=20">
+          <h2>20</h2>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('questions', 30) }" ng-click="settings.questions=30">
+          <h2>30</h2>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="exam-setting-button">
+        <button type="button" class="btn btn-primary btn-lg" onclick="document.location.hash = '#/dash';">Continue</button>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
