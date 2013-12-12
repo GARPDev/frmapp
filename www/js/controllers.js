@@ -189,6 +189,17 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarShare
       return scheudlarBarSharedService.lessonIndex;;
     }
 
+    $scope.getNumberOfNotes = function(id) {
+      var found = 0;
+      var foundItem = _.findWhere(remoteDataService.userMeta, {id: id});
+      if(foundItem !== null && typeof foundItem !== "undefined" &&
+        foundItem.notes !== null && typeof foundItem.notes !== "undefined") {
+        return foundItem.notes.length;
+      } else {
+        return 0;
+      }
+    }
+
     $scope.criteriaMatch = function(value) {
       return function( item ) {
 
@@ -339,6 +350,51 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope',
   }
 ]);
 
+frmControllers.controller('FRMNotesCtrl', ['$scope','remoteDataService','readlingListSharedService',
+  function($scope,remoteDataService,readlingListSharedService) {
+    
+    $scope.notes = [];
+
+    $scope.$on('handleSetReadingIndex', function() {
+       $scope.notes = [];
+      var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
+      if(foundItem !== null && typeof foundItem !== "undefined") {
+        if(foundItem.notes !== null && typeof foundItem.notes !== "undefined") {
+          $scope.notes = foundItem.notes;
+        }
+      }
+    });
+
+    $scope.addNote = function(note) {
+      //$scope.notes.push(note);
+      var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
+      if(foundItem !== null && typeof foundItem !== "undefined") {
+        if(foundItem.notes === null || typeof foundItem.notes === "undefined") {
+          foundItem.notes=[];
+        }
+        foundItem.notes.push(note);
+        $scope.notes = foundItem.notes;
+      }
+      remoteDataService.commitData();
+      $('#addNote').val('');
+    }
+
+    $scope.deleteNote = function(note) {
+      var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
+      if(foundItem !== null && typeof foundItem !== "undefined") {
+        var foundNote = _.indexOf(foundItem.Notes, note);        
+        if(foundNote !== null && typeof foundNote !== "undefined") {
+          foundItem.notes.splice(foundNote,1);
+          $scope.notes = foundItem.notes;
+          remoteDataService.commitData();
+        }
+        
+      }
+
+    }
+
+  }
+]);
 
 
 /*

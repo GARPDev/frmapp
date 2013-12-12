@@ -155,6 +155,10 @@ body {
   min-height: 50px;
 }
 
+.reading-list-button {
+  margin-top: 1px;
+}
+
 .examname {
 font-family: cursive;
 font-weight: bold;

@@ -1,5 +1,5 @@
 <!-- Note Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="FRMNotesCtrl">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,16 +7,12 @@
         <h4 class="modal-title" id="myModalLabel">{{currentReading.id}} - {{currentReading.description}}</h4>
       </div>
       <div class="modal-body">
-        <textarea class="form-control" rows="3"></textarea>
+        <textarea id="addNote" class="form-control" rows="3" ng-model="noteInput"></textarea>
         <p>
-          <button type="button" class="btn btn-primary btn-xs">Add Note</button>
+          <button type="button" class="btn btn-primary btn-xs" ng-click="addNote(noteInput)">Add Note</button>
         </p>
-        <ul class="list-group">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+        <ul class="list-group" >
+          <li class="list-group-item" ng-repeat="note in notes track by $index"><button type="button" class="close" aria-hidden="true" ng-click="deleteNote(note)">×</button>{{note}}</li>
         </ul>
       </div>
       <div class="modal-footer">
