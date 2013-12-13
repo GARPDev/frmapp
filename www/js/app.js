@@ -28,6 +28,10 @@ phonecatApp.config(['$routeProvider',
         templateUrl: 'partials/frm-examSettings.html',
         controller: 'FRMExamSettingsCtrl'
       }).      
+      when('/exam', {
+        templateUrl: 'partials/frm-exam.html',
+        controller: 'FRMExamCtrl'
+      }).      
       when('/login', {
         templateUrl: 'partials/frm-login.html',
         controller: 'FRMAppLoginCtrl',

@@ -311,14 +311,47 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
   }
 ]);
 
-frmControllers.controller('FRMExamSettingsCtrl', ['$scope',
-  function($scope) {
+frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$location','examSharedService',
+  function($scope,$location,examSharedService) {
 
     $scope.settings = {
       mode:0,
       topics:0,
       questions:1
     }
+
+    $scope.isSettingOn = function(type, value) {
+      return $scope.settings[type] === value;
+    }
+
+    $scope.saveSettings = function() {
+      examSharedService.settings = $scope.settings;
+      $location.path('/exam');
+    }
+
+
+  }
+]);
+
+frmControllers.controller('FRMExamCtrl', ['$scope','examSharedService',
+  function($scope,examSharedService) {
+
+    $scope.currentQuestion = 0;
+    $scope.settings = examSharedService.settings;
+
+    $scope.isSettingOn = function(type, value) {
+      return $scope.settings[type] === value;
+    }
+
+
+  }
+]);
+
+frmControllers.controller('ExamNavController', ['$scope','examSharedService',
+  function($scope,examSharedService) {
+
+    $scope.currentQuestion = 0;
+    $scope.totalQuestions = examSharedService.settings.questions;
 
     $scope.isSettingOn = function(type, value) {
       return $scope.settings[type] === value;

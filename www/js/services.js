@@ -113,8 +113,14 @@ frmServices.factory('readlingListSharedService', function($rootScope) {
       checked: 0
     };
 
-  }
+  }    
+  return sharedService;
+});
 
+frmServices.factory('examSharedService', function($rootScope) {
+  var sharedService = {};
+
+  sharedService.settings = {};
     
   return sharedService;
 });
