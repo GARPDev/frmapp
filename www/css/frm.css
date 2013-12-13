@@ -4,6 +4,11 @@ body {
   min-height:100%;
 }
 
+.exam-question-answer {
+  margin: 10px;
+}
+
+
 .myaccount-continue {
   float: right;
   margin-right: 10px;

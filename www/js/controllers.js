@@ -316,8 +316,8 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
   }
 ]);
 
-frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$location','examSharedService',
-  function($scope,$location,examSharedService) {
+frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$location','examSharedService','remoteDataService',
+  function($scope,$location,examSharedService,remoteDataService) {
 
     $scope.settings = {
       mode:0,
@@ -331,6 +331,45 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$location','examShar
 
     $scope.saveSettings = function() {
       examSharedService.settings = $scope.settings;
+
+      // Complie Questions
+      var finalQuestions = [];
+      switch($scope.settings.topics)
+      {
+        case 0:  // Everything I have learned so far
+          var readings = _.where(remoteDataService.userMeta, {checked: true});
+          var readingsIds = _.pluck(readings, 'id');
+          var questions = _.reject(remoteDataService.questionData, function(question) { 
+            var inter = _.intersection(readingsIds, question.readings)
+            return inter.length == 0; 
+          });
+
+          var maxQuestions = $scope.settings.questions;
+          if(questions.length < maxQuestions)
+            maxQuestions = questions.length;
+
+          for(var i=0; i<maxQuestions; i++) {
+            var index = Math.floor(Math.random() * (maxQuestions-i));
+            finalQuestions.push(questions[index]);
+            questions.splice(index,1);
+          }
+
+          examSharedService.questions = finalQuestions;
+        break;
+
+
+        case 1:  // My Trouble Everything Areas
+        break;
+
+
+        case 2:  // By Section
+        break;
+
+
+        case 3:  // Everything
+        break;
+      }
+
       $location.path('/exam');
     }
 
@@ -338,16 +377,91 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$location','examShar
   }
 ]);
 
-frmControllers.controller('FRMExamCtrl', ['$scope','examSharedService',
-  function($scope,examSharedService) {
+
+frmControllers.controller('FRMExamResultsCtrl', ['$scope','$location','examSharedService','remoteDataService',
+  function($scope,$location,examSharedService,remoteDataService) {
+
+    $scope.userAnswers = examSharedService.userAnswers;
+    $scope.correctAnswers = examSharedService.correctAnswers;
+    $scope.totalQuestions = examSharedService.questions.length;
+
+  }
+]);
+
+
+frmControllers.controller('FRMExamCtrl', ['$scope','$location','examSharedService','remoteDataService',
+  function($scope,$location,examSharedService,remoteDataService) {
 
     $scope.currentQuestion = 0;
     $scope.settings = examSharedService.settings;
+    $scope.questions = examSharedService.questions;
+    $scope.question = examSharedService.questions[$scope.currentQuestion];
+    $scope.totalQuestions = examSharedService.questions.length;
+    $scope.answers = $scope.question.answers;
+    $scope.choices = $scope.question.choices;
+    $scope.answerResponse = "";
+    $scope.answerReason = "";
 
-    $scope.isSettingOn = function(type, value) {
-      return $scope.settings[type] === value;
+    $scope.correctAnswers = 0;
+
+    $scope.userAnswers = [];
+
+    $scope.chooseAnswer = function(id) {
+
+      var userAnswer = {};
+      userAnswer.question = $scope.question;
+      userAnswer.choice = id;
+
+      $scope.userAnswers.push(userAnswer);
+
+      if($scope.question.answer == id) {
+        $scope.answerResponse = "Correct!";
+        $scope.correctAnswer = "";
+        $scope.answerReason = "Keep it up.";
+        $scope.correctAnswers++;
+      } else {
+        $scope.answerResponse = "Sorry, that is not right.";
+        $scope.correctAnswer = $scope.question.answer;
+        $scope.answerReason = $scope.question.reason;
+      }
+      $("#myModal").modal();
     }
 
+    $scope.nextQuestion = function() {
+
+      if($scope.currentQuestion == $scope.totalQuestions-1) {
+        examSharedService.userAnswers = $scope.userAnswers;
+        examSharedService.correctAnswers = $scope.correctAnswers;
+
+        $location.path('/examresults');
+      } else {
+        $scope.currentQuestion++;
+        $scope.question = examSharedService.questions[$scope.currentQuestion];
+        $scope.answers = $scope.question.answers;
+        $scope.choices = $scope.question.choices;
+        $scope.answerResponse = "";
+        $scope.answerReason = "";              
+      }
+    }
+
+    $scope.flagQuestion = function() {
+      
+      for(var i=0; i < $scope.question.readings.length; i++) {
+
+        var id = $scope.question.readings[i];
+        var type = 'flagged';
+        var found = 0;
+        var foundItem = _.findWhere(remoteDataService.userMeta, {id: id});
+        if(foundItem === null || typeof foundItem === "undefined") {
+          var newItem = {id: id};
+          newItem[type] = true;
+          remoteDataService.userMeta.push(newItem);
+        } else {
+          foundItem[type]=true;
+        }
+
+      }
+    }
 
   }
 ]);

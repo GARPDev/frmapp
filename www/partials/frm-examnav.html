@@ -1,5 +1,5 @@
     <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="ExamNavController">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -8,17 +8,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Sample Test {{currentQuestion}} - {{totalQuestions}}</a>
+          <a class="navbar-brand" href="#">Sample Test {{currentQuestion+1}} of {{totalQuestions}}</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">		  		  
-		        <li id="mainnav-dashboard" ng-class="{ active: isActive('/dash')}"><a href="#dash">< Prev</a></li>
-            <li id="mainnav-dashboard" ng-class="{ active: isActive('/dash')}"><a href="#dash">Exit test</a></li>
-            <li id="mainnav-dashboard" ng-class="{ active: isActive('/dash')}"><a href="#dash">Next ></a></li>
+		        <li id="mainnav-dashboard"><a href="#dash">< Prev</a></li>
+            <li id="mainnav-dashboard"><a href="#dash">Exit Test</a></li>
+            <li id="mainnav-dashboard"><a ng-click="flagQuestion()"> <span class="glyphicon glyphicon-flag"></span> <span class="reading-list-button">Flag</span></a></li>
+            <li id="mainnav-dashboard"><a href="#dash">Next ></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
+
 
 
 

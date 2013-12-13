@@ -40,17 +40,27 @@ frmServices.factory('remoteDataService', ['$resource','$http',
       if(localStorage.lessonData == 'null' || typeof localStorage.lessonData === "undefined" || localStorage.lessonData === null) {
         $http({method:'GET',url:'data/lessons.json'}).success(function(data){
            remoteDataService.lessonData = data.lessons;
-           localStorage.lessonData = JSON.stringify(data);
+           localStorage.lessonData = JSON.stringify(data.lessons);
 
-           localStorage.userMeta = []; // In future fetch from API
-           remoteDataService.userMeta = [];
-           q.resolve();
+          $http({method:'GET',url:'data/questions.json'}).success(function(data){
+             remoteDataService.questionData = data.questions;
+             localStorage.questionData = JSON.stringify(data.questions);
+
+             localStorage.userMeta = []; // In future fetch from API
+             remoteDataService.userMeta = [];
+             q.resolve();
+          });
+
         });        
       } else {
         remoteDataService.lessonData = JSON.parse(localStorage.lessonData);
-        if(localStorage.userMeta !== 'null' && typeof localStorage.userMeta !== "undefined" && localStorage.userMeta !== null) 
+        remoteDataService.questionData = JSON.parse(localStorage.questionData);
+
+        if(localStorage.userMeta !== 'null' && typeof localStorage.userMeta !== "undefined" && localStorage.userMeta !== null && localStorage.userMeta != "")  {
           remoteDataService.userMeta = JSON.parse(localStorage.userMeta);
-        else remoteDataService.userMeta =[];
+        } else {
+          remoteDataService.userMeta =[];
+        }
         q.resolve();
       }
     };
@@ -121,6 +131,10 @@ frmServices.factory('examSharedService', function($rootScope) {
   var sharedService = {};
 
   sharedService.settings = {};
-    
+  sharedService.questions = [];
+  sharedService.userAnswers = [];
+  sharedService.correctAnswers = 0;
+
+
   return sharedService;
 });

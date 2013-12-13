@@ -1,0 +1,130 @@
+{
+	"id":"FRM2013",
+	"questions": [
+		{
+			"id":"Q01",
+			"question":"The efficient frontier is defined by the set of portfolios that, for each volatility level, maximizes the expected return. According to the capital asset pricing model (CAPM), which of the following statements are correct with the respect to the efficient frontier?",
+			"reason":"<p>Because within modern portfolio theory (MPT), the efficient frontier is a combination of assets that has the best possible expected level of return for its level of risk. The efficient frontier is the positively sloped portion of the opportunity set that offers the highest expected return for a given risk level. The efficient frontier is at the top of the feasible est of portfolio combinations. ii, iii, and v are correct statements.</p> <p>The capital market line connects the risk-free asset and the market portfolio. The efficient frontier does allow investors to have different risk aversions, but assumes that they all have the same forecast for asset returns.</p>",
+			"choices":[
+				{"id":"i", "description":"The capital market line is the straight line connecting the risk-free asset with the zero beta minimum variance portfolio."},
+				{"id":"ii", "description":"The capital market line always has a positive slope and its steepness depends on the market risk premium and the volatility of the market portfolio."},
+				{"id":"iii", "description":"The complete efficient frontier without a risk-free asset can be obtained by combining the minimum variance portfolio and the market portfolio."},
+				{"id":"iv", "description":"The efficient frontier allows different individuals to have different portfolios of risky assets based upon their own risk aversion and forecast for asset returns."},
+				{"id":"v", "description":"The efficient frontier assumes no transaction costs, no taxes, a common investment horizon for all investors, and that the return distribution has no skewness."}
+			],
+			"answer": "A",
+			"answers" : [
+				{"id": "A", "answer":  "ii, iii and v"},
+				{"id": "B", "answer":  "i, ii and iii"},
+				{"id": "C", "answer":  "i, iv and v"},
+				{"id": "D", "answer":  "ii, iii and iv"}
+			],
+			"readings" : [
+				"L01R01",
+				"L01R04",
+				"L02R01",
+				"L02R02"
+			]
+		},
+		{
+			"id":"Q02",
+			"question":"The efficient frontier is defined by the set of portfolios that, for each volatility level, maximizes the expected return. According to the capital asset pricing model (CAPM), which of the following statements are correct with the respect to the efficient frontier?",
+			"reason":"<p>Because within modern portfolio theory (MPT), the efficient frontier is a combination of assets that has the best possible expected level of return for its level of risk. The efficient frontier is the positively sloped portion of the opportunity set that offers the highest expected return for a given risk level. The efficient frontier is at the top of the feasible est of portfolio combinations. ii, iii, and v are correct statements.</p> <p>The capital market line connects the risk-free asset and the market portfolio. The efficient frontier does allow investors to have different risk aversions, but assumes that they all have the same forecast for asset returns.</p>",
+			"choices":[
+				{"id":"i", "description":"The capital market line is the straight line connecting the risk-free asset with the zero beta minimum variance portfolio."},
+				{"id":"ii", "description":"The capital market line always has a positive slope and its steepness depends on the market risk premium and the volatility of the market portfolio."},
+				{"id":"iii", "description":"The complete efficient frontier without a risk-free asset can be obtained by combining the minimum variance portfolio and the market portfolio."},
+				{"id":"iv", "description":"The efficient frontier allows different individuals to have different portfolios of risky assets based upon their own risk aversion and forecast for asset returns."},
+				{"id":"v", "description":"The efficient frontier assumes no transaction costs, no taxes, a common investment horizon for all investors, and that the return distribution has no skewness."}
+			],
+			"answer": "B",
+			"answers" : [
+				{"id": "A", "answer":  "ii, iii and v"},
+				{"id": "B", "answer":  "i, ii and iii"},
+				{"id": "C", "answer":  "i, iv and v"},
+				{"id": "D", "answer":  "ii, iii and iv"}
+			],
+			"readings" : [
+				"L01R01",
+				"L01R04",
+				"L02R01",
+				"L02R02"
+			]
+		},
+		{
+			"id":"Q03",
+			"question":"The efficient frontier is defined by the set of portfolios that, for each volatility level, maximizes the expected return. According to the capital asset pricing model (CAPM), which of the following statements are correct with the respect to the efficient frontier?",
+			"reason":"<p>Because within modern portfolio theory (MPT), the efficient frontier is a combination of assets that has the best possible expected level of return for its level of risk. The efficient frontier is the positively sloped portion of the opportunity set that offers the highest expected return for a given risk level. The efficient frontier is at the top of the feasible est of portfolio combinations. ii, iii, and v are correct statements.</p> <p>The capital market line connects the risk-free asset and the market portfolio. The efficient frontier does allow investors to have different risk aversions, but assumes that they all have the same forecast for asset returns.</p>",
+			"choices":[
+				{"id":"i", "description":"The capital market line is the straight line connecting the risk-free asset with the zero beta minimum variance portfolio."},
+				{"id":"ii", "description":"The capital market line always has a positive slope and its steepness depends on the market risk premium and the volatility of the market portfolio."},
+				{"id":"iii", "description":"The complete efficient frontier without a risk-free asset can be obtained by combining the minimum variance portfolio and the market portfolio."},
+				{"id":"iv", "description":"The efficient frontier allows different individuals to have different portfolios of risky assets based upon their own risk aversion and forecast for asset returns."},
+				{"id":"v", "description":"The efficient frontier assumes no transaction costs, no taxes, a common investment horizon for all investors, and that the return distribution has no skewness."}
+			],
+			"answer": "C",
+			"answers" : [
+				{"id": "A", "answer":  "ii, iii and v"},
+				{"id": "B", "answer":  "i, ii and iii"},
+				{"id": "C", "answer":  "i, iv and v"},
+				{"id": "D", "answer":  "ii, iii and iv"}
+			],
+			"readings" : [
+				"L01R01",
+				"L01R04",
+				"L02R01",
+				"L02R02"
+			]
+		},
+		{
+			"id":"Q04",
+			"question":"The efficient frontier is defined by the set of portfolios that, for each volatility level, maximizes the expected return. According to the capital asset pricing model (CAPM), which of the following statements are correct with the respect to the efficient frontier?",
+			"reason":"<p>Because within modern portfolio theory (MPT), the efficient frontier is a combination of assets that has the best possible expected level of return for its level of risk. The efficient frontier is the positively sloped portion of the opportunity set that offers the highest expected return for a given risk level. The efficient frontier is at the top of the feasible est of portfolio combinations. ii, iii, and v are correct statements.</p> <p>The capital market line connects the risk-free asset and the market portfolio. The efficient frontier does allow investors to have different risk aversions, but assumes that they all have the same forecast for asset returns.</p>",
+			"choices":[
+				{"id":"i", "description":"The capital market line is the straight line connecting the risk-free asset with the zero beta minimum variance portfolio."},
+				{"id":"ii", "description":"The capital market line always has a positive slope and its steepness depends on the market risk premium and the volatility of the market portfolio."},
+				{"id":"iii", "description":"The complete efficient frontier without a risk-free asset can be obtained by combining the minimum variance portfolio and the market portfolio."},
+				{"id":"iv", "description":"The efficient frontier allows different individuals to have different portfolios of risky assets based upon their own risk aversion and forecast for asset returns."},
+				{"id":"v", "description":"The efficient frontier assumes no transaction costs, no taxes, a common investment horizon for all investors, and that the return distribution has no skewness."}
+			],
+			"answer": "D",
+			"answers" : [
+				{"id": "A", "answer":  "ii, iii and v"},
+				{"id": "B", "answer":  "i, ii and iii"},
+				{"id": "C", "answer":  "i, iv and v"},
+				{"id": "D", "answer":  "ii, iii and iv"}
+			],
+			"readings" : [
+				"L01R01",
+				"L01R04",
+				"L02R01",
+				"L02R02"
+			]
+		},
+		{
+			"id":"Q05",
+			"question":"The efficient frontier is defined by the set of portfolios that, for each volatility level, maximizes the expected return. According to the capital asset pricing model (CAPM), which of the following statements are correct with the respect to the efficient frontier?",
+			"reason":"<p>Because within modern portfolio theory (MPT), the efficient frontier is a combination of assets that has the best possible expected level of return for its level of risk. The efficient frontier is the positively sloped portion of the opportunity set that offers the highest expected return for a given risk level. The efficient frontier is at the top of the feasible est of portfolio combinations. ii, iii, and v are correct statements.</p> <p>The capital market line connects the risk-free asset and the market portfolio. The efficient frontier does allow investors to have different risk aversions, but assumes that they all have the same forecast for asset returns.</p>",
+			"choices":[
+				{"id":"i", "description":"The capital market line is the straight line connecting the risk-free asset with the zero beta minimum variance portfolio."},
+				{"id":"ii", "description":"The capital market line always has a positive slope and its steepness depends on the market risk premium and the volatility of the market portfolio."},
+				{"id":"iii", "description":"The complete efficient frontier without a risk-free asset can be obtained by combining the minimum variance portfolio and the market portfolio."},
+				{"id":"iv", "description":"The efficient frontier allows different individuals to have different portfolios of risky assets based upon their own risk aversion and forecast for asset returns."},
+				{"id":"v", "description":"The efficient frontier assumes no transaction costs, no taxes, a common investment horizon for all investors, and that the return distribution has no skewness."}
+			],
+			"answer": "A",
+			"answers" : [
+				{"id": "A", "answer":  "ii, iii and v"},
+				{"id": "B", "answer":  "i, ii and iii"},
+				{"id": "C", "answer":  "i, iv and v"},
+				{"id": "D", "answer":  "ii, iii and iv"}
+			],
+			"readings" : [
+				"L01R01",
+				"L01R04",
+				"L02R01",
+				"L02R02"
+			]
+		}
+	]
+}
