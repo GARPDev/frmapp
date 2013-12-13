@@ -35,19 +35,19 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
 
-      //localStorage.frmData = null;
+      //localStorage.lessonData = null;
 
-      if(localStorage.frmData == 'null' || typeof localStorage.frmData === "undefined" || localStorage.frmData === null) {
+      if(localStorage.lessonData == 'null' || typeof localStorage.lessonData === "undefined" || localStorage.lessonData === null) {
         $http({method:'GET',url:'data/lessons.json'}).success(function(data){
-           remoteDataService.frmData = data.lessons;
-           localStorage.frmData = JSON.stringify(data);
+           remoteDataService.lessonData = data.lessons;
+           localStorage.lessonData = JSON.stringify(data);
 
            localStorage.userMeta = []; // In future fetch from API
            remoteDataService.userMeta = [];
            q.resolve();
         });        
       } else {
-        remoteDataService.frmData = JSON.parse(localStorage.frmData);
+        remoteDataService.lessonData = JSON.parse(localStorage.lessonData);
         if(localStorage.userMeta !== 'null' && typeof localStorage.userMeta !== "undefined" && localStorage.userMeta !== null) 
           remoteDataService.userMeta = JSON.parse(localStorage.userMeta);
         else remoteDataService.userMeta =[];
@@ -56,13 +56,13 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     };
 
    remoteDataService.commitData = function() {
-      localStorage.frmData = JSON.stringify(remoteDataService.frmData);
+      localStorage.lessonData = JSON.stringify(remoteDataService.lessonData);
       localStorage.userMeta = JSON.stringify(remoteDataService.userMeta);
 
    }
 
    remoteDataService.clearData = function() {
-      localStorage.frmData = null;
+      localStorage.lessonData = null;
       localStorage.userMeta = null;
    }
 

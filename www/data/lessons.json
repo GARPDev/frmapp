@@ -1,52 +1,5 @@
 {
 	"id":"FRM2013",
-	"questions": [
-		{
-			"id":"Q01",
-			"description":"What color is the sky?",
-			"answer": "a2",
-			"a1": "Red",
-			"a2": "Blue",
-			"a3": "Green",
-			"a4": "Orange"
-		},
-		{
-			"id":"Q02",
-			"description":"What color is the sky?",
-			"answer": "a2",
-			"a1": "Red",
-			"a2": "Blue",
-			"a3": "Green",
-			"a4": "Orange"
-		},
-		{
-			"id":"Q03",
-			"description":"What color is the sky?",
-			"answer": "a2",
-			"a1": "Red",
-			"a2": "Blue",
-			"a3": "Green",
-			"a4": "Orange"
-		},
-		{
-			"id":"Q04",
-			"description":"What color is the sky?",
-			"answer": "a2",
-			"a1": "Red",
-			"a2": "Blue",
-			"a3": "Green",
-			"a4": "Orange"
-		},
-		{
-			"id":"Q05",
-			"description":"What color is the sky?",
-			"answer": "a2",
-			"a1": "Red",
-			"a2": "Blue",
-			"a3": "Green",
-			"a4": "Orange"
-		},
-	],
 	"lessons": [
 	    {
 	    	"id":"L01",

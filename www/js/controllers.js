@@ -50,7 +50,7 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$location','remoteDataS
 frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readings', 'Messages','Lessons','scheudlarBarSharedService','remoteDataService',
   function($scope, $location, Readings, Messages, Lessons, scheudlarBarSharedService, remoteDataService) {
 
-    $scope.lessons = remoteDataService.frmData;
+    $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;
 
   	$scope.isActive = function (viewLocation) { 
@@ -90,7 +90,7 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
   	
   	$scope.isItemInProgress = function(id) {
 
-      var lesson = _.findWhere(remoteDataService.frmData, {id: id});
+      var lesson = _.findWhere(remoteDataService.lessonData, {id: id});
 
       if(lesson !== null && typeof lesson !== "undefined") {
 
@@ -116,7 +116,7 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
   	};
 
   	$scope.isItemDone = function(id) {
-      var lesson = _.findWhere(remoteDataService.frmData, {id: id});
+      var lesson = _.findWhere(remoteDataService.lessonData, {id: id});
 
       if(lesson !== null && typeof lesson !== "undefined") {
 
@@ -148,7 +148,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarShare
   function($scope, scheudlarBarSharedService, remoteDataService, readlingListSharedService) {
   
     //$scope.lessons = Lessons.query();
-    $scope.lessons = remoteDataService.frmData;
+    $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;
     $scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
 
@@ -218,7 +218,12 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheudlarBarShare
             return 1;  
           }
         } else {
-          return 1;
+          if(readlingListSharedService.filters.flagged || readlingListSharedService.filters.checked) {
+            return false;
+          } else {
+            return 1;  
+          }
+          
         }
         
       }
@@ -245,7 +250,7 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','scheudlarBarSharedServic
   function($scope, scheudlarBarSharedService, remoteDataService,readlingListSharedService) {
   
     //$scope.lessons = Lessons.query();
-    $scope.lessons = remoteDataService.frmData;
+    $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;
     $scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
     $scope.currentReading=null;
@@ -278,7 +283,7 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
   function($scope, Readings, Messages, Lessons, scheudlarBarSharedService, remoteDataService, readlingListSharedService) {
   
   	//$scope.lessons = Lessons.query();
-    $scope.lessons = remoteDataService.frmData;
+    $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;
     $scope.messages = Messages.query();
   	$scope.lessonIndex = scheudlarBarSharedService.lessonIndex;
@@ -372,7 +377,7 @@ frmControllers.controller('FRMNotesCtrl', ['$scope','scheudlarBarSharedService',
     $scope.$on('handleSetReadingIndex', function() {
 
       var li = scheudlarBarSharedService.lessonIndex;
-      var readings = remoteDataService.frmData[li].readings;
+      var readings = remoteDataService.lessonData[li].readings;
 
       var found = 0;
       var foundItem = _.findWhere(readings, {id: readlingListSharedService.readingIndex});
