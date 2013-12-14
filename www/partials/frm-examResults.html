@@ -4,49 +4,45 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-        <div class="exam-results-header">
-          <h3>Test Results</h3>
-          <p>{{correctAnswers}} / {{totalQuestions}} Correct
+
+      <div class="exam-results-header">
+        <h3>Test Results</h3>
+        <p>{{correctAnswers}} / {{totalQuestions}} Correct
+      </div>
+      <div>
+        <p>Quartiles</p>
+      </div>
+      <div id="accordian">
+        <div ng-repeat="userAnswer in userAnswers" class="panel-group">
+          <div class="panel panel-default">
+
+            <div class="panel-heading" data-toggle="collapse" data-target="#collapse{{$index}}" data-parent="#accordian">
+              <h4 class="panel-title">
+                  Question {{$index+1}}: {{(userAnswer.question.answer == userAnswer.choice) ? 'Correct' : 'Incorrect'}}
+              </h4>
+            </div>
+            <div id="collapse{{$index}}" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="exam-question-counter">
+                  {{userAnswer.question.id}} : {{userAnswer.question.question}}
+                </div>
+                <div class="exam-question-choices">
+                  <table class="table table-condensed">
+                    <tr ng-repeat="choice in userAnswer.question.choices">
+                      <td>{{choice.id}}.</td>
+                      <td>{{choice.description}}</td>
+                    </tr>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div>
-        	<p>Quartiles</p>
-        </div>
-
-		<div ng-repeat="userAnswer in userAnswers" class="panel-group" id="accordion">
-
-		  <div class="panel panel-default">
-		    <div class="panel-heading" data-toggle="collapse" data-target="#collapse{{$index}}">
-		      <h4 class="panel-title">
-		          Question {{$index+1}}: {{(userAnswer.question.answer == userAnswer.choice) ? 'Correct' : 'Incorrect'}}
-		      </h4>
-		    </div>
-		    <div id="collapse{{$index}}" class="panel-collapse collapse" ng-class="{ 'in': $index == 0 }">
-		      <div class="panel-body">
-
-		        <div class="exam-question-counter">
-		        	{{userAnswer.question.id}} : {{userAnswer.question.question}}
-		        </div>
-		        <div class="exam-question-choices">
-		        	<table class="table table-condensed">
-		        		<tr ng-repeat="choice in userAnswer.question.choices">
-		        			<td>{{choice.id}}.</td>
-		        			<td>{{choice.description}}</td>
-		        		</tr>
-		        	</table>
-		        </div>
-		        <div>
-					<p>The correct answer is {{userAnswer.question.answer}}</p>
-      				<p>{{userAnswer.question.reason}}</p>
-      			</div>
-
-		      </div>
-		    </div>
-		  </div>
-
-		</div>
+      </div>
     </div>
   </div>
-
 </div>
 
 <!-- Note Modal -->
