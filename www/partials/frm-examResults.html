@@ -34,10 +34,14 @@
                     </tr>
                   </table>
                 </div>
-
+                <p>The correct answer is {{userAnswer.question.answer}}</p>
+                <div class="row">
+                  <div class="col-md-12">
+                    <button type="button" class="btn btn-default exam-question-answer" ng-repeat="answer in userAnswer.question.answers">{{answer.id}}. {{answer.answer}}</button>
+                  </div>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

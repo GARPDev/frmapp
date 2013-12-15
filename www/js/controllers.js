@@ -515,10 +515,18 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$location','examSharedServic
         $scope.correctAnswer = $scope.question.answer;
         $scope.answerReason = $scope.question.reason;
       }
-      $("#myModal").modal();
+      if(examSharedService.settings.mode == 0) {
+        $("#myModal").modal();
+      } else {
+        $scope.nextQuestion();
+      }
     }
 
     $scope.nextQuestion = function() {
+
+      if(examSharedService.settings.mode == 0) {
+        $('#myModal').modal('hide')
+      }
 
       if($scope.currentQuestion == $scope.totalQuestions-1) {
         examSharedService.userAnswers = $scope.userAnswers;
