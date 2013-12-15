@@ -2,26 +2,58 @@
 <div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>
   
 <div class="container">
-  <div class="row addBorder">
-    <div class="col-md-12  addBorder">
-      <span class="examname">FRM Exam</span>
-      <p>Text about exam</p>
-      <p>Text about exam</p>
-      <p>Text about exam</p>
-      <p>Text about exam</p>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>FRM Exam Part 1</h2>
+
+        <p>2130 Fulton Street</p>
+        <p>San Francisco, CA 94117-1080</p>
+        <p>Part 1 starts at: 7:00 am</p>
     </div>
-    <div class="col-md-3  addBorder">
-      Pic
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="examday-map-area">
+        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=2130+Fulton+Street&amp;ie=UTF8&amp;hq=&amp;hnear=2130+Fulton+St,+Brooklyn,+New+York+11233&amp;ll=40.67807,-73.911914&amp;spn=0.014516,0.030298&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?q=2130+Fulton+Street&amp;ie=UTF8&amp;hq=&amp;hnear=2130+Fulton+St,+Brooklyn,+New+York+11233&amp;ll=40.67807,-73.911914&amp;spn=0.014516,0.030298&amp;t=m&amp;z=14&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+      </div>
     </div>
-    <div class="col-md-9  addBorder">
-      Basic Info...
-    </div>
-    <div class="col-md-12  addBorder">
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Messages</a></li>
+    <div class="col-md-6">
+
+      <ul id="examday-tabs" class="nav nav-tabs">
+        <li id="tab_tab1" class="active"><a ng-click="tabToItem('tab1')">Reminders</a></li>
+        <li id="tab_tab2" ><a ng-click="tabToItem('tab2')">Things to Know</a></li>
       </ul>
+      <div class="tab-pane examday-info-area active" id="tab1">
+        <table class="table table-condensed">
+          <tr>
+            <td><input type="checkbox" check="model" value="{{ value }}"></td>
+            <td>Exam Admission Ticket</td>
+            <td><button type="submit" class="btn">Add Reminder</button></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>Current non-expired Government Issued Photo ID</td>
+            <td><button type="submit" class="btn">Add Reminder</button></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>Approved Calculator</td>
+            <td><button type="submit" class="btn">Add Reminder</button></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>#2 or Hard Black (HB) pencils</td>
+            <td><button type="submit" class="btn">Add Reminder</button></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="tab-pane examday-info-area" id="tab2">
+        <p>Personal Belongings at the Test Center</p>
+        <p>Smartphones and Your Exam</p>
+        <p>Misconduct During the Exam</p>
+      </div>
+
     </div>
   </div>
 </div>

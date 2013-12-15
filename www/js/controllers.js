@@ -469,6 +469,25 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$location','examShar
 ]);
 
 
+frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedService','remoteDataService',
+  function($scope,$location,examSharedService,remoteDataService) {
+
+    $('.tab-pane').hide();
+    $('#tab1').show();
+
+    
+
+    $scope.tabToItem = function(item) {
+      $('.tab-pane').hide();
+      $('#examday-tabs li').removeClass('active');
+      $('#' + item).show();
+      $('#tab_' + item).addClass('active');
+    }
+
+  }
+]);
+
+
 frmControllers.controller('FRMExamResultsCtrl', ['$scope','$location','examSharedService','remoteDataService',
   function($scope,$location,examSharedService,remoteDataService) {
 

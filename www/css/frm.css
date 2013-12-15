@@ -193,9 +193,12 @@ body {
 }
 
 .examname {
-font-family: cursive;
-font-weight: bold;
-font-size: x-large;
+}
+.examday-map-area {
+  height: 350
+}
+.examday-info-area {
+  margin: 10px;
 }
 
 .addBorder {
