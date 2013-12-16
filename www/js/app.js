@@ -52,7 +52,7 @@ phonecatApp.config(['$routeProvider',
       }).      
       when('/myaccount', {
         templateUrl: 'partials/frm-myaccount.html',
-        controller: 'FRMAppDashCtrl'
+        controller: 'FRMAppMyAccountCtrl'
       }).      
 	  /*
 	  .		

@@ -45,6 +45,24 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$location','remoteDataS
   }
 ]);
 
+frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteDataService',
+  function($scope, $location, remoteDataService) {
+
+    $scope.takePhoto = function () { 
+      navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+    };
+
+    function onPhotoFileSuccess(imageData) {
+      // Get image handle
+      console.log(JSON.stringify(imageData));
+      // Show the captured photo
+      // The inline CSS rules are used to resize the image
+      //
+      //smallImage.src = imageData;
+    }
+  }
+]);
+
 
 
 frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readings', 'Messages','Lessons','scheudlarBarSharedService','remoteDataService',

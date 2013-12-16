@@ -16,6 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var pictureSource=1;   // picture source
+var destinationType=1; // sets the format of returned value 
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -37,6 +41,9 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+
 		/*
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
