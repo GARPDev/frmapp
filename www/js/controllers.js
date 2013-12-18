@@ -48,13 +48,26 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$location','remoteDataS
 frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteDataService',
   function($scope, $location, remoteDataService) {
 
+    $scope.nav = navigator.appCodeName;
+    $scope.camera =  navigator.camera;
+    $scope.deviceReady =  false;
+    $scope.camerror = "";
+    $scope.camdata = "";
+    $scope.pictureSource = pictureSource;
+    $scope.destinationType = destinationType;
+
     $scope.takePhoto = function () { 
-      navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+      if(navigator.camera !== null && typeof navigator.camera !== "undefined") {
+        navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+      } else {
+        onFail('navigator.camera not defined!');
+      }
     };
 
     function onPhotoFileSuccess(imageData) {
       // Get image handle
-      alert(JSON.stringify(imageData));
+      //alert(JSON.stringify(imageData));
+      //$scope.camdata=imageData.length;
       $("#userImage").attr("src",imageData);
 
       // Show the captured photo
@@ -64,7 +77,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteD
     };
 
     function onFail(message) {
-      alert('Failed because: ' + message);
+      $scope.camerror=message;
+      //alert('Failed because: ' + message);
     }
   }
 ]);
