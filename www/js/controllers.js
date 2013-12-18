@@ -54,7 +54,9 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteD
 
     function onPhotoFileSuccess(imageData) {
       // Get image handle
-      console.log(JSON.stringify(imageData));
+      alert(JSON.stringify(imageData));
+      $("#userImage").attr("src",imageData);
+
       // Show the captured photo
       // The inline CSS rules are used to resize the image
       //
