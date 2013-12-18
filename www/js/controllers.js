@@ -61,6 +61,10 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteD
       // The inline CSS rules are used to resize the image
       //
       //smallImage.src = imageData;
+    };
+
+    function onFail(message) {
+      alert('Failed because: ' + message);
     }
   }
 ]);
