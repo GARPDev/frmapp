@@ -521,31 +521,22 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedSer
     
     $scope.addReminder=function(type) {
 
+      if(cordova === null || typeof cordova === "undefined") {
 
-      if(window.plugins === null || typeof window.plugins === "undefined") {
-
-        $scope.reminderStatus = "Failure: plugins not defined";
+        $scope.reminderStatus = "Failure: cordova not defined";
 
       } else {
 
         var startDate = new Date("December 19, 2013 13:00:00");
         var endDate = new Date("December 19, 2013 14:30:00");
-        var title = "My nice event";
+        var title = "FRM App Event";
         var location = "Home";
         var notes = "Some notes about this event.";
         var success = function(message) { $scope.reminderStatus = "Success: " + message };
         var error = function(message) { $scope.reminderStatus = "Failure: " + message };      
 
-        if(window.plugins.barcodeScanner  !== null && typeof window.plugins.barcodeScanner  !== "undefined") {
-          //window.plugins.calendar.createEvent('FRM Exam Reminder',location,notes,startDate,endDate,success,error);
-          $scope.reminderStatus = "Works: ";
-        } else {
-          $scope.reminderStatus = "Failure: window.plugins.calendar not defined";
-        }
-
+        cordova.exec(success, error, "Calendar", "createEvent", [title, location, notes, startDate.getTime(), endDate.getTime()]);
       }
-
-
     }
 
     $scope.tabToItem = function(item) {
