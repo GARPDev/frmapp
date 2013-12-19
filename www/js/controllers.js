@@ -56,6 +56,10 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteD
     $scope.pictureSource = pictureSource;
     $scope.destinationType = destinationType;
 
+    if(remoteDataService.userInfo.photo !== null && typeof remoteDataService.userInfo.photo !== "undefined") {
+      $("#userImage").attr("src",remoteDataService.userInfo.photo);
+    }
+
     $scope.takePhoto = function () { 
       if(navigator.camera !== null && typeof navigator.camera !== "undefined") {
         navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
@@ -69,6 +73,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteD
       //alert(JSON.stringify(imageData));
       //$scope.camdata=imageData.length;
       $("#userImage").attr("src",imageData);
+      remoteDataService.userInfo.photo = imageData;
 
       // Show the captured photo
       // The inline CSS rules are used to resize the image

@@ -31,6 +31,9 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     var remoteDataService = {};
     remoteDataService.$http = $http;
 
+    remoteDataService.userInfo = {};
+    
+
     //our service accepts a promise object which 
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
