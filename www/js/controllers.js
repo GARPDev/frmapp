@@ -536,8 +536,9 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedSer
         var success = function(message) { $scope.reminderStatus = "Success: " + message };
         var error = function(message) { $scope.reminderStatus = "Failure: " + message };      
 
-        if(window.plugins.calendar !== null && typeof window.plugins.calendar !== "undefined") {
-          window.plugins.calendar.createEvent('FRM Exam Reminder',location,notes,startDate,endDate,success,error);
+        if(window.plugins.barcodeScanner  !== null && typeof window.plugins.barcodeScanner  !== "undefined") {
+          //window.plugins.calendar.createEvent('FRM Exam Reminder',location,notes,startDate,endDate,success,error);
+          $scope.reminderStatus = "Works: ";
         } else {
           $scope.reminderStatus = "Failure: window.plugins.calendar not defined";
         }
