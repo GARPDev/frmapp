@@ -28,7 +28,7 @@
           <tr>
             <td><input type="checkbox" check="model" value="{{ value }}"></td>
             <td>Exam Admission Ticket</td>
-            <td><button type="submit" class="btn">Add Reminder</button></td>
+            <td><button type="submit" ng-click="addReminder('ticket')" class="btn">Add Reminder</button>  <span id="reminderStatus">{{reminderStatus}}</span></td>
           </tr>
           <tr>
             <td><input type="checkbox"></td>

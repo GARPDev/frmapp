@@ -512,8 +512,35 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedSer
 
     $('.tab-pane').hide();
     $('#tab1').show();
-
+    $scope.reminderStatus = "";
     
+    $scope.addReminder=function(type) {
+
+
+      if(window.plugins === null || typeof window.plugins === "undefined") {
+
+        $scope.reminderStatus = "Failure: plugins not defined";
+
+      } else {
+
+        var startDate = new Date("December 19, 2013 13:00:00");
+        var endDate = new Date("December 19, 2013 14:30:00");
+        var title = "My nice event";
+        var location = "Home";
+        var notes = "Some notes about this event.";
+        var success = function(message) { $scope.reminderStatus = "Success: " + message };
+        var error = function(message) { $scope.reminderStatus = "Failure: " + message };      
+
+        if(window.plugins.calendar !== null && typeof window.plugins.calendar !== "undefined") {
+          window.plugins.calendar.createEvent('FRM Exam Reminder',location,notes,startDate,endDate,success,error);
+        } else {
+          $scope.reminderStatus = "Failure: window.plugins.calendar not defined";
+        }
+
+      }
+
+
+    }
 
     $scope.tabToItem = function(item) {
       $('.tab-pane').hide();
