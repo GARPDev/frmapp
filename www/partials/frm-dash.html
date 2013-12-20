@@ -16,14 +16,14 @@
 		<div class="row">
 		  <div class="col-md-6">
 			<div class="workhead">
-				<h3 class="centerhead">Week {{getSelectedLessonIndex() + 1}} Lessons</h3> {{nhRead}}
+				<h3 class="centerhead">Week {{getSelectedLessonIndex() + 1}} Lessons</h3> {{height}} : {{width}}
 			</div>
 			<div class="readingscrollregion scrollbar" id="style-2">
 				<div class="readings-area" ng-include="'partials/frm-readings-list.html'"></div>
 			</div>
 		  </div>
 		  <div class="col-md-6">
-			<div class="daysarea">
+			<div class="daysarea" onclick="document.location.hash = '#/examday';">
 				<div class="daysleft">
 					<h3>Exam day details</h3>
 					<span>29</span> <span>day until the exam</span>

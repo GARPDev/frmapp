@@ -1,20 +1,15 @@
 <div ng-controller="ScheduleBarController">
+<div ng-if="width < 1200" style="float: left; margin-top: 15px;"><a href="" ng-click="scrollLeft()"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+<div ng-if="width < 1200" style="float: right; margin-top: 15px;"><a href="" ng-click="scrollRight()"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
 
-	<div class="schedulebar-path-area">
-		<div>
-			Weekly Schedule
-		<div>
-	</div>
-	
-	<div ng-repeat="lesson in lessons" class="schedulebar">     
-
+	<div ng-repeat="lesson in lessons | filter:filterMatch()" class="schedulebar">     
 		<div class="schedulebar-item">
-			<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected($index), 
+			<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected(lesson.order), 
 														'schedulebar-item-inProgress': isItemInProgress(lesson.id),
 														'schedulebar-item-done': isItemDone(lesson.id)}" ng-click="itemSelect($index)">
 			<span ng-class="{ 'glyphicon glyphicon-check': isItemDone(lesson.id)}"></span>	
 			</div>
-			<span ng-if="$index == 0 || ($index+1)%5 == 0" class="schedulebar-item-label">{{$index + 1}}</span>
+			<span ng-if="lesson.order == 1 || (lesson.order)%5 == 0" class="schedulebar-item-label">{{lesson.order}}</span>
 			
 		</div>		
 	</div>	

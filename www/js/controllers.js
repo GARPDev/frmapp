@@ -7,6 +7,7 @@ function tellAngular() {
     scope.$apply(function() {
         scope.width = window.innerWidth;
         scope.height = window.innerHeight;
+        scope.$broadcast('browserResize');
     });
     var nhRead = window.innerHeight - 240;
     var nhMsg = window.innerHeight - 430;
@@ -96,6 +97,7 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
 
     $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;
+    $scope.scrollIndex = 1;
 
   	$scope.isActive = function (viewLocation) { 
           return viewLocation === $location.path();
@@ -114,10 +116,23 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
   		}
   	};
 
+    $scope.$on('browserResize', function() {
+      if($scope.width >= 1200)
+          $scope.scrollIndex = 1;
+    });
+
+    $scope.scrollRight=function() {
+      if($scope.scrollIndex < $scope.lessons.length)
+        $scope.scrollIndex++;
+    }
+    $scope.scrollLeft=function() {
+      if($scope.scrollIndex > 0)
+        $scope.scrollIndex--;
+    }
+
     $scope.filterMatch = function( criteria ) {
       return function( item ) {
-        var li = scheudlarBarSharedService.lessonIndex;
-        return $scope.lessons[li].readings[criteria.index][criteria.field] == criteria.value;
+        return (item.order >= $scope.scrollIndex);
       };
     };
     

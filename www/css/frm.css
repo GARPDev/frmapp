@@ -64,9 +64,9 @@ body {
 }
 
 .schedulebar-area {
-    height: 80px;
-  	padding: 10px;
+    height: 60px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .schedulebar-block {
@@ -269,7 +269,8 @@ body {
 
 .daysleft {
     background-color: lightgray;
-	float: left;
+	  float: left;
+    padding: 10px;
 }
 
 .daysright {
