@@ -1,0 +1,12 @@
+{
+	"id":"123456DBX",
+	"name":"Bob Jones",
+	"address"
+	"lessons": [
+	    {
+	    	"id":"L01",
+			"title":"Week 1 Lesson",
+			"readings": [		
+				{
+					"id": "L01R01",
+					"description": "W1 - Risk Taki
