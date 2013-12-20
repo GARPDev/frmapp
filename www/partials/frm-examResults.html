@@ -16,12 +16,12 @@
         <div ng-repeat="userAnswer in userAnswers" class="panel-group">
           <div class="panel panel-default">
 
-            <div class="panel-heading" data-toggle="collapse" data-target="#collapse{{$index}}" data-parent="#accordian">
+            <div class="panel-heading" data-toggle="collapse"ng-click="showQuestion(userAnswer.question.id)">
               <h4 class="panel-title">
                   Question {{$index+1}}: {{(userAnswer.question.answer == userAnswer.choice) ? 'Correct' : 'Incorrect'}}
               </h4>
             </div>
-            <div id="collapse{{$index}}" class="panel-collapse collapse">
+            <div id="{{userAnswer.question.id}}" class="panel-collapse collapse">
               <div class="panel-body">
                 <div class="exam-question-counter">
                   {{userAnswer.question.id}} : {{userAnswer.question.question}}
@@ -44,6 +44,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <a href="#dash">Exit Test</a>
       </div>
     </div>
   </div>

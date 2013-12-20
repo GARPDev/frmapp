@@ -38,24 +38,37 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
 
+
+
+
       if(localStorage.lessonData == 'null' || typeof localStorage.lessonData === "undefined" || localStorage.lessonData === null) {
-        $http({method:'GET',url:'data/lessons.json'}).success(function(data){
-           remoteDataService.lessonData = data.lessons;
-           localStorage.lessonData = JSON.stringify(data.lessons);
 
-          $http({method:'GET',url:'data/questions.json'}).success(function(data){
-             remoteDataService.questionData = data.questions;
-             localStorage.questionData = JSON.stringify(data.questions);
 
-             localStorage.userMeta = []; // In future fetch from API
-             remoteDataService.userMeta = [];
-             q.resolve();
+        $http({method:'GET',url:'data/user.json'}).success(function(data){
+           remoteDataService.userData = data;
+           localStorage.userData = JSON.stringify(data);
+
+
+          $http({method:'GET',url:'data/lessons.json'}).success(function(data){
+             remoteDataService.lessonData = data.lessons;
+             localStorage.lessonData = JSON.stringify(data.lessons);
+
+            $http({method:'GET',url:'data/questions.json'}).success(function(data){
+              remoteDataService.questionData = data.questions;
+              localStorage.questionData = JSON.stringify(data.questions);
+
+              localStorage.userMeta = []; // In future fetch from API
+              remoteDataService.userMeta = [];
+              q.resolve();
+
+            });
           });
+        });    
 
-        });        
       } else {
         remoteDataService.lessonData = JSON.parse(localStorage.lessonData);
         remoteDataService.questionData = JSON.parse(localStorage.questionData);
+        remoteDataService.userData = JSON.parse(localStorage.userData);
 
         if(localStorage.userMeta !== 'null' && typeof localStorage.userMeta !== "undefined" && localStorage.userMeta !== null && localStorage.userMeta != "")  {
           remoteDataService.userMeta = JSON.parse(localStorage.userMeta);

@@ -6,16 +6,16 @@
     <div class="col-md-7">
       <ul class="list-group">
         <li class="list-group-item"><h3>Your Exam info</h3></li>
-        <li class="list-group-item">FRM Exam - Part 1</li>
-        <li class="list-group-item">November 11th, 2013</li>
-        <li class="list-group-item">2710 West 33rd St. New York, NY 110038</li>
-        <li class="list-group-item">11:00am - 2:00pm</li>
+        <li class="list-group-item">{{userData.registeredExam.name}}</li>
+        <li class="list-group-item">{{userData.registeredExam.day}}</li>
+        <li class="list-group-item">{{userData.registeredExam.time}}</li>
+        <li class="list-group-item">{{userData.registeredExam.address}} {{userData.registeredExam.city}}, {{userData.registeredExam.state}} {{userData.registeredExam.zip}}</li>
       </ul>
     </div>
     <div class="col-md-5">
       <div class="insperation-area">
         <p>What's your inspiration?</p>
-        <textarea class="form-control" rows="3"></textarea>
+        <textarea class="form-control" rows="3">{{userData.insperation}}</textarea>
       </div>
       <div class="user-info-area">
         <div class="photo-area">
@@ -25,8 +25,8 @@
           <button type="button" class="btn btn-default" ng-click="takePhoto()">Take Photo</button>
         </div>
         <div class="user-info-area">
-          <p>Alberto Garcia</p>
-          <p>ID: 718394575</p>
+          <p>{{userData.name}}</p>
+          <p>ID: {{userData.id}}</p>
         </div>
       </div>
     </div>

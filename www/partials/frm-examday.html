@@ -4,11 +4,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2>FRM Exam Part 1</h2>
+      <h2>{{userData.registeredExam.name}}</h2>
 
-        <p>2130 Fulton Street</p>
-        <p>San Francisco, CA 94117-1080</p>
-        <p>Part 1 starts at: 7:00 am</p>
+        <p>{{userData.registeredExam.address}}</p>
+        <p>{{userData.registeredExam.city}}, {{userData.registeredExam.state}} {{userData.registeredExam.zip}}</p>
+        <p>Exam is on: {{userData.registeredExam.day}}</p>
+        <p>Exam starts at: {{userData.registeredExam.time}}</p>
     </div>
   </div>
   <div class="row">
@@ -55,7 +56,7 @@
         <p>Personal Belongings at the Test Center</p>
         <p>Smartphones and Your Exam</p>
         <p>Misconduct During the Exam</p>
-        <p><a href="map://newyork">New York</a></p>
+        <p><a href="map://2130+Fulton+Street+San+Francisco+CA+94117-1080">Exam Location</a></p>
         <p><a href="mailto://help@help.com">Contact Help!</a></p>
         <p><a href="tel://555-5555">Call Now!</a>
 

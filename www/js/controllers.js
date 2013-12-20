@@ -55,6 +55,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteD
     $scope.camdata = "";
     $scope.pictureSource = pictureSource;
     $scope.destinationType = destinationType;
+    $scope.userData = remoteDataService.userData;
 
     if(remoteDataService.userInfo.photo !== null && typeof remoteDataService.userInfo.photo !== "undefined") {
       $("#userImage").attr("src",remoteDataService.userInfo.photo);
@@ -485,10 +486,11 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$location','examShar
           }
 
           var readingsIds = _.pluck(readingQuestions, 'id');
-          var questions = _.reject(remoteDataService.questionData, function(question) { 
-            var inter = _.intersection(readingsIds, question.readings)
-            return inter.length == 0; 
-          });
+          var questions = remoteDataService.questionData;
+          // _.reject(remoteDataService.questionData, function(question) { 
+          //   var inter = _.intersection(readingsIds, question.readings)
+          //   return inter.length == 0; 
+          // });
 
           var maxQuestions = $scope.settings.questions;
           if(questions.length < maxQuestions)
@@ -519,13 +521,30 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedSer
     $('#tab1').show();
     $scope.reminderStatus = "";
     $scope.userSession = remoteDataService.userSession;
+    $scope.userData = remoteDataService.userData;
 
+    var geocoder;
     var map;
     var mapOptions = {
         zoom: 8,
         center: new google.maps.LatLng(-34.397, 150.644)
       };
-      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    geocoder = new google.maps.Geocoder();
+    var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        $('#map-canvas').innerHTML = ' Geocode was not successful for the following reason: ' + status;
+      }
+    });
 
     
     $scope.addReminder=function(type) {
@@ -570,6 +589,17 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$location','examShare
     $scope.userAnswers = examSharedService.userAnswers;
     $scope.correctAnswers = examSharedService.correctAnswers;
     $scope.totalQuestions = examSharedService.questions.length;
+
+    $scope.showQuestion=function(id) {
+
+      // Close All
+      //$('#accordian .panel-collapse').removeClass('collapse.in').addClass('collapse')
+      $('#accordian .panel-collapse').collapse('hide');
+
+      // Open id
+      //$('#' + id).removeClass('collapse').addClass('collapse.in');
+      $('#' + id).collapse('show');
+    }
 
   }
 ]);

@@ -1,12 +1,19 @@
 {
 	"id":"123456DBX",
 	"name":"Bob Jones",
-	"address"
-	"lessons": [
-	    {
-	    	"id":"L01",
-			"title":"Week 1 Lesson",
-			"readings": [		
-				{
-					"id": "L01R01",
-					"description": "W1 - Risk Taki
+	"address":"",
+	"photo":"",
+	"insperation":"",
+	"registeredExam": {
+		"name":"FRM Part 1",
+		"address":"2130 Fulton Street",
+		"city":"San Francisco",
+		"state":"CA",
+		"zip":"94117-1080",
+		"country":"USA",
+		"day":"November 11th, 2013",
+		"time":"7:00 am",
+		"duration":"2"
+	}
+
+}
