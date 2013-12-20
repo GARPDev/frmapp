@@ -13,8 +13,8 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <div class="examday-map-area">
-        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=2130+Fulton+Street&amp;ie=UTF8&amp;hq=&amp;hnear=2130+Fulton+St,+Brooklyn,+New+York+11233&amp;ll=40.67807,-73.911914&amp;spn=0.014516,0.030298&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?q=2130+Fulton+Street&amp;ie=UTF8&amp;hq=&amp;hnear=2130+Fulton+St,+Brooklyn,+New+York+11233&amp;ll=40.67807,-73.911914&amp;spn=0.014516,0.030298&amp;t=m&amp;z=14&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+      <div class="examday-map-area" id="map_canvas">
+        xxxx
       </div>
     </div>
     <div class="col-md-6">
@@ -28,24 +28,27 @@
           <tr>
             <td><input type="checkbox" check="model" value="{{ value }}"></td>
             <td>Exam Admission Ticket</td>
-            <td><button type="submit" ng-click="addReminder('ticket')" class="btn">Add Reminder</button>  <span id="reminderStatus">{{reminderStatus}}</span></td>
           </tr>
           <tr>
             <td><input type="checkbox"></td>
             <td>Current non-expired Government Issued Photo ID</td>
-            <td><button type="submit" class="btn">Add Reminder</button></td>
           </tr>
           <tr>
             <td><input type="checkbox"></td>
             <td>Approved Calculator</td>
-            <td><button type="submit" class="btn">Add Reminder</button></td>
           </tr>
           <tr>
             <td><input type="checkbox"></td>
             <td>#2 or Hard Black (HB) pencils</td>
-            <td><button type="submit" class="btn">Add Reminder</button></td>
           </tr>
         </table>
+        <div ng-if="!userSession.reminderAdded">
+          <button type="submit" ng-click="addReminder('ticket')" class="btn">Add Reminder</button>  <span id="reminderStatus">{{reminderStatus}}</span>
+        </div>
+        <div ng-if="userSession.reminderAdded">
+          <span>Reminder Added to Calendar</span> <span>{{reminderStatus}}</span>
+        </div>
+
       </div>
 
       <div class="tab-pane examday-info-area" id="tab2">

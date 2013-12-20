@@ -38,8 +38,6 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
 
-      //localStorage.lessonData = null;
-
       if(localStorage.lessonData == 'null' || typeof localStorage.lessonData === "undefined" || localStorage.lessonData === null) {
         $http({method:'GET',url:'data/lessons.json'}).success(function(data){
            remoteDataService.lessonData = data.lessons;
@@ -71,12 +69,14 @@ frmServices.factory('remoteDataService', ['$resource','$http',
    remoteDataService.commitData = function() {
       localStorage.lessonData = JSON.stringify(remoteDataService.lessonData);
       localStorage.userMeta = JSON.stringify(remoteDataService.userMeta);
+      localStorage.userSession = JSON.stringify(remoteDataService.userSession);
 
    }
 
    remoteDataService.clearData = function() {
       localStorage.lessonData = null;
       localStorage.userMeta = null;
+      localStorage.userSession = {};
    }
 
   return remoteDataService;

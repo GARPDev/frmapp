@@ -518,10 +518,15 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedSer
     $('.tab-pane').hide();
     $('#tab1').show();
     $scope.reminderStatus = "";
+    $scope.userSession = remoteDataService.userSession;
+
+    var map = new GoogleMap();
+    map.initialize();
+
     
     $scope.addReminder=function(type) {
 
-      if(cordova === null || typeof cordova === "undefined") {
+      if(typeof cordova === "undefined" || cordova === null) {
 
         $scope.reminderStatus = "Failure: cordova not defined";
 
@@ -532,7 +537,12 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedSer
         var title = "FRM App Event";
         var location = "Home";
         var notes = "Some notes about this event.";
-        var success = function(message) { $scope.reminderStatus = "Success: " + message };
+        var success = function(message) { 
+          $scope.reminderStatus = "Success: " + message;
+          //$scope.userSession.reminderAdded = true;
+          remoteDataService.userSession.reminderAdded = true;
+          remoteDataService.commitData();
+        };
         var error = function(message) { $scope.reminderStatus = "Failure: " + message };      
 
         cordova.exec(success, error, "Calendar", "createEvent", [title, location, notes, startDate.getTime(), endDate.getTime()]);
