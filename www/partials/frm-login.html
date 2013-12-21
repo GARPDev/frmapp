@@ -15,15 +15,16 @@
     <div class="col-md-4">
       <div class="hoz-center video-area">
         <div>
-          <!-- Video Player -->
-          <!-- div class="slide-animate" ng-include="'partials/frm-videoplayer.html'"></div -->
 
-          <video autoplay controls poster="img/garp_logo_sm.gif" class="video">
+          <video autoplay class="videoplayer" id="videoplayer">
             <source src="img/Big_Buck_Bunny_Trailer_480x270_h264aac.m4v" type="video/mp4">
           </video>
 
-          <div class="video-play">
+          <div id="intro" class="videoimage" ng-click="playVideo()">
             <img src="img/garp_logo_sm.gif">
+          </div>
+          <div class="videoplaybutton">
+            <img src="img/play.png" width="60" ng-click="playVideo()">
           </div>
 
         </div>

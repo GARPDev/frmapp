@@ -150,11 +150,19 @@ body {
 .jplayer-area {
 }
 
-.video {
+.videoplayer {
   width:300px; 
 }
 
-.video-play {
+.videoimage {
+  display: none;
+}
+
+.videoplaybutton {
+  position: absolute;
+  top: 40px;
+  left: 80px;
+  width: 60px;
   display: none;
 }
 
