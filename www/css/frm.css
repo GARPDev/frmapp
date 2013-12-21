@@ -154,6 +154,10 @@ body {
   width:300px; 
 }
 
+.video-play {
+  display: none;
+}
+
 .login-area { 
 }
 

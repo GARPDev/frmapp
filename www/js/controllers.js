@@ -42,34 +42,11 @@ frmControllers.controller('NavController', ['$scope', '$location',
 frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$location','$timeout','remoteDataService',
   function($scope, $location, $timeout, remoteDataService) {
 
-    $timeout(function(){
-      $("#jquery_jplayer_1").jPlayer({
-        ready: function () {
-          $(this).jPlayer("setMedia", {
-            m4v: "img/Big_Buck_Bunny_Trailer_480x270_h264aac.m4v",
-            ogv: "img/Big_Buck_Bunny_Trailer_480x270_h264aac.m4v",
-            poster: "img/garp_logo_sm.gif"
-          });
 
-          //$(this).jPlayer("option", 'autoPlay', true);
-          //$(this).jPlayer("enableRemoveControls", 'true', true);
-          $(this).jPlayer("play");
-          // $("#jquery_jplayer_1").css("width","300px")
-          // $("#jquery_jplayer_1").css("background-color","#FFFFFF")
-          //$("#jp_container_1").css("width","300px")
-          $(".video").show("slow");
-          
-        },
-        swfPath: "/js",
-        supplied: "m4v, ogv",
-        size: {
-          width: '300px',
-          height: '170px'
-        },
-      });
-
-
-    }, 2000);
+    $("video").bind("ended", function() {
+       $('.video').hide("slow");
+       $('.video-play').show("slow");
+    });
 
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
