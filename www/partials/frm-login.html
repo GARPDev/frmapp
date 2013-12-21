@@ -1,11 +1,10 @@
-<!-- Fixed navbar -->
-  
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="login-header-area">
         <h3>Welcome to</h3>
-        <h1>FRM Study App v0.4</h1>
+        <h1>FRM Study App v0.5</h1>
       </div>
     </div>
   </div>
@@ -14,9 +13,11 @@
     </div>
     
     <div class="col-md-4">
-      <div class="hoz-center video-area addBorder">
+      <div class="hoz-center video-area">
         <div class="video">
-          Watch Video
+          <!-- Video Player -->
+          <div class="slide-animate" ng-include="'partials/frm-videoplayer.html'"></div>
+
         </div>
       </div>
     </div>
@@ -24,11 +25,11 @@
     <div class="col-md-4">
       <div class="hoz-center login-area">
         <div class="input-group input-group-lg">
-          <span class="input-group-addon">@</span>
+          <span class="input-group-addon" style="padding-left:20px">@</span>
           <input type="text" class="form-control" placeholder="Username">
         </div>
         <div class="input-group input-group-lg">
-          <span class="input-group-addon">*</span>
+          <span class="input-group-addon">***</span>
           <input type="text" class="form-control" placeholder="Password">
         </div>
         <div class="login-buttons">

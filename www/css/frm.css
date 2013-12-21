@@ -4,6 +4,10 @@ body {
   min-height:100%;
 }
 
+.examday-tabs {
+  margin: 10px;
+}
+
 .exam-question-answer {
   margin: 10px;
 }
@@ -137,13 +141,19 @@ body {
 }
 
 .video-area {
-  padding-top: 20px;
-  padding-bottom: 20px;
+}
+
+.jplayer-advance-controls {
+  display: none;
+}
+
+.jplayer-area {
 }
 
 .video {
   width:300px; 
   height: 200px;
+  display: none;
 }
 
 .login-area { 
@@ -151,6 +161,10 @@ body {
 
 .login-area div {
   padding: 5px;
+}
+
+.login-buttons-username {
+  padding-left: 20px;
 }
 
 .login-buttons {
@@ -390,4 +404,10 @@ body {
     opacity: 0;
     top: -50px;
     height: 0px;
+}
+
+@media (max-width: 995px) {
+  .examday-map-area {
+    height: 300px;
+  }
 }
