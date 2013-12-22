@@ -16,15 +16,16 @@
       <div class="hoz-center video-area">
         <div>
 
-          <video autoplay class="videoplayer" id="videoplayer">
-            <source src="img/Big_Buck_Bunny_Trailer_480x270_h264aac.m4v" type="video/mp4">
-          </video>
-
-          <div id="intro" class="videoimage" ng-click="playVideo()">
-            <img src="img/garp_logo_sm.gif">
-          </div>
-          <div class="videoplaybutton">
-            <img src="img/play.png" width="60" ng-click="playVideo()">
+          <div class="videoimage-controls-area">
+            <video autoplay class="videoplayer" id="videoplayer">
+              <source src="img/Big_Buck_Bunny_Trailer_480x270_h264aac.m4v" type="video/mp4">
+            </video>
+            <div id="intro" class="videoimage" ng-click="playVideo()">
+              <img src="img/garp_logo_sm.gif">
+            </div>
+            <div class="videoplaybutton">
+              <img src="img/play.png" width="60" class="videoplaybutton-image" ng-click="playVideo()">
+            </div>            
           </div>
 
         </div>
