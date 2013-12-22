@@ -96,15 +96,15 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
 }]);
 
-frmServices.factory('scheudlarBarSharedService', function($rootScope) {
+frmServices.factory('scheduleBarSharedService', function($rootScope) {
 	var sharedService = {};
 
-	sharedService.lessonIndex = 0;
+	sharedService.lessonIndex = 1;
 	sharedService.readingIndex = 0;
   
   sharedService.selectItem = function(item) {
   	sharedService.lessonIndex = item;
-    $rootScope.$broadcast('handleSelectItem');
+    $rootScope.$broadcast('handleScheduleBarSelectItem');
   };
 
   sharedService.doneReadingItem = function(item) {

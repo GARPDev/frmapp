@@ -20,9 +20,9 @@
       <div class="user-info-area">
         <div class="photo-area">
           <div class="photo">
-            <img id="userImage" src="img/350x150.gif" width="150" height="200">
+            <img id="userImage" src="img/user.png" width="230" height="230">
           </div>
-          <button type="button" class="btn btn-default" ng-click="takePhoto()">Take Photo</button>
+          <button id="takePhoto" type="button" class="btn btn-default" ng-click="takePhoto()">Take Photo</button>
         </div>
         <div class="user-info-area">
           <p>{{userData.name}}</p>
@@ -34,6 +34,7 @@
   
   <div class="row">
     <div class="col-md-12">
+      <span>Weekly Schedule:</span> <span>{{currentLesson.title}}</span>
   		<div class="schedulebar-area">
   			<div class="slide-animate" ng-include="'partials/frm-schedularbar.html'"></div>
   		</div>      

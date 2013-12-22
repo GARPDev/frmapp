@@ -16,6 +16,7 @@ body {
 .myaccount-continue {
   float: right;
   margin-right: 10px;
+  margin-top: 10px;
 }
 
 .exam-setting-title {
@@ -58,9 +59,7 @@ body {
 }
 
 .user-info-area {
-  margin: 10px;
   padding: 5px;
-  height: 120px;
 }
 
 .schedulebar {
@@ -129,15 +128,7 @@ body {
 }
 
 .photo {
-  width:150px; 
-  height: 200px;
-  #margin: 0 auto;
-	border: 1px solid;
-	border-color: #dddddd;		
-}
-
-.user-info-area {
-  padding: 10px;
+  margin-bottom: 5px;
 }
 
 .video-area {
@@ -211,6 +202,10 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+.reading-list-area {
+  
 }
 
 .reading-item-left {

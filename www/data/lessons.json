@@ -88,7 +88,7 @@
 	    {
 	    	"id":"L03",    	    	
 	    	"order":3,
-			"title":"Week 1 Lesson",
+			"title":"Week 3 Lesson",
 			"readings": [		
 				{
 					"checked": 0, 
@@ -130,7 +130,7 @@
 	    {
 	    	"id":"L04",    	 
 	    	"order":4,
-			"title":"Week 1 Lesson",
+			"title":"Week 4 Lesson",
 			"readings": [		
 				{
 					"checked": 0, 
@@ -172,7 +172,7 @@
 	    {
 	    	"id":"L05",    	 
 	    	"order":5,
-			"title":"Week 1 Lesson",
+			"title":"Week 5 Lesson",
 			"readings": [		
 				{
 					"checked": 0, 
@@ -215,7 +215,7 @@
 
 	    	"id":"L06",    	 
 	    	"order":6,
-			"title":"Week 1 Lesson",
+			"title":"Week 6 Lesson",
 			"readings": [		
 				{
 					"checked": 0, 
@@ -257,7 +257,7 @@
 	    {
 	    	"id":"L07",    	 
 	    	"order":7,
-			"title":"Week 1 Lesson",
+			"title":"Week 7 Lesson",
 			"readings": [		
 				{
 					"checked": 0, 
@@ -299,7 +299,7 @@
 	    {
 	    	"id":"L08",
 	    	"order":8,
-			"title":"Week 1 Lesson",
+			"title":"Week 8 Lesson",
 			"readings": [		
 				{
 					"checked": 0, 
@@ -339,7 +339,7 @@
 			]
 	    },
 	    {
-			"title":"Week 1 Lesson",
+			"title":"Week 9 Lesson",
 	    	"id":"L09",
 	    	"order":9,
 			"readings": [		
