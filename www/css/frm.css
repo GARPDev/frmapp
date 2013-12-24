@@ -55,7 +55,11 @@ body {
 }
 
 .readings-filter {
-  padding-top: 30px;
+}
+
+.readings-filter-pills-text {
+  margin-top: 15px;
+  font-size: smaller;
 }
 
 .user-info-area {
@@ -205,7 +209,7 @@ body {
 }
 
 .reading-list-area {
-  
+
 }
 
 .reading-item-left {

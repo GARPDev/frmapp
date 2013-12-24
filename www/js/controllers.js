@@ -279,6 +279,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheduleBarShared
       }
 
       remoteDataService.commitData();
+      //$('.btn').removeClass('button-on');
     };
   
     $scope.isItemClicked = function (id, type) { 
@@ -767,20 +768,25 @@ frmControllers.controller('FRMNotesCtrl', ['$scope','scheduleBarSharedService','
     $scope.$on('handleSetReadingIndex', function() {
 
       var li = scheduleBarSharedService.lessonIndex;
-      var readings = remoteDataService.lessonData[li].readings;
+      var foundItem = _.findWhere(remoteDataService.lessonData, {id: scheduleBarSharedService.lessonIndex});
 
-      var found = 0;
-      var foundItem = _.findWhere(readings, {id: readlingListSharedService.readingIndex});
-      if(foundItem)
-        $scope.currentReading = foundItem;
-      else $scope.currentReading = null;
-
-
-      $scope.notes = [];
-      var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
       if(foundItem !== null && typeof foundItem !== "undefined") {
-        if(foundItem.notes !== null && typeof foundItem.notes !== "undefined") {
-          $scope.notes = foundItem.notes;
+
+        var readings = foundItem.readings;
+
+        var found = 0;
+        var foundItem = _.findWhere(readings, {id: readlingListSharedService.readingIndex});
+        if(foundItem)
+          $scope.currentReading = foundItem;
+        else $scope.currentReading = null;
+
+
+        $scope.notes = [];
+        var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
+        if(foundItem !== null && typeof foundItem !== "undefined") {
+          if(foundItem.notes !== null && typeof foundItem.notes !== "undefined") {
+            $scope.notes = foundItem.notes;
+          }
         }
       }
     });

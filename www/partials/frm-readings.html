@@ -22,12 +22,12 @@
     </div>
     <div class="col-md-4 ">
       <div class="readings-filter">
-        <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isFilterOn('checked') }" ng-click="filterList('checked',1)">
-          <span class="glyphicon glyphicon-check"></span> Done
-        </button>
-        <button type="button" class="btn btn-default btn-xs" ng-class="{ 'button-on': isFilterOn('flagged') }" ng-click="filterList('flagged',1)">
-          <span class="glyphicon glyphicon-flag"></span> Flag
-        </button>
+
+        <ul class="nav nav-pills">
+          <li id="filter-reading-done" class="readings-filter-pills-text" ng-class="{ 'active': isFilterOn('checked') }" ng-click="filterList('checked',1)"><a href=""><span class="glyphicon glyphicon-check"></span> Done</a></li>
+          <li class="readings-filter-pills-text" ng-class="{ 'active': isFilterOn('flagged') }" ng-click="filterList('flagged',1)"><a href=""><span class="glyphicon glyphicon-flag"></span> Flag</a></li>
+        </ul>
+
       </div>
     </div>
   </div>
