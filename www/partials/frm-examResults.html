@@ -16,7 +16,7 @@
         <div ng-repeat="userAnswer in userAnswers" class="panel-group">
           <div class="panel panel-default">
 
-            <div class="panel-heading" data-toggle="collapse"ng-click="showQuestion(userAnswer.question.id)">
+            <div class="panel-heading" ng-click="showQuestion(userAnswer.question.id)">
               <h4 class="panel-title">
                   Question {{$index+1}}: {{(userAnswer.question.answer == userAnswer.choice) ? 'Correct' : 'Incorrect'}}
               </h4>

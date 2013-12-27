@@ -642,16 +642,20 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$location','examShare
     $scope.userAnswers = examSharedService.userAnswers;
     $scope.correctAnswers = examSharedService.correctAnswers;
     $scope.totalQuestions = examSharedService.questions.length;
+    $scope.currentOpen = '';
 
     $scope.showQuestion=function(id) {
 
       // Close All
       //$('#accordian .panel-collapse').removeClass('collapse.in').addClass('collapse')
-      $('#accordian .panel-collapse').collapse('hide');
+      if($scope.currentOpen.length > 0)
+        $('#' + $scope.currentOpen).collapse('hide');
 
       // Open id
       //$('#' + id).removeClass('collapse').addClass('collapse.in');
       $('#' + id).collapse('show');
+
+      $scope.currentOpen = id;
     }
 
   }
