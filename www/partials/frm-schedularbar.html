@@ -2,6 +2,14 @@
 <div ng-if="width < 1200" style="float: left; margin-top: 15px;"><a href="" ng-click="scrollLeft()"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
 <div ng-if="width < 1200" style="float: right; margin-top: 15px;"><a href="" ng-click="scrollRight()"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
 
+
+
+<div class="schedulebar-item" ng-if="allMode">
+	<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected('all') }" ng-click="itemSelect('all')"></div>
+	<span class="schedulebar-item-label">All</span>		
+</div>
+
+
 	<div ng-repeat="lesson in lessons | filter:filterMatch()" class="schedulebar">     
 		<div class="schedulebar-item">
 			<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected(lesson.id), 

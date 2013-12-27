@@ -101,6 +101,7 @@ frmServices.factory('scheduleBarSharedService', function($rootScope) {
 
 	sharedService.lessonIndex = 1;
 	sharedService.readingIndex = 0;
+  sharedService.allMode = false;
   
   sharedService.selectItem = function(item) {
   	sharedService.lessonIndex = item;

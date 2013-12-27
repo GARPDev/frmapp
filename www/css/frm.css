@@ -42,6 +42,10 @@ body {
   background-color: lightblue;
 }
 
+.test-results-bottom-nav-area {
+  margin: 10px;
+}
+
 .button-on {
   background-color: lightblue;
 }

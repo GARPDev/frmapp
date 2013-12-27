@@ -125,6 +125,7 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
     $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;
     $scope.scrollIndex = 1;
+    $scope.allMode = scheduleBarSharedService.allMode;
 
     // init ScheduleBar
     var lesson = _.findWhere(remoteDataService.lessonData, {order: 1});
@@ -249,15 +250,19 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheduleBarShared
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
 
           $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
-          var lesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
-          $scope.currentLesson = lesson;
-          $scope.readings = lesson.readings;
 
+          if($scope.lessonIndex == 'all') {
+            $scope.currentLesson = {id:'all', title:'All Lessons'};
+            var allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
+            $scope.readings = _.reject(allReadings, function(ar){ return typeof ar.id === "undefined"; });
 
-        // $('.readings-list-area').hide("fast", function() {
-        //   $('.readings-list-area').show("fast", function() {
-        //   });
-        // });
+          } else {
+            var lesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
+            if(lesson !== null && typeof lesson !== "undefined") {          
+              $scope.currentLesson = lesson;
+              $scope.readings = lesson.readings;
+            }            
+          }
       }
     });
 
@@ -350,14 +355,24 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','scheduleBarSharedService
     $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
     $scope.currentLesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
     $scope.readings = $scope.currentLesson.readings
+    scheduleBarSharedService.allMode = true;
 
     $scope.$on('handleScheduleBarSelectItem', function() {
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
 
           $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
-          var lesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
-          $scope.currentLesson = lesson;
-          $scope.readings = lesson.readings;
+
+          if($scope.lessonIndex == 'all') {
+            $scope.currentLesson = {id:'all', title:'All Lessons'};
+            var allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
+            $scope.readings = _.reject(allReadings, function(ar){ return typeof ar.id === "undefined"; });
+          } else {  
+            var lesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
+            if(lesson !== null && typeof lesson !== "undefined") {          
+              $scope.currentLesson = lesson;
+              $scope.readings = lesson.readings;
+            }
+          }
       }
     });
 
