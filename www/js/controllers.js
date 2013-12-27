@@ -128,10 +128,15 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
     $scope.allMode = scheduleBarSharedService.allMode;
 
     // init ScheduleBar
-    var lesson = _.findWhere(remoteDataService.lessonData, {order: 1});
+    if(scheduleBarSharedService.lessonIndex == 'all') {
+       var lesson = {id:'all', title:'All Lessons'};
+    } else {    
+      var lesson = _.findWhere(remoteDataService.lessonData, {order: 1});
+    }
     scheduleBarSharedService.lessonIndex = lesson.id;
     $scope.selected = lesson.id;
     scheduleBarSharedService.selectItem(lesson.id);
+
 
   	$scope.isActive = function (viewLocation) { 
           return viewLocation === $location.path();
@@ -243,8 +248,16 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheduleBarShared
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
     $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
-    $scope.currentLesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
-    $scope.readings = $scope.currentLesson.readings
+
+    if(scheduleBarSharedService.lessonIndex == 'all') {
+      $scope.currentLesson = {id:'all', title:'All Lessons'};
+      var allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
+      $scope.readings = _.reject(allReadings, function(ar){ return typeof ar.id === "undefined"; });
+    } else {    
+      $scope.currentLesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
+      $scope.readings = $scope.currentLesson.readings
+    }
+
 
     $scope.$on('handleScheduleBarSelectItem', function() {
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
@@ -353,8 +366,14 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','scheduleBarSharedService
   
     $scope.lessons = remoteDataService.lessonData;
     $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
-    $scope.currentLesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
-    $scope.readings = $scope.currentLesson.readings
+    if($scope.lessonIndex == 'all') {
+      $scope.currentLesson = {id:'all', title:'All Lessons'};
+      var allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
+      $scope.readings = _.reject(allReadings, function(ar){ return typeof ar.id === "undefined"; });
+    } else {
+      $scope.currentLesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
+      $scope.readings = $scope.currentLesson.readings
+    }
     scheduleBarSharedService.allMode = true;
 
     $scope.$on('handleScheduleBarSelectItem', function() {
@@ -398,10 +417,16 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
     $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;
     $scope.messages = Messages.query();
+    if(scheduleBarSharedService.lessonIndex == 'all') {
+      var lesson = _.findWhere(remoteDataService.lessonData, {order: 1});
+      scheduleBarSharedService.selectItem(lesson.id);   
+    }
   	$scope.lessonIndex = scheduleBarSharedService.lessonIndex;
-    $scope.currentLesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});;
+    $scope.currentLesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
 
+    scheduleBarSharedService.allMode = false;
     readlingListSharedService.clearFilters();
+
 
     // Init height;
     var nhRead = window.innerHeight - 240;
@@ -420,6 +445,12 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
 
     $scope.go = function() {
       $scope.msgread = 'msgread';
+    }
+
+    $scope.gotoFlagged = function() {
+      scheduleBarSharedService.selectItem('all');
+      readlingListSharedService.filterList('flagged');
+      document.location.hash = '#/readings';
     }
     
     // For Messages
