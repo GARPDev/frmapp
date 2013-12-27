@@ -143,13 +143,13 @@ body {
 }
 
 .jplayer-advance-controls {
-  display: none;
 }
 
 .jplayer-area {
 }
 
 .videoplayer {
+  display: none;
   width:300px; 
 }
 
@@ -162,12 +162,10 @@ body {
 
 
 .videoimage {
-  display: none;
   position: relative;
 }
 
 .videoplaybutton {
-  display: none;
   position: relative;
   top: -100px;
 }
