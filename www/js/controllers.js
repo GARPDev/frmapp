@@ -83,6 +83,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteD
     $scope.lessonIndex = 0;
     $scope.currentLesson = {};
 
+    scheduleBarSharedService.allMode = false;
+
     $scope.$on('handleScheduleBarSelectItem', function() {
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
         $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
@@ -98,6 +100,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteD
     if(navigator.camera === null || typeof navigator.camera === "undefined") {
       $('#takePhoto').hide();
     }
+
     $scope.takePhoto = function () { 
       if(navigator.camera !== null && typeof navigator.camera !== "undefined") {
         navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
@@ -625,8 +628,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedSer
     var geocoder;
     var map;
     var mapOptions = {
-        zoom: 8,
-        center: new google.maps.LatLng(-34.397, 150.644)
+        zoom: 8
       };
 
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -644,6 +646,10 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedSer
         $('#map-canvas').innerHTML = ' Geocode was not successful for the following reason: ' + status;
       }
     });
+
+    if(navigator.camera === null || typeof navigator.camera === "undefined") {
+      $('.add-reminder-area').hide();
+    }
 
     
     $scope.addReminder=function(type) {

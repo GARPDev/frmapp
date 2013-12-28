@@ -43,13 +43,14 @@
             <td>#2 or Hard Black (HB) pencils</td>
           </tr>
         </table>
-        <div ng-if="!userSession.reminderAdded">
-          <button type="submit" ng-click="addReminder('ticket')" class="btn">Add Reminder</button>  <span id="reminderStatus">{{reminderStatus}}</span>
+        <div class="add-reminder-area">
+          <div ng-if="!userSession.reminderAdded">
+            <button type="submit" ng-click="addReminder('ticket')" class="btn">Add Reminder</button>  <span id="reminderStatus">{{reminderStatus}}</span>
+          </div>
+          <div ng-if="userSession.reminderAdded">
+            <span>Reminder Added to Calendar</span> <span>{{reminderStatus}}</span>
+          </div>
         </div>
-        <div ng-if="userSession.reminderAdded">
-          <span>Reminder Added to Calendar</span> <span>{{reminderStatus}}</span>
-        </div>
-
       </div>
 
       <div class="tab-pane examday-info-area" id="tab2">
