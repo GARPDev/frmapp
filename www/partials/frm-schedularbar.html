@@ -13,7 +13,7 @@
 			<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected(lesson.id), 
 														'schedulebar-item-inProgress': isItemInProgress(lesson.id),
 														'schedulebar-item-done': isItemDone(lesson.id)}" ng-click="itemSelect(lesson.id)">
-			<span ng-class="{ 'glyphicon glyphicon-check': isItemDone(lesson.id)}"></span>	
+			<span ng-class="{ 'glyphicon glyphicon-check schedulebar-item-text': isItemDone(lesson.id)}"></span>	
 			</div>
 			<span ng-if="lesson.order == 1 || (lesson.order)%5 == 0" class="schedulebar-item-label">{{lesson.order}}</span>
 			
