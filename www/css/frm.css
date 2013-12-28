@@ -89,7 +89,6 @@ body {
 }
 
 .schedulebar-item {
-    #border-right: 1pt solid;
   	width: 45px;
     height: 45px;
     float: left;    
@@ -132,6 +131,21 @@ body {
 .schedulebar-path-area {
     margin-bottom: 5px;
 }
+
+.schedulebar-scroll-left {
+  float: left; 
+  margin-top: 15px; 
+  width: 30px;
+  text-align: center;
+}
+
+.schedulebar-scroll-right {
+  float: right; 
+  margin-top: 15px; 
+  width: 30px;  
+  text-align: center;
+}
+
 
 .photo-area {
   padding-right: 10px;
@@ -180,6 +194,7 @@ body {
 }
 
 .login-area { 
+  width: 320px;
 }
 
 .login-area div {
@@ -437,4 +452,52 @@ body {
   .examday-map-area {
     height: 300px;
   }
+
+  .btn-default {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;  
+  }
+
+  .login-buttons {
+    width: 290px;
+  }
+
+  .schedulebar-item {
+    #border-right: 1pt solid;
+    width: 65px;
+    height: 75px;
+    float: left;    
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .schedule-item-area {
+    height: 45px;
+  }
+
+  .schedulebar-area {
+    height: 75px;
+  }
+
+
+  .schedulebar-scroll-left {
+    margin-top: 25px; 
+  }
+
+  .schedulebar-scroll-right {
+    margin-top: 25px; 
+  }
+
+  .btn-xs {
+    padding: 5px 10px;
+  }
+
+  .panel-heading {
+    padding: 20px 15px;
+  }
+
+}
+
 }

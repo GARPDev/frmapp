@@ -45,7 +45,7 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$location','$timeout','
 
     $scope.userAgent = navigator.userAgent;
 
-      if( /Gecko|Android/i.test(navigator.userAgent) ) {
+      if( /Android/i.test(navigator.userAgent) ) {
         $('.input-group-addon').hide();
         $('.login-area').find('div').removeClass('input-group')
       }

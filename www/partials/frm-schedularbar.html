@@ -1,8 +1,6 @@
 <div ng-controller="ScheduleBarController">
-<div ng-if="width < 1200" style="float: left; margin-top: 15px;"><a href="" ng-click="scrollLeft()"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
-<div ng-if="width < 1200" style="float: right; margin-top: 15px;"><a href="" ng-click="scrollRight()"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
-
-
+<div ng-class="{'schedulebar-scroll-left' :  width < 1200}" ng-click="scrollLeft()"><span ng-if="width < 1200" class="glyphicon glyphicon-chevron-left"></span></div>
+<div ng-class="{'schedulebar-scroll-right' :  width < 1200}" ng-click="scrollRight()"><span ng-if="width < 1200" class="glyphicon glyphicon-chevron-right"></span></a></div>
 
 <div class="schedulebar-item" ng-if="allMode">
 	<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected('all') }" ng-click="itemSelect('all')"></div>
