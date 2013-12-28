@@ -42,6 +42,15 @@ frmControllers.controller('NavController', ['$scope', '$location',
 frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$location','$timeout','remoteDataService',
   function($scope, $location, $timeout, remoteDataService) {
 
+
+    $scope.userAgent = navigator.userAgent;
+
+      if( /Gecko|Android/i.test(navigator.userAgent) ) {
+        $('.input-group-addon').hide();
+        $('.login-area').find('div').removeClass('input-group')
+      }
+
+
     $("video").bind("ended", function() {
        $('.videoplayer').hide("slow");
        $('.videoimage').show("slow");
