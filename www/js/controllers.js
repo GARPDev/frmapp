@@ -445,6 +445,9 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
     var nhMsg = window.innerHeight - 430;
 
     $scope.innerWidth = window.innerWidth;
+    $scope.innerHeight = window.innerHeight;
+
+
 
     if(window.innerWidth > 995) {
       $(".readingscrollregion").css("height", nhRead + "px");
@@ -456,6 +459,9 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
 
 
     $scope.$on('browserResize', function() {
+
+      $scope.innerWidth = window.innerWidth;
+      $scope.innerHeight = window.innerHeight;
 
       if(window.innerWidth > 995) {
         $(".readingscrollregion").css("height", nhRead + "px");
