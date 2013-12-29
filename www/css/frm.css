@@ -452,8 +452,66 @@ body {
     height: 0px;
 }
 
-@media screen and (max-width: 995px) , screen and (max-height: 750px) {
 
+@media (max-height: 750px  ) {
+
+  .btn-default {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;  
+  }
+
+  .login-buttons {
+    width: 290px;
+  }
+
+  .schedulebar-item {
+    #border-right: 1pt solid;
+    width: 65px;
+    height: 75px;
+    float: left;    
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .schedule-item-area {
+    height: 45px;
+  }
+
+  .schedulebar-area {
+    height: 75px;
+  }
+
+
+  .schedulebar-scroll-left {
+    margin-top: 25px; 
+    width: 50px;
+  }
+
+  .schedulebar-scroll-right {
+    margin-top: 25px; 
+    height: 75px;
+    width: 50px;
+  }
+
+  .btn-xs {
+    padding: 5px 10px;
+  }
+
+  .panel-heading {
+    padding: 20px 15px;
+  }
+
+  .schedulebar-item-text {
+    font-size: 18px;
+    margin-top: 5px;
+  }  
+
+}
+
+
+@media (max-width: 995px  ) {
   .examday-map-area {
     height: 300px;
   }
