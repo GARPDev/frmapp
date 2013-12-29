@@ -424,8 +424,8 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','scheduleBarSharedService
 ]);
 
 
-frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService','readlingListSharedService',
-  function($scope, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService, readlingListSharedService) {
+frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService','readlingListSharedService',
+  function($scope, $timeout, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService, readlingListSharedService) {
   
   	//$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
@@ -458,14 +458,18 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
       }
     }
 
-
-    if(window.innerWidth > 995) {
-      $("#headerRowCol1").hide();
-      $("#dashButtons").show();
-    } else {
-      $("#headerRowCol1").show();
-      $("#dashButtons").hide();
-    }
+    $timeout(function() {
+      if(window.innerWidth > 995) {
+        $("#headerRowCol1").hide();
+        $("#dashButtons").show();
+      } else {
+        $("#headerRowCol1").show();
+        $("#dashButtons").hide();
+        // turn off scroll
+        $(".readingscrollregion").css("height", null);
+        $(".msgscrollregion").css("height", null);              
+      }
+    }, 500);
 
 
 
