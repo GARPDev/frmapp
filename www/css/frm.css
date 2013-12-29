@@ -452,7 +452,8 @@ body {
     height: 0px;
 }
 
-@media (max-width: 995px  ) {
+@media screen and (max-width: 995px) , screen and (max-height: 750px) {
+
   .examday-map-area {
     height: 300px;
   }
