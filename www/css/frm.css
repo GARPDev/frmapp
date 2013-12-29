@@ -452,7 +452,7 @@ body {
     height: 0px;
 }
 
-@media (max-width: 995px) {
+@media (max-width: 995px  ) {
   .examday-map-area {
     height: 300px;
   }
@@ -488,11 +488,13 @@ body {
 
   .schedulebar-scroll-left {
     margin-top: 25px; 
+    width: 50px;
   }
 
   .schedulebar-scroll-right {
     margin-top: 25px; 
     height: 75px;
+    width: 50px;
   }
 
   .btn-xs {
@@ -508,7 +510,17 @@ body {
     margin-top: 5px;
   }
 
+  .readingscrollregion {
+    height: inherit;
+    border-bottom: 0px solid;
+    border-left: 0px solid;
+    border-color: #ffffff;    
+  }
 
+  .scrollbar {
+    overflow-y: inherit;
+    margin-bottom: 10px;
+  }
 
 }
 

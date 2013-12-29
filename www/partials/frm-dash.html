@@ -3,6 +3,12 @@
 	
 	
     <div class="container">
+
+		<div id="headerRow" class="row">
+			<div id="headerRowCol1" class="col-md-6"></div>
+			<div class="col-md-6"></div>
+		</div>
+
 		<div class="row">
 			<div class="col-md-1">
 			</div>
@@ -16,13 +22,13 @@
 		<div class="row">
 		  <div class="col-md-6">
 			<div class="workhead">
-				<h3 class="centerhead">Week {{currentLesson.order}} Lessons</h3>
+				<h3 class="centerhead">Week {{currentLesson.order}} Lessons</h3> {{innerWidth}}
 			</div>
 			<div class="readingscrollregion scrollbar" id="style-2">
 				<div class="readings-area" ng-include="'partials/frm-readings-list.html'"></div>
 			</div>
 		  </div>
-		  <div class="col-md-6">
+		  <div id="daysAreaCol" class="col-md-6">
 			<div class="daysarea" onclick="document.location.hash = '#/examday';">
 				<div class="daysleft">
 					<h3>Exam day details</h3>

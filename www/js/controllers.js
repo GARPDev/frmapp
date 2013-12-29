@@ -7,7 +7,7 @@ function tellAngular() {
     scope.$apply(function() {
         scope.width = window.innerWidth;
         scope.height = window.innerHeight;
-        //scope.$broadcast('browserResize');
+        scope.$broadcast('browserResize');
     });
     var nhRead = window.innerHeight - 240;
     var nhMsg = window.innerHeight - 430;
@@ -443,8 +443,39 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
     // Init height;
     var nhRead = window.innerHeight - 240;
     var nhMsg = window.innerHeight - 430;
-    $(".readingscrollregion").css("height", nhRead + "px");
-    $(".msgscrollregion").css("height", nhMsg + "px");
+
+    $scope.innerWidth = window.innerWidth;
+
+    if(window.innerWidth > 995) {
+      $(".readingscrollregion").css("height", nhRead + "px");
+      $(".msgscrollregion").css("height", nhMsg + "px");      
+    } else {
+      $('.daysarea').appendTo('#headerRowCol1');
+      $('.flagtestarea').appendTo('#headerRowCol1');
+    }
+
+
+    $scope.$on('browserResize', function() {
+
+      if(window.innerWidth > 995) {
+        $(".readingscrollregion").css("height", nhRead + "px");
+        $(".msgscrollregion").css("height", nhMsg + "px");        
+
+        if($('#headerRowCol1').find('.daysarea').length) {
+          $('.daysarea').prependTo ('#daysAreaCol');
+          $('.flagtestarea').prependTo ('#daysAreaCol');
+        }
+
+      } else {
+
+        $(".readingscrollregion").css("height", "auto");
+        $('.daysarea').appendTo('#headerRowCol1');
+        $('.flagtestarea').appendTo('#headerRowCol1');
+
+      }
+
+    });
+
 
     
     $scope.$on('handleScheduleBarSelectItem', function() {
