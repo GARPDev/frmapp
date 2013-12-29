@@ -448,15 +448,25 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
 
-
-
     if(window.innerWidth > 995) {
       $(".readingscrollregion").css("height", nhRead + "px");
       $(".msgscrollregion").css("height", nhMsg + "px");      
     } else {
-      $('.daysarea').appendTo('#headerRowCol1');
-      $('.flagtestarea').appendTo('#headerRowCol1');
+      if($('#daysAreaCol').find('.daysarea').length) {
+        //$('.daysarea').appendTo('#headerRowCol1');
+        //$('.flagtestarea').appendTo('#headerRowCol1');
+      }
     }
+
+
+    if(window.innerWidth > 995) {
+      $("#headerRowCol1").hide();
+      $("#dashButtons").show();
+    } else {
+      $("#headerRowCol1").show();
+      $("#dashButtons").hide();
+    }
+
 
 
     $scope.$on('browserResize', function() {
@@ -465,20 +475,24 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
       $scope.innerHeight = window.innerHeight;
 
       if(window.innerWidth > 995) {
+
+        // set scroll height
         $(".readingscrollregion").css("height", nhRead + "px");
         $(".msgscrollregion").css("height", nhMsg + "px");        
 
-        if($('#headerRowCol1').find('.daysarea').length) {
-          $('.daysarea').prependTo ('#daysAreaCol');
-          $('.flagtestarea').prependTo ('#daysAreaCol');
-        }
+        // alt location for buttons
+        $("#headerRowCol1").hide();
+        $("#dashButtons").show();
 
       } else {
 
-        $(".readingscrollregion").css("height", "auto");
-        $('.daysarea').appendTo('#headerRowCol1');
-        $('.flagtestarea').appendTo('#headerRowCol1');
+        // alt location for buttons
+        $("#headerRowCol1").show();
+        $("#dashButtons").hide();
 
+        // turn off scroll
+        $(".readingscrollregion").css("height", null);
+        $(".msgscrollregion").css("height", null);      
       }
 
     });
