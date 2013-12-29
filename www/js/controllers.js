@@ -11,8 +11,10 @@ function tellAngular() {
     });
     var nhRead = window.innerHeight - 240;
     var nhMsg = window.innerHeight - 430;
-    $(".readingscrollregion").css("height", nhRead + "px");
-    $(".msgscrollregion").css("height", nhMsg + "px");
+    if(window.innerWidth > 995) {
+     $(".readingscrollregion").css("height", nhRead + "px");
+     $(".msgscrollregion").css("height", nhMsg + "px");
+    }
 }
 
 
@@ -443,7 +445,6 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', 'Readings', 'Messages','L
     // Init height;
     var nhRead = window.innerHeight - 240;
     var nhMsg = window.innerHeight - 430;
-
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
 
