@@ -60,16 +60,9 @@ frmControllers.controller('NavController', ['$scope', '$location',
         break;
     }
 
-    var offset = 100; // height of footer in CSS
-
-      //(917-757); // diff from innerHeight to abs position
-    $('#footer').css('top',($scope.innerHeight-offset));
-
     $scope.$on('browserResize', function() {
       $scope.innerWidth = window.innerWidth;
-      $scope.innerHeight = window.innerHeight;
-
-      $('#footer').css('top',($scope.innerHeight-offset));
+      $scope.innerHeight = window.innerHeight;      
     });
 
 
@@ -82,6 +75,8 @@ frmControllers.controller('NavController', ['$scope', '$location',
 frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$location',
   function($scope, $timeout, $location) {
 
+    $('.centerhead').html('init')
+
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
 
@@ -90,20 +85,33 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
     $('.nav-footer').hide();
     $('#footer').css('top',($scope.innerHeight-offset));
 
-    $('.centerhead').html('init')
-
-      // show footer
-     $timeout(function() {
-        $('.nav-footer').show("slow");
-        $('.centerhead').html('show')
-     }, 1000);
+    // show footer
+    $timeout(function() {
+      $('.centerhead').html('show')
+      $('.nav-footer').show("slow");
+    }, 1000);
 
 
     $scope.$on('browserResize', function() {
+      $('.centerhead').html('resize')
+
       $scope.innerWidth = window.innerWidth;
       $scope.innerHeight = window.innerHeight;
 
       $('#footer').css('top',($scope.innerHeight-offset));
+
+      if(window.innerWidth > 995) {
+        if($('.nav-footer').css('display') !== "none") {
+          $('.nav-footer').hide();
+        }
+      } else {
+        if($('.nav-footer').css('display') === "none") {
+          $timeout(function() {
+            $('.nav-footer').show("slow");
+          }, 1000);
+        }
+      }
+
     });
 
 
@@ -557,11 +565,6 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
         $("#headerRowCol1").hide();
         $("#dashButtons").show();
 
-        // footer
-        if($('.nav-footer').css('display') !== "none") {
-          $('.nav-footer').hide();
-        }
-
       } else {
 
         // alt location for buttons
@@ -571,14 +574,6 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
         // turn off scroll
         $(".readingscrollregion").css("height", null);
         $(".msgscrollregion").css("height", null);      
-
-        // footer
-        if($('.nav-footer').css('display') === "none") {
-          $timeout(function() {
-            $('.nav-footer').show("slow");
-          }, 1000);
-        }
-
       }
 
     });
