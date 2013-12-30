@@ -35,6 +35,38 @@ var frmControllers = angular.module('frmControllers', []);
 
 frmControllers.controller('NavController', ['$scope', '$location',
   function($scope, $location) {
+
+    $scope.innerWidth = window.innerWidth;
+    $scope.innerHeight = window.innerHeight;
+
+    switch(document.location.hash) {
+      case '#/readings':
+        $scope.currentMenuItem = 'Readings';
+        break;
+      case '#/examsettings':
+        $scope.currentMenuItem = 'Tests';
+        break;
+      case '#/dash':
+        $scope.currentMenuItem = 'Dashboard';
+        break;
+      case '#/examday':
+        $scope.currentMenuItem = 'Exam Details';
+        break;
+      case '#/messages':
+        $scope.currentMenuItem = 'Messages';
+        break;
+      default:
+        $scope.currentMenuItem = 'Dashboard';
+        break;
+    }
+
+
+    $scope.$on('browserResize', function() {
+      $scope.innerWidth = window.innerWidth;
+      $scope.innerHeight = window.innerHeight;
+    });
+
+
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
     };    
