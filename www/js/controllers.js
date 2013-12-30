@@ -90,9 +90,12 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
     $('.nav-footer').hide();
     $('#footer').css('top',($scope.innerHeight-offset));
 
+    $('.centerhead').html('init')
+
       // show footer
      $timeout(function() {
         $('.nav-footer').show("slow");
+        $('.centerhead').html('show')
      }, 1000);
 
 
