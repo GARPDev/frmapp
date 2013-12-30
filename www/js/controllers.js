@@ -60,16 +60,50 @@ frmControllers.controller('NavController', ['$scope', '$location',
         break;
     }
 
+    var offset = 100; // height of footer in CSS
+
+      //(917-757); // diff from innerHeight to abs position
+    $('#footer').css('top',($scope.innerHeight-offset));
 
     $scope.$on('browserResize', function() {
       $scope.innerWidth = window.innerWidth;
       $scope.innerHeight = window.innerHeight;
+
+      $('#footer').css('top',($scope.innerHeight-offset));
     });
 
 
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
     };    
+  }
+]);
+
+frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$location',
+  function($scope, $timeout, $location) {
+
+    $scope.innerWidth = window.innerWidth;
+    $scope.innerHeight = window.innerHeight;
+
+    var offset = 100; // height of footer in CSS
+
+    $('.nav-footer').hide();
+    $('#footer').css('top',($scope.innerHeight-offset));
+
+      // show footer
+     $timeout(function() {
+        $('.nav-footer').show("slow");
+     }, 1000);
+
+
+    $scope.$on('browserResize', function() {
+      $scope.innerWidth = window.innerWidth;
+      $scope.innerHeight = window.innerHeight;
+
+      $('#footer').css('top',($scope.innerHeight-offset));
+    });
+
+
   }
 ]);
 
@@ -520,6 +554,11 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
         $("#headerRowCol1").hide();
         $("#dashButtons").show();
 
+        // footer
+        if($('.nav-footer').css('display') !== "none") {
+          $('.nav-footer').hide();
+        }
+
       } else {
 
         // alt location for buttons
@@ -529,6 +568,14 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
         // turn off scroll
         $(".readingscrollregion").css("height", null);
         $(".msgscrollregion").css("height", null);      
+
+        // footer
+        if($('.nav-footer').css('display') === "none") {
+          $timeout(function() {
+            $('.nav-footer').show("slow");
+          }, 1000);
+        }
+
       }
 
     });
