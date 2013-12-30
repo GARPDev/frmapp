@@ -73,7 +73,13 @@
 		</div>
     </div> <!-- /container -->
 
-    <div ng-include="'partials/frm-navfooter.html'"></div>
+    <div ng-include="'partials/frm-navFooter.html'"></div>
 
+<div id="footer" class="nav-footer">
+	<div class="nav-footer-item" onclick="document.location.hash = '#/dash';"><p>Dashboard</p><p><span class="glyphicon glyphicon-tasks nav-footer-item-text"></span></p></div>
+	<div class="nav-footer-item" onclick="document.location.hash = '#/readings';"><p>Readings</p><p><span class="glyphicon glyphicon-book nav-footer-item-text"></span></p></div>
+	<div class="nav-footer-item" onclick="document.location.hash = '#/examsettings';"><p>Tests</p><p><span class="glyphicon glyphicon-play-circle nav-footer-item-text"></span></p></div>
+	<div class="nav-footer-item" onclick="document.location.hash = '#/examday';"><p>Exam Day</p><p><span class="glyphicon glyphicon-calendar nav-footer-item-text"></span></p></div>
+</div>
 
 <div ng-include="'partials/frm-notes.html'"></div>
