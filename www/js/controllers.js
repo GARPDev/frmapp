@@ -87,7 +87,9 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
 
     // show footer
     $timeout(function() {
-      $('.nav-footer').show("slow");
+      if(window.innerWidth <= 995) {
+        $('.nav-footer').show("slow");
+      }
     }, 1000);
 
 
