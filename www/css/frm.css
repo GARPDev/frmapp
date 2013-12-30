@@ -52,7 +52,7 @@ body {
   z-index: 1030;
   height: 100px;
   width: 100%;
-  background-color:#e7e7e7;
+  background-color:#181717;
   opacity:0.6;
   filter:alpha(opacity=60); /* For IE8 and earlier */
 
@@ -64,6 +64,7 @@ body {
   right: 0px;
   z-index: 1030;
   text-align: right;
+  color: white;
 }
 
 .nav-footer-control-off {
@@ -73,7 +74,7 @@ body {
   z-index: 1030;
   height: 100px;
   width: 50px;
-  background-color:#000000;
+  background-color:#181717;
   opacity:0.6;
   filter:alpha(opacity=60); /* For IE8 and earlier */
 }
@@ -82,6 +83,7 @@ body {
   margin-top: 40px;
   margin-left: 10px;
   font-size: 18px;
+  color: white;
 }
 
 .nav-footer-item {
@@ -90,38 +92,13 @@ body {
   width:25%;
   height: 100%;
   font-size: 18px;
+  color: white;
 }
 
 .nav-footer-item-text {
   font-size: 28px;
   margin-top: 5px;  
 }
-
-.nav-footer-itemA {
-  border:1px solid black;
-
-  width: 65px;
-  height: 75px;
-  float: left;
-  margin-bottom: 15px;
-  text-align: center;  
-
-}
-
-/*
-position: fixed;
-right: 0;
-left: 0;
-z-index: 1030;
-
-
-position: absolute;
-left: 0px;
-border: 1px solid;
-height: 100px;
-width: 100%;
-*/
-
 
 .test-results-bottom-nav-area {
   margin: 10px;
