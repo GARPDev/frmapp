@@ -47,8 +47,6 @@ body {
 
 .nav-footer {
   text-align:center;
-  position: fixed;
-  top: 100px;
   z-index: 1030;
   height: 100px;
   width: 100%;

@@ -66,6 +66,8 @@ frmControllers.controller('NavController', ['$scope', '$location',
     });
 
 
+    $('.centerhead').html('Navinit')
+
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
     };    
@@ -75,8 +77,9 @@ frmControllers.controller('NavController', ['$scope', '$location',
 frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$location',
   function($scope, $timeout, $location) {
 
-    $('.centerhead').html('init')
-
+    $timeout(function() {
+      $('.centerhead').html('init')
+    }, 1000);
 /*
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
