@@ -62,11 +62,11 @@ frmControllers.controller('NavController', ['$scope', '$location',
 
     $scope.$on('browserResize', function() {
       $scope.innerWidth = window.innerWidth;
-      $scope.innerHeight = window.innerHeight;      
+      $scope.innerHeight = window.innerHeight;
+
+      
     });
 
-
-    $('.centerhead').html('Navinit')
 
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
@@ -77,10 +77,6 @@ frmControllers.controller('NavController', ['$scope', '$location',
 frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$location',
   function($scope, $timeout, $location) {
 
-    $timeout(function() {
-      $('.centerhead').html('init')
-    }, 1000);
-/*
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
 
@@ -91,13 +87,11 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
 
     // show footer
     $timeout(function() {
-      $('.centerhead').html('show')
       $('.nav-footer').show("slow");
     }, 1000);
 
 
     $scope.$on('browserResize', function() {
-      $('.centerhead').html('resize')
 
       $scope.innerWidth = window.innerWidth;
       $scope.innerHeight = window.innerHeight;
@@ -117,7 +111,7 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
       }
 
     });
-*/
+
 
   }
 ]);
