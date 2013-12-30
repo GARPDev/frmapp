@@ -60,7 +60,7 @@ body {
 
 .nav-footer-control {
   position: fixed;
-  top: 780px;
+  top: 0px;
   right: 0px;
   z-index: 1030;
   text-align: right;
@@ -69,7 +69,7 @@ body {
 
 .nav-footer-control-off {
   position: fixed;
-  top: 780px;
+  top: 0px;
   left: 0px;
   z-index: 1030;
   height: 100px;

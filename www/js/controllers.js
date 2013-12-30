@@ -88,6 +88,9 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
     $('.nav-footer-control-off').hide();
     
     $('#footer').css('top',($scope.innerHeight-offset));
+    $('.nav-footer-control').css('top',($scope.innerHeight-offset));
+    $('.nav-footer-control-off').css('top',($scope.innerHeight-offset));
+    
 
     // show footer
     $timeout(function() {
@@ -110,6 +113,8 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
       $scope.innerHeight = window.innerHeight;
 
       $('#footer').css('top',($scope.innerHeight-offset));
+      $('.nav-footer-control').css('top',($scope.innerHeight-offset));
+      $('.nav-footer-control-off').css('top',($scope.innerHeight-offset));
 
       if(window.innerWidth > 995) {
         if($('.nav-footer').css('display') !== "none") {
