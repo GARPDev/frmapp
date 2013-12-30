@@ -77,6 +77,7 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
 
     $('.centerhead').html('init')
 
+/*
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
 
@@ -113,7 +114,7 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
       }
 
     });
-
+*/
 
   }
 ]);
