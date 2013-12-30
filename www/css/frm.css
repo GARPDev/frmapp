@@ -58,16 +58,30 @@ body {
 
 }
 
-.nav-footerA {
+.nav-footer-control {
   position: fixed;
-  top: 100px;
+  top: 780px;
+  right: 0px;
   z-index: 1030;
-  #border:1px solid black;
+  text-align: right;
+}
+
+.nav-footer-control-off {
+  position: fixed;
+  top: 780px;
+  left: 0px;
+  z-index: 1030;
   height: 100px;
-  width: 100%;
+  width: 50px;
+  background-color:#000000;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
 
-
-  margin: 0 auto;
+.nav-footer-control-off-text {
+  margin-top: 40px;
+  margin-left: 10px;
+  font-size: 18px;
 }
 
 .nav-footer-item {

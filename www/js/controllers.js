@@ -74,21 +74,32 @@ frmControllers.controller('NavController', ['$scope', '$location',
   }
 ]);
 
-frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$location',
-  function($scope, $timeout, $location) {
+frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$location','remoteDataService',
+  function($scope, $timeout, $location, remoteDataService) {
 
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
+    $scope.showFooter = remoteDataService.showFooter;
 
     var offset = 100; // height of footer in CSS
 
     $('.nav-footer').hide();
+    $('.nav-footer-control').hide();
+    $('.nav-footer-control-off').hide();
+    
     $('#footer').css('top',($scope.innerHeight-offset));
 
     // show footer
     $timeout(function() {
       if(window.innerWidth <= 995) {
-        $('.nav-footer').show("slow");
+
+        if($scope.showFooter) {
+          $('.nav-footer').show("slow", function() {
+            $('.nav-footer-control').show("slow");
+          });
+        } else {
+          $('.nav-footer-control-off').show("slow");
+        }
       }
     }, 1000);
 
@@ -103,19 +114,42 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
       if(window.innerWidth > 995) {
         if($('.nav-footer').css('display') !== "none") {
           $('.nav-footer').hide();
+          $('.nav-footer-control-off').hide();
         }
       } else {
         if($('.nav-footer').css('display') === "none") {
-          $timeout(function() {
-            $('.nav-footer').show("slow");
-          }, 1000);
+
+          if($scope.showFooter) {
+            $timeout(function() {
+              $('.nav-footer').show("slow");
+            }, 1000);
+          } else {
+            $('.nav-footer-control-off').show("slow");
+          }
         }
       }
 
     });
 
+    $scope.closeFooter = function() {
+      $scope.showFooter = remoteDataService.showFooter = false;
+      $('.nav-footer').hide("slow");
+      $('.nav-footer-control').hide("slow");
+      $('.nav-footer-control-off').show("slow");
+    }
+
+
+    $scope.openFooter = function() {
+      $scope.showFooter = remoteDataService.showFooter = true;      
+      $('.nav-footer-control-off').hide("slow");
+      $('.nav-footer').show("slow", function() {
+        $('.nav-footer-control').show("slow");
+      });
+    }
 
   }
+
+
 ]);
 
 frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$location','$timeout','remoteDataService',

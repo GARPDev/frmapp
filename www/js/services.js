@@ -32,14 +32,11 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     remoteDataService.$http = $http;
 
     remoteDataService.userInfo = {};
-    
+    remoteDataService.showFooter = true;
 
     //our service accepts a promise object which 
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
-
-
-
 
       if(localStorage.lessonData == 'null' || typeof localStorage.lessonData === "undefined" || localStorage.lessonData === null) {
 
