@@ -125,9 +125,13 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
         if($('.nav-footer').css('display') === "none") {
 
           if($scope.showFooter) {
+            
             $timeout(function() {
-              $('.nav-footer').show("slow");
+              $('.nav-footer').show("slow", function() {
+                $('.nav-footer-control').show("slow");
+              });
             }, 1000);
+
           } else {
             $('.nav-footer-control-off').show("slow");
           }
