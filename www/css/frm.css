@@ -4,6 +4,11 @@ body {
   min-height:100%;
 }
 
+.large-glyphicon {
+  font-size: 28px;  
+}
+
+
 .examday-tabs {
   margin: 10px;
 }
@@ -175,7 +180,7 @@ body {
 }
 
 .schedule-item-area:hover{
-   background-color:blue
+   background-color:gold
 }
 
 
@@ -377,8 +382,7 @@ body {
 
 
 .daysarea {
-    background-color: lightgray;
-	padding: 5px;
+  background-color: lightgray;
 	height: 100px;
 }
 
@@ -389,7 +393,9 @@ body {
 }
 
 .daysright {
-    background-color: lightgray;
+  margin-right: 15px;
+  margin-top: 35px;
+  background-color: lightgray;
 	float: right;
 }
 

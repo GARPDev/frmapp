@@ -63,6 +63,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
         });    
 
       } else {
+
         remoteDataService.lessonData = JSON.parse(localStorage.lessonData);
         remoteDataService.questionData = JSON.parse(localStorage.questionData);
         remoteDataService.userData = JSON.parse(localStorage.userData);

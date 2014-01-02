@@ -561,6 +561,7 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
     scheduleBarSharedService.allMode = false;
     readlingListSharedService.clearFilters();
 
+    $("#headerRowCol1").hide();
 
     // Init height;
     var nhRead = window.innerHeight - 240;
@@ -589,7 +590,7 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
         $(".readingscrollregion").css("height", null);
         $(".msgscrollregion").css("height", null);              
       }
-    }, 500);
+    }, 100);
 
 
 
@@ -998,8 +999,6 @@ frmControllers.controller('ExamNavController', ['$scope','examSharedService',
   }
 ]);
 
-
-
 frmControllers.controller('FRMNotesCtrl', ['$scope','scheduleBarSharedService','remoteDataService','readlingListSharedService',
   function($scope,scheduleBarSharedService,remoteDataService,readlingListSharedService) {
     
@@ -1009,27 +1008,36 @@ frmControllers.controller('FRMNotesCtrl', ['$scope','scheduleBarSharedService','
     $scope.$on('handleSetReadingIndex', function() {
 
       var li = scheduleBarSharedService.lessonIndex;
-      var foundItem = _.findWhere(remoteDataService.lessonData, {id: scheduleBarSharedService.lessonIndex});
 
-      if(foundItem !== null && typeof foundItem !== "undefined") {
+      if($scope.lessonIndex == 'all') {
 
-        var readings = foundItem.readings;
+        var allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
+        var readings = _.reject(allReadings, function(ar){ return typeof ar.id === "undefined"; });        
 
-        var found = 0;
-        var foundItem = _.findWhere(readings, {id: readlingListSharedService.readingIndex});
-        if(foundItem)
-          $scope.currentReading = foundItem;
-        else $scope.currentReading = null;
+      } else {
 
-
-        $scope.notes = [];
-        var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
+        var foundItem = _.findWhere(remoteDataService.lessonData, {id: scheduleBarSharedService.lessonIndex});
         if(foundItem !== null && typeof foundItem !== "undefined") {
-          if(foundItem.notes !== null && typeof foundItem.notes !== "undefined") {
-            $scope.notes = foundItem.notes;
-          }
+          var readings = foundItem.readings;        
+        }
+
+      }
+
+      var found = 0;
+      var foundItem = _.findWhere(readings, {id: readlingListSharedService.readingIndex});
+      if(foundItem)
+        $scope.currentReading = foundItem;
+      else $scope.currentReading = null;
+
+
+      $scope.notes = [];
+      var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
+      if(foundItem !== null && typeof foundItem !== "undefined") {
+        if(foundItem.notes !== null && typeof foundItem.notes !== "undefined") {
+          $scope.notes = foundItem.notes;
         }
       }
+
     });
 
     $scope.addNote = function(note) {
