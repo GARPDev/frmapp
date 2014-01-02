@@ -20,7 +20,6 @@ body {
   margin: 10px;
 }
 
-
 .myaccount-continue {
   float: right;
   margin-right: 10px;
@@ -53,9 +52,9 @@ body {
 .nav-footer {
   text-align:center;
   position: fixed;
-  top: 100px;
+  top: 0px;
   z-index: 1030;
-  height: 100px;
+  height: 75px;
   width: 100%;
   background-color:#181717;
   opacity:0.6;
@@ -72,13 +71,20 @@ body {
   color: white;
 }
 
+.nav-footer-control-off-icon {
+  color: white;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
 .nav-footer-control-off {
   position: fixed;
   top: 0px;
   left: 0px;
   z-index: 1030;
   height: 100px;
-  width: 50px;
+  width: 20px;
   background-color:#181717;
   opacity:0.6;
   filter:alpha(opacity=60); /* For IE8 and earlier */
@@ -91,6 +97,15 @@ body {
   color: white;
 }
 
+.nav-footer-control-off-bar {
+  width: 4px;
+  height: 2px;
+  background-color:white;
+  margin-left: 6px;
+  margin-top: 5px;
+  border-radius:2px;
+}
+
 .nav-footer-item {
   border:1px solid black;
   float:left;
@@ -101,6 +116,9 @@ body {
 }
 
 .nav-footer-item-text {
+}
+
+.nav-footer-item-icon {
   font-size: 28px;
   margin-top: 5px;  
 }
@@ -195,19 +213,19 @@ body {
     margin-bottom: 5px;
 }
 
-.schedulebar-scroll-left {
-  float: left; 
+.schedulebar-scroll-area {
   margin-top: 15px; 
   width: 30px;
-  text-align: center;
+  height: 50px;
+  text-align: center;  
+}
+
+.schedulebar-scroll-left {
+  float: left; 
 }
 
 .schedulebar-scroll-right {
   float: right; 
-  height: 45px;
-  margin-top: 15px; 
-  width: 30px;  
-  text-align: center;
 }
 
 
@@ -375,7 +393,7 @@ body {
 }
 
 .messagearea {
-    #background-color: lightgray;
+  #background-color: lightgray;
 	margin-top: 10px;
 	height: 250px;
 }
@@ -386,8 +404,11 @@ body {
 	height: 100px;
 }
 
+.daysarea:active, .flagarea:active, .testarea:active, .btn:active, .schedulebar-scroll-left:active, .schedulebar-scroll-right:active {
+  background-color: lightblue;
+}  
+
 .daysleft {
-    background-color: lightgray;
 	  float: left;
     padding: 10px;
 }
@@ -528,7 +549,6 @@ body {
   }
 
   .schedulebar-item {
-    #border-right: 1pt solid;
     width: 65px;
     height: 75px;
     float: left;    
@@ -544,13 +564,7 @@ body {
     height: 75px;
   }
 
-
-  .schedulebar-scroll-left {
-    margin-top: 25px; 
-    width: 50px;
-  }
-
-  .schedulebar-scroll-right {
+  .schedulebar-scroll-area {
     margin-top: 25px; 
     height: 75px;
     width: 50px;
@@ -597,21 +611,15 @@ body {
     text-align: center;
   }
 
-  .schedule-item-area {
-    height: 45px;
-  }
-
   .schedulebar-area {
     height: 75px;
   }
 
-
-  .schedulebar-scroll-left {
-    margin-top: 25px; 
-    width: 50px;
+  .schedule-item-area {
+    height: 45px;
   }
 
-  .schedulebar-scroll-right {
+  .schedulebar-scroll-area {
     margin-top: 25px; 
     height: 75px;
     width: 50px;

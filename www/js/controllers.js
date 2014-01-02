@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", tellAngular, false);
 window.onresize = tellAngular;
 
 
+var minWidth = 400; // Min width before we remove text
+
+
 /* Controllers */
 var frmControllers = angular.module('frmControllers', []);
 
@@ -81,7 +84,13 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
     $scope.innerHeight = window.innerHeight;
     $scope.showFooter = remoteDataService.showFooter;
 
-    var offset = 100; // height of footer in CSS
+    var offset = 75; // height of footer in CSS
+    if(window.innerWidth  <= minWidth) {
+        offset = 50;
+        $('.nav-footer').css('height','50px');
+        $('.nav-footer-item-text').hide();
+        $('.nav-footer-control-off-icon').css('margin-top','15px');
+    }
 
     $('.nav-footer').hide();
     $('.nav-footer-control').hide();
@@ -111,6 +120,18 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
 
       $scope.innerWidth = window.innerWidth;
       $scope.innerHeight = window.innerHeight;
+
+      if(window.innerWidth  <= minWidth) {
+        offset = 50;
+        $('.nav-footer').css('height','50px');
+        $('.nav-footer-control-off-icon').css('margin-top','15px');          
+        $('.nav-footer-item-text').hide();
+      } else {
+        offset = 75;
+        $('.nav-footer').css('height','75px');
+        $('.nav-footer-item-text').show();
+      }
+
 
       $('#footer').css('top',($scope.innerHeight-offset));
       $('.nav-footer-control').css('top',($scope.innerHeight-offset));
@@ -376,8 +397,8 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
 ]);
 
 
-frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheduleBarSharedService','remoteDataService','readlingListSharedService',
-  function($scope, scheduleBarSharedService, remoteDataService, readlingListSharedService) {
+frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'scheduleBarSharedService','remoteDataService','readlingListSharedService',
+  function($scope, $timeout, scheduleBarSharedService, remoteDataService, readlingListSharedService) {
   
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
@@ -392,6 +413,13 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheduleBarShared
       $scope.readings = $scope.currentLesson.readings
     }
 
+
+    $timeout(function() {
+      if(window.innerWidth < minWidth) {
+        $('.reading-list-button').hide();
+        $('.btn .badge').css('top','-4px');
+      }
+    }, 100);
 
     $scope.$on('handleScheduleBarSelectItem', function() {
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
@@ -413,6 +441,16 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','scheduleBarShared
       }
     });
 
+    $scope.$on('browserResize', function() {
+      if(window.innerWidth < minWidth) {
+        $('.reading-list-button').hide();
+        $('.btn .badge').css('top','-4px');
+      } else {
+        $('.reading-list-button').show();
+        $('.btn .badge').css('top','-1px');
+
+      }
+    });
 
     // Readings List
     $scope.itemClicked = function (id, type) {

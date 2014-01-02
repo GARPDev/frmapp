@@ -1,10 +1,26 @@
 <div ng-controller="FooterNavController">
-<div id="footer" class="nav-footer">
-	<div class="nav-footer-item" onclick="document.location.hash = '#/dash';"><p>Dashboard</p><p><span class="glyphicon glyphicon-tasks nav-footer-item-text"></span></p></div>
-	<div class="nav-footer-item" onclick="document.location.hash = '#/readings';"><p>Readings</p><p><span class="glyphicon glyphicon-book nav-footer-item-text"></span></p></div>
-	<div class="nav-footer-item" onclick="document.location.hash = '#/examsettings';"><p>Tests</p><p><span class="glyphicon glyphicon-play-circle nav-footer-item-text"></span></p></div>
-	<div class="nav-footer-item" onclick="document.location.hash = '#/examday';"><p>Exam Day</p><p><span class="glyphicon glyphicon-calendar nav-footer-item-text"></span></p></div>
-	<div class="nav-footer-control" ng-click="closeFooter()"><span class="glyphicon glyphicon-remove-circle"></span></div>
-</div>
-<div class="nav-footer-control-off" ng-click="openFooter()"><span class="glyphicon glyphicon-chevron-right nav-footer-control-off-text"></span></div>
+	<div id="footer" class="nav-footer">
+		<div class="nav-footer-item" onclick="document.location.hash = '#/dash';">
+			<span class="nav-footer-item-text">Dashboard</span><p><span class="glyphicon glyphicon-tasks nav-footer-item-icon"></span></p>
+		</div>
+		<div class="nav-footer-item" onclick="document.location.hash = '#/readings';">
+			<span class="nav-footer-item-text">Readings</span><p><span class="glyphicon glyphicon-book nav-footer-item-icon"></span></p>
+		</div>
+		<div class="nav-footer-item" onclick="document.location.hash = '#/examsettings';">
+			<span class="nav-footer-item-text">Tests</span><p><span class="glyphicon glyphicon-play-circle nav-footer-item-icon"></span></p>
+		</div>
+		<div class="nav-footer-item" onclick="document.location.hash = '#/examday';">
+			<span class="nav-footer-item-text">Exam Day</span><p><span class="glyphicon glyphicon-calendar nav-footer-item-icon"></span></p>
+		</div>
+		<div class="nav-footer-control" ng-click="closeFooter()"><span class="glyphicon glyphicon-remove-circle"></span></div>
+	</div>
+	<div class="nav-footer-control-off" ng-click="openFooter()">
+		<!--span class="glyphicon glyphicon-chevron-right nav-footer-control-off-icon"></span -->
+		<div class="nav-footer-control-off-bar"></div>
+		<div class="nav-footer-control-off-bar"></div>
+		<div class="nav-footer-control-off-bar"></div>
+		<div class="nav-footer-control-off-bar"></div>
+		<div class="nav-footer-control-off-bar"></div>
+		<div class="nav-footer-control-off-bar"></div>
+	</div>
 </div>
