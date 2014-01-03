@@ -10,8 +10,9 @@ var phonecatApp = angular.module('frmApp', [
   'frmServices'
 ]);
 
-phonecatApp.config(['$routeProvider',
-  function($routeProvider) {
+phonecatApp.config(['$routeProvider','$anchorScrollProvider',
+  function($routeProvider, $anchorScrollProvider) {
+    $anchorScrollProvider.disableAutoScrolling();
     $routeProvider.
       when('/dash', {
         templateUrl: 'partials/frm-dash.html',

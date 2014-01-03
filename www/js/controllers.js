@@ -416,7 +416,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 
     $timeout(function() {
       if(window.innerWidth < minWidth) {
-        $('.reading-list-button').hide();
+        $('.reading-list-button').css('display','none');
         $('.btn .badge').css('top','-4px');
       }
     }, 100);
@@ -443,10 +443,10 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 
     $scope.$on('browserResize', function() {
       if(window.innerWidth < minWidth) {
-        $('.reading-list-button').hide();
+        $('.reading-list-button').css('display','none');
         $('.btn .badge').css('top','-4px');
       } else {
-        $('.reading-list-button').show();
+        $('.reading-list-button').css('display','inline');
         $('.btn .badge').css('top','-1px');
 
       }
