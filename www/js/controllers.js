@@ -192,7 +192,7 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
 
     $timeout(function() {
       $('.page-container').show();
-    }, 300);
+    }, 500);
 
     $scope.userAgent = navigator.userAgent;
 
@@ -245,7 +245,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $timeout(function() {
       $('.page-container').show();
-    }, 300);
+    }, 500);
 
     scheduleBarSharedService.allMode = false;
 
@@ -561,7 +561,7 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
 
     $timeout(function() {
       $('.page-container').show();
-    }, 300);
+    }, 500);
 
 
     $scope.$on('handleScheduleBarSelectItem', function() {
@@ -634,7 +634,7 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
       $("#dashButtons").show();
 
     } else {
-      
+
         // turn off scroll
         $(".readingscrollregion").css("height", null);
         $(".msgscrollregion").css("height", null);              
@@ -645,8 +645,8 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
     }
 
     $timeout(function() {
-      $('.page-container').show();
-    }, 300);
+      $('.page-container').show("slow");
+    }, 500);
 
     $scope.$on('browserResize', function() {
 
