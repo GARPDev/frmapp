@@ -102,18 +102,19 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
     
 
     // show footer
-    $timeout(function() {
+    //$timeout(function() {
       if(window.innerWidth <= 995) {
 
         if($scope.showFooter) {
-          $('.nav-footer').show("slow", function() {
-            $('.nav-footer-control').show("slow");
-          });
+          $('.nav-footer').show();
+          $('.nav-footer-control').show();
+          $('.nav-footer-control-off').hide();
         } else {
-          $('.nav-footer-control-off').show("slow");
+          $('.nav-footer').hide();
+          $('.nav-footer-control-off').show();
         }
       }
-    }, 1000);
+    //, 300);
 
 
     $scope.$on('browserResize', function() {
@@ -178,10 +179,13 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
     }
 
     $scope.changeView = function(view) {
-      $('.page-container').hide();
-      $location.path(view);
+      //$('.page-container').hide('slide');
+      console.log('nav');
+      //$location.path(view);  
+      $('.page-container').hide("slide", { direction: "right" }, 500, function() {
+        document.location.hash = '#/' + view;
+      });
     }
-
   }
 
 
@@ -191,8 +195,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
   function($scope, $timeout, $location, remoteDataService) {
 
     $timeout(function() {
-      $('.page-container').show();
-    }, 500);
+      $('.page-container').show("slide", { direction: "left" }, 500); 
+    }, 0);
 
     $scope.userAgent = navigator.userAgent;
 
@@ -244,8 +248,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.currentLesson = {};
 
     $timeout(function() {
-      $('.page-container').show();
-    }, 500);
+      $('.page-container').show("slide", { direction: "left" }, 500); 
+    }, 0);
 
     scheduleBarSharedService.allMode = false;
 
@@ -560,8 +564,8 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
     scheduleBarSharedService.allMode = true;
 
     $timeout(function() {
-      $('.page-container').show();
-    }, 500);
+      $('.page-container').show("slide", { direction: "left" }, 500); 
+    }, 0);
 
 
     $scope.$on('handleScheduleBarSelectItem', function() {
@@ -645,8 +649,9 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
     }
 
     $timeout(function() {
-      $('.page-container').show("slow");
-    }, 500);
+      //$('.page-container').show("slow");
+      $('.page-container').show("slide", { direction: "left" }, 500); 
+    }, 0);
 
     $scope.$on('browserResize', function() {
 
@@ -873,7 +878,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
 
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    $('.page-container').show();
+    $('.page-container').show("slow");
 
     geocoder = new google.maps.Geocoder();
     var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;
