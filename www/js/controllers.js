@@ -177,14 +177,22 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
       });
     }
 
+    $scope.changeView = function(view) {
+      $('.page-container').hide();
+      $location.path(view);
+    }
+
   }
 
 
 ]);
 
-frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$location','$timeout','remoteDataService',
-  function($scope, $location, $timeout, remoteDataService) {
+frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','remoteDataService',
+  function($scope, $timeout, $location, remoteDataService) {
 
+    $timeout(function() {
+      $('.page-container').show();
+    }, 300);
 
     $scope.userAgent = navigator.userAgent;
 
@@ -220,8 +228,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$location','$timeout','
   }
 ]);
 
-frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteDataService','scheduleBarSharedService',
-  function($scope, $location, remoteDataService, scheduleBarSharedService) {
+frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService',
+  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService) {
 
     $scope.nav = navigator.appCodeName;
     $scope.camera =  navigator.camera;
@@ -234,6 +242,10 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$location','remoteD
     $scope.lessons = remoteDataService.lessonData;
     $scope.lessonIndex = 0;
     $scope.currentLesson = {};
+
+    $timeout(function() {
+      $('.page-container').show();
+    }, 300);
 
     scheduleBarSharedService.allMode = false;
 
@@ -413,7 +425,6 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
       $scope.readings = $scope.currentLesson.readings
     }
 
-
     $timeout(function() {
       if(window.innerWidth < minWidth) {
         $('.reading-list-button').css('display','none');
@@ -533,8 +544,8 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 ]);
 
 
-frmControllers.controller('FRMReadingsCtrl', ['$scope','scheduleBarSharedService','remoteDataService','readlingListSharedService',
-  function($scope, scheduleBarSharedService, remoteDataService,readlingListSharedService) {
+frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSharedService','remoteDataService','readlingListSharedService',
+  function($scope, $timeout, scheduleBarSharedService, remoteDataService,readlingListSharedService) {
   
     $scope.lessons = remoteDataService.lessonData;
     $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
@@ -547,6 +558,11 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','scheduleBarSharedService
       $scope.readings = $scope.currentLesson.readings
     }
     scheduleBarSharedService.allMode = true;
+
+    $timeout(function() {
+      $('.page-container').show();
+    }, 300);
+
 
     $scope.$on('handleScheduleBarSelectItem', function() {
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
@@ -599,7 +615,7 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
     scheduleBarSharedService.allMode = false;
     readlingListSharedService.clearFilters();
 
-    $("#headerRowCol1").hide();
+    //$("#headerRowCol1").hide();
 
     // Init height;
     var nhRead = window.innerHeight - 240;
@@ -608,29 +624,29 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
     $scope.innerHeight = window.innerHeight;
 
     if(window.innerWidth > 995) {
+
+      // set inital scroll area height
       $(".readingscrollregion").css("height", nhRead + "px");
       $(".msgscrollregion").css("height", nhMsg + "px");      
-    } else {
-      if($('#daysAreaCol').find('.daysarea').length) {
-        //$('.daysarea').appendTo('#headerRowCol1');
-        //$('.flagtestarea').appendTo('#headerRowCol1');
-      }
-    }
 
-    $timeout(function() {
-      if(window.innerWidth > 995) {
-        $("#headerRowCol1").hide();
-        $("#dashButtons").show();
-      } else {
-        $("#headerRowCol1").show();
-        $("#dashButtons").hide();
+      // show correct dash buttons
+      $("#headerRowCol1").hide();
+      $("#dashButtons").show();
+
+    } else {
+      
         // turn off scroll
         $(".readingscrollregion").css("height", null);
         $(".msgscrollregion").css("height", null);              
-      }
-    }, 100);
 
+        // show correct dash buttons
+        $("#headerRowCol1").show();
+        $("#dashButtons").hide();
+    }
 
+    $timeout(function() {
+      $('.page-container').show();
+    }, 300);
 
     $scope.$on('browserResize', function() {
 
@@ -840,8 +856,8 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$location','examShar
 ]);
 
 
-frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedService','remoteDataService',
-  function($scope,$location,examSharedService,remoteDataService) {
+frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService',
+  function($scope,$timeout,$location,examSharedService,remoteDataService) {
 
     $('.tab-pane').hide();
     $('#tab1').show();
@@ -856,6 +872,8 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedSer
       };
 
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    $('.page-container').show();
 
     geocoder = new google.maps.Geocoder();
     var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;
@@ -874,7 +892,6 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$location','examSharedSer
     if(navigator.camera === null || typeof navigator.camera === "undefined") {
       $('.add-reminder-area').hide();
     }
-
     
     $scope.addReminder=function(type) {
 

@@ -1,15 +1,15 @@
 <div ng-controller="FooterNavController">
 	<div id="footer" class="nav-footer">
-		<div class="nav-footer-item" onclick="document.location.hash = '#/dash';">
+		<div class="nav-footer-item" ng-click="changeView('dash')">
 			<span class="nav-footer-item-text">Dashboard</span><p><span class="glyphicon glyphicon-tasks nav-footer-item-icon"></span></p>
 		</div>
-		<div class="nav-footer-item" onclick="document.location.hash = '#/readings';">
+		<div class="nav-footer-item" ng-click="changeView('readings')">
 			<span class="nav-footer-item-text">Readings</span><p><span class="glyphicon glyphicon-book nav-footer-item-icon"></span></p>
 		</div>
 		<div class="nav-footer-item" onclick="document.location.hash = '#/examsettings';">
 			<span class="nav-footer-item-text">Tests</span><p><span class="glyphicon glyphicon-play-circle nav-footer-item-icon"></span></p>
 		</div>
-		<div class="nav-footer-item" onclick="document.location.hash = '#/examday';">
+		<div class="nav-footer-item" ng-click="changeView('examday')">
 			<span class="nav-footer-item-text">Exam Day</span><p><span class="glyphicon glyphicon-calendar nav-footer-item-icon"></span></p>
 		</div>
 		<div class="nav-footer-control" ng-click="closeFooter()"><span class="glyphicon glyphicon-remove-circle"></span></div>

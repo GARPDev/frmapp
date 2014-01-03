@@ -4,6 +4,10 @@ body {
   min-height:100%;
 }
 
+.page-container {
+  display: none;
+}
+
 .large-glyphicon {
   font-size: 28px;  
 }
