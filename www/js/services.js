@@ -34,9 +34,9 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     remoteDataService.userInfo = {};
     remoteDataService.showFooter = true;
 
-      localStorage.lessonData = null;
-      localStorage.userMeta = null;
-      localStorage.userSession = {};
+    // localStorage.lessonData = null;
+    // localStorage.userMeta = null;
+    // localStorage.userSession = {};
 
 
     //our service accepts a promise object which 
