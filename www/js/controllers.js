@@ -422,8 +422,8 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 
     if(scheduleBarSharedService.lessonIndex == 'all') {
       $scope.currentLesson = {id:'all', title:'All Lessons'};
-      var allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
-      $scope.readings = _.reject(allReadings, function(ar){ return typeof ar.id === "undefined"; });
+      $scope.readings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
+      //$scope.readings = _.reject(allReadings, function(ar){ return typeof ar.id === "undefined"; });
     } else {    
       $scope.currentLesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
       $scope.readings = $scope.currentLesson.readings
@@ -443,8 +443,8 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 
           if($scope.lessonIndex == 'all') {
             $scope.currentLesson = {id:'all', title:'All Lessons'};
-            var allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
-            $scope.readings = _.reject(allReadings, function(ar){ return typeof ar.id === "undefined"; });
+            $scope.readings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
+            //$scope.readings = _.reject(allReadings, function(ar){ return typeof ar.id === "undefined"; });
 
           } else {
             var lesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});

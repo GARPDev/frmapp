@@ -91,36 +91,36 @@
 			"title":"Week 3 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L03R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L03R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L03R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L03R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L03R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -133,36 +133,36 @@
 			"title":"Week 4 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L04R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L04R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L04R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L04R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L04R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -175,36 +175,36 @@
 			"title":"Week 5 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L05R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L05R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L05R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L05R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L05R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -218,36 +218,36 @@
 			"title":"Week 6 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L06R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L06R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L06R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L06R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L06R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -260,41 +260,42 @@
 			"title":"Week 7 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L07R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L07R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L07R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L07R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L07R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				}
 			]
+
 	    },
 	    {
 	    	"id":"L08",
@@ -302,41 +303,42 @@
 			"title":"Week 8 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L08R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L08R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L08R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L08R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L08R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				}
 			]
+
 	    },
 	    {
 			"title":"Week 9 Lesson",
@@ -344,41 +346,42 @@
 	    	"order":9,
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L09R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L09R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L09R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L09R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L09R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				}
 			]
+
 	    },
 	    {
 	    	"id":"L10",
@@ -386,41 +389,42 @@
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L10R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L10R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L10R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L10R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L10R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				}
 			]
+
 	    },
 	    {
 	    	"id":"L11",
@@ -428,78 +432,78 @@
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L11R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L11R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L11R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L11R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L11R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				}
 			]
-	    },
+		},
 	    {
 	    	"id":"L12",
 	    	"order":12,	    	
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L12R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L12R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L12R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L12R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L12R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -512,36 +516,36 @@
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L13R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L13R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L13R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L13R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L13R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -554,36 +558,36 @@
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L14R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L14R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L14R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L14R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L14R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -596,36 +600,36 @@
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L15R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L15R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L15R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L15R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L15R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -638,36 +642,36 @@
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L16R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L16R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L16R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L16R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L16R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -680,36 +684,36 @@
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L17R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L17R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L17R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L17R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L17R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -722,36 +726,36 @@
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L18R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L18R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L18R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L18R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L18R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -764,36 +768,36 @@
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L19R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L19R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L19R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L19R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L19R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
@@ -806,36 +810,36 @@
 			"title":"Week 1 Lesson",
 			"readings": [		
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L20R01",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L20R02",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L20R03",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L20R04",
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
 				},
 				{
-					"checked": 0, 
-					"description": "Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
+					"id": "L20R05", 
+					"description": "W1 - Risk Taking: A Corporate Governance Perspective, (International Finance Corporation, World BankGroup, June 2012)", 
 					"attachmentURL": "http://frmapp.garp.org/books/frm1.pdf", 
 					"attachmentName": "FRM-1", 
 					"attachmentDesc": "Freely available on the GARP Digital Library."
