@@ -1,9 +1,9 @@
 <div ng-controller="ScheduleBarController">
-<div ng-class="{'schedulebar-scroll-left' :  width < 1200}" ng-click="scrollLeft()">
-	<div class="schedulebar-scroll-area"><span ng-if="width < 1200" class="glyphicon glyphicon-chevron-left"></span></div>
+<div ng-class="{'schedulebar-scroll-left' :  width < 1200, 'display-hidden' : width >= 1200}" ng-click="scrollLeft()">
+	<div class="schedulebar-scroll-area"><span class="glyphicon glyphicon-chevron-left"></span></div>
 </div>
-<div ng-class="{'schedulebar-scroll-right' :  width < 1200}" ng-click="scrollRight()">
-	<div class="schedulebar-scroll-area"><span ng-if="width < 1200" class="glyphicon glyphicon-chevron-right"></span></a></div>
+<div ng-class="{'schedulebar-scroll-right' :  width < 1200, 'display-hidden' : width >= 1200}" ng-click="scrollRight()">
+	<div class="schedulebar-scroll-area"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
 </div>
 
 <div class="schedulebar-item" ng-if="allMode">
