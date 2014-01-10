@@ -1,5 +1,5 @@
 <ul class="readings-list-area list-group" ng-controller="FRMAppReadingsListCtrl">				
-	<li ng-repeat="reading in readings track by reading.id | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'checked') }">
+	<li ng-repeat="reading in readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'checked') }">
 		<div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
 		<div>
 			<p>{{reading.id}} - {{reading.description}}</p>
