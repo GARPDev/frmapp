@@ -1,7 +1,7 @@
 <!-- Fixed navbar -->
 <div class="slide-animate" ng-include="'partials/frm-examnav.html'"></div>    
 
-<div class="container">
+<div class="container page-container">
   <div class="row">
     <div class="col-md-12">
         <div class="exam-setting-title">
@@ -42,10 +42,10 @@
       </div>
       <div class="modal-footer">
       	<div ng-if="currentQuestion == totalQuestions-1">
-        	<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="nextQuestion()">Finish</button>
+        	<button type="button" class="btn btn-default" ng-click="nextQuestion()">Finish</button>
       	</div>
       	<div ng-if="currentQuestion < totalQuestions-1">
-        	<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="nextQuestion()">Next Question</button>
+        	<button type="button" class="btn btn-default"ng-click="nextQuestion()">Next Question</button>
         </div>
       </div>
     </div><!-- /.modal-content -->

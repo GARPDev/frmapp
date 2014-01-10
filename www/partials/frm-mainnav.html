@@ -12,11 +12,11 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li id="mainnav-dashboard" ng-class="{ active: isActive('/dash')}"><a href="#dash">Dashboard</a></li>
-            <li id="mainnav-readings" ng-class="{ active: isActive('/readings')}"><a href="#readings">Readings</a></li>
-            <li id="mainnav-tests" ng-class="{ active: isActive('/examsettings')}"><a href="#examsettings">Tests</a></li>
-            <li id="mainnav-messages" ng-class="{ active: isActive('/messages')}"><a href="#messages">Messages</a></li>
-            <li id="mainnav-examday" ng-class="{ active: isActive('/examday')}"><a href="#examday">Exam Day</a></li>
+            <li id="mainnav-dashboard" ng-class="{ active: isActive('/dash')}" ><a href ng-click="changeView('dash')">Dashboard</a></li>
+            <li id="mainnav-readings" ng-class="{ active: isActive('/readings')}"><a href ng-click="changeView('readings')">Readings</a></li>
+            <li id="mainnav-tests" ng-class="{ active: isActive('/examsettings')}"><a href ng-click="changeView('examsettings')">Tests</a></li>
+            <li id="mainnav-messages" ng-class="{ active: isActive('/messages')}"><a href ng-click="changeView('messages')">Messages</a></li>
+            <li id="mainnav-examday" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')">Exam Day</a></li>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">

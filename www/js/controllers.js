@@ -70,12 +70,30 @@ frmControllers.controller('NavController', ['$scope', '$location',
       
     });
 
+    $scope.changeView = function(view) {
+      pageTransitionOut(view);
+    }
 
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
     };    
   }
 ]);
+
+var pageTransitionOut = function(view) {
+  $('.page-container').fadeOut(function() {
+    document.location.hash = '#/' + view;
+  });
+  
+
+  //$('.page-container').hide("slide", { direction: "right" }, 500
+}
+
+var pageTransitionIn = function() {
+  //$('.page-container').show("slide", { direction: "left" }, 500); 
+  $('.page-container').fadeIn();
+}
+
 
 frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$location','remoteDataService',
   function($scope, $timeout, $location, remoteDataService) {
@@ -179,12 +197,7 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
     }
 
     $scope.changeView = function(view) {
-      //$('.page-container').hide('slide');
-      console.log('nav');
-      //$location.path(view);  
-      $('.page-container').hide("slide", { direction: "right" }, 500, function() {
-        document.location.hash = '#/' + view;
-      });
+      pageTransitionOut(view);
     }
   }
 
@@ -248,7 +261,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.currentLesson = {};
 
     $timeout(function() {
-      $('.page-container').show("slide", { direction: "left" }, 500); 
+      pageTransitionIn();
     }, 0);
 
     scheduleBarSharedService.allMode = false;
@@ -561,7 +574,8 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
     scheduleBarSharedService.allMode = true;
 
     $timeout(function() {
-      $('.page-container').show("slide", { direction: "left" }, 500); 
+      pageTransitionIn();
+      $('body').removeClass("modal-open")
     }, 0);
 
 
@@ -643,8 +657,7 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
     }
 
     $timeout(function() {
-      //$('.page-container').show("slow");
-      $('.page-container').show("slide", { direction: "left" }, 500); 
+      pageTransitionIn();
     }, 0);
 
     $scope.$on('browserResize', function() {
@@ -701,14 +714,18 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
   }
 ]);
 
-frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$location','examSharedService','remoteDataService',
-  function($scope,$location,examSharedService,remoteDataService) {
+frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService',
+  function($scope,$timeout,$location,examSharedService,remoteDataService) {
 
     $scope.settings = {
       mode:0,
       topics:0,
       questions:1
     }
+
+    $timeout(function() {
+      pageTransitionIn();
+    }, 0);
 
     $scope.isSettingOn = function(type, value) {
       return $scope.settings[type] === value;
@@ -872,7 +889,10 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
 
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    $('.page-container').show("slow");
+    $timeout(function() {
+      pageTransitionIn();
+    }, 0);
+
 
     geocoder = new google.maps.Geocoder();
     var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;
@@ -928,13 +948,19 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
 ]);
 
 
-frmControllers.controller('FRMExamResultsCtrl', ['$scope','$location','examSharedService','remoteDataService',
-  function($scope,$location,examSharedService,remoteDataService) {
+frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService',
+  function($scope,$timeout,$location,examSharedService,remoteDataService) {
 
     $scope.userAnswers = examSharedService.userAnswers;
     $scope.correctAnswers = examSharedService.correctAnswers;
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.currentOpen = '';
+
+    $timeout(function() {
+      pageTransitionIn();
+      $('body').removeClass("modal-open");
+    }, 0);
+
 
     $scope.showQuestion=function(id) {
 
@@ -954,8 +980,8 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$location','examShare
 ]);
 
 
-frmControllers.controller('FRMExamCtrl', ['$scope','$location','examSharedService','remoteDataService',
-  function($scope,$location,examSharedService,remoteDataService) {
+frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService',
+  function($scope,$timeout,$location,examSharedService,remoteDataService) {
 
     $scope.currentQuestion = 0;
     $scope.settings = examSharedService.settings;
@@ -970,6 +996,16 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$location','examSharedServic
     $scope.correctAnswers = 0;
 
     $scope.userAnswers = [];
+
+    $timeout(function() {
+      pageTransitionIn();
+    }, 0);
+
+
+    $scope.exitExam = function() {
+      $('body').removeClass("modal-open");
+      document.location.hash = '#/dash';
+    }
 
     $scope.chooseAnswer = function(id) {
 
@@ -996,12 +1032,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$location','examSharedServic
       }
     }
 
-    $scope.nextQuestion = function() {
-
-      if(examSharedService.settings.mode == 0) {
-        $('#myModal').modal('hide')
-      }
-
+    var gotoQuestion=function() {
       if($scope.currentQuestion == $scope.totalQuestions-1) {
         examSharedService.userAnswers = $scope.userAnswers;
         examSharedService.correctAnswers = $scope.correctAnswers;
@@ -1015,6 +1046,17 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$location','examSharedServic
         $scope.answerResponse = "";
         $scope.answerReason = "";              
       }
+    }
+
+    $scope.nextQuestion = function() {
+
+      if(examSharedService.settings.mode == 0) {
+        $('#myModal').modal('hide');
+          gotoQuestion();
+      } else {
+        gotoQuestion();
+      }
+
     }
 
     $scope.flagQuestion = function() {
