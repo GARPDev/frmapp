@@ -1032,12 +1032,23 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
       }
     }
 
+
+    $('#myModal').on('hidden.bs.modal', function (e) {
+      // do something...
+      if($scope.currentQuestion == $scope.totalQuestions-1) {
+         //$location.path('/examresults');
+         document.location.hash = '#/examresults';
+      }
+    })
+
+
     var gotoQuestion=function() {
       if($scope.currentQuestion == $scope.totalQuestions-1) {
+
         examSharedService.userAnswers = $scope.userAnswers;
         examSharedService.correctAnswers = $scope.correctAnswers;
 
-        $location.path('/examresults');
+       
       } else {
         $scope.currentQuestion++;
         $scope.question = examSharedService.questions[$scope.currentQuestion];
