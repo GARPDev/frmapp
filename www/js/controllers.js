@@ -239,9 +239,6 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
         return viewLocation === $location.path();
     };
 
-    $scope.clearData = function() {
-      remoteDataService.clearData();
-    }
   }
 ]);
 
@@ -298,6 +295,12 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     function onFail(message) {
       $scope.camerror=message;
     };
+
+    $scope.clearData = function() {
+      remoteDataService.clearData();
+      document.location.hash = '#/login';
+    }
+
   }
 ]);
 
