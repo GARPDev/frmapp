@@ -80,7 +80,9 @@ frmControllers.controller('NavController', ['$scope', '$location',
 
 var pageTransitionOut = function(view) {
   $('.page-container').fadeOut(function() {
-    document.location.hash = '#/' + view;
+    if(view !== null && typeof view !== "undefined") {
+      document.location.hash = '#/' + view;
+    }
   });
   
 
@@ -1040,7 +1042,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
 
     $('#myModal').on('hidden.bs.modal', function (e) {
       // do something...
-      if($scope.currentQuestion == $scope.totalQuestions-1) {
+      if($scope.currentQuestion == $scope.totalQuestions) {
          //$location.path('/examresults');
          document.location.hash = '#/examresults';
       }
@@ -1050,9 +1052,10 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
     var gotoQuestion=function() {
       if($scope.currentQuestion == $scope.totalQuestions-1) {
 
+        pageTransitionOut();
         examSharedService.userAnswers = $scope.userAnswers;
         examSharedService.correctAnswers = $scope.correctAnswers;
-
+        $scope.currentQuestion++;
        
       } else {
         $scope.currentQuestion++;
