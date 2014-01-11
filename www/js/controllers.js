@@ -66,8 +66,6 @@ frmControllers.controller('NavController', ['$scope', '$location',
     $scope.$on('browserResize', function() {
       $scope.innerWidth = window.innerWidth;
       $scope.innerHeight = window.innerHeight;
-
-      
     });
 
     $scope.changeView = function(view) {
@@ -311,6 +309,9 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
     $scope.scrollIndex = 1;
     $scope.allMode = scheduleBarSharedService.allMode;
 
+    $scope.innerWidth = window.innerWidth;
+    $scope.innerHeight = window.innerHeight;
+
     // init ScheduleBar
     if(scheduleBarSharedService.lessonIndex == 'all') {
        var lesson = {id:'all', title:'All Lessons'};
@@ -339,11 +340,6 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
   		}
   	};
 
-    $scope.$on('browserResize', function() {
-      if($scope.width >= 1200)
-          $scope.scrollIndex = 1;
-    });
-
     $scope.scrollRight=function() {
       if($scope.scrollIndex < $scope.lessons.length)
         $scope.scrollIndex++;
@@ -369,7 +365,16 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
   			$scope.lessons[li].readings[ri].checked = 1;
   		}
   	});
-  	
+
+    $scope.$on('browserResize', function() {
+      $scope.innerWidth = window.innerWidth;
+      $scope.innerHeight = window.innerHeight;
+
+      // if($scope.innerWidth >= 1200) {
+      //     $scope.scrollIndex = 1;
+      // }
+    });
+
   	$scope.isItemInProgress = function(id) {
 
       var lesson = _.findWhere(remoteDataService.lessonData, {id: id});
