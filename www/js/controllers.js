@@ -471,13 +471,6 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
       $scope.readings = $scope.currentLesson.readings
     }
 
-    $timeout(function() {
-      if(window.innerWidth < minWidth) {
-        $('.reading-list-button').css('display','none');
-        $('.btn .badge').css('top','-4px');
-      }
-    }, 100);
-
     $scope.$on('handleScheduleBarSelectItem', function() {
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
 
@@ -495,17 +488,6 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
               $scope.readings = lesson.readings;
             }            
           }
-      }
-    });
-
-    $scope.$on('browserResize', function() {
-      if(window.innerWidth < minWidth) {
-        $('.reading-list-button').css('display','none');
-        $('.btn .badge').css('top','-4px');
-      } else {
-        $('.reading-list-button').css('display','inline');
-        $('.btn .badge').css('top','-1px');
-
       }
     });
 
