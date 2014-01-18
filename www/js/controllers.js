@@ -917,26 +917,26 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
         zoom: 8
       };
 
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
     $timeout(function() {
       pageTransitionIn();
+    
+
+      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      geocoder = new google.maps.Geocoder();
+      var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+        } else {
+          $('#map-canvas').innerHTML = ' Geocode was not successful for the following reason: ' + status;
+        }
+      });
+
     }, 0);
-
-
-    geocoder = new google.maps.Geocoder();
-    var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        $('#map-canvas').innerHTML = ' Geocode was not successful for the following reason: ' + status;
-      }
-    });
 
     if(navigator.camera === null || typeof navigator.camera === "undefined") {
       $('.add-reminder-area').hide();
