@@ -1,0 +1,548 @@
+{
+"id":"frm01",
+"readings":[
+{
+"id": "B01C01S01",
+"book": { "id":"01", "title":"Risk Taking: A Corporate Governance Perspective", "author":"Noel Amenc and Veronique Le Sourd", "publisher":"Fisher College of Business Working Paper Series, October 2008"},
+"chapter": { "id":"01", "title":"Financial Disasters"},
+"section": { "id":"01", "title":"Section 01"},
+"week": { "number":"2", "title":"Week 2"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B01C01S02",
+"book": { "id":"01", "title":"Understanding and Communicating Risk Appetite", "author":"Noel Amenc and Veronique Le Sourd", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"01", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
+"section": { "id":"02", "title":"Section 02"},
+"week": { "number":"1", "title":"Week 1"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B01C01S03",
+"book": { "id":"01", "title":"Portfolio Theory and Performance Analysis", "author":"René Stulz", "publisher":"COSO, January 2012"},
+"chapter": { "id":"01", "title":"Financial Disasters"},
+"section": { "id":"03", "title":"Section 03"},
+"week": { "number":"3", "title":"Week 3"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B01C01S04",
+"book": { "id":"01", "title":"Risk Management Failures: What are They and When Do They Happen?", "author":"Steve Allen", "publisher":"New York: John Wiley & Sons, 2013"},
+"chapter": { "id":"01", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
+"section": { "id":"04", "title":"Section 04"},
+"week": { "number":"19", "title":"Week 19"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+} 
+},
+{
+"id": "B01C01S05",
+"book": { "id":"01", "title":"Investments", "author":"Zvi Bodie, Alex Kane, and Alan J. Marcus", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"01", "title":"Information Risk and Data Quality Management"},
+"section": { "id":"05", "title":"Section 05"},
+"week": { "number":"14", "title":"Week 14"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B01C02S01",
+"book": { "id":"01", "title":"Portfolio Theory and Performance Analysis", "author":"René Stulz", "publisher":"New York: John Wiley & Sons, 2013"},
+"chapter": { "id":"02", "title":".The Standard Capital Asset Pricing Model"},
+"section": { "id":"01", "title":"Section 01"},
+"week": { "number":"11", "title":"Week 11"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B01C02S02",
+"book": { "id":"01", "title":"Portfolio Theory and Performance Analysis", "author":"Anthony Tarantino and Deborah Cernauskas", "publisher":"9th Edition New York: McGraw-Hill, 2010"},
+"chapter": { "id":"02", "title":""},
+"section": { "id":"02", "title":"Section 02"},
+"week": { "number":"4", "title":"Week 4"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+} 
+},
+{
+"id": "B01C02S03",
+"book": { "id":"01", "title":"Risk Management in Finance: Six Sigma and Other Next Generation Techniques", "author":"Zvi Bodie, Alex Kane, and Alan J. Marcus", "publisher":"West Sussex, England: John Wiley & Sons, 2003"},
+"chapter": { "id":"02", "title":"Information Risk and Data Quality Management"},
+"section": { "id":"03", "title":"Section 03"},
+"week": { "number":"6", "title":"Week 6"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+} 
+},
+{
+"id": "B01C02S04",
+"book": { "id":"01", "title":"Risk Management in Finance: Six Sigma and Other Next Generation Techniques", "author":"Dr. Larry Rittenberg and Frank Martens", "publisher":"New York: John Wiley & Sons, 2013"},
+"chapter": { "id":"02", "title":"Information Risk and Data Quality Management"},
+"section": { "id":"04", "title":"Section 04"},
+"week": { "number":"9", "title":"Week 9"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+} 
+},
+{
+"id": "B01C02S05",
+"book": { "id":"01", "title":"Investments", "author":"René Stulz", "publisher":"9th Edition New York: McGraw-Hill, 2010"},
+"chapter": { "id":"02", "title":".The Standard Capital Asset Pricing Model"},
+"section": { "id":"05", "title":"Section 05"},
+"week": { "number":"1", "title":"Week 1"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B01C03S01",
+"book": { "id":"01", "title":"Risk Taking: A Corporate Governance Perspective", "author":"Steve Allen", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"03", "title":"Arbitrage Pricing Theory and Multifactor Models of Risk and Return"},
+"section": { "id":"01", "title":"Section 01"},
+"week": { "number":"2", "title":"Week 2"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B01C03S02",
+"book": { "id":"01", "title":"Risk Management Failures: What are They and When Do They Happen?", "author":"Noel Amenc and Veronique Le Sourd", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"03", "title":""},
+"section": { "id":"02", "title":"Section 02"},
+"week": { "number":"17", "title":"Week 17"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B01C03S03",
+"book": { "id":"01", "title":"Portfolio Theory and Performance Analysis", "author":"René Stulz", "publisher":"West Sussex, England: John Wiley & Sons, 2003"},
+"chapter": { "id":"03", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
+"section": { "id":"03", "title":"Section 03"},
+"week": { "number":"4", "title":"Week 4"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B01C03S04",
+"book": { "id":"01", "title":"Risk Taking: A Corporate Governance Perspective", "author":"Noel Amenc and Veronique Le Sourd", "publisher":"Fisher College of Business Working Paper Series, October 2008"},
+"chapter": { "id":"03", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
+"section": { "id":"04", "title":"Section 04"},
+"week": { "number":"13", "title":"Week 13"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B01C03S05",
+"book": { "id":"01", "title":"Investments", "author":"Dr. Larry Rittenberg and Frank Martens", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"03", "title":".The Standard Capital Asset Pricing Model"},
+"section": { "id":"05", "title":"Section 05"},
+"week": { "number":"19", "title":"Week 19"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C01S01",
+"book": { "id":"02", "title":"Financial Risk Management: A Practitioner’s Guide to Managing Market and Credit Risk", "author":"Zvi Bodie, Alex Kane, and Alan J. Marcus", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"01", "title":"Information Risk and Data Quality Management"},
+"section": { "id":"01", "title":"Section 01"},
+"week": { "number":"5", "title":"Week 5"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C01S02",
+"book": { "id":"02", "title":"Financial Risk Management: A Practitioner’s Guide to Managing Market and Credit Risk", "author":"Steve Allen", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"01", "title":"Financial Disasters"},
+"section": { "id":"02", "title":"Section 02"},
+"week": { "number":"14", "title":"Week 14"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C01S03",
+"book": { "id":"02", "title":"Investments", "author":"Zvi Bodie, Alex Kane, and Alan J. Marcus", "publisher":"West Sussex, England: John Wiley & Sons, 2003"},
+"chapter": { "id":"01", "title":"Arbitrage Pricing Theory and Multifactor Models of Risk and Return"},
+"section": { "id":"03", "title":"Section 03"},
+"week": { "number":"4", "title":"Week 4"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C01S04",
+"book": { "id":"02", "title":"Investments", "author":"René Stulz", "publisher":"New York: John Wiley & Sons, 2013"},
+"chapter": { "id":"01", "title":"Information Risk and Data Quality Management"},
+"section": { "id":"04", "title":"Section 04"},
+"week": { "number":"16", "title":"Week 16"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+} 
+},
+{
+"id": "B02C01S05",
+"book": { "id":"02", "title":"Understanding and Communicating Risk Appetite", "author":"Anthony Tarantino and Deborah Cernauskas", "publisher":"New York: John Wiley & Sons, 2013"},
+"chapter": { "id":"01", "title":"Financial Disasters"},
+"section": { "id":"05", "title":"Section 05"},
+"week": { "number":"15", "title":"Week 15"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C02S01",
+"book": { "id":"02", "title":"Risk Management Failures: What are They and When Do They Happen?", "author":"Noel Amenc and Veronique Le Sourd", "publisher":"Fisher College of Business Working Paper Series, October 2008"},
+"chapter": { "id":"02", "title":"Arbitrage Pricing Theory and Multifactor Models of Risk and Return"},
+"section": { "id":"01", "title":"Section 01"},
+"week": { "number":"5", "title":"Week 5"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C02S02",
+"book": { "id":"02", "title":"Modern Portfolio Theory and Investment Analysis, 8th Edition", "author":"Dr. Larry Rittenberg and Frank Martens", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"02", "title":"Financial Disasters"},
+"section": { "id":"02", "title":"Section 02"},
+"week": { "number":"15", "title":"Week 15"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+} 
+},
+{
+"id": "B02C02S03",
+"book": { "id":"02", "title":"Risk Management Failures: What are They and When Do They Happen?", "author":"René Stulz", "publisher":"New York: John Wiley & Sons, 2013"},
+"chapter": { "id":"02", "title":"Information Risk and Data Quality Management"},
+"section": { "id":"03", "title":"Section 03"},
+"week": { "number":"3", "title":"Week 3"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C02S04",
+"book": { "id":"02", "title":"Financial Risk Management: A Practitioner’s Guide to Managing Market and Credit Risk", "author":"Steve Allen", "publisher":"COSO, January 2012"},
+"chapter": { "id":"02", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
+"section": { "id":"04", "title":"Section 04"},
+"week": { "number":"3", "title":"Week 3"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C02S05",
+"book": { "id":"02", "title":"Modern Portfolio Theory and Investment Analysis, 8th Edition", "author":"Dr. Larry Rittenberg and Frank Martens", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"02", "title":".The Standard Capital Asset Pricing Model"},
+"section": { "id":"05", "title":"Section 05"},
+"week": { "number":"16", "title":"Week 16"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C03S01",
+"book": { "id":"02", "title":"Financial Risk Management: A Practitioner’s Guide to Managing Market and Credit Risk", "author":"Dr. Larry Rittenberg and Frank Martens", "publisher":"COSO, January 2012"},
+"chapter": { "id":"03", "title":"Financial Disasters"},
+"section": { "id":"01", "title":"Section 01"},
+"week": { "number":"6", "title":"Week 6"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C03S02",
+"book": { "id":"02", "title":"Understanding and Communicating Risk Appetite", "author":"Anthony Tarantino and Deborah Cernauskas", "publisher":"Fisher College of Business Working Paper Series, October 2008"},
+"chapter": { "id":"03", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
+"section": { "id":"02", "title":"Section 02"},
+"week": { "number":"2", "title":"Week 2"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B02C03S03",
+"book": { "id":"02", "title":"Risk Management Failures: What are They and When Do They Happen?", "author":"Steve Allen", "publisher":"West Sussex, England: John Wiley & Sons, 2003"},
+"chapter": { "id":"03", "title":"Financial Disasters"},
+"section": { "id":"03", "title":"Section 03"},
+"week": { "number":"6", "title":"Week 6"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+} 
+},
+{
+"id": "B02C03S04",
+"book": { "id":"02", "title":"Risk Management Failures: What are They and When Do They Happen?", "author":"René Stulz", "publisher":"Fisher College of Business Working Paper Series, October 2008"},
+"chapter": { "id":"03", "title":".The Standard Capital Asset Pricing Model"},
+"section": { "id":"04", "title":"Section 04"},
+"week": { "number":"7", "title":"Week 7"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+} 
+},
+{
+"id": "B02C03S05",
+"book": { "id":"02", "title":"Financial Risk Management: A Practitioner’s Guide to Managing Market and Credit Risk", "author":"Steve Allen", "publisher":"COSO, January 2012"},
+"chapter": { "id":"03", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
+"section": { "id":"05", "title":"Section 05"},
+"week": { "number":"16", "title":"Week 16"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B03C01S01",
+"book": { "id":"03", "title":"Portfolio Theory and Performance Analysis", "author":"Zvi Bodie, Alex Kane, and Alan J. Marcus", "publisher":"9th Edition New York: McGraw-Hill, 2010"},
+"chapter": { "id":"01", "title":""},
+"section": { "id":"01", "title":"Section 01"},
+"week": { "number":"2", "title":"Week 2"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B03C01S02",
+"book": { "id":"03", "title":"Risk Management Failures: What are They and When Do They Happen?", "author":"Anthony Tarantino and Deborah Cernauskas", "publisher":"Fisher College of Business Working Paper Series, October 2008"},
+"chapter": { "id":"01", "title":"Arbitrage Pricing Theory and Multifactor Models of Risk and Return"},
+"section": { "id":"02", "title":"Section 02"},
+"week": { "number":"1", "title":"Week 1"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+} 
+},
+{
+"id": "B03C01S03",
+"book": { "id":"03", "title":"Modern Portfolio Theory and Investment Analysis, 8th Edition", "author":"Noel Amenc and Veronique Le Sourd", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"01", "title":""},
+"section": { "id":"03", "title":"Section 03"},
+"week": { "number":"17", "title":"Week 17"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B03C01S04",
+"book": { "id":"03", "title":"Investments", "author":"Edwin J. Elton, Martin J. Gruber, Stephen J. Brown and William N. Goetzmann", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"01", "title":".The Standard Capital Asset Pricing Model"},
+"section": { "id":"04", "title":"Section 04"},
+"week": { "number":"16", "title":"Week 16"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+} 
+},
+{
+"id": "B03C01S05",
+"book": { "id":"03", "title":"Portfolio Theory and Performance Analysis", "author":"Edwin J. Elton, Martin J. Gruber, Stephen J. Brown and William N. Goetzmann", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"01", "title":"Information Risk and Data Quality Management"},
+"section": { "id":"05", "title":"Section 05"},
+"week": { "number":"0", "title":"Week 0"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B03C02S01",
+"book": { "id":"03", "title":"Risk Taking: A Corporate Governance Perspective", "author":"Steve Allen", "publisher":"Fisher College of Business Working Paper Series, October 2008"},
+"chapter": { "id":"02", "title":".The Standard Capital Asset Pricing Model"},
+"section": { "id":"01", "title":"Section 01"},
+"week": { "number":"18", "title":"Week 18"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B03C02S02",
+"book": { "id":"03", "title":"Financial Risk Management: A Practitioner’s Guide to Managing Market and Credit Risk", "author":"Steve Allen", "publisher":"COSO, January 2012"},
+"chapter": { "id":"02", "title":"Financial Disasters"},
+"section": { "id":"02", "title":"Section 02"},
+"week": { "number":"8", "title":"Week 8"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B03C02S03",
+"book": { "id":"03", "title":"Investments", "author":"Edwin J. Elton, Martin J. Gruber, Stephen J. Brown and William N. Goetzmann", "publisher":"West Sussex, England: John Wiley & Sons, 2003"},
+"chapter": { "id":"02", "title":".The Standard Capital Asset Pricing Model"},
+"section": { "id":"03", "title":"Section 03"},
+"week": { "number":"15", "title":"Week 15"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+} 
+},
+{
+"id": "B03C02S04",
+"book": { "id":"03", "title":"Risk Taking: A Corporate Governance Perspective", "author":"Anthony Tarantino and Deborah Cernauskas", "publisher":"COSO, January 2012"},
+"chapter": { "id":"02", "title":"Financial Disasters"},
+"section": { "id":"04", "title":"Section 04"},
+"week": { "number":"11", "title":"Week 11"},
+"topic": { "id":"00", "title":"Foundations of Risk Management"},
+"attachment" : { 
+} 
+},
+{
+"id": "B03C02S05",
+"book": { "id":"03", "title":"Portfolio Theory and Performance Analysis", "author":"René Stulz", "publisher":"COSO, January 2012"},
+"chapter": { "id":"02", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
+"section": { "id":"05", "title":"Section 05"},
+"week": { "number":"10", "title":"Week 10"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+} 
+},
+{
+"id": "B03C03S01",
+"book": { "id":"03", "title":"Investments", "author":"Steve Allen", "publisher":"International Finance Corporation, World Bank Group, June 2012"},
+"chapter": { "id":"03", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
+"section": { "id":"01", "title":"Section 01"},
+"week": { "number":"9", "title":"Week 9"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+} 
+},
+{
+"id": "B03C03S02",
+"book": { "id":"03", "title":"Financial Risk Management: A Practitioner’s Guide to Managing Market and Credit Risk", "author":"Edwin J. Elton, Martin J. Gruber, Stephen J. Brown and William N. Goetzmann", "publisher":"9th Edition New York: McGraw-Hill, 2010"},
+"chapter": { "id":"03", "title":".The Standard Capital Asset Pricing Model"},
+"section": { "id":"02", "title":"Section 02"},
+"week": { "number":"6", "title":"Week 6"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B03C03S03",
+"book": { "id":"03", "title":"Modern Portfolio Theory and Investment Analysis, 8th Edition", "author":"René Stulz", "publisher":"New York: John Wiley & Sons, 2013"},
+"chapter": { "id":"03", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
+"section": { "id":"03", "title":"Section 03"},
+"week": { "number":"16", "title":"Week 16"},
+"topic": { "id":"02", "title":"Financial Markets and Products"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B03C03S04",
+"book": { "id":"03", "title":"Understanding and Communicating Risk Appetite", "author":"Steve Allen", "publisher":"New York: John Wiley & Sons, 2013"},
+"chapter": { "id":"03", "title":".The Standard Capital Asset Pricing Model"},
+"section": { "id":"04", "title":"Section 04"},
+"week": { "number":"13", "title":"Week 13"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+{
+"id": "B03C03S05",
+"book": { "id":"03", "title":"Risk Management Failures: What are They and When Do They Happen?", "author":"Noel Amenc and Veronique Le Sourd", "publisher":"Hoboken, NJ: John Wiley & Sons, 2009"},
+"chapter": { "id":"03", "title":""},
+"section": { "id":"05", "title":"Section 05"},
+"week": { "number":"15", "title":"Week 15"},
+"topic": { "id":"01", "title":"Quantitative Analysis"},
+"attachment" : { 
+"url": "http://frmapp.garp.org/books/frm1.pdf",
+"name": "FRM-1",
+"description": "Freely available on the GARP Digital Library."
+} 
+},
+]
+}
