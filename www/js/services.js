@@ -64,10 +64,13 @@ frmServices.factory('remoteDataService', ['$resource','$http',
             }
       }) 
       return _.sortBy(lessons, function(item){ return parseInt(item.order); });
-
-
     }
 
+
+    remoteDataService.changeOrgOption = function(org) {
+      remoteDataService.userData.settings.organizeBy = org;
+      remoteDataService.lessonData = getLessons(remoteDataService.readingData);
+    }
 
     //our service accepts a promise object which 
     //it will resolve on behalf of the calling function

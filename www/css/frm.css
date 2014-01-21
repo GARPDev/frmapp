@@ -147,7 +147,12 @@ body {
 
 }
 
+.readings-title-area {
+  float: left;
+}
+
 .readings-filter {
+  float: right;
 }
 
 .readings-filter-pills-text {

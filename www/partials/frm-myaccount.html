@@ -11,10 +11,9 @@
         <li class="list-group-item">{{userData.registeredExam.time}}</li>
         <li class="list-group-item">{{userData.registeredExam.address}} {{userData.registeredExam.city}}, {{userData.registeredExam.state}} {{userData.registeredExam.zip}}</li>
       </ul>
-      <select id='org'>
-        <option value="week">By Week</option>
-        <option value="topic">By Topic</option>
-      </select>
+
+      Organize Work By: <select ng-model="orgOption" ng-options="c.name for c in orgOptions" ng-change="changeOrgOption()"></select><br>
+
       <button type="button" class="btn btn-default" ng-click="clearData()">Reset Progress</button>
     </div>
     <div class="col-md-5">

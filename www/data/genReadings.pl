@@ -57,7 +57,7 @@ for($i=1; $i<=$MAX_BOOKS; $i++) {
 			if($random_week<10) { $prandom_week = "0${random_week}"; }
 
 			my $topic = 4;
-			my $random_topic = int(rand($topic));
+			my $random_topic = int(rand($topic))+1;
 
 			$prandom_topic = $random_topic + 1;
 			if($random_topic<10) { $prandom_topic = "0${random_topic}"; }
@@ -72,7 +72,7 @@ for($i=1; $i<=$MAX_BOOKS; $i++) {
 			print OUT "\"chapter\": { \"id\":\"${pj}\", \"title\":\"$chapters[$random_chap]\"},\n";
 			print OUT "\"section\": { \"id\":\"${pk}\", \"title\":\"Section ${pk}\"},\n";
 			print OUT "\"week\": { \"id\":\"${prandom_week}\", \"order\":${random_week}, \"title\":\"Week ${random_week}\"},\n";
-			print OUT "\"topic\": { \"id\":\"${prandom_topic}\", \"order\":${random_topic}, \"title\":\"$topics[$random_topic]\"},\n";
+			print OUT "\"topic\": { \"id\":\"${prandom_topic}\", \"order\":${random_topic}, \"title\":\"$topics[$random_topic-1]\"},\n";
 			print OUT "\"attachment\" : { \n";
 
 			if($random_attachment) {

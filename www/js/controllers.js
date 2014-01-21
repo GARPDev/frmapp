@@ -276,6 +276,16 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.lessonIndex = 0;
     $scope.currentLesson = {};
 
+    $scope.orgOptions = [{
+          name: 'Week',
+          value: 'week'
+      }, {
+         name: 'Topic',
+         value: 'topic'
+      }];
+
+    $scope.orgOption = _.findWhere($scope.orgOptions, {value: $scope.userData.settings.organizeBy })
+
     $timeout(function() {
       pageTransitionIn();
     }, 0);
@@ -320,6 +330,11 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       document.location.hash = '#/login';
     }
 
+    $scope.changeOrgOption = function() {
+      remoteDataService.changeOrgOption($scope.orgOption.value);
+      $scope.$broadcast('changeOrgOption');
+    }
+
   }
 ]);
 
@@ -346,6 +361,13 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
     scheduleBarSharedService.lessonIndex = lesson.id;
     $scope.selected = lesson.id;
     scheduleBarSharedService.selectItem(lesson.id);
+
+
+    $scope.$on('changeOrgOption', function() {
+      $scope.lessons = remoteDataService.lessonData;
+      $scope.readings = $scope.lessons[0].readings;
+      $scope.scrollIndex = 1;      
+    });
 
 
   	$scope.isActive = function (viewLocation) { 
