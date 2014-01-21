@@ -41,37 +41,30 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     // Helper Functions
     var getLessons = function(readings) {
 
+      var org = "week";
       if(remoteDataService.userData.settings.organizeBy == "topic") {
-
-        var topics = _.pluck(readings, 'topic');
-        var items = [];        
-        var topics = _.reject(topics, function(item) {
-              var found = _.findWhere(items, {id:item.id})
-              if(typeof found === "undefined") {
-                items.push(item);
-                return false;
-              } else {
-                return true;
-              }
-        }) 
-        return _.sortBy(topics, function(item){ return parseInt(item.order); });
-
-      } else { // Week
-
-        var topics = _.pluck(readings, 'week');
-        var items = [];        
-        var topics = _.reject(topics, function(item) {
-              var found = _.findWhere(items, {id:item.id})
-              if(typeof found === "undefined") {
-                items.push(item);
-                return false;
-              } else {
-                return true;
-              }
-        }) 
-        return _.sortBy(topics, function(item){ return parseInt(item.order); });
-
+        org = "topic";
       }
+
+      var lessons = [];        
+      var topics = _.each(readings, function(item) {
+            var found = _.findWhere(lessons, {id:item[org].id})
+            if(typeof found === "undefined") {
+
+              var newItem =  JSON.parse(JSON.stringify(item));
+              var newLesson =  JSON.parse(JSON.stringify(item[org]));
+
+              newLesson.readings = [];
+              newLesson.readings.push(newItem);
+              lessons.push(newLesson);
+
+            } else {
+              var newItem =  JSON.parse(JSON.stringify(item));
+              found.readings.push(newItem);
+            }
+      }) 
+      return _.sortBy(lessons, function(item){ return parseInt(item.order); });
+
 
     }
 
@@ -127,7 +120,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     };
 
    remoteDataService.commitData = function() {
-      localStorage.lessonData = JSON.stringify(remoteDataService.lessonData);
+      //localStorage.lessonData = JSON.stringify(remoteDataService.lessonData);
       localStorage.userMeta = JSON.stringify(remoteDataService.userMeta);
       localStorage.userSession = JSON.stringify(remoteDataService.userSession);
 

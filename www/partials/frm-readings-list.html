@@ -3,9 +3,10 @@
 	<li ng-repeat="reading in readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'checked') }">
 		<div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
 		<div>
-			<p>{{reading.id}} - {{reading.description}}</p>
-			<div ng-if="reading.attachmentURL">
-				<span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{reading.attachmentName}}</span> <span>{{reading.attachmentDesc}}</span>
+			<p>{{reading.id}} - <span ng-if="reading.chapter.title">{{reading.chapter.title}}</span> <span ng-if="reading.section.title">, {{reading.section.title}}</span> </p>
+			<p ng-if="reading.book.title">{{reading.book.title}} by <span ng-if="reading.book.author">{{reading.book.author}}</span> <span ng-if="reading.book.publisher">({{reading.book.publisher}})</span>
+			<div ng-if="reading.attachment.url">
+				<span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{reading.attachment.name}}</span> <span>{{reading.attachment.description}}</span>
 			</div>
 		</div>
 	</li>				

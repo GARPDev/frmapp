@@ -4,7 +4,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">{{currentReading.id}} - {{currentReading.description}}</h4>
+        <h4 class="modal-title" id="myModalLabel">
+
+      <p>{{currentReading.id}} - <span ng-if="currentReading.chapter.title">{{currentReading.chapter.title}}</span> <span ng-if="currentReading.section.title">, {{currentReading.section.title}}</span> </p>
+      <p ng-if="currentReading.book.title">{{currentReading.book.title}} by <span ng-if="currentReading.book.author">{{currentReading.book.author}}</span> <span ng-if="currentReading.book.publisher">({{currentReading.book.publisher}})</span>
+
+        </h4>
       </div>
       <div class="modal-body">
         <textarea id="addNote" class="form-control" rows="3" ng-model="noteInput"></textarea>

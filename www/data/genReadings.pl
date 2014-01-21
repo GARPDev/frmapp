@@ -37,21 +37,21 @@ for($i=1; $i<=$MAX_BOOKS; $i++) {
 			if($k<10) { $pk = "0${k}"; }			
 
 
-			my $author = @book_authors+1;
+			my $author = @book_authors;
 			my $random_author = int(rand($author));
 
-			my $title = @book_titles+1;
+			my $title = @book_titles;
 			my $random_title = int(rand($title));
 
-			my $pub = @book_pubs+1;
+			my $pub = @book_pubs;
 			my $random_pub = int(rand($pub));
 
-			my $chap = @chapters+1;
+			my $chap = @chapters;
 			my $random_chap = int(rand($chap));
 
 
-			my $week = 21;
-			my $random_week = int(rand($week));
+			my $week = 20;
+			my $random_week = int(rand($week)) + 1;
 			
 			$prandom_week = $random_week;
 			if($random_week<10) { $prandom_week = "0${random_week}"; }
@@ -59,10 +59,10 @@ for($i=1; $i<=$MAX_BOOKS; $i++) {
 			my $topic = 4;
 			my $random_topic = int(rand($topic));
 
-			$prandom_topic = $random_topic;
+			$prandom_topic = $random_topic + 1;
 			if($random_topic<10) { $prandom_topic = "0${random_topic}"; }
 
-			my $attachment = 3;
+			my $attachment = 2;
 			my $random_attachment = int(rand($attachment));
 
 
