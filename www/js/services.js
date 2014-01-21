@@ -34,9 +34,46 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     remoteDataService.userInfo = {};
     remoteDataService.showFooter = true;
 
-    // localStorage.lessonData = null;
-    // localStorage.userMeta = null;
-    // localStorage.userSession = {};
+    localStorage.lessonData = null;
+    localStorage.userMeta = null;
+    localStorage.userSession = {};
+
+    // Helper Functions
+    var getLessons = function(readings) {
+
+      if(remoteDataService.userData.settings.organizeBy == "topic") {
+
+        var topics = _.pluck(readings, 'topic');
+        var items = [];        
+        var topics = _.reject(topics, function(item) {
+              var found = _.findWhere(items, {id:item.id})
+              if(typeof found === "undefined") {
+                items.push(item);
+                return false;
+              } else {
+                return true;
+              }
+        }) 
+        return _.sortBy(topics, function(item){ return parseInt(item.order); });
+
+      } else { // Week
+
+        var topics = _.pluck(readings, 'week');
+        var items = [];        
+        var topics = _.reject(topics, function(item) {
+              var found = _.findWhere(items, {id:item.id})
+              if(typeof found === "undefined") {
+                items.push(item);
+                return false;
+              } else {
+                return true;
+              }
+        }) 
+        return _.sortBy(topics, function(item){ return parseInt(item.order); });
+
+      }
+
+    }
 
 
     //our service accepts a promise object which 
@@ -47,20 +84,24 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
 
         $http({method:'GET',url:'data/user.json'}).success(function(data){
-           remoteDataService.userData = data;
-           localStorage.userData = JSON.stringify(data);
 
+          remoteDataService.userData = data;
+          localStorage.userData = JSON.stringify(data);
 
-          $http({method:'GET',url:'data/lessons.json'}).success(function(data){
-             remoteDataService.lessonData = data.lessons;
-             localStorage.lessonData = JSON.stringify(data.lessons);
+          // Keep for now
+          localStorage.userMeta = []; // In future fetch from API
+          remoteDataService.userMeta = [];
+
+          $http({method:'GET',url:'data/readings.json'}).success(function(data){
+             remoteDataService.readingData = data.readings;
+             localStorage.readingData = JSON.stringify(data.readings);
+
+             remoteDataService.lessonData = getLessons(remoteDataService.readingData);
 
             $http({method:'GET',url:'data/questions.json'}).success(function(data){
               remoteDataService.questionData = data.questions;
               localStorage.questionData = JSON.stringify(data.questions);
 
-              localStorage.userMeta = []; // In future fetch from API
-              remoteDataService.userMeta = [];
               q.resolve();
 
             });
@@ -69,10 +110,13 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
       } else {
 
-        remoteDataService.lessonData = JSON.parse(localStorage.lessonData);
+        remoteDataService.readingData = JSON.parse(localStorage.readingData);
+        remoteDataService.lessonData = getLessons(remoteDataService.readingData);
+
         remoteDataService.questionData = JSON.parse(localStorage.questionData);
         remoteDataService.userData = JSON.parse(localStorage.userData);
 
+        // Keep for now
         if(localStorage.userMeta !== 'null' && typeof localStorage.userMeta !== "undefined" && localStorage.userMeta !== null && localStorage.userMeta != "")  {
           remoteDataService.userMeta = JSON.parse(localStorage.userMeta);
         } else {
@@ -94,6 +138,94 @@ frmServices.factory('remoteDataService', ['$resource','$http',
       localStorage.userMeta = null;
       localStorage.userSession = {};
    }
+
+  // Lessons
+  // Lesson is the Organized By Unit [ Week | Topic ]
+
+
+
+  remoteDataService.getLessonByID = function(lessonId) {
+
+  }
+
+  remoteDataService.getFirstLesson = function() {
+    return remoteDataService.lessonData[0];    
+  }
+
+  remoteDataService.isLessonInProgress = function() {
+
+  }
+
+  remoteDataService.isLessonDone = function() {
+    
+  }
+
+  remoteDataService.getLessonReadings = function(lessonId) {
+    
+  }
+
+  // Readings
+
+  remoteDataService.getReadingByID = function(readingId,type) {
+    
+  }
+
+  remoteDataService.toggelReadingStatus = function(readingId,type) {
+    
+  }
+
+  remoteDataService.setReadingStatusTrue = function(readingId,type) {
+    
+  }
+
+  remoteDataService.isReadingStatusTrue = function(readingId,type) {
+    
+  }
+
+  remoteDataService.getNumberReadingNotes = function(readingId,type) {
+    
+  }
+
+  remoteDataService.isReadingIntersectFlags = function(readingId,flags) {
+    
+  }
+
+  remoteDataService.getReadingNotes = function(readingId) {
+    
+  }
+
+  remoteDataService.addReadingNote = function(readingId) {
+    
+  }
+
+  remoteDataService.deleteReadingNote = function(readingId) {
+    
+  }
+
+  // User
+
+  remoteDataService.getUserMetaByID = function(readingId) {
+    
+  }
+
+  // Questions
+
+  remoteDataService.getQuestionsIntersectCompletedReadings = function() {
+    
+  }
+
+  remoteDataService.getQuestionsIntersectFlaggedReadings = function() {
+    
+  }
+
+  remoteDataService.getQuestionsByTopic = function(topicId) {
+    
+  }
+
+  remoteDataService.getAllQuestions = function(topicId) {
+    
+  }
+
 
   return remoteDataService;
 

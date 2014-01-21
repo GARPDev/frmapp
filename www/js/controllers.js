@@ -340,8 +340,9 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
     if(scheduleBarSharedService.lessonIndex == 'all') {
        var lesson = {id:'all', title:'All Lessons'};
     } else {    
-      var lesson = _.findWhere(remoteDataService.lessonData, {order: 1});
+      var lesson = remoteDataService.getFirstLesson();
     }
+
     scheduleBarSharedService.lessonIndex = lesson.id;
     $scope.selected = lesson.id;
     scheduleBarSharedService.selectItem(lesson.id);

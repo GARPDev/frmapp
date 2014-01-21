@@ -37,23 +37,26 @@ for($i=1; $i<=$MAX_BOOKS; $i++) {
 			if($k<10) { $pk = "0${k}"; }			
 
 
-			my $author = @book_authors;
+			my $author = @book_authors+1;
 			my $random_author = int(rand($author));
 
-			my $title = @book_titles;
+			my $title = @book_titles+1;
 			my $random_title = int(rand($title));
 
-			my $pub = @book_pubs;
+			my $pub = @book_pubs+1;
 			my $random_pub = int(rand($pub));
 
-			my $chap = @chapters;
+			my $chap = @chapters+1;
 			my $random_chap = int(rand($chap));
 
 
-			my $week = 20;
+			my $week = 21;
 			my $random_week = int(rand($week));
+			
+			$prandom_week = $random_week;
+			if($random_week<10) { $prandom_week = "0${random_week}"; }
 
-			my $topic = 3;
+			my $topic = 4;
 			my $random_topic = int(rand($topic));
 
 			$prandom_topic = $random_topic;
@@ -68,8 +71,8 @@ for($i=1; $i<=$MAX_BOOKS; $i++) {
 			print OUT "\"book\": { \"id\":\"${pi}\", \"title\":\"$book_titles[$random_title]\", \"author\":\"$book_authors[$random_author]\", \"publisher\":\"$book_pubs[$random_pub]\"},\n";
 			print OUT "\"chapter\": { \"id\":\"${pj}\", \"title\":\"$chapters[$random_chap]\"},\n";
 			print OUT "\"section\": { \"id\":\"${pk}\", \"title\":\"Section ${pk}\"},\n";
-			print OUT "\"week\": { \"number\":\"${random_week}\", \"title\":\"Week ${random_week}\"},\n";
-			print OUT "\"topic\": { \"id\":\"${prandom_topic}\", \"title\":\"$topics[$random_topic]\"},\n";
+			print OUT "\"week\": { \"id\":\"${prandom_week}\", \"order\":${random_week}, \"title\":\"Week ${random_week}\"},\n";
+			print OUT "\"topic\": { \"id\":\"${prandom_topic}\", \"order\":${random_topic}, \"title\":\"$topics[$random_topic]\"},\n";
 			print OUT "\"attachment\" : { \n";
 
 			if($random_attachment) {

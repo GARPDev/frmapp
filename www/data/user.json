@@ -14,6 +14,9 @@
 		"day":"November 11th, 2013",
 		"time":"7:00 am",
 		"duration":"2"
-	}
-
+	},
+	"settings": {
+		"organizeBy":"week"
+	},
+	"userMeta": []
 }
