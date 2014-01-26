@@ -1,0 +1,17 @@
+[
+	{
+		"id":"00",
+		"term": "dog",
+		"definition" : "an animal that barks"
+	},
+	{
+		"id":"01",
+		"term": "cat",
+		"definition" : "an animal the purrs"
+	},
+	{
+		"id":"02",
+		"term": "fish",
+		"definition" : "an animal that swinms"
+	}
+]

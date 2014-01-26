@@ -34,6 +34,8 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     remoteDataService.userInfo = {};
     remoteDataService.showFooter = true;
 
+    remoteDataService.searchTerms = "";
+
     localStorage.lessonData = null;
     localStorage.userMeta = null;
     localStorage.userSession = {};
@@ -98,8 +100,11 @@ frmServices.factory('remoteDataService', ['$resource','$http',
               remoteDataService.questionData = data.questions;
               localStorage.questionData = JSON.stringify(data.questions);
 
-              q.resolve();
-
+              $http({method:'GET',url:'data/glossary.json'}).success(function(data){
+                remoteDataService.glossaryData = data;
+                localStorage.glossaryData = JSON.stringify(data.glossaryData);
+                  q.resolve();
+              });
             });
           });
         });    

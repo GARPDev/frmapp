@@ -25,6 +25,10 @@ phonecatApp.config(['$routeProvider','$anchorScrollProvider',
         templateUrl: 'partials/frm-readings.html',
         controller: 'FRMReadingsCtrl'
       }).      
+      when('/glossary', {
+        templateUrl: 'partials/frm-glossary.html',
+        controller: 'FRMGlossaryCtrl'
+      }).
       when('/examsettings', {
         templateUrl: 'partials/frm-examSettings.html',
         controller: 'FRMExamSettingsCtrl'

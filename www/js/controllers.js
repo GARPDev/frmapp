@@ -55,11 +55,12 @@ var minWidth = 400; // Min width before we remove text
 /* Controllers */
 var frmControllers = angular.module('frmControllers', []);
 
-frmControllers.controller('NavController', ['$scope', '$location',
-  function($scope, $location) {
+frmControllers.controller('NavController', ['$scope', '$location','remoteDataService',
+  function($scope, $location,remoteDataService) {
 
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
+    $scope.searchTerms = "";
 
     switch(document.location.hash) {
       case '#/readings':
@@ -77,6 +78,9 @@ frmControllers.controller('NavController', ['$scope', '$location',
       case '#/messages':
         $scope.currentMenuItem = 'Messages';
         break;
+      case '#/glossary':
+        $scope.currentMenuItem = 'Glossary';
+        break;
       default:
         $scope.currentMenuItem = 'Dashboard';
         break;
@@ -86,6 +90,11 @@ frmControllers.controller('NavController', ['$scope', '$location',
       $scope.innerWidth = window.innerWidth;
       $scope.innerHeight = window.innerHeight;
     });
+
+    $scope.searchGlossary = function(terms) {
+      remoteDataService.searchTerms = terms;
+      $scope.changeView('glossary');
+    }
 
     $scope.changeView = function(view) {
       pageTransitionOut(view);
@@ -594,6 +603,20 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
   }
 ]);
 
+
+frmControllers.controller('FRMGlossaryCtrl', ['$scope','$timeout','remoteDataService',
+  function($scope, $timeout, remoteDataService) {
+
+    $scope.searchTerms = remoteDataService.searchTerms;
+    $scope.glossaryData = remoteDataService.glossaryData;
+
+    $timeout(function() {
+      pageTransitionIn();
+      $('body').removeClass("modal-open")
+    }, 0);
+
+ }
+]);
 
 frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSharedService','remoteDataService','readlingListSharedService',
   function($scope, $timeout, scheduleBarSharedService, remoteDataService,readlingListSharedService) {
