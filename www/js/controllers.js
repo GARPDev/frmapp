@@ -319,7 +319,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $scope.takePhoto = function () { 
       if(navigator.camera !== null && typeof navigator.camera !== "undefined") {
-        navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+        navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 20, destinationType: Camera.DestinationType.FILE_URI });
       } else {
         onFail('navigator.camera not defined!');
       }
