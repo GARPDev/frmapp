@@ -48,6 +48,7 @@
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <gap:plugin name="nl.x-services.plugins.calendar" />
+    <gap:plugin name="org.apache.cordova.camera" />
     <access origin="http://127.0.0.1*" />
     <access origin="http://google.com" subdomains="true" />
     <access origin="http://googleapis.com" subdomains="true" />
