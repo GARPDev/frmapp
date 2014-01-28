@@ -700,6 +700,8 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
   	$scope.lessonIndex = scheduleBarSharedService.lessonIndex;
     $scope.currentLesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
 
+    $scope.userAgent = navigator.userAgent;
+
     scheduleBarSharedService.allMode = false;
     readlingListSharedService.clearFilters();
 
