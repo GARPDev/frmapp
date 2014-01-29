@@ -204,7 +204,7 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
     }
 
     $scope.changeView = function(view) {
-      pageTransitionOut(view);
+      navigationService.pageTransitionOut(view);
     }
   }
 
@@ -1101,7 +1101,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
     var gotoQuestion=function() {
       if($scope.currentQuestion == $scope.totalQuestions-1) {
 
-        pageTransitionOut();
+        navigationService.pageTransitionOut();
         examSharedService.userAnswers = $scope.userAnswers;
         examSharedService.correctAnswers = $scope.correctAnswers;
         $scope.currentQuestion++;

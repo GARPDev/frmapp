@@ -62,11 +62,14 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
     var remoteDataService = {};
     remoteDataService.$http = $http;
-
     remoteDataService.userInfo = {};
     remoteDataService.showFooter = true;
-
     remoteDataService.searchTerms = "";
+
+    // localStorage.readingData = null;
+    // localStorage.userMeta = null;
+    // localStorage.glossaryData = null;
+
 
     // Helper Functions
     var getLessons = function(readings) {
@@ -130,7 +133,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
               $http({method:'GET',url:'data/glossary.json'}).success(function(data){
                 remoteDataService.glossaryData = data;
-                localStorage.glossaryData = JSON.stringify(data.glossaryData);
+                localStorage.glossaryData = JSON.stringify(remoteDataService.glossaryData);
                   q.resolve();
               });
             });
@@ -143,6 +146,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
           remoteDataService.readingData = JSON.parse(localStorage.readingData);
           remoteDataService.questionData = JSON.parse(localStorage.questionData);
           remoteDataService.userData = JSON.parse(localStorage.userData);
+          remoteDataService.glossaryData = JSON.parse(localStorage.glossaryData);
           remoteDataService.lessonData = getLessons(remoteDataService.readingData);
 
           // Keep for now
@@ -158,15 +162,13 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     };
 
    remoteDataService.commitData = function() {
-      //localStorage.lessonData = JSON.stringify(remoteDataService.lessonData);
       localStorage.userMeta = JSON.stringify(remoteDataService.userMeta);
-      localStorage.userSession = JSON.stringify(remoteDataService.userSession);
-
    }
 
    remoteDataService.clearData = function() {
       localStorage.readingData = null;
       localStorage.userMeta = null;
+      localStorage.glossaryData = null;
       localStorage.userSession = {};
    }
 
