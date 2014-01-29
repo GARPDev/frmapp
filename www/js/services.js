@@ -68,10 +68,6 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
     remoteDataService.searchTerms = "";
 
-    localStorage.lessonData = null;
-    localStorage.userMeta = null;
-    localStorage.userSession = {};
-
     // Helper Functions
     var getLessons = function(readings) {
 
@@ -109,12 +105,6 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     //our service accepts a promise object which 
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
-
-
-      // localStorage.readingData = null;
-      // localStorage.userMeta = null;
-      // localStorage.userSession = {};
-
 
       if(localStorage.readingData == 'null' || typeof localStorage.readingData === "undefined" || localStorage.readingData === null) {
 
@@ -164,7 +154,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
         }
         q.resolve();
       }
-      
+
     };
 
    remoteDataService.commitData = function() {
