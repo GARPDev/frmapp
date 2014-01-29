@@ -36,6 +36,14 @@ body {
   margin: 10px;
 }
 
+.myaccount-settings {
+  margin: 5px;
+}
+
+.myaccount-settings .org {
+  margin: 10px;
+}
+
 .myaccount-continue {
   float: right;
   margin-right: 10px;
@@ -314,7 +322,7 @@ body {
 }
 
 .login-buttons {
-    width: 220px;
+    width: 290px;
     margin: 0 auto;
 }
 
@@ -566,10 +574,6 @@ body {
     border-radius: 6px;  
   }
 
-  .login-buttons {
-    width: 290px;
-  }
-
   .schedulebar-item {
     width: 65px;
     height: 75px;
@@ -618,6 +622,18 @@ body {
   }
 }
 
+@media (max-width: 330px) {
+
+  .login-area {
+    width: inherit;
+  }
+
+  .login-buttons {
+    width: inherit; 
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 995px  ) {
 
   .messagearea {
@@ -646,10 +662,6 @@ body {
     font-size: 18px;
     line-height: 1.33;
     border-radius: 6px;  
-  }
-
-  .login-buttons {
-    width: 290px;
   }
 
   .schedulebar-item {

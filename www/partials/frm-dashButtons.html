@@ -1,5 +1,5 @@
 
-<div class="daysarea" onclick="document.location.hash = '#/examday';">
+<div class="daysarea" ng-click="changeView('examday')">
 	<div class="daysleft">
 		<h3>Exam day details</h3>
 		<span>29</span> <span>day until the exam</span>
@@ -15,7 +15,7 @@
 		<h3>Flagged Items</h3>
 		<span class="glyphicon glyphicon-flag large-glyphicon"></span>
 	</div>
-	<div class="testarea workhead" onclick="document.location.hash = '#/examsettings';">
+	<div class="testarea workhead" ng-click="changeView('examSettings')">
 		<h3>Sample Tests</h3>
 		<span class="glyphicon glyphicon-play-circle large-glyphicon"></span>
 		

@@ -12,9 +12,12 @@
         <li class="list-group-item">{{userData.registeredExam.address}} {{userData.registeredExam.city}}, {{userData.registeredExam.state}} {{userData.registeredExam.zip}}</li>
       </ul>
 
-      Organize Work By: <select ng-model="orgOption" ng-options="c.name for c in orgOptions" ng-change="changeOrgOption()"></select><br>
-
-      <button type="button" class="btn btn-default" ng-click="clearData()">Reset Progress</button>
+      <div class="myaccount-settings">
+        <div class="org">
+          Organize Work By: <select ng-model="orgOption" ng-options="c.name for c in orgOptions" ng-change="changeOrgOption()"></select>
+        </div>
+        <button type="button" class="btn btn-default" ng-click="clearData()">Reset Progress</button>
+      </div>
     </div>
     <div class="col-md-5">
       <div class="insperation-area">
@@ -48,7 +51,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="myaccount-continue">
-        <button type="button" class="btn btn-primary btn-lg" onclick="document.location.hash = '#/dash';">Continue</button>
+        <button type="button" class="btn btn-primary btn-lg" ng-click="continue()">Continue</button>
       </div>
     </div>
   </div>

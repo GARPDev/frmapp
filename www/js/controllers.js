@@ -49,8 +49,8 @@ var minWidth = 400; // Min width before we remove text
 /* Controllers */
 var frmControllers = angular.module('frmControllers', []);
 
-frmControllers.controller('NavController', ['$scope', '$location','remoteDataService',
-  function($scope, $location,remoteDataService) {
+frmControllers.controller('NavController', ['$scope', '$location','remoteDataService','navigationService',
+  function($scope, $location,remoteDataService,navigationService) {
 
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
@@ -91,7 +91,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     }
 
     $scope.changeView = function(view) {
-      pageTransitionOut(view);
+      navigationService.changeView(view);
     }
 
     $scope.isActive = function (viewLocation) { 
@@ -100,25 +100,10 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
   }
 ]);
 
-var pageTransitionOut = function(view) {
-  $('.page-container').fadeOut(function() {
-    if(view !== null && typeof view !== "undefined") {
-      document.location.hash = '#/' + view;
-    }
-  });
-  
-
-  //$('.page-container').hide("slide", { direction: "right" }, 500
-}
-
-var pageTransitionIn = function() {
-  //$('.page-container').show("slide", { direction: "left" }, 500); 
-  $('.page-container').fadeIn();
-}
 
 
-frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$location','remoteDataService',
-  function($scope, $timeout, $location, remoteDataService) {
+frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$location','remoteDataService','navigationService',
+  function($scope, $timeout, $location, remoteDataService, navigationService) {
 
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
@@ -226,11 +211,11 @@ frmControllers.controller('FooterNavController', ['$scope', '$timeout', '$locati
 
 ]);
 
-frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','remoteDataService',
-  function($scope, $timeout, $location, remoteDataService) {
+frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','remoteDataService','navigationService',
+  function($scope, $timeout, $location, remoteDataService, navigationService) {
 
     $timeout(function() {
-      $('.page-container').show("slide", { direction: "left" }, 500); 
+      navigationService.pageTransitionIn();
     }, 0);
 
     $scope.userAgent = navigator.userAgent;
@@ -261,11 +246,15 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
         return viewLocation === $location.path();
     };
 
+    $scope.login = function() {
+     navigationService.changeView('myaccount');
+    }
+
   }
 ]);
 
-frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService',
-  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService) {
+frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService',
+  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService) {
 
     $scope.nav = navigator.appCodeName;
     $scope.camera =  navigator.camera;
@@ -290,7 +279,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.orgOption = _.findWhere($scope.orgOptions, {value: $scope.userData.settings.organizeBy })
 
     $timeout(function() {
-      pageTransitionIn();
+      navigationService.pageTransitionIn();
     }, 0);
 
     scheduleBarSharedService.allMode = false;
@@ -336,6 +325,10 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.changeOrgOption = function() {
       remoteDataService.changeOrgOption($scope.orgOption.value);
       $scope.$broadcast('changeOrgOption');
+    }
+
+    $scope.continue = function() {
+      navigationService.changeView('dash');
     }
 
   }
@@ -598,22 +591,22 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 ]);
 
 
-frmControllers.controller('FRMGlossaryCtrl', ['$scope','$timeout','remoteDataService',
-  function($scope, $timeout, remoteDataService) {
+frmControllers.controller('FRMGlossaryCtrl', ['$scope','$timeout','remoteDataService','navigationService',
+  function($scope, $timeout, remoteDataService, navigationService) {
 
     $scope.searchTerms = remoteDataService.searchTerms;
     $scope.glossaryData = remoteDataService.glossaryData;
 
     $timeout(function() {
-      pageTransitionIn();
+      navigationService.pageTransitionIn();
       $('body').removeClass("modal-open")
     }, 0);
 
  }
 ]);
 
-frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSharedService','remoteDataService','readlingListSharedService',
-  function($scope, $timeout, scheduleBarSharedService, remoteDataService,readlingListSharedService) {
+frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSharedService','remoteDataService','readlingListSharedService','navigationService',
+  function($scope, $timeout, scheduleBarSharedService, remoteDataService, readlingListSharedService, navigationService) {
   
     $scope.lessons = remoteDataService.lessonData;
     $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
@@ -625,7 +618,7 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
     scheduleBarSharedService.allMode = true;
 
     $timeout(function() {
-      pageTransitionIn();
+      navigationService.pageTransitionIn();
       $('body').removeClass("modal-open")
     }, 0);
 
@@ -680,8 +673,8 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
 ]);
 
 
-frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService','readlingListSharedService',
-  function($scope, $timeout, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService, readlingListSharedService) {
+frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService','readlingListSharedService','navigationService',
+  function($scope, $timeout, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService, readlingListSharedService, navigationService) {
   
   	//$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
@@ -714,14 +707,14 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
 
     } else {
 
-        // turn off scroll
-        //$(".readingscrollregion").css("height", null);
-        //$(".msgscrollregion").css("height", null);              
+      // turn off scroll
+      $(".readingscrollregion").css("height", null);
+      $(".msgscrollregion").css("height", null);              
 
     }
 
     $timeout(function() {
-      pageTransitionIn();
+      navigationService.pageTransitionIn();
     }, 0);
 
     $scope.$on('browserResize', function() {
@@ -738,19 +731,11 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
         $(".readingscrollregion").css("height", $scope.nhRead + "px");
         $(".msgscrollregion").css("height", $scope.nhMsg + "px");        
 
-        // alt location for buttons
-        //$("#headerRowCol1").hide();
-        //$("#dashButtons").show();
-
       } else {
 
-        // alt location for buttons
-        //$("#headerRowCol1").show();
-        //$("#dashButtons").hide();
-
         // turn off scroll
-       //$(".readingscrollregion").css("height", null);
-       // $(".msgscrollregion").css("height", null);      
+        $(".readingscrollregion").css("height", null);
+        $(".msgscrollregion").css("height", null);      
       }
 
     });
@@ -774,6 +759,10 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
       readlingListSharedService.filterList('flagged');
       document.location.hash = '#/readings';
     }
+
+    $scope.changeView=function(view) {
+      navigationService.changeView(view);
+    }
     
     // For Messages
     $scope.selectedMessageArray = [];
@@ -781,8 +770,8 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
   }
 ]);
 
-frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService',
-  function($scope,$timeout,$location,examSharedService,remoteDataService) {
+frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService','navigationService',
+  function($scope,$timeout,$location,examSharedService,remoteDataService,navigationService) {
 
     $scope.settings = {
       mode:0,
@@ -791,7 +780,7 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
     }
 
     $timeout(function() {
-      pageTransitionIn();
+      navigationService.pageTransitionIn();
     }, 0);
 
     $scope.isSettingOn = function(type, value) {
@@ -939,8 +928,8 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
 ]);
 
 
-frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService',
-  function($scope,$timeout,$location,examSharedService,remoteDataService) {
+frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService','navigationService',
+  function($scope,$timeout,$location,examSharedService,remoteDataService,navigationService) {
 
     $('.tab-pane').hide();
     $('#tab1').show();
@@ -955,7 +944,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
       };
 
     $timeout(function() {
-      pageTransitionIn();
+      navigationService.pageTransitionIn();
     
 
       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -1015,8 +1004,8 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
 ]);
 
 
-frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService',
-  function($scope,$timeout,$location,examSharedService,remoteDataService) {
+frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService','navigationService',
+  function($scope,$timeout,$location,examSharedService,remoteDataService,navigationService) {
 
     $scope.userAnswers = examSharedService.userAnswers;
     $scope.correctAnswers = examSharedService.correctAnswers;
@@ -1024,7 +1013,7 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
     $scope.currentOpen = '';
 
     $timeout(function() {
-      pageTransitionIn();
+      navigationService.pageTransitionIn();
       $('body').removeClass("modal-open");
     }, 0);
 
@@ -1047,8 +1036,8 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
 ]);
 
 
-frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService',
-  function($scope,$timeout,$location,examSharedService,remoteDataService) {
+frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService','navigationService',
+  function($scope,$timeout,$location,examSharedService,remoteDataService,navigationService) {
 
     $scope.currentQuestion = 0;
     $scope.settings = examSharedService.settings;
@@ -1065,7 +1054,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
     $scope.userAnswers = [];
 
     $timeout(function() {
-      pageTransitionIn();
+      navigationService.pageTransitionIn();
     }, 0);
 
 
