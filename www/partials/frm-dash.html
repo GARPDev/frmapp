@@ -4,10 +4,9 @@
     <div class="container page-container">
 
 		<div id="headerRow" class="row">
-			<div id="headerRowCol1" class="col-md-6 dash-alt-buttons-area">
+			<div class="col-md-12 dash-alt-buttons-area headerRowCol1">
 				<div class="slide-animate" ng-include="'partials/frm-dashButtons.html'"></div>
 			</div>
-			<div class="col-md-6"></div>
 		</div>
 
 		<div class="row">
@@ -23,14 +22,14 @@
 		<div class="row">
 		  <div class="col-md-6">
 			<div class="workhead">
-				<h3 class="centerhead">{{currentLesson.title}}</h3>{{userAgent}}
+				<h3 class="centerhead">{{currentLesson.title}}</h3>{{userAgent}}<br>{{innerHeight}} : {{nhRead}}
 			</div>
 			<div class="readingscrollregion scrollbar" id="style-2">
 				<div class="readings-area" ng-include="'partials/frm-readings-list.html'"></div>
 			</div>
 		  </div>
 		  <div id="daysAreaCol" class="col-md-6">
-		  	<div class="slide-animate" id="dashButtons" ng-include="'partials/frm-dashButtons.html'"></div>
+		  	<div class="slide-animate dashButtons" ng-include="'partials/frm-dashButtons.html'"></div>
 
 			<div class="messagearea">
 				<ul class="nav nav-tabs">

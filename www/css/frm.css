@@ -12,10 +12,18 @@ body {
   display: none;  
 }
 
+.dashButtons {
+    display: inherit;
+}
+
+.headerRowCol1 {
+    display: none;
+}
+
+
 .large-glyphicon {
   font-size: 28px;  
 }
-
 
 .examday-tabs {
   margin: 10px;
@@ -55,6 +63,11 @@ body {
 
 .exam-setting-on {
   background-color: lightblue;
+}
+
+.nav-footer-scroll-space {
+  height: 100px;
+  display: none;
 }
 
 .nav-footer {
@@ -324,10 +337,6 @@ body {
 }
 
 .reading-list-area {
-  height: 500px;
-  width: 90%;
-  #z-index: 5000;
-  position: absolute;
 }
 
 .reading-item-left {
@@ -409,9 +418,7 @@ body {
 }
 
 .messagearea {
-  #background-color: lightgray;
-	margin-top: 10px;
-	height: 250px;
+	margin-top: 20px;
 }
 
 
@@ -454,7 +461,7 @@ body {
 }
 
 .readingscrollregion {
-    height: 415px;
+  height: 415px;
 	border-bottom: 1px solid;
 	border-left: 1px solid;
 	border-color: #dddddd;		
@@ -550,57 +557,6 @@ body {
     height: 0px;
 }
 
-@media handheld {
-
-  .btn-default {
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.33;
-    border-radius: 6px;  
-  }
-
-  .login-buttons {
-    width: 290px;
-  }
-
-  .schedulebar-item {
-    width: 65px;
-    height: 75px;
-    float: left;    
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .schedule-item-area {
-    height: 45px;
-  }
-
-  .schedulebar-area {
-    height: 75px;
-  }
-
-  .schedulebar-scroll-area {
-    margin-top: 25px; 
-    height: 75px;
-    width: 50px;
-  }
-
-  .btn-xs {
-    padding: 5px 10px;
-  }
-
-  .panel-heading {
-    padding: 20px 15px;
-  }
-
-  .schedulebar-item-text {
-    font-size: 18px;
-    margin-top: 5px;
-  }  
-
-
-}
-
 @media (max-height: 750px  ) {
 
   .btn-default {
@@ -663,6 +619,24 @@ body {
 }
 
 @media (max-width: 995px  ) {
+
+  .messagearea {
+    display: none;
+  }
+
+  .readings-area {
+    padding-bottom: 100px;
+  }
+
+
+  .dashButtons {
+      display: none;
+  }
+
+  .headerRowCol1 {
+      display: inherit;
+  }
+
   .examday-map-area {
     height: 300px;
   }

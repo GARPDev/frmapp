@@ -9,12 +9,6 @@ function tellAngular() {
         scope.height = window.innerHeight;
         scope.$broadcast('browserResize');
     });
-    var nhRead = window.innerHeight - 240;
-    var nhMsg = window.innerHeight - 430;
-    if(window.innerWidth > 995) {
-     $(".readingscrollregion").css("height", nhRead + "px");
-     $(".msgscrollregion").css("height", nhMsg + "px");
-    }
 }
 
 
@@ -705,33 +699,25 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
     scheduleBarSharedService.allMode = false;
     readlingListSharedService.clearFilters();
 
-    //$("#headerRowCol1").hide();
 
     // Init height;
-    var nhRead = window.innerHeight - 240;
-    var nhMsg = window.innerHeight - 430;
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
+    $scope.nhRead = window.innerHeight - 295;
+    $scope.nhMsg = window.innerHeight - 430;
 
     if(window.innerWidth > 995) {
 
       // set inital scroll area height
-      $(".readingscrollregion").css("height", nhRead + "px");
-      $(".msgscrollregion").css("height", nhMsg + "px");      
-
-      // show correct dash buttons
-      $("#headerRowCol1").hide();
-      $("#dashButtons").show();
+      $(".readingscrollregion").css("height", $scope.nhRead + "px");
+      $(".msgscrollregion").css("height", $scope.nhMsg + "px");        
 
     } else {
 
         // turn off scroll
-        $(".readingscrollregion").css("height", null);
-        $(".msgscrollregion").css("height", null);              
+        //$(".readingscrollregion").css("height", null);
+        //$(".msgscrollregion").css("height", null);              
 
-        // show correct dash buttons
-        $("#headerRowCol1").show();
-        $("#dashButtons").hide();
     }
 
     $timeout(function() {
@@ -742,26 +728,29 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
 
       $scope.innerWidth = window.innerWidth;
       $scope.innerHeight = window.innerHeight;
+      $scope.nhRead = window.innerHeight - 295;
+      $scope.nhMsg = window.innerHeight - 430;
+
 
       if(window.innerWidth > 995) {
 
         // set scroll height
-        $(".readingscrollregion").css("height", nhRead + "px");
-        $(".msgscrollregion").css("height", nhMsg + "px");        
+        $(".readingscrollregion").css("height", $scope.nhRead + "px");
+        $(".msgscrollregion").css("height", $scope.nhMsg + "px");        
 
         // alt location for buttons
-        $("#headerRowCol1").hide();
-        $("#dashButtons").show();
+        //$("#headerRowCol1").hide();
+        //$("#dashButtons").show();
 
       } else {
 
         // alt location for buttons
-        $("#headerRowCol1").show();
-        $("#dashButtons").hide();
+        //$("#headerRowCol1").show();
+        //$("#dashButtons").hide();
 
         // turn off scroll
-        $(".readingscrollregion").css("height", null);
-        $(".msgscrollregion").css("height", null);      
+       //$(".readingscrollregion").css("height", null);
+       // $(".msgscrollregion").css("height", null);      
       }
 
     });
