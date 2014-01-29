@@ -16,30 +16,89 @@ phonecatApp.config(['$routeProvider','$anchorScrollProvider',
     $routeProvider.
       when('/dash', {
         templateUrl: 'partials/frm-dash.html',
-        controller: 'FRMAppDashCtrl'
+        controller: 'FRMAppDashCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+
+          }
+        }
       }).
       when('/examday', {
         templateUrl: 'partials/frm-examday.html',
-        controller: 'FRMExamDayCtrl'}).      
+        controller: 'FRMExamDayCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+          }
+        }
+      }).      
       when('/readings', {
         templateUrl: 'partials/frm-readings.html',
-        controller: 'FRMReadingsCtrl'
+        controller: 'FRMReadingsCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+
+          }
+        }
       }).      
       when('/glossary', {
         templateUrl: 'partials/frm-glossary.html',
-        controller: 'FRMGlossaryCtrl'
+        controller: 'FRMGlossaryCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+          }
+        }
       }).
       when('/examsettings', {
         templateUrl: 'partials/frm-examSettings.html',
-        controller: 'FRMExamSettingsCtrl'
+        controller: 'FRMExamSettingsCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+          }
+        }
       }).      
       when('/exam', {
         templateUrl: 'partials/frm-exam.html',
-        controller: 'FRMExamCtrl'
+        controller: 'FRMExamCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+          }
+        }
       }).      
       when('/examresults', {
         templateUrl: 'partials/frm-examResults.html',
-        controller: 'FRMExamResultsCtrl'
+        controller: 'FRMExamResultsCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+          }
+        }
       }).      
       when('/login', {
         templateUrl: 'partials/frm-login.html',
@@ -50,25 +109,21 @@ phonecatApp.config(['$routeProvider','$anchorScrollProvider',
             var defer = $q.defer();
             remoteDataService.fetchData(defer, $http);
             return defer.promise;
-
           }
         }
-        
       }).      
       when('/myaccount', {
         templateUrl: 'partials/frm-myaccount.html',
-        controller: 'FRMAppMyAccountCtrl'
+        controller: 'FRMAppMyAccountCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+          }
+        }
       }).      
-	  /*
-	  .		
-      when('/phones', {
-        templateUrl: 'partials/phone-list.html',
-        controller: 'PhoneListCtrl'
-      }).
-      when('/phones/:phoneId', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
-      }).*/
       otherwise({
         redirectTo: '/login'
       });

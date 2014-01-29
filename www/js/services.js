@@ -110,7 +110,13 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
 
-      if(localStorage.lessonData == 'null' || typeof localStorage.lessonData === "undefined" || localStorage.lessonData === null) {
+
+      // localStorage.readingData = null;
+      // localStorage.userMeta = null;
+      // localStorage.userSession = {};
+
+
+      if(localStorage.readingData == 'null' || typeof localStorage.readingData === "undefined" || localStorage.readingData === null) {
 
 
         $http({method:'GET',url:'data/user.json'}).success(function(data){
@@ -143,20 +149,22 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
       } else {
 
-        remoteDataService.readingData = JSON.parse(localStorage.readingData);
-        remoteDataService.lessonData = getLessons(remoteDataService.readingData);
+        if(remoteDataService.readingData == 'null' || typeof remoteDataService.readingData === "undefined") {
+          remoteDataService.readingData = JSON.parse(localStorage.readingData);
+          remoteDataService.questionData = JSON.parse(localStorage.questionData);
+          remoteDataService.userData = JSON.parse(localStorage.userData);
+          remoteDataService.lessonData = getLessons(remoteDataService.readingData);
 
-        remoteDataService.questionData = JSON.parse(localStorage.questionData);
-        remoteDataService.userData = JSON.parse(localStorage.userData);
-
-        // Keep for now
-        if(localStorage.userMeta !== 'null' && typeof localStorage.userMeta !== "undefined" && localStorage.userMeta !== null && localStorage.userMeta != "")  {
-          remoteDataService.userMeta = JSON.parse(localStorage.userMeta);
-        } else {
-          remoteDataService.userMeta =[];
+          // Keep for now
+          if(localStorage.userMeta !== 'null' && typeof localStorage.userMeta !== "undefined" && localStorage.userMeta !== null && localStorage.userMeta != "")  {
+            remoteDataService.userMeta = JSON.parse(localStorage.userMeta);
+          } else {
+            remoteDataService.userMeta =[];
+          }
         }
         q.resolve();
       }
+      
     };
 
    remoteDataService.commitData = function() {
@@ -167,7 +175,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
    }
 
    remoteDataService.clearData = function() {
-      localStorage.lessonData = null;
+      localStorage.readingData = null;
       localStorage.userMeta = null;
       localStorage.userSession = {};
    }
