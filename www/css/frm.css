@@ -4,6 +4,78 @@ body {
   min-height:100%;
 }
 
+/* Nav Bar */
+.navbar-default {
+    background-color: #0099C6;
+    border-color: #E7E7E7;
+}
+/* title */
+.navbar-default .navbar-brand {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #FFFFFF;
+}
+/* link */
+.navbar-default .navbar-nav > li > a {
+    color: #006385;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #333;
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #FFFFFF;
+    background-color: #006385;
+}
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+/* caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-default .navbar-nav > .open > a .caret, 
+.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* mobile version */
+.navbar-default .navbar-toggle {
+    border-color: #DDD;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #DDD;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #FFFFFF;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+    }
+}
+
+
+
 .page-container {
   display: none;
 }
@@ -412,17 +484,19 @@ body {
 }
 
 .flagarea {
-    background-color: lightgray;
+  background-color: #006385;
 	float: left;
 	width: 47%;
 	#margin: 5px;
+  color: #FFFFFF;
 }
 
 .testarea {
-    background-color: lightgray;
+    background-color: #006385;
 	float: right;
 	width: 47%;
 	#margin: 5px;
+  color: #FFFFFF;
 }
 
 .messagearea {
@@ -431,8 +505,9 @@ body {
 
 
 .daysarea {
-  background-color: lightgray;
+  background-color: #006385;
 	height: 100px;
+  color: #FFFFFF;
 }
 
 .daysarea:active, .flagarea:active, .testarea:active, .btn:active, .schedulebar-scroll-left:active, .schedulebar-scroll-right:active {
@@ -447,21 +522,24 @@ body {
 .daysright {
   margin-right: 15px;
   margin-top: 35px;
-  background-color: lightgray;
+  background-color: #006385;
 	float: right;
+  color: #FFFFFF;
 }
 
 .workhead {
-  background-color: lightgray;
+  background-color: #006385;
 	padding: 5px;
   text-align: center;
+  color: #FFFFFF;
 }
 
 
 .workarea {
-    background-color: lightgray;
-    height: 300px;
+  background-color: #006385;
+  height: 300px;
 	padding: 5px;
+  color: #FFFFFF;
 }
 
 .centerhead {

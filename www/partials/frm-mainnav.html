@@ -19,11 +19,12 @@
             <li id="mainnav-examday" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')">Exam Day</a></li>
             </li>
           </ul>
-           <form ng-if="currentMenuItem != 'Glossary'" class="navbar-form navbar-left" role="search">
+           <form ng-if="currentMenuItem != 'Glossary'" class="navbar-form navbar-left" role="search" ng-submit="searchGlossary(searchTerms)">
             <div class="form-group">
               <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search">
             </div>
             <span ng-click="searchGlossary(searchTerms)" class="glyphicon glyphicon-search"></span>
+            <input type="submit" style="display:none"/>
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
