@@ -417,6 +417,13 @@ body {
 }
 
 .reading-list-area {
+  position: relative;
+}
+
+.spin-area {
+  height: 400px;
+  width: 100%;
+  position: absolute;
 }
 
 .reading-item-left {

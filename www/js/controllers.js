@@ -653,7 +653,7 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
     $scope.selectedReadingArray = [];
     $scope.filterList = function(filterType,value) {
       
-      var selector = '.reading-list-area';
+      var selector = '.spin-area';
       var obj = $(selector)
       if(obj !== null && typeof obj !== "undefined" && obj.length > 0) {
         var spinner = new Spinner(opts).spin(obj[0]);
