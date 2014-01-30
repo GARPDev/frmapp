@@ -12,10 +12,13 @@
         </h4>
       </div>
       <div class="modal-body">
-        <textarea id="addNote" class="form-control" rows="3" ng-model="noteInput"></textarea>
-        <p>
-          <button type="button" class="btn btn-primary btn-xs" ng-click="addNote(noteInput)">Add Note</button>
-        </p>
+        <form ng-submit="addNote(noteInput)">
+          <textarea id="addNote" class="form-control" rows="3" ng-model="noteInput"></textarea>
+          <p>
+            <button type="button" class="btn btn-primary btn-xs" ng-click="addNote(noteInput)">Add Note</button>
+          </p>
+          <input type="submit" style="display:none"/>
+        </form>
         <ul class="list-group" >
           <li class="list-group-item" ng-repeat="note in notes track by $index"><button type="button" class="close" aria-hidden="true" ng-click="deleteNote(note)">×</button>{{note}}</li>
         </ul>
