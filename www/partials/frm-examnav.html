@@ -12,10 +12,10 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">		  		  
-		        <li id="mainnav-dashboard"><a href="#dash">< Prev</a></li>
+		        <li ng-if="currentQuestion > 0" id="mainnav-dashboard"><a href="#dash"><span class="glyphicon glyphicon-chevron-left"/> Prev</a></li>
             <li id="mainnav-dashboard"><a href ng-click="exitExam()">Exit Test</a></li>
-            <li id="mainnav-dashboard"><a ng-click="flagQuestion()"> <span class="glyphicon glyphicon-flag"></span> <span class="reading-list-button">Flag</span></a></li>
-            <li id="mainnav-dashboard"><a href="#dash">Next ></a></li>
+            <li ng-if="!results" id="mainnav-dashboard"><a ng-click="flagQuestion()"> <span class="glyphicon glyphicon-flag"></span> <span class="reading-list-button">Flag</span></a></li>
+            <li ng-if="currentQuestion < (totalQuestions-1)" id="mainnav-dashboard"><a href="#dash">Next <span class="glyphicon glyphicon-chevron-right"/></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

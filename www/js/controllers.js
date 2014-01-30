@@ -1020,11 +1020,18 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
     $scope.correctAnswers = examSharedService.correctAnswers;
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.currentOpen = '';
+    $scope.results = true;
 
     $timeout(function() {
       navigationService.pageTransitionIn();
       $('body').removeClass("modal-open");
     }, 0);
+
+    $scope.exitExam = function() {
+      $('body').removeClass("modal-open");
+      document.location.hash = '#/dash';
+      //navigationService.changeView('dash');
+    }
 
 
     $scope.showQuestion=function(id) {
@@ -1069,7 +1076,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
 
     $scope.exitExam = function() {
       $('body').removeClass("modal-open");
-      document.location.hash = '#/dash';
+      //document.location.hash = '#/dash';
+      navigationService.changeView('dash');
     }
 
     $scope.chooseAnswer = function(id) {
@@ -1101,11 +1109,14 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
     $('#myModal').on('hidden.bs.modal', function (e) {
       // do something...
       if($scope.currentQuestion == $scope.totalQuestions) {
-         //$location.path('/examresults');
-         document.location.hash = '#/examresults';
+         navigationService.changeView('examresults');
       }
     })
 
+
+    $scope.changeView = function(view) {
+      navigationService.changeView(view);
+    }
 
     var gotoQuestion=function() {
       if($scope.currentQuestion == $scope.totalQuestions-1) {
