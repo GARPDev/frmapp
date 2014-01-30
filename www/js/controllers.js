@@ -325,6 +325,10 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.changeOrgOption = function() {
       remoteDataService.changeOrgOption($scope.orgOption.value);
       $scope.$broadcast('changeOrgOption');
+
+      $scope.lessonIndex = 0;      
+      var lesson = remoteDataService.getFirstLesson();
+      scheduleBarSharedService.selectItem(lesson.id);
     }
 
     $scope.continue = function() {
@@ -357,6 +361,11 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
     scheduleBarSharedService.lessonIndex = lesson.id;
     $scope.selected = lesson.id;
     scheduleBarSharedService.selectItem(lesson.id);
+
+    $scope.$on('handleScheduleBarSelectItem', function() {
+      $scope.selected = scheduleBarSharedService.lessonIndex;
+    });
+
 
 
     $scope.$on('changeOrgOption', function() {
