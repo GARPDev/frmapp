@@ -929,7 +929,13 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
         break;
       }
 
-      $location.path('/exam');
+
+      if(examSharedService.questions.length == 0) {
+        $("#myModal").modal();
+      } else {
+        $location.path('/exam');  
+      }
+      
     }
 
 
