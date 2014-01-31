@@ -1018,9 +1018,12 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
 
     $scope.userAnswers = examSharedService.userAnswers;
     $scope.correctAnswers = examSharedService.correctAnswers;
+    $scope.wrongAnswers = examSharedService.wrongAnswers;
+    $scope.skipQuestions = examSharedService.skipQuestions;
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.currentOpen = '';
     $scope.results = true;
+    $scope.wrongAnswers = ($scope.totalQuestions-$scope.correctAnswers-$scope.skipQuestions);
 
     $timeout(function() {
       navigationService.pageTransitionIn();
@@ -1066,8 +1069,12 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
     $scope.answerReason = "";
 
     $scope.correctAnswers = 0;
+    $scope.wrongAnswers=0;
+    $scope.skipQuestions = 0;
 
     $scope.userAnswers = [];
+
+    examSharedService.resetData();
 
     $timeout(function() {
       navigationService.pageTransitionIn();
@@ -1086,14 +1093,15 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
       userAnswer.question = $scope.question;
       userAnswer.choice = id;
 
-      $scope.userAnswers.push(userAnswer);
-
       if($scope.question.answer == id) {
+        $scope.correct = true;
         $scope.answerResponse = "Correct!";
         $scope.correctAnswer = "";
         $scope.answerReason = "Keep it up.";
         $scope.correctAnswers++;
       } else {
+        $scope.correct = false;
+        $scope.wrongAnswers++;
         $scope.answerResponse = "Sorry, that is not right.";
         $scope.correctAnswer = $scope.question.answer;
         $scope.answerReason = $scope.question.reason;
@@ -1103,6 +1111,49 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
       } else {
         $scope.nextQuestion();
       }
+
+      userAnswer.correct = $scope.correct;
+      $scope.userAnswers.push(userAnswer);
+
+    }
+
+
+    $scope.prevQuestion=function() {
+
+      if($scope.userAnswers.length > 0) {
+        var answer = $scope.userAnswers.pop()
+
+        if(answer.correct == true) {
+          $scope.correctAnswers--;    
+        } else if(answer.correct == false) {
+          $scope.wrongAnswers--;
+        } else {
+          $scope.skipQuestions--;
+        }
+      }
+
+      examSharedService.userAnswers = $scope.userAnswers;
+      examSharedService.correctAnswers = $scope.correctAnswers;
+      examSharedService.skipQuestions = $scope.skipQuestions;
+      examSharedService.wrongAnswers = $scope.wrongAnswers;
+      
+      $scope.currentQuestion--;
+      $scope.question = examSharedService.questions[$scope.currentQuestion];
+
+    }
+
+
+    $scope.skipQuestion=function() {
+
+      var userAnswer = {};
+      userAnswer.question = $scope.question;
+      userAnswer.choice = null;
+      userAnswer.correct = null;
+      $scope.userAnswers.push(userAnswer);
+
+      $scope.skipQuestions++;
+      examSharedService.skipQuestions = $scope.skipQuestions;
+      $scope.nextQuestion();
     }
 
 

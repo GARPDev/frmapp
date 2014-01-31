@@ -7,7 +7,11 @@
 
       <div class="exam-results-header">
         <h3>Test Results</h3>
-        <p>{{correctAnswers}} / {{totalQuestions}} Correct
+        <p>Correct Answers: {{correctAnswers}}</p>
+        <p>Wrong Answers: {{wrongAnswers}}</p>
+        <p>Skipped Questions: {{skipQuestions}}</p>
+
+        
       </div>
       <div>
         <p>Quartiles</p>
@@ -17,9 +21,8 @@
           <div class="panel panel-default">
 
             <div class="panel-heading" ng-click="showQuestion(userAnswer.question.id)">
-              <h4 class="panel-title">
-                  Question {{$index+1}}: {{(userAnswer.question.answer == userAnswer.choice) ? 'Correct' : 'Incorrect'}}
-              </h4>
+              <h4 ng-if="userAnswer.choice" class="panel-title">Question {{$index+1}}: {{(userAnswer.question.answer == userAnswer.choice) ? 'Correct' : 'Incorrect'}}</h4>
+              <h4 ng-if="!userAnswer.choice" class="panel-title">Question {{$index+1}}: Skipped</h4>
             </div>
             <div id="{{userAnswer.question.id}}" class="panel-collapse collapse">
               <div class="panel-body">
@@ -39,6 +42,7 @@
                     <button type="button" class="btn btn-default exam-question-answer" ng-repeat="answer in userAnswer.question.answers">{{answer.id}}. {{answer.answer}}</button>
                   </div>
                 </div>
+                <p ng-if="userAnswer.choice && (userAnswer.question.answer != userAnswer.choice)">You chose {{userAnswer.choice}}</p>
                 <p>The correct answer is {{userAnswer.question.answer}}</p>
               </div>
             </div>

@@ -319,6 +319,15 @@ frmServices.factory('examSharedService', function($rootScope) {
   sharedService.questions = [];
   sharedService.userAnswers = [];
   sharedService.correctAnswers = 0;
+  sharedService.wrongAnswers = 0;
+  sharedService.skipQuestions = 0;
+
+  sharedService.resetData = function() {
+    sharedService.userAnswers = [];
+    sharedService.correctAnswers = 0;
+    sharedService.wrongAnswers = 0;
+    sharedService.skipQuestions = 0;    
+  }
 
 
   return sharedService;
