@@ -340,8 +340,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
 
 
-frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService',
-  function($scope, $location, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService) {
+frmControllers.controller('ScheduleBarController', ['$scope', '$location', '$timeout', 'Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService',
+  function($scope, $location, $timeout, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService) {
 
     $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;
@@ -366,14 +366,11 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
       $scope.selected = scheduleBarSharedService.lessonIndex;
     });
 
-
-
     $scope.$on('changeOrgOption', function() {
       $scope.lessons = remoteDataService.lessonData;
       $scope.readings = $scope.lessons[0].readings;
       $scope.scrollIndex = 1;      
     });
-
 
   	$scope.isActive = function (viewLocation) { 
           return viewLocation === $location.path();
@@ -381,8 +378,23 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location','Readi
   	
   	$scope.itemSelect = function(item) {
   		$scope.selected = item;
-  		scheduleBarSharedService.selectItem(item);
-      };
+
+      var selector = '.spin-area';
+      var obj = $(selector)
+      if(obj !== null && typeof obj !== "undefined" && obj.length > 0) {
+        var spinner = new Spinner(opts).spin(obj[0]);
+        $timeout(function() {
+
+            scheduleBarSharedService.selectItem(item);
+
+            $timeout(function() {
+              spinner.stop();
+             },400);
+
+        },100);
+      }
+
+    };
 
   	$scope.isItemSelected = function(item) {
   		if(item == $scope.selected) {
