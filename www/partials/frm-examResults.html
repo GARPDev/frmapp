@@ -9,7 +9,7 @@
         <h3>Test Results</h3>
         <p>Correct Answers: {{correctAnswers}}</p>
         <p>Wrong Answers: {{wrongAnswers}}</p>
-        <p>Skipped Questions: {{skipQuestions}}</p>
+        <p ng-if="settings.mode == 0">Skipped Questions: {{skipQuestions}}</p>
 
         
       </div>

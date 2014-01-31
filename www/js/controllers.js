@@ -1021,6 +1021,8 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
     $scope.wrongAnswers = examSharedService.wrongAnswers;
     $scope.skipQuestions = examSharedService.skipQuestions;
     $scope.totalQuestions = examSharedService.questions.length;
+    $scope.settings = examSharedService.settings;
+
     $scope.currentOpen = '';
     $scope.results = true;
     $scope.wrongAnswers = ($scope.totalQuestions-$scope.correctAnswers-$scope.skipQuestions);
@@ -1175,7 +1177,13 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
         navigationService.pageTransitionOut();
         examSharedService.userAnswers = $scope.userAnswers;
         examSharedService.correctAnswers = $scope.correctAnswers;
-        $scope.currentQuestion++;
+
+        if(examSharedService.settings.mode == 1) {
+          navigationService.changeView('examresults');
+        } else {
+          $scope.currentQuestion++;  
+        }
+        
        
       } else {
         $scope.currentQuestion++;
@@ -1225,6 +1233,7 @@ frmControllers.controller('ExamNavController', ['$scope','examSharedService',
 
     $scope.currentQuestion = 0;
     $scope.totalQuestions = examSharedService.settings.questions;
+    $scope.settings = examSharedService.settings;
 
     $scope.isSettingOn = function(type, value) {
       return $scope.settings[type] === value;
