@@ -1,7 +1,7 @@
 'use strict';
 
 /* Services */
-
+var NO_FETCH = 99;
 var frmServices = angular.module('frmServices', ['ngResource']);
 
 frmServices.factory('Lessons', ['$resource',
@@ -105,59 +105,103 @@ frmServices.factory('remoteDataService', ['$resource','$http',
       remoteDataService.lessonData = getLessons(remoteDataService.readingData);
     }
 
+
+    var fetchRemoteUserData=function(callback) {
+      $http({method:'GET',url:'data/user.json'}).success(function(data){
+
+        remoteDataService.userData = data;
+        localStorage.userData = JSON.stringify(data);
+
+        callback(null, data);
+      }).error(function(data, status, headers, config) {
+        callback(status, null);
+      });
+    }
+
+    var fetchUserData=function(callback) {
+
+      if(localStorage.userData == 'null' || typeof localStorage.userData === "undefined" || localStorage.userData === null) {
+
+        fetchRemoteUserData(callback);
+
+      } else {
+
+        try {
+          //Run some code here
+          remoteDataService.userData = JSON.parse(localStorage.userData);
+          callback(null, remoteDataService.userData);
+        } catch(err) {
+          //Handle errors here
+          fetchRemoteUserData(callback);
+        }
+      }
+    }
+
+
+    var fetchRemoteData=function(url,propertyName,callback) {
+      $http({method:'GET',url:url}).success(function(data){
+
+        remoteDataService[propertyName] = data;
+        localStorage[propertyName] = JSON.stringify(data);
+
+        callback(null, data);
+      }).error(function(data, status, headers, config) {
+        callback(status, null);
+      });
+    }
+
+    var fetchData=function(url,propertyName, callback) {
+
+      if(remoteDataService[propertyName] == 'null' || typeof remoteDataService[propertyName] === "undefined" || remoteDataService[propertyName] === null) {
+
+        if(localStorage[propertyName] == 'null' || typeof localStorage[propertyName] === "undefined" || localStorage[propertyName] === null) {
+
+          fetchRemoteData(url,propertyName,callback);
+
+        } else {
+
+          try {
+            //Run some code here
+            remoteDataService[propertyName] = JSON.parse(localStorage[propertyName]);
+            callback(null, remoteDataService[propertyName]);
+          } catch(err) {
+            //Handle errors here
+            fetchRemoteUserData(url,propertyName,callback);
+          }
+        }
+      } else {
+        callback(NO_FETCH, remoteDataService[propertyName]);
+      }
+    }
+
+
+
     //our service accepts a promise object which 
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
 
-      if(localStorage.readingData == 'null' || typeof localStorage.readingData === "undefined" || localStorage.readingData === null) {
+      fetchData('data/user.json', 'userData', function(err, data) {
 
-
-        $http({method:'GET',url:'data/user.json'}).success(function(data){
-
-          remoteDataService.userData = data;
-          localStorage.userData = JSON.stringify(data);
-
-          // Keep for now
-          localStorage.userMeta = []; // In future fetch from API
+        if(err != NO_FETCH) {
+          // For easy access seperate userMeta from userData
           remoteDataService.userMeta = [];
+          remoteDataService.userMeta = data.userMeta;
+        }
+        
+        fetchData('data/readings.json', 'readingData', function(err, data) {
 
-          $http({method:'GET',url:'data/readings.json'}).success(function(data){
-             remoteDataService.readingData = data.readings;
-             localStorage.readingData = JSON.stringify(data.readings);
-
-             remoteDataService.lessonData = getLessons(remoteDataService.readingData);
-
-            $http({method:'GET',url:'data/questions.json'}).success(function(data){
-              remoteDataService.questionData = data.questions;
-              localStorage.questionData = JSON.stringify(data.questions);
-
-              $http({method:'GET',url:'data/glossary.json'}).success(function(data){
-                remoteDataService.glossaryData = data;
-                localStorage.glossaryData = JSON.stringify(remoteDataService.glossaryData);
-                  q.resolve();
-              });
-            });
-          });
-        });    
-
-      } else {
-
-        if(remoteDataService.readingData == 'null' || typeof remoteDataService.readingData === "undefined") {
-          remoteDataService.readingData = JSON.parse(localStorage.readingData);
-          remoteDataService.questionData = JSON.parse(localStorage.questionData);
-          remoteDataService.userData = JSON.parse(localStorage.userData);
-          remoteDataService.glossaryData = JSON.parse(localStorage.glossaryData);
           remoteDataService.lessonData = getLessons(remoteDataService.readingData);
 
-          // Keep for now
-          if(localStorage.userMeta !== 'null' && typeof localStorage.userMeta !== "undefined" && localStorage.userMeta !== null && localStorage.userMeta != "")  {
-            remoteDataService.userMeta = JSON.parse(localStorage.userMeta);
-          } else {
-            remoteDataService.userMeta =[];
-          }
-        }
-        q.resolve();
-      }
+          fetchData('data/questions.json', 'questionData', function(err, data) {
+
+            fetchData('data/glossary.json', 'glossaryData', function(err, data) {
+
+              q.resolve();
+
+            });
+          });
+        });
+      });
 
     };
 
@@ -166,17 +210,15 @@ frmServices.factory('remoteDataService', ['$resource','$http',
    }
 
    remoteDataService.clearData = function() {
+      localStorage.userData = null;
       localStorage.readingData = null;
-      localStorage.userMeta = null;
+      localStorage.questionData = null;
       localStorage.glossaryData = null;
       localStorage.userSession = {};
    }
 
   // Lessons
   // Lesson is the Organized By Unit [ Week | Topic ]
-
-
-
   remoteDataService.getLessonByID = function(lessonId) {
 
   }
