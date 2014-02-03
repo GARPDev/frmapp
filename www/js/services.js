@@ -102,39 +102,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
     remoteDataService.changeOrgOption = function(org) {
       remoteDataService.userData.settings.organizeBy = org;
-      remoteDataService.lessonData = getLessons(remoteDataService.readingData);
-    }
-
-
-    var fetchRemoteUserData=function(callback) {
-      $http({method:'GET',url:'data/user.json'}).success(function(data){
-
-        remoteDataService.userData = data;
-        localStorage.userData = JSON.stringify(data);
-
-        callback(null, data);
-      }).error(function(data, status, headers, config) {
-        callback(status, null);
-      });
-    }
-
-    var fetchUserData=function(callback) {
-
-      if(localStorage.userData == 'null' || typeof localStorage.userData === "undefined" || localStorage.userData === null) {
-
-        fetchRemoteUserData(callback);
-
-      } else {
-
-        try {
-          //Run some code here
-          remoteDataService.userData = JSON.parse(localStorage.userData);
-          callback(null, remoteDataService.userData);
-        } catch(err) {
-          //Handle errors here
-          fetchRemoteUserData(callback);
-        }
-      }
+      remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
     }
 
 
@@ -166,7 +134,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
             callback(null, remoteDataService[propertyName]);
           } catch(err) {
             //Handle errors here
-            fetchRemoteUserData(url,propertyName,callback);
+            fetchRemoteData(url,propertyName,callback);
           }
         }
       } else {
@@ -180,6 +148,9 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
 
+
+      remoteDataService.clearData();
+
       fetchData('data/user.json', 'userData', function(err, data) {
 
         if(err != NO_FETCH) {
@@ -190,7 +161,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
         
         fetchData('data/readings.json', 'readingData', function(err, data) {
 
-          remoteDataService.lessonData = getLessons(remoteDataService.readingData);
+          remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
 
           fetchData('data/questions.json', 'questionData', function(err, data) {
 
