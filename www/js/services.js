@@ -165,6 +165,8 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
           fetchData('data/questions.json', 'questionData', function(err, data) {
 
+            remoteDataService.questionData = data.questions;
+
             fetchData('data/glossary.json', 'glossaryData', function(err, data) {
 
               q.resolve();

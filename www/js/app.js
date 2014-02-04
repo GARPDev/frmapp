@@ -4,6 +4,7 @@
 
 var phonecatApp = angular.module('frmApp', [
   'ngRoute',
+  'ngSanitize',
   'frmAnimations',
   'frmControllers',
   'frmFilters',

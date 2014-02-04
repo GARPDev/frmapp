@@ -1075,8 +1075,8 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
 ]);
 
 
-frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService','navigationService',
-  function($scope,$timeout,$location,examSharedService,remoteDataService,navigationService) {
+frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce','examSharedService','remoteDataService','navigationService',
+  function($scope,$timeout,$location,$sce,examSharedService,remoteDataService,navigationService) {
 
     $scope.currentQuestion = 0;
     $scope.settings = examSharedService.settings;
@@ -1135,6 +1135,10 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','examS
       userAnswer.correct = $scope.correct;
       $scope.userAnswers.push(userAnswer);
 
+    }
+
+    $scope.getCurrentReason = function() {
+       return $sce.trustAsHtml($scope.answerReason);
     }
 
 
