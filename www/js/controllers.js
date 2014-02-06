@@ -324,8 +324,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       document.location.hash = '#/login';
     }
 
-    $scope.changeOrgOption = function() {
-      remoteDataService.changeOrgOption($scope.orgOption.value);
+    $scope.changeOrgOption = function(value) {
+      remoteDataService.changeOrgOption(value);
       $scope.$broadcast('changeOrgOption');
 
       $scope.lessonIndex = 0;      

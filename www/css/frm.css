@@ -5,7 +5,7 @@ body {
 }
 
 a {
-  color: #059BFF;
+  color: #009BFF;
 }
 
 a:hover {
@@ -69,12 +69,21 @@ a:hover {
 }
 
 .myaccount-settings {
-  margin: 5px;
+  margin: 0 auto;
+  width: 430px;
 }
 
 .myaccount-settings .org {
   margin: 10px;
+  text-align: center
 }
+
+.myaccount-settings .other {
+  margin: 10px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
 
 .myaccount-continue {
   float: right;
@@ -194,6 +203,7 @@ a:hover {
 
 .insperation-area {
   padding: 5px;
+  margin: 0 auto;
 }
 
 .readings-list-area {
@@ -215,6 +225,9 @@ a:hover {
 
 .user-info-area {
   padding: 5px;
+  margin: 0 auto;
+  width: 230px;
+  text-align: center;  
 }
 
 .schedulebar {
@@ -301,6 +314,8 @@ a:hover {
 }
 
 .photo {
+  margin: 0 auto;
+  width: 230px;
   margin-bottom: 5px;
 }
 
