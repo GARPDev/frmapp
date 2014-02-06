@@ -253,8 +253,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
   }
 ]);
 
-frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService',
-  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService) {
+frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService',
+  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService) {
 
     $scope.nav = navigator.appCodeName;
     $scope.camera =  navigator.camera;
@@ -280,6 +280,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $timeout(function() {
       navigationService.pageTransitionIn();
+      var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
+      mapService.displayMap('map-canvas',address);
     }, 0);
 
     scheduleBarSharedService.allMode = false;
@@ -955,8 +957,8 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
 ]);
 
 
-frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService','navigationService',
-  function($scope,$timeout,$location,examSharedService,remoteDataService,navigationService) {
+frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService','navigationService','mapService',
+  function($scope,$timeout,$location,examSharedService,remoteDataService,navigationService,mapService) {
 
     $('.tab-pane').hide();
     $('#tab1').show();
@@ -964,31 +966,11 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $scope.userSession = remoteDataService.userSession;
     $scope.userData = remoteDataService.userData;
 
-    var geocoder;
-    var map;
-    var mapOptions = {
-        zoom: 8
-      };
 
     $timeout(function() {
       navigationService.pageTransitionIn();
-    
-
-      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-      geocoder = new google.maps.Geocoder();
-      var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;
-      geocoder.geocode( { 'address': address}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          map.setCenter(results[0].geometry.location);
-          var marker = new google.maps.Marker({
-              map: map,
-              position: results[0].geometry.location
-          });
-        } else {
-          $('#map-canvas').innerHTML = ' Geocode was not successful for the following reason: ' + status;
-        }
-      });
-
+      var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
+      mapService.displayMap('map-canvas',address);
     }, 0);
 
     if(navigator.camera === null || typeof navigator.camera === "undefined") {

@@ -2,6 +2,38 @@
 <div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>
   
 <div class="container page-container">
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary app-panel">
+      <div class="panel-heading">Exam Information</div>
+      <div class="panel-body">
+        <div class="panel-info">{{userData.registeredExam.name}}</div>
+        <div class="panel-info">{{userData.registeredExam.day}}</div>
+        <div class="panel-info">{{userData.registeredExam.time}}</div>
+        <div  class="panel-info">
+          <div>{{userData.registeredExam.address}}</div>
+          <div>{{userData.registeredExam.city}}, {{userData.registeredExam.state}}</div>
+          <div>{{userData.registeredExam.zip}}</div>
+        </div>
+      </div>    
+      <div id="map-canvas" class="myaccount-map-area"></div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-primary app-panel">
+      <div class="panel-heading">My Account</div>
+      <div class="panel-body">
+      </div>    
+    </div>
+  </div>
+
+
+</div>
+
+
+
   <div class="row">
     <div class="col-md-7">
       <ul class="list-group">

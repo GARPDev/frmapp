@@ -24,6 +24,10 @@ a:hover {
   background-color: #eee
 }
 
+.panel-info {
+  margin: 10px;
+}
+
 .page-container {
   display: none;
 }
@@ -54,6 +58,14 @@ a:hover {
 
 .exam-question-answer {
   margin: 10px;
+}
+
+
+.myaccount-map-area {
+  height: 300px;
+  border-radius: 6px;
+  border:1px solid black;
+  margin: 15px;
 }
 
 .myaccount-settings {
