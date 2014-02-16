@@ -41,6 +41,22 @@ width: 100%;
   height: 100%;  
 }
 
+.nav-item-area {
+  text-align: center;
+}
+
+.nav-right-area {
+  margin-top: 5px;
+}
+.nav-item-icon {
+  font-size: 18px;
+}
+
+.nav-icon-search {
+  padding-right: 10px;
+  color: #FFFFFF;
+}
+
 .login-backdrop-top {
   width: 100%;
   height: 50%;
@@ -122,6 +138,7 @@ width: 100%;
 
 .myaccount-settings {
   width: 430px;
+  margin: 0 auto;
 }
 
 .myaccount-settings .org {

@@ -333,8 +333,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       scheduleBarSharedService.selectItem(lesson.id);
     }
 
-    $scope.continue = function() {
-      navigationService.changeView('dash');
+    $scope.changeView=function(view) {
+      navigationService.changeView(view);
     }
 
   }
