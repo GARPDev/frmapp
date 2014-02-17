@@ -1063,7 +1063,7 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
 
     $scope.exitExam = function() {
       $('body').removeClass("modal-open");
-      document.location.hash = '#/dash';
+      document.location.hash = '#/dashboard';
       //navigationService.changeView('dash');
     }
 
@@ -1115,7 +1115,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.exitExam = function() {
       $('body').removeClass("modal-open");
       //document.location.hash = '#/dash';
-      navigationService.changeView('dash');
+      navigationService.changeView('dashboard');
     }
 
     $scope.chooseAnswer = function(id) {
