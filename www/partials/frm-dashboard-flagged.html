@@ -1,0 +1,27 @@
+    <div class="panel panel-primary app-panel">
+      <div class="panel-heading"><span class="glyphicon glyphicon-flag"></span> Flagged Items</div>
+      <div class="panel-body nopadding">
+
+        <ul class="list-group list-group nopadding">
+
+          <li class="list-group-item" ng-repeat="reading in readings | filter:flaggedMatch()" class="">
+            <div class="reading-item">
+              <div class="icon-area">
+                <div class="icon"><span class="glyphicon glyphicon-book"></span></div>
+              </div>
+              <div class="info">
+
+                <p><a href=""><span ng-if="reading.chapter.title">{{reading.chapter.title}}</span> <span ng-if="reading.section.title">, {{reading.section.title}}</span></a> </p>
+                <p ng-if="reading.book.title">{{reading.book.title}} by <span ng-if="reading.book.author">{{reading.book.author}}</span> <span ng-if="reading.book.publisher">({{reading.book.publisher}})</span>
+
+              </div>
+              <div class="remove">
+                <a href=""><span class="glyphicon glyphicon-remove"></span></a>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>

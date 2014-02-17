@@ -708,6 +708,18 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
       navigationService.pageTransitionIn();
     }, 0);
 
+    $scope.flaggedMatch = function(value) {
+      return function( item ) {
+
+        // find meta  
+        var foundItem = _.findWhere(remoteDataService.userMeta, {id: item.id});        
+
+        if(foundItem !== null && typeof foundItem !== "undefined") {
+          return foundItem.flagged;
+        }
+      }
+    }
+
   }
 ]);
 

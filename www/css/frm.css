@@ -23,11 +23,16 @@ a:hover {
 /* Custom Classes */
 
 .panel {
-  opacity:0.9;
+  opacity:0.8;
 }
 .navbar-text {
   padding-left: 10px;
 }
+.navbar {
+  opacity: 0.8;  
+}
+
+
 .container {
 width: 100%;
 }
@@ -133,6 +138,113 @@ width: 100%;
 .dashboard > .panel-body > .progress-progress-area > .text-area > .text-right {
   float: right;
   margin-right: 5px;
+}
+
+.panel-body.nopadding {
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+.list-group.nopadding {
+  margin-bottom: 0px;
+}
+
+.list-group-item > .lesson-item {
+  height: 50px;
+}
+
+
+.list-group-item > .lesson-item > .title {
+  float: left;
+}
+
+.list-group-item > .lesson-item > .buttons {
+  float: right;
+}
+
+.highlight .panel-body {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.regular .list-group-item,.panel-body {
+  background-color: #EEE;
+  color: #000000;
+}
+
+
+.list-group-item > .message-item {
+  overflow: auto;
+}
+
+.list-group-item > .message-item > .icon-area {
+  float: left;
+}
+
+.list-group-item > .message-item > .icon-area > .icon {
+  font-size: 24px;
+  color: #9DA7AE;
+}
+
+.list-group-item > .message-item > .subject {
+  float: left;
+  width: 70%;
+  padding-left: 20px;
+}
+
+.list-group-item > .message-item > .date {
+  float: right;
+}
+
+
+
+.list-group-item > .reading-item {
+  overflow: auto;
+}
+
+.list-group-item > .reading-item > .icon-area {
+  float: left;
+}
+
+.list-group-item > .reading-item > .icon-area > .icon {
+  border: 5px;
+  border:5px solid #9DA7AE;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px; 
+  background-color: #FFFFFF;
+  padding-left: 7px;
+  padding-top: 6px;  
+
+}
+
+.list-group-item > .reading-item > .info {
+  float: left;
+  width: 80%;
+  padding-left: 20px;
+}
+
+.list-group-item > .reading-item > .remove {
+  float: right;
+  color: #F05123
+}
+
+
+.list-group-item > .reading-item > .remove > a {
+  color: #F05123
+}
+.list-group-item > .reading-item > .remove > a:hover {
+  color: #C44826
+}
+
+
+.list-group-item > .reading-item > .info > p > a {
+  color: #006C99 !important;
+  font-weight: bold;
+}
+
+.list-group-item > .reading-item > .info > p > a:hover {
+  color: #081A31  !important;
 }
 
 /* --- older --*/
