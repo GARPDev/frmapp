@@ -63,7 +63,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       case '#/examsettings':
         $scope.currentMenuItem = 'Tests';
         break;
-      case '#/dash':
+      case '#/dashboard':
         $scope.currentMenuItem = 'Dashboard';
         break;
       case '#/examday':
@@ -694,6 +694,23 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
 
   }
 ]);
+
+
+frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService','readlingListSharedService','navigationService',
+  function($scope, $timeout, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService, readlingListSharedService, navigationService) {
+  
+    //$scope.lessons = Lessons.query();
+    $scope.lessons = remoteDataService.lessonData;
+    $scope.readings = $scope.lessons[0].readings;
+    $scope.userData = remoteDataService.userData;
+
+    $timeout(function() {
+      navigationService.pageTransitionIn();
+    }, 0);
+
+  }
+]);
+
 
 
 frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService','readlingListSharedService','navigationService',

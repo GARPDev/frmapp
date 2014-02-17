@@ -15,6 +15,19 @@ phonecatApp.config(['$routeProvider','$anchorScrollProvider',
   function($routeProvider, $anchorScrollProvider) {
     
     $routeProvider.
+      when('/dashboard', {
+        templateUrl: 'partials/frm-dashboard.html',
+        controller: 'FRMAppDashboardCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+
+          }
+        }
+      }).
       when('/dash', {
         templateUrl: 'partials/frm-dash.html',
         controller: 'FRMAppDashCtrl',
