@@ -540,29 +540,13 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 
     // Readings List
     $scope.itemClicked = function (id, type) {
-
       readlingListSharedService.setReadingIndex(id);
-
-      // New Queue
-      var found = 0;
-      var foundItem = _.findWhere(remoteDataService.userMeta, {id: id});
-      if(foundItem === null || typeof foundItem === "undefined") {
-        var newItem = {id: id};
-        newItem[type] = true;
-        remoteDataService.userMeta.push(newItem);
-      } else {
-        foundItem[type]=!foundItem[type];
-      }
-
-      remoteDataService.commitData();
-      //$('.btn').removeClass('button-on');
+      remoteDataService.toggelReadingAttribute(id, type);
     };
   
     $scope.isItemClicked = function (id, type) { 
 
-      // New Queue
-      var found = 0;
-      var foundItem = _.findWhere(remoteDataService.userMeta, {id: id});
+      var foundItem = remoteDataService.getReadingByID(id);
       if(foundItem === null || typeof foundItem === "undefined") {
         return false;
       } else {
@@ -576,8 +560,8 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
     }
 
     $scope.getNumberOfNotes = function(id) {
-      var found = 0;
-      var foundItem = _.findWhere(remoteDataService.userMeta, {id: id});
+
+      var foundItem = remoteDataService.getReadingByID(id);
       if(foundItem !== null && typeof foundItem !== "undefined" &&
         foundItem.notes !== null && typeof foundItem.notes !== "undefined") {
         return foundItem.notes.length;
@@ -711,25 +695,6 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
     $scope.userMeta = remoteDataService.userMeta;
     $scope.doneItems = [];
 
-    // $scope.allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
-    // var doneItems = _.where(remoteDataService.userMeta, {checked: true});     
-    // if(doneItems !== null && typeof doneItems !== "undefined") {
-    //   if(Object.prototype.toString.call(doneItems) != "[object Array]") {
-    //     $scope.doneItems.push(doneItems);
-    //   } else {
-    //     $scope.doneItems = doneItems;
-    //   }
-    // } else {
-    //   $scope.doneItems = doneItems;
-    // }
-
-    // if($scope.allReadings.length > 0) {
-    //   $scope.percentComplete = roundNumber(($scope.doneItems.length/$scope.allReadings.length)*100,0);
-    // } else {
-    //   $scope.percentComplete = 0;
-    // }
-
-
     $scope.percentCompleteTotals = remoteDataService.getPercentCompleteTotals();
 
     $timeout(function() {
@@ -760,6 +725,10 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
     $scope.navToLessonReadings = function(id) {
       scheduleBarSharedService.selectItem(id);
       navigationService.changeView('readings');
+    }
+
+    $scope.removeFlag = function(id) {
+      remoteDataService.toggelReadingAttribute(id, 'flagged');
     }
 
   }

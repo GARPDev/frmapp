@@ -312,10 +312,21 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
 
   remoteDataService.getReadingByID = function(readingId,type) {
-    
+    return _.findWhere(remoteDataService.userMeta, {id: readingId});
   }
 
-  remoteDataService.toggelReadingStatus = function(readingId,type) {
+  remoteDataService.toggelReadingAttribute = function(readingId,type) {
+
+    var foundItem = remoteDataService.getReadingByID(readingId);
+    if(foundItem === null || typeof foundItem === "undefined") {
+      var newItem = {id: readingId};
+      newItem[type] = true;
+      remoteDataService.userMeta.push(newItem);
+    } else {
+      foundItem[type]=!foundItem[type];
+    }
+
+    remoteDataService.commitData();
     
   }
 
@@ -379,7 +390,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 frmServices.factory('scheduleBarSharedService', function($rootScope) {
 	var sharedService = {};
 
-	sharedService.lessonIndex = 1;
+	sharedService.lessonIndex = null;
 	sharedService.readingIndex = 0;
   sharedService.allMode = false;
   
