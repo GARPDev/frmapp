@@ -357,7 +357,12 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location', '$tim
     if(scheduleBarSharedService.lessonIndex == 'all') {
        var lesson = {id:'all', title:'All Readings'};
     } else {    
-      var lesson = remoteDataService.getFirstLesson();
+      if(scheduleBarSharedService.lessonIndex !== null && typeof scheduleBarSharedService.lessonIndex !== "undefined") {
+        lesson = remoteDataService.getLessonByID(scheduleBarSharedService.lessonIndex);
+      } else {
+        lesson = remoteDataService.getFirstLesson();
+      }
+      
     }
 
     scheduleBarSharedService.lessonIndex = lesson.id;
@@ -718,6 +723,20 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
           return foundItem.flagged;
         }
       }
+    }
+
+    $scope.lessonInProgressMatch = function(value) {
+      return function( item ) {
+        if(!value)
+          return !remoteDataService.isLessonInProgress(item.id);
+        else return remoteDataService.isLessonInProgress(item.id);
+
+      }
+    }
+
+    $scope.navToLessonReadings = function(id) {
+      scheduleBarSharedService.selectItem(id);
+      navigationService.changeView('readings');
     }
 
   }

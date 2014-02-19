@@ -185,8 +185,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
 
-
-      remoteDataService.clearData();
+      //remoteDataService.clearData();
 
       fetchData('data/user.json', 'userData', function(err, data) {
 
@@ -217,10 +216,15 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
    remoteDataService.commitData = function() {
       localStorage.userMeta = JSON.stringify(remoteDataService.userMeta);
+
+      var userData = JSON.parse(localStorage.userData);
+      userData.userMeta = remoteDataService.userMeta;
+      localStorage.userData = JSON.stringify(userData);
    }
 
    remoteDataService.clearData = function() {
       localStorage.userData = null;
+      localStorage.userMeta = null;
       localStorage.readingData = null;
       localStorage.questionData = null;
       localStorage.glossaryData = null;
@@ -230,14 +234,39 @@ frmServices.factory('remoteDataService', ['$resource','$http',
   // Lessons
   // Lesson is the Organized By Unit [ Week | Topic ]
   remoteDataService.getLessonByID = function(lessonId) {
-
+    return _.findWhere(remoteDataService.lessonData, {id: lessonId});
   }
 
   remoteDataService.getFirstLesson = function() {
     return remoteDataService.lessonData[0];    
   }
 
-  remoteDataService.isLessonInProgress = function() {
+  remoteDataService.isLessonInProgress = function(id) {
+
+    var lesson = _.findWhere(remoteDataService.lessonData, {id: id});
+
+    if(lesson !== null && typeof lesson !== "undefined") {
+
+      var readings = lesson.readings;
+      var readingsIds = _.pluck(readings, 'id');
+
+      var meta = _.where(remoteDataService.userMeta, {checked: true});
+      if(meta !== null || typeof meta !== "undefined" && readingsIds !== null && typeof readingsIds !== "undefined") {
+        var metaIds = _.pluck(meta, 'id');
+        var inter = _.intersection(readingsIds,metaIds)
+
+        if(inter.length > 0)
+          return true
+        else return false;
+
+      } else {
+        return false;
+      }
+
+    } else {
+      return false;
+    }
+
 
   }
 
