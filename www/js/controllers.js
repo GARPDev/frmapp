@@ -711,29 +711,26 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
     $scope.userMeta = remoteDataService.userMeta;
     $scope.doneItems = [];
 
-    $scope.allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
-    var doneItems = _.where(remoteDataService.userMeta, {checked: true});     
-    if(doneItems !== null && typeof doneItems !== "undefined") {
-      if(Object.prototype.toString.call(doneItems) != "[object Array]") {
-        $scope.doneItems.push(doneItems);
-      } else {
-        $scope.doneItems = doneItems;
-      }
-    } else {
-      $scope.doneItems = doneItems;
-    }
+    // $scope.allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
+    // var doneItems = _.where(remoteDataService.userMeta, {checked: true});     
+    // if(doneItems !== null && typeof doneItems !== "undefined") {
+    //   if(Object.prototype.toString.call(doneItems) != "[object Array]") {
+    //     $scope.doneItems.push(doneItems);
+    //   } else {
+    //     $scope.doneItems = doneItems;
+    //   }
+    // } else {
+    //   $scope.doneItems = doneItems;
+    // }
 
-    if($scope.allReadings.length > 0) {
-      $scope.percentComplete = roundNumber(($scope.doneItems.length/$scope.allReadings.length)*100,0);
-    } else {
-      $scope.percentComplete = 0;
-    }
+    // if($scope.allReadings.length > 0) {
+    //   $scope.percentComplete = roundNumber(($scope.doneItems.length/$scope.allReadings.length)*100,0);
+    // } else {
+    //   $scope.percentComplete = 0;
+    // }
 
 
-    function roundNumber(rnum, rlength) { 
-      var newnumber = Math.round(rnum * Math.pow(10, rlength)) / Math.pow(10, rlength);
-      return newnumber;
-    }
+    $scope.percentCompleteTotals = remoteDataService.getPercentCompleteTotals();
 
     $timeout(function() {
       navigationService.pageTransitionIn();

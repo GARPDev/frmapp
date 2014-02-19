@@ -279,6 +279,37 @@ frmServices.factory('remoteDataService', ['$resource','$http',
   }
 
   // Readings
+  remoteDataService.getPercentCompleteTotals = function() {
+
+    var allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
+    var doneItems = _.where(remoteDataService.userMeta, {checked: true});     
+    if(doneItems !== null && typeof doneItems !== "undefined") {
+      if(Object.prototype.toString.call(doneItems) != "[object Array]") {
+        var newDoneItems = [];
+        newDoneItems.push(doneItems);
+        doneItems = newDoneItems;
+      }
+    }
+
+    function roundNumber(rnum, rlength) { 
+      var newnumber = Math.round(rnum * Math.pow(10, rlength)) / Math.pow(10, rlength);
+      return newnumber;
+    }
+
+    var percentComplete = 0;
+    if(allReadings.length > 0) {
+      var percentComplete = roundNumber((doneItems.length/allReadings.length)*100,0);
+    }
+
+    var returnObject = {
+      totalReadings: allReadings.length,
+      totalDoneItems: doneItems.length,
+      percentComplete: percentComplete
+    }
+
+    return returnObject;
+  }
+
 
   remoteDataService.getReadingByID = function(readingId,type) {
     
