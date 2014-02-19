@@ -71,7 +71,7 @@ frmServices.factory('navigationService', ['$resource','$http',
     navigationService.pageTransitionOut = function(view) {
       $('.page-container').fadeOut(function() {
         if(view !== null && typeof view !== "undefined") {
-          document.location.hash = '#/' + view;
+          document.location.hash = '#!/' + view;
         }
       });
     }

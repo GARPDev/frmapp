@@ -11,8 +11,8 @@ var phonecatApp = angular.module('frmApp', [
   'frmServices'
 ]);
 
-phonecatApp.config(['$routeProvider','$anchorScrollProvider',
-  function($routeProvider, $anchorScrollProvider) {
+phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider',
+  function($routeProvider, $anchorScrollProvider, $locationProvider) {
     
     $routeProvider.
       when('/dashboard', {
@@ -141,6 +141,9 @@ phonecatApp.config(['$routeProvider','$anchorScrollProvider',
       otherwise({
         redirectTo: '/login'
       });
+
+
+      $locationProvider.hashPrefix('!');
 	  
   }]);
 
