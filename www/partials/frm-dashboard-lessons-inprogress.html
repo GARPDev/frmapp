@@ -4,10 +4,10 @@
 
         <ul class="list-group list-group nopadding">
 
-          <li class="list-group-item" ng-repeat="lesson in lessons" class="">
+          <li class="list-group-item" ng-repeat="lesson in lessons | filter:lessonInProgressMatch(true)" class="">
             <div class="lesson-item">
                 <div class="title">{{lesson.title}}</div>
-                <div class="buttons"><button type="button" class="btn btn-success">Study</button></div>
+                <div class="buttons"><button type="button" ng-click="navToLessonReadings(lesson.id)" class="btn btn-success">Study</button></div>
             </div>
           </li>
 
