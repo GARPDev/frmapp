@@ -286,7 +286,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     scheduleBarSharedService.allMode = false;
 
-    $scope.$on('handleScheduleBarSelectItem', function() {
+    $scope.$on('handleTopicSelectItem', function() {
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
         $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
         var lesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});
@@ -369,7 +369,7 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location', '$tim
     $scope.selected = lesson.id;
     scheduleBarSharedService.selectItem(lesson.id);
 
-    $scope.$on('handleScheduleBarSelectItem', function() {
+    $scope.$on('handleTopicSelectItem', function() {
       $scope.selected = scheduleBarSharedService.lessonIndex;
     });
 
@@ -518,7 +518,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
       $scope.readings = $scope.currentLesson.readings
     }
 
-    $scope.$on('handleScheduleBarSelectItem', function() {
+    $scope.$on('handleTopicSelectItem', function() {
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
 
           $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
@@ -635,7 +635,7 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
     }, 0);
 
 
-    $scope.$on('handleScheduleBarSelectItem', function() {
+    $scope.$on('handleTopicSelectItem', function() {
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
 
           $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
@@ -654,7 +654,8 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
 
     // For Readings
     $scope.selectedReadingArray = [];
-    $scope.filterList = function(filterType,value) {
+
+    $scope.$on('handleFilterReadingList', function(filterType,value) {
       
       var selector = '.spin-area';
       var obj = $(selector)
@@ -670,8 +671,7 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
 
         },100);
       }
-
-    }
+    });
 
     $scope.isFilterOn = function(type) {
       return readlingListSharedService.filters[type];
@@ -805,7 +805,7 @@ frmControllers.controller('FRMAppDashCtrl', ['$scope', '$timeout', 'Readings', '
 
 
     
-    $scope.$on('handleScheduleBarSelectItem', function() {
+    $scope.$on('handleTopicSelectItem', function() {
       if($scope.lessonIndex != scheduleBarSharedService.lessonIndex) {
         $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
         var lesson = _.findWhere(remoteDataService.lessonData, {id: $scope.lessonIndex});

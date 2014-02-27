@@ -1,40 +1,22 @@
 <!-- Fixed navbar -->
 <div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>    
 
-<div class="container page-container">
-  <div class="row">
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-10">
-      <div class="schedulebar-area" ng-include="'partials/frm-schedularbar.html'"></div>
-    </div>
-    <div class="col-md-1">
-    </div>
-  </div>
-</div>
 
 <div class="container page-container">
   <div class="row">
-    <div class="col-md-12 ">
-      <div class="readings-title-area">
-        <h3 ng-cloak>{{currentLesson.title}}</h3>
-      </div>
-      <div class="readings-filter">
+    <div class="col-md-8">
 
-        <ul class="nav nav-pills">
-          <li id="filter-reading-done" class="readings-filter-pills-text" ng-class="{ 'active': isFilterOn('checked') }" ng-click="filterList('checked',1)"><a href=""><span class="glyphicon glyphicon-check"></span> Done</a></li>
-          <li class="readings-filter-pills-text" ng-class="{ 'active': isFilterOn('flagged') }" ng-click="filterList('flagged',1)"><a href=""><span class="glyphicon glyphicon-flag"></span> Flag</a></li>
-
-        </ul>
-      </div>      
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 ">
       <div class="reading-list-area" ng-include="'partials/frm-readings-list.html'"></div>
+
     </div>
-  </div>
+    <div class="col-md-4">
+      <div class="regular" ng-include="'partials/frm-topicPanel-filters.html'"></div>
+      <div class="regular" ng-include="'partials/frm-topicPanel.html'"></div>
+      
+    </div>
+  </div>  
 </div>
+
 
 <div ng-include="'partials/frm-navFooter.html'"></div>
 

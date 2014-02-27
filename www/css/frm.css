@@ -155,12 +155,6 @@ a:hover {
   color: #000000;
 }
 
-.regular .list-group-item,.panel-body {
-  background-color: #EEE;
-  color: #000000;
-}
-
-
 .list-group-item > .message-item {
   overflow: auto;
 }
@@ -203,6 +197,7 @@ a:hover {
   background-color: #FFFFFF;
   padding-left: 7px;
   padding-top: 6px;  
+  color: #cbd4d6;
 
 }
 
@@ -441,6 +436,12 @@ a:hover {
   float: left;
 }
 
+.readings-list-button-area {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
 .readings-filter {
   float: right;
 }
@@ -455,6 +456,10 @@ a:hover {
   margin: 0 auto;
   width: 230px;
   text-align: center;  
+}
+
+.topicpanel-item-selected {
+  border-left: 10px solid #dddddd;
 }
 
 .schedulebar {

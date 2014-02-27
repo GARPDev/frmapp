@@ -396,7 +396,7 @@ frmServices.factory('scheduleBarSharedService', function($rootScope) {
   
   sharedService.selectItem = function(item) {
   	sharedService.lessonIndex = item;
-    $rootScope.$broadcast('handleScheduleBarSelectItem');
+    $rootScope.$broadcast('handleTopicSelectItem');
   };
 
   sharedService.doneReadingItem = function(item) {
@@ -422,7 +422,7 @@ frmServices.factory('readlingListSharedService', function($rootScope) {
 
   sharedService.filterList = function(filterType) {
     sharedService.filters[filterType] = !sharedService.filters[filterType];
-    //$rootScope.$broadcast('handleFilterList');
+    $rootScope.$broadcast('handleFilterReadingList',filterType,sharedService.filters[filterType]);
   };
 
   sharedService.clearFilters = function() {

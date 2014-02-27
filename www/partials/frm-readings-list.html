@@ -1,13 +1,37 @@
 <div class="spin-area"></div>
-<ul class="list-group" ng-controller="FRMAppReadingsListCtrl">				
-	<li ng-repeat="reading in readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'checked') }">
-		<div ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
-		<div>
-			<p>{{reading.id}} - <span ng-if="reading.chapter.title">{{reading.chapter.title}}</span> <span ng-if="reading.section.title">, {{reading.section.title}}</span> </p>
-			<p ng-if="reading.book.title">{{reading.book.title}} by <span ng-if="reading.book.author">{{reading.book.author}}</span> <span ng-if="reading.book.publisher">({{reading.book.publisher}})</span>
-			<div ng-if="reading.attachment.url">
-				<span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{reading.attachment.name}}</span> <span>{{reading.attachment.description}}</span>
-			</div>
-		</div>
-	</li>				
-</ul>    			
+
+
+<div ng-controller="TopicPanelController">
+
+  <div class="panel panel-primary app-panel">
+    <div class="panel-heading">{{currentLesson.title}}</div>
+    <div class="panel-body nopadding">
+
+			<ul class="list-group" ng-controller="FRMAppReadingsListCtrl">				
+				<li ng-repeat="reading in readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'checked') }">
+          <div class="reading-item">
+
+            <div class="icon-area">
+              <div class="icon"><span class="glyphicon" ng-class="{ 'glyphicon-file': reading.attachment.url, 'glyphicon-book': !reading.attachment.url }"  ></span></div>
+            </div>
+            <div class="info">
+  						<p>{{reading.id}} - <span ng-if="reading.chapter.title">{{reading.chapter.title}}</span> <span ng-if="reading.section.title">, {{reading.section.title}}</span> </p>
+  						<p ng-if="reading.book.title">{{reading.book.title}} by <span ng-if="reading.book.author">{{reading.book.author}}</span> <span ng-if="reading.book.publisher">({{reading.book.publisher}})</span>
+  						<div ng-if="reading.attachment.url">
+  							<span class="glyphicon glyphicon-file"></span> <span class="sectiontext">{{reading.attachment.name}}</span> <span>{{reading.attachment.description}}</span>
+  						</div>
+
+              <div class="readings-list-button-area" ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
+
+  					</div>
+
+          </div>
+				</li>				
+			</ul>    			
+
+    </div>
+  </div>
+
+</div>
+
+

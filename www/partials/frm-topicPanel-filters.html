@@ -1,0 +1,30 @@
+<div ng-controller="TopicPanelFiltersController">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">Filters</div>
+    <div class="panel-body nopadding">
+
+      <ul class="list-group list-group nopadding">
+
+        <li class="list-group-item" ng-class="{ 'active': isFilterOn('checked') }" ng-click="filterList('checked',1)">
+          <div class="lesson-item">
+              <div class="title">Done</div>
+          </div>
+        </li>
+        <li class="list-group-item" ng-class="{ 'active': isFilterOn('flagged') }" ng-click="filterList('flagged',1)">
+          <div class="lesson-item">
+              <div class="title">Flag</div>
+          </div>
+        </li>
+        <li class="list-group-item" ng-class="{ 'active': isFilterOn('notes') }" ng-click="filterList('notes',1)">
+          <div class="lesson-item">
+              <div class="title">Notes</div>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+
+</div>

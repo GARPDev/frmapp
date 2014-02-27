@@ -1,11 +1,11 @@
 
-  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'btn-primary': isItemClicked(reading.id, 'checked') }" ng-click="itemClicked(reading.id,'checked')">
+  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'btn-success': isItemClicked(reading.id, 'checked') }" ng-click="itemClicked(reading.id,'checked')">
     <span class="glyphicon glyphicon-check"></span> <span class="reading-list-button">Done</span>
   </button>
-  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'btn-primary': isItemClicked(reading.id, 'flagged') }" ng-click="itemClicked(reading.id,'flagged')">
+  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'btn-success': isItemClicked(reading.id, 'flagged') }" ng-click="itemClicked(reading.id,'flagged')">
     <span class="glyphicon glyphicon-flag"></span> <span class="reading-list-button">Flag</span>
   </button>
-  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'btn-primary': getNumberOfNotes(reading.id) > 0 }" ng-click="itemClicked(reading.id,'note')" data-toggle="modal" data-target="#myModal">
+  <button type="button" class="btn btn-default btn-xs" ng-class="{ 'btn-success': getNumberOfNotes(reading.id) > 0 }" ng-click="itemClicked(reading.id,'note')" data-toggle="modal" data-target="#myModal">
     <span class="glyphicon glyphicon-list-alt"></span> <span class="reading-list-button">Notes</span> <span ng-if="getNumberOfNotes(reading.id) > 0" class="badge">{{getNumberOfNotes(reading.id)}}</span>
   </button>
 

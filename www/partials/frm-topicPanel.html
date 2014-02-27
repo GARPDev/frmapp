@@ -1,0 +1,20 @@
+<div ng-controller="TopicPanelController">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">Topics</div>
+    <div class="panel-body nopadding">
+
+      <ul class="list-group list-group nopadding">
+
+        <li class="list-group-item" ng-repeat="lesson in lessons" class="" ng-class="{ 'topicpanel-item-selected': isItemSelected(lesson.id) }" ng-click="itemSelect(lesson.id)">
+          <div class="lesson-item">
+              <div class="title">{{lesson.title}}</div>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+
+</div>
