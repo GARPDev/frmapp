@@ -21,20 +21,8 @@ a:hover {
 }
 
 /* Custom Classes */
-
-.panel {
-  opacity:1.0;
-}
-.navbar-text {
-  padding-left: 10px;
-}
-.navbar {
-  opacity: 0.8;  
-}
-
-
 .container {
-width: 100%;
+  width: 100%;
 }
 
 .view-container {
