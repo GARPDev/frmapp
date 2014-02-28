@@ -1,0 +1,41 @@
+frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','remoteDataService','navigationService',
+  function($scope, $timeout, $location, remoteDataService, navigationService) {
+
+    $timeout(function() {
+      navigationService.pageTransitionIn();
+    }, 0);
+
+    $scope.userAgent = navigator.userAgent;
+
+      if( /Android/i.test(navigator.userAgent) ) {
+        $('.input-group-addon').hide();
+        $('.login-area').find('div').removeClass('input-group')
+      }
+
+
+    $("video").bind("ended", function() {
+       $('.videoplayer').hide("slow");
+       $('.videoimage').show("slow");
+       $timeout(function() {
+          $('.videoplaybutton').show("slow");
+       }, 3000);
+    });
+
+    $scope.playVideo=function() {
+      $('.videoplaybutton').hide("slow");
+      $('.videoimage').hide("slow");
+      $('.videoplayer').show("slow");
+      var video = $('.videoplayer').get(0);
+      video.play();
+    }
+
+    $scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };
+
+    $scope.login = function() {
+     navigationService.changeView('myaccount');
+    }
+
+  }
+]);
