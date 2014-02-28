@@ -662,9 +662,6 @@ frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSh
       if(obj !== null && typeof obj !== "undefined" && obj.length > 0) {
         var spinner = new Spinner(opts).spin(obj[0]);
         $timeout(function() {
-        
-            readlingListSharedService.filterList(filterType);
-
             $timeout(function() {
               spinner.stop();
              },400);
