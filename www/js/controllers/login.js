@@ -1,5 +1,5 @@
-frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','remoteDataService','navigationService',
-  function($scope, $timeout, $location, remoteDataService, navigationService) {
+frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','remoteDataService','navigationService','authenticationService',
+  function($scope, $timeout, $location, remoteDataService, navigationService, authenticationService) {
 
     $timeout(function() {
       navigationService.pageTransitionIn();
@@ -34,7 +34,20 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
     };
 
     $scope.login = function() {
-     navigationService.changeView('myaccount');
+
+      var userName = $('#userName').val();
+      var password = $('#password').val();
+
+      authenticationService.authenticateUser(userName, password, function(err, result) {
+
+        if(err) {
+          $('#errormsg').html("Cannot login!");
+        } else {
+          navigationService.changeView('myaccount');  
+        }
+
+      })
+     
     }
 
   }

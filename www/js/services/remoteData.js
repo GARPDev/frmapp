@@ -1,5 +1,5 @@
-frmServices.factory('remoteDataService', ['$resource','$http',
-  function($resource, $http){
+frmServices.factory('remoteDataService', ['$resource','$http','authenticationService',
+  function($resource, $http, authenticationService){
 
     var remoteDataService = {};
     remoteDataService.$http = $http;
@@ -16,8 +16,12 @@ frmServices.factory('remoteDataService', ['$resource','$http',
     var getLessons = function(readings) {
 
       var org = "week";
-      if(remoteDataService.userData.settings.organizeBy == "topic") {
-        org = "topic";
+      if(remoteDataService.userData !== null && typeof remoteDataService.userData !== "undefined" &&
+         remoteDataService.userData.settings !== null && typeof remoteDataService.userData.settings !== "undefined") {
+        if(remoteDataService.userData.settings.organizeBy == "topic") {
+          org = "topic";
+        }
+
       }
 
       var lessons = [];        
@@ -91,7 +95,7 @@ frmServices.factory('remoteDataService', ['$resource','$http',
 
       //remoteDataService.clearData();
 
-      fetchData('data/user.json', 'userData', function(err, data) {
+      fetchData('/frmApp/user/' + authenticationService.userID, 'userData', function(err, data) {
 
         if(err != NO_FETCH) {
           // For easy access seperate userMeta from userData
