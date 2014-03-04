@@ -158,11 +158,11 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         var id = $scope.question.readings[i];
         var type = 'flagged';
         var found = 0;
-        var foundItem = _.findWhere(remoteDataService.userMeta, {id: id});
+        var foundItem = _.findWhere(remoteDataService.metaData, {readingId: id});
         if(foundItem === null || typeof foundItem === "undefined") {
           var newItem = {id: id};
           newItem[type] = true;
-          remoteDataService.userMeta.push(newItem);
+          remoteDataService.metaData.push(newItem);
         } else {
           foundItem[type]=true;
         }

@@ -23,9 +23,8 @@ frmServices.factory('authenticationService', ['$resource','$http',
         return callback(401,{error:"Users not found!"});
       }
 
-      authenticationService.userName = userName;
-      authenticationService.userID = data.records[0].Id;
-      callback(null, authenticationService);
+      authenticationService.user = data.records[0];
+      callback(null, authenticationService.user);
 
     }).error(function(data, status, headers, config) {
       callback(status, null);

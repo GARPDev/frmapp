@@ -8,7 +8,7 @@
     <div class="panel-body nopadding">
 
 			<ul class="list-group" ng-controller="FRMAppReadingsListCtrl">				
-				<li ng-repeat="reading in readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'checked') }">
+				<li ng-repeat="reading in readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'done') }">
           <div class="reading-item">
 
             <div class="icon-area">

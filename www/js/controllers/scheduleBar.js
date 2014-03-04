@@ -86,10 +86,10 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location', '$tim
       var li = scheduleBarSharedService.lessonIndex;
       var ri = scheduleBarSharedService.readingIndex;
       
-      if($scope.lessons[li].readings[ri].checked) {
-        $scope.lessons[li].readings[ri].checked = 0;
+      if($scope.lessons[li].readings[ri].done) {
+        $scope.lessons[li].readings[ri].done = 0;
       } else {
-        $scope.lessons[li].readings[ri].checked = 1;
+        $scope.lessons[li].readings[ri].done = 1;
       }
     });
 
@@ -111,7 +111,7 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location', '$tim
         var readings = lesson.readings;
         var readingsIds = _.pluck(readings, 'id');
 
-        var meta = _.where(remoteDataService.userMeta, {checked: true});
+        var meta = _.where(remoteDataService.metaData, {done: true});
         if(meta !== null || typeof meta !== "undefined" && readingsIds !== null && typeof readingsIds !== "undefined") {
           var metaIds = _.pluck(meta, 'id');
           var inter = _.intersection(readingsIds,metaIds)
@@ -137,7 +137,7 @@ frmControllers.controller('ScheduleBarController', ['$scope', '$location', '$tim
         var readings = lesson.readings;
         var readingsIds = _.pluck(readings, 'id');
 
-        var meta = _.where(remoteDataService.userMeta, {checked: true});
+        var meta = _.where(remoteDataService.metaData, {done: true});
         if(meta !== null || typeof meta !== "undefined" && readingsIds !== null && typeof readingsIds !== "undefined") {
           var metaIds = _.pluck(meta, 'id');
           var inter = _.intersection(readingsIds,metaIds)

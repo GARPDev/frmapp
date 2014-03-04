@@ -5,7 +5,7 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
     $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;
     $scope.userData = remoteDataService.userData;
-    $scope.userMeta = remoteDataService.userMeta;
+    $scope.metaData = remoteDataService.metaData;
     $scope.doneItems = [];
 
     $scope.percentCompleteTotals = remoteDataService.getPercentCompleteTotals();
@@ -18,7 +18,7 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
       return function( item ) {
 
         // find meta  
-        var foundItem = _.findWhere(remoteDataService.userMeta, {id: item.id});        
+        var foundItem = _.findWhere(remoteDataService.metaData, {readingId: item.id});        
 
         if(foundItem !== null && typeof foundItem !== "undefined") {
           return foundItem.flagged;

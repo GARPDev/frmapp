@@ -22,7 +22,7 @@ frmServices.factory('readlingListSharedService', function($rootScope) {
   var sharedService = {};
   sharedService.filters = {
     flagged: 0,
-    checked: 0
+    done: 0
   };
   sharedService.readingIndex = "";
 
@@ -39,7 +39,7 @@ frmServices.factory('readlingListSharedService', function($rootScope) {
   sharedService.clearFilters = function() {
     sharedService.filters = {
       flagged: 0,
-      checked: 0
+      done: 0
     };
 
   }    

@@ -70,21 +70,21 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
       return function( item ) {
 
         // New Queue  
-        var foundItem = _.findWhere(remoteDataService.userMeta, {id: item.id});        
+        var foundItem = _.findWhere(remoteDataService.metaData, {readingId: item.id});        
 
         if(foundItem !== null && typeof foundItem !== "undefined") {
 
-          if(readlingListSharedService.filters.flagged && readlingListSharedService.filters.checked) {
-            return (foundItem.flagged === true && foundItem.checked === true);
+          if(readlingListSharedService.filters.flagged && readlingListSharedService.filters.done) {
+            return (foundItem.flagged === true && foundItem.done === true);
           } else if(readlingListSharedService.filters.flagged) {
             return foundItem.flagged === true;
-          } else if(readlingListSharedService.filters.checked) {
-            return foundItem.checked === true;
+          } else if(readlingListSharedService.filters.done) {
+            return foundItem.done === true;
           } else {
             return 1;  
           }
         } else {
-          if(readlingListSharedService.filters.flagged || readlingListSharedService.filters.checked) {
+          if(readlingListSharedService.filters.flagged || readlingListSharedService.filters.done) {
             return false;
           } else {
             return 1;  

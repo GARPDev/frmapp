@@ -1,6 +1,12 @@
 frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService',
   function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService) {
 
+
+    if(remoteDataService.userData.registeredExam == null) {
+      navigationService.changeView('login');
+    }
+
+
     $scope.nav = navigator.appCodeName;
     $scope.camera =  navigator.camera;
     $scope.deviceReady =  false;
@@ -66,7 +72,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $scope.clearData = function() {
       remoteDataService.clearData();
-      document.location.hash = '#/login';
+      navigationService.changeView('login');
     }
 
     $scope.changeOrgOption = function(value) {

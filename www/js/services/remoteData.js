@@ -8,7 +8,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
     remoteDataService.searchTerms = "";
 
     // localStorage.readingData = null;
-    // localStorage.userMeta = null;
+    // localStorage.metaData = null;
     // localStorage.glossaryData = null;
 
 
@@ -51,25 +51,31 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
     }
 
 
-    var fetchRemoteData=function(url,propertyName,callback) {
+    var fetchRemoteData=function(url,propertyName,remotePropertyName,callback) {
       $http({method:'GET',url:url}).success(function(data){
 
-        remoteDataService[propertyName] = data;
-        localStorage[propertyName] = JSON.stringify(data);
-
-        callback(null, data);
+        if(remotePropertyName != null) {
+          remoteDataService[propertyName] = data[remotePropertyName];
+          localStorage[propertyName] = JSON.stringify(data[remotePropertyName]);
+          callback(null, data[remotePropertyName]);
+        } else {        
+          remoteDataService[propertyName] = data;
+          localStorage[propertyName] = JSON.stringify(data);
+          callback(null, data);
+        }
+        
       }).error(function(data, status, headers, config) {
         callback(status, null);
       });
     }
 
-    var fetchData=function(url,propertyName, callback) {
+    var fetchData=function(url,propertyName, remotePropertyName, callback) {
 
       if(remoteDataService[propertyName] == 'null' || typeof remoteDataService[propertyName] === "undefined" || remoteDataService[propertyName] === null) {
 
         if(localStorage[propertyName] == 'null' || typeof localStorage[propertyName] === "undefined" || localStorage[propertyName] === null) {
 
-          fetchRemoteData(url,propertyName,callback);
+          fetchRemoteData(url,propertyName,remotePropertyName,callback);
 
         } else {
 
@@ -95,47 +101,119 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
       //remoteDataService.clearData();
 
-      fetchData('/frmApp/user/' + authenticationService.userID, 'userData', function(err, data) {
+      if(authenticationService.user === null || typeof authenticationService.user === "undefined") {
+          return null;
+      }
+
+      if(remoteDataService.userData === null || typeof remoteDataService.userData === "undefined") {
+        remoteDataService.userData = authenticationService.user;
+      }
+
+      if(localStorage["userData"] == 'null' || typeof localStorage["userData"] === "undefined" || localStorage["userData"] === null) {
+        localStorage["userData"] = JSON.stringify(authenticationService.user);
+      }
+
+      fetchData('/frmApp/user/' + authenticationService.user.Id + '/exam', 'registeredExam', null, function(err, data) {
 
         if(err != NO_FETCH) {
-          // For easy access seperate userMeta from userData
-          remoteDataService.userMeta = [];
-          remoteDataService.userMeta = data.userMeta;
+          remoteDataService.userData.registeredExam = data;
         }
-        
-        fetchData('data/readings.json', 'readingData', function(err, data) {
 
-          remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
+        fetchData('/frmApp/user/' + authenticationService.user.Id + '/metaData', 'metaData', 'metaData', function(err, data) {
 
-          fetchData('data/questions.json', 'questionData', function(err, data) {
+          if(err != NO_FETCH) {
 
-            remoteDataService.questionData = data.questions;
+            if(err == 404) {
+              data = [];
+              localStorage.metaData = JSON.stringify(data);
+              remoteDataService.metaData = data;
+            }
+            remoteDataService.userData.metaData = data;
+          }
 
-            fetchData('data/glossary.json', 'glossaryData', function(err, data) {
 
-              q.resolve();
+          fetchData('/frmApp/user/' + authenticationService.user.Id + '/settings', 'userSettings', 'settings', function(err, data) {
 
+            if(err != NO_FETCH) {
+              if(err == 404) {
+                data = {
+                  organizeBy:"topic"
+                };
+                localStorage.userSettings = JSON.stringify(data);
+                remoteDataService.userSettings = data;
+              }
+              remoteDataService.userData.settings = data;
+              localStorage.userData = JSON.stringify(remoteDataService.userData);
+              // remoteDataService.metaData = [];
+              // remoteDataService.metaData = data.metaData;
+            }
+            
+            fetchData('data/readings.json', 'readingData', null, function(err, data) {
+
+              remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
+
+              fetchData('data/questions.json', 'questionData', null, function(err, data) {
+
+                remoteDataService.questionData = data.questions;
+
+                fetchData('data/glossary.json', 'glossaryData', null, function(err, data) {
+
+                  q.resolve();
+
+                });
+              });
             });
           });
         });
       });
-
     };
 
    remoteDataService.commitData = function() {
-      localStorage.userMeta = JSON.stringify(remoteDataService.userMeta);
 
-      var userData = JSON.parse(localStorage.userData);
-      userData.userMeta = remoteDataService.userMeta;
-      localStorage.userData = JSON.stringify(userData);
+    $http.put('/frmApp/user/' + authenticationService.user.Id + '/settings', remoteDataService.userSettings).success(function(data){
+
+      localStorage.userSettings = JSON.stringify(remoteDataService.userSettings);
+
+      $http.put('/frmApp/user/' + authenticationService.user.Id + '/metaData', remoteDataService.metaData).success(function(data){
+
+        localStorage.metaData = JSON.stringify(remoteDataService.metaData);
+
+
+      }).error(function(data, status, headers, config) {
+        callback(status, null);
+      });
+
+    }).error(function(data, status, headers, config) {
+      callback(status, null);
+    });
+
+      // var userData = JSON.parse(localStorage.userData);
+      // userData.metaData = remoteDataService.metaData;
+      // localStorage.userData = JSON.stringify(userData);
    }
 
    remoteDataService.clearData = function() {
       localStorage.userData = null;
-      localStorage.userMeta = null;
+      remoteDataService.userData = null;
+
+      localStorage.metaData = null;
+      remoteDataService.metaData = null;
+
+      localStorage.userSettings = null;
+      remoteDataService.userSettings = null;
+
+      localStorage.registeredExam = null;
+      remoteDataService.registeredExam = null;
+
       localStorage.readingData = null;
+      remoteDataService.readingData = null;
+
       localStorage.questionData = null;
+      remoteDataService.questionData = null;
+
       localStorage.glossaryData = null;
+      remoteDataService.glossaryData = null;
+
       localStorage.userSession = {};
    }
 
@@ -158,9 +236,9 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
       var readings = lesson.readings;
       var readingsIds = _.pluck(readings, 'id');
 
-      var meta = _.where(remoteDataService.userMeta, {checked: true});
+      var meta = _.where(remoteDataService.metaData, {done: true});
       if(meta !== null || typeof meta !== "undefined" && readingsIds !== null && typeof readingsIds !== "undefined") {
-        var metaIds = _.pluck(meta, 'id');
+        var metaIds = _.pluck(meta, 'readingId');
         var inter = _.intersection(readingsIds,metaIds)
 
         if(inter.length > 0)
@@ -190,7 +268,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
   remoteDataService.getPercentCompleteTotals = function() {
 
     var allReadings = _.flatten(_.pluck(remoteDataService.lessonData,'readings'))
-    var doneItems = _.where(remoteDataService.userMeta, {checked: true});     
+    var doneItems = _.where(remoteDataService.metaData, {done: true});     
     if(doneItems !== null && typeof doneItems !== "undefined") {
       if(Object.prototype.toString.call(doneItems) != "[object Array]") {
         var newDoneItems = [];
@@ -220,16 +298,16 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
 
   remoteDataService.getReadingByID = function(readingId,type) {
-    return _.findWhere(remoteDataService.userMeta, {id: readingId});
+    return _.findWhere(remoteDataService.metaData, {readingId: readingId});
   }
 
   remoteDataService.toggelReadingAttribute = function(readingId,type) {
 
     var foundItem = remoteDataService.getReadingByID(readingId);
     if(foundItem === null || typeof foundItem === "undefined") {
-      var newItem = {id: readingId};
+      var newItem = {readingId: readingId};
       newItem[type] = true;
-      remoteDataService.userMeta.push(newItem);
+      remoteDataService.metaData.push(newItem);
     } else {
       foundItem[type]=!foundItem[type];
     }
@@ -268,7 +346,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
   // User
 
-  remoteDataService.getUserMetaByID = function(readingId) {
+  remoteDataService.getmetaDataByID = function(readingId) {
     
   }
 

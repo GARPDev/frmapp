@@ -30,7 +30,7 @@ frmControllers.controller('FRMNotesCtrl', ['$scope','scheduleBarSharedService','
 
 
       $scope.notes = [];
-      var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
+      var foundItem = _.findWhere(remoteDataService.metaData, {readingId: readlingListSharedService.readingIndex});
       if(foundItem !== null && typeof foundItem !== "undefined") {
         if(foundItem.notes !== null && typeof foundItem.notes !== "undefined") {
           $scope.notes = foundItem.notes;
@@ -41,7 +41,7 @@ frmControllers.controller('FRMNotesCtrl', ['$scope','scheduleBarSharedService','
 
     $scope.addNote = function(note) {
       //$scope.notes.push(note);
-      var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
+      var foundItem = _.findWhere(remoteDataService.metaData, {readingId: readlingListSharedService.readingIndex});
       if(foundItem !== null && typeof foundItem !== "undefined") {
         if(foundItem.notes === null || typeof foundItem.notes === "undefined") {
           foundItem.notes=[];
@@ -54,7 +54,7 @@ frmControllers.controller('FRMNotesCtrl', ['$scope','scheduleBarSharedService','
     }
 
     $scope.deleteNote = function(note) {
-      var foundItem = _.findWhere(remoteDataService.userMeta, {id: readlingListSharedService.readingIndex});
+      var foundItem = _.findWhere(remoteDataService.metaData, {readingId: readlingListSharedService.readingIndex});
       if(foundItem !== null && typeof foundItem !== "undefined") {
         var foundNote = _.indexOf(foundItem.Notes, note);        
         if(foundNote !== null && typeof foundNote !== "undefined") {

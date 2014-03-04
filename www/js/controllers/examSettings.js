@@ -23,7 +23,7 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
       switch($scope.settings.topics)
       {
         case 0:  // Everything I have learned so far
-          var readings = _.where(remoteDataService.userMeta, {checked: true});
+          var readings = _.where(remoteDataService.metaData, {done: true});
           var readingsIds = _.pluck(readings, 'id');
           var questions = _.reject(remoteDataService.questionData, function(question) { 
             var inter = _.intersection(readingsIds, question.readings)
@@ -45,7 +45,7 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
 
 
         case 1:  // My Trouble Everything Areas
-          var readings = _.where(remoteDataService.userMeta, {flagged: true});
+          var readings = _.where(remoteDataService.metaData, {flagged: true});
           var readingsIds = _.pluck(readings, 'id');
           var questions = _.reject(remoteDataService.questionData, function(question) { 
             var inter = _.intersection(readingsIds, question.readings)
@@ -78,7 +78,7 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
               var readings = lesson.readings;
               var readingsIds = _.pluck(readings, 'id');
 
-              var meta = _.where(remoteDataService.userMeta, {checked: true});
+              var meta = _.where(remoteDataService.metaData, {done: true});
               if(meta !== null || typeof meta !== "undefined" && readingsIds !== null && typeof readingsIds !== "undefined") {
                 var metaIds = _.pluck(meta, 'id');
                 var inter = _.intersection(readingsIds,metaIds)
