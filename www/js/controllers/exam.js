@@ -1,3 +1,5 @@
+'use strict';
+
 frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce','examSharedService','remoteDataService','navigationService',
   function($scope,$timeout,$location,$sce,examSharedService,remoteDataService,navigationService) {
 
