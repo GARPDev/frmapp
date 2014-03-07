@@ -3,16 +3,34 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
 
     $scope.settings = {
       mode:0,
-      topics:0,
+      topics:[],
       questions:1
     }
+
+    $scope.numberOfQuestions = [1, 4, 10, 20, 30];
 
     $timeout(function() {
       navigationService.pageTransitionIn();
     }, 0);
 
     $scope.isSettingOn = function(type, value) {
-      return $scope.settings[type] === value;
+      if(Object.prototype.toString.call( $scope.settings[type] ) == "[object Array]") {
+        return ($scope.settings[type].indexOf(value)) + 1;
+      } else {
+        return $scope.settings[type] === value;  
+      }
+      
+    }
+
+    $scope.toggelSetting = function(type, value) {
+      if(Object.prototype.toString.call( $scope.settings[type] ) == "[object Array]") {
+        var index = $scope.settings[type].indexOf(value);
+        if(index == -1)
+          $scope.settings[type].push(value);
+        else $scope.settings[type].splice(index, 1);
+      } else {
+        $scope.settings[type].push(value);
+      }
     }
 
     $scope.saveSettings = function() {

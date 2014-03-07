@@ -1,97 +1,146 @@
 <!-- Fixed navbar -->
 <div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>    
 
+
 <div class="container page-container">
   <div class="row">
-    <div class="col-md-2">
-        <div class="exam-setting-title">
-          <h1>Mode</h1>
-        </div>
-    </div>
-    <div class="col-md-5">
-      <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('mode', 0) }" ng-click="settings.mode=0">
-        <h2>Study</h2>
-        <span>gives advise during the quiz</span>
-      </div>
-    </div>
-    <div class="col-md-5">
-      <div class="exam-setting"  ng-class="{ 'exam-setting-on': isSettingOn('mode', 1) }" ng-click="settings.mode=1">
-        <h2>Exam Prep</h2>
-        <span>resembles the exam with helpful advice at the end</span>
-      </div>
-    </div>
-  </div>
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Exam Settings</div>
+        <div class="panel-body nopadding">
+          <div class="examsettings-options-heading">
+            Select a Test Mode
+          </div>
+          <div class="examsettings-options-input">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-success" ng-class="{'active' : isSettingOn('mode', 0)}" ng-click="settings.mode=0">
+                  <input type="radio" name="study" id="0"> Study
+                </label>
 
-  <div class="row">
-    <div class="col-md-2">
-        <div class="exam-setting-title">
-          <h1>Topics</h1>
-        </div>
-    </div>
-    <div class="col-md-10">
-      <div class="row">
-        <div class="col-md-3">
-            <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('topics', 0) }" ng-click="settings.topics=0">
-              <h4>Everything I have learned so far</h4>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('topics', 1) }" ng-click="settings.topics=1">
-              <h4>My Trouble Everything Areas</h2>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('topics', 2) }" ng-click="settings.topics=2">
-              <h4>By Section</h2>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('topics', 3) }" ng-click="settings.topics=3">
-              <h4>Everything</h2>
-            </div>
+                <label class="btn btn-success" ng-class="{'active' : isSettingOn('mode', 1)}" ng-click="settings.mode=1">
+                  <input type="radio" name="examprep" id="1"> Exam Prep
+                </label>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-2">
-        <div class="exam-setting-title">
-          <h1>Number of Questions</h1>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">Choose Topics</div>
+        <div class="panel-body nopadding">
+
+          <ul class="list-group list-group nopadding">
+
+            <li class="list-group-item">
+              <div class="lesson-item">
+                  
+
+                <div class="examsettings-options-heading">
+                  What I’ve learned so far
+                </div>
+                <div class="examsettings-options-input">
+                  <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-success" ng-class="{'active' : isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
+                        <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
+                      </label>
+
+                      <label class="btn btn-success" ng-class="{'active' : !isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
+                        <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
+                      </label>
+
+                    </div>
+                </div>
+
+
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="lesson-item">
+                  
+                <div class="examsettings-options-heading">
+                  All of my trouble areas
+                </div>
+                <div class="examsettings-options-input">
+                  <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-success" ng-class="{'active' : isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
+                        <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
+                      </label>
+
+                      <label class="btn btn-success" ng-class="{'active' : !isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
+                        <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
+                      </label>
+
+                    </div>
+                </div>
+
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="lesson-item">
+                <div class="examsettings-options-heading">
+                  By Section
+                </div>
+                <div class="examsettings-options-input">
+                  <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-success" ng-class="{'active' : isSettingOn('topics','section')}" ng-click="toggelSetting('topics','section')">
+                        <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
+                      </label>
+
+                      <label class="btn btn-success" ng-class="{'active' : !isSettingOn('topics','section')}" ng-click="toggelSetting('topics','section')">
+                        <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
+                      </label>
+
+                    </div>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="lesson-item">
+                <div class="examsettings-options-heading">
+                  Everything
+                </div>
+                <div class="examsettings-options-input">
+                  <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-success" ng-class="{'active' : isSettingOn('topics','everything')}" ng-click="toggelSetting('topics','everything')">
+                        <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
+                      </label>
+
+                      <label class="btn btn-success" ng-class="{'active' : !isSettingOn('topics','everything')}" ng-click="toggelSetting('topics','everything')">
+                        <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
+                      </label>
+
+                    </div>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+
         </div>
-    </div>
-    <div class="col-md-2">
-        <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('questions', 1) }" ng-click="settings.questions=1">
-          <h2>1</h2>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">Number of Questions</div>
+        <div class="panel-body nopadding">
+          <ul class="question_number-options">
+            <li ng-repeat="questionNumber in numberOfQuestions" ng-class="{ 'active': isSettingOn('questions', questionNumber) }" ng-click="settings.questions=questionNumber">
+              <span class="label">{{questionNumber}}</label>
+            </li>
+          </ul>
+
+          <div class="exam-setting-button">
+            <button type="button" class="btn btn-success btn-lg" ng-click="saveSettings()">Begin Test</button>
+          </div>
+
         </div>
+      </div>
+
     </div>
-    <div class="col-md-2">
-        <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('questions', 4) }" ng-click="settings.questions=4">
-          <h2>4</h2>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('questions', 10) }" ng-click="settings.questions=10">
-          <h2>10</h2>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('questions', 20) }" ng-click="settings.questions=20">
-          <h2>20</h2>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="exam-setting" ng-class="{ 'exam-setting-on': isSettingOn('questions', 30) }" ng-click="settings.questions=30">
-          <h2>30</h2>
-        </div>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col-md-12">
-      <div class="exam-setting-button">
-        <button type="button" class="btn btn-primary btn-lg" ng-click="saveSettings()">Continue</button>
-      </div>
+      
     </div>
   </div>
 </div>
