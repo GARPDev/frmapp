@@ -3,8 +3,12 @@ frmServices.factory('authenticationService', ['$resource','$http',
 
     var authenticationService = {};
     authenticationService.$http = $http;
-    authenticationService.userName = {};
-    authenticationService.userID = "";
+    authenticationService.user = {};
+
+    
+    if(localStorage.authUser !== null && typeof localStorage.authUser !== "undefined") {
+      authenticationService.user = JSON.parse(localStorage.authUser);
+    }
 
   authenticationService.authenticateUser=function(userName,password,callback) {
     // Fake Auth!!
@@ -24,6 +28,9 @@ frmServices.factory('authenticationService', ['$resource','$http',
       }
 
       authenticationService.user = data.records[0];
+
+      localStorage.authUser = JSON.stringify(authenticationService.user);
+
       callback(null, authenticationService.user);
 
     }).error(function(data, status, headers, config) {
