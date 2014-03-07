@@ -321,6 +321,30 @@ a:hover {
 }
 
 
+.examsettings-options-input .btn-success.multicolor {
+  color: #051e37;
+  background-color: #a8acae;
+  border-color: #a8acae;
+}
+
+.examsettings-options-input .btn-success.multicolor:hover, .btn-success.multicolor.active {
+  color: #ffffff;
+  background-color: #afc936;
+}
+
+
+
+.examsettings-options-input .btn-success.multicolor.on:hover, .btn-success.multicolor.on.active {
+  color: #ffffff;
+  background-color: #b0cb36;
+}
+
+.examsettings-options-input .btn-success.multicolor.off:hover, .btn-success.multicolor.off.active {
+  color: #ffffff;
+  background-color: red;
+}
+
+
 .question_number-options {
   padding-left: 0;
   list-style: none;
@@ -338,18 +362,19 @@ a:hover {
   background-color: rgba(0, 0, 0, 0);
 }
 
-.question_number-options .active {
+.question_number-options li.active {
   background-color: #b0cb36;
 }
 
-.question_number-options li .label {
-  margin-top: 20px;
-  color: #000000;
-  position: relative;
-  top: 12px;
-  font-size: 20px;
+.question_number-options li.active label{
+  color: #ffffff;
 }
 
+.question_number-options li label {
+  position: relative;
+  top: 9px;
+  font-size: 20px;
+}
 
 .examsettings-options-input {
   float: right;

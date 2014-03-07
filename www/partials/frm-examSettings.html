@@ -13,11 +13,11 @@
           </div>
           <div class="examsettings-options-input">
             <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-success" ng-class="{'active' : isSettingOn('mode', 0)}" ng-click="settings.mode=0">
+                <label class="btn btn-success multicolor" ng-class="{'active' : isSettingOn('mode', 0)}" ng-click="settings.mode=0">
                   <input type="radio" name="study" id="0"> Study
                 </label>
 
-                <label class="btn btn-success" ng-class="{'active' : isSettingOn('mode', 1)}" ng-click="settings.mode=1">
+                <label class="btn btn-success multicolor" ng-class="{'active' : isSettingOn('mode', 1)}" ng-click="settings.mode=1">
                   <input type="radio" name="examprep" id="1"> Exam Prep
                 </label>
               </div>
@@ -41,11 +41,11 @@
                 </div>
                 <div class="examsettings-options-input">
                   <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-success" ng-class="{'active' : isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
+                      <label class="btn btn-success multicolor on" ng-class="{'active' : isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
                         <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
                       </label>
 
-                      <label class="btn btn-success" ng-class="{'active' : !isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
+                      <label class="btn btn-success multicolor off" ng-class="{'active' : !isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
                         <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
                       </label>
 
@@ -63,11 +63,11 @@
                 </div>
                 <div class="examsettings-options-input">
                   <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-success" ng-class="{'active' : isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
+                      <label class="btn btn-success multicolor on" ng-class="{'active' : isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
                         <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
                       </label>
 
-                      <label class="btn btn-success" ng-class="{'active' : !isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
+                      <label class="btn btn-success multicolor off" ng-class="{'active' : !isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
                         <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
                       </label>
 
@@ -83,11 +83,11 @@
                 </div>
                 <div class="examsettings-options-input">
                   <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-success" ng-class="{'active' : isSettingOn('topics','section')}" ng-click="toggelSetting('topics','section')">
+                      <label class="btn btn-success multicolor on" ng-class="{'active' : isSettingOn('topics','section')}" ng-click="toggelSetting('topics','section')">
                         <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
                       </label>
 
-                      <label class="btn btn-success" ng-class="{'active' : !isSettingOn('topics','section')}" ng-click="toggelSetting('topics','section')">
+                      <label class="btn btn-success multicolor off" ng-class="{'active' : !isSettingOn('topics','section')}" ng-click="toggelSetting('topics','section')">
                         <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
                       </label>
 
@@ -102,11 +102,11 @@
                 </div>
                 <div class="examsettings-options-input">
                   <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-success" ng-class="{'active' : isSettingOn('topics','everything')}" ng-click="toggelSetting('topics','everything')">
+                      <label class="btn btn-success multicolor on" ng-class="{'active' : isSettingOn('topics','everything')}" ng-click="toggelSetting('topics','everything')">
                         <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
                       </label>
 
-                      <label class="btn btn-success" ng-class="{'active' : !isSettingOn('topics','everything')}" ng-click="toggelSetting('topics','everything')">
+                      <label class="btn btn-success multicolor off" ng-class="{'active' : !isSettingOn('topics','everything')}" ng-click="toggelSetting('topics','everything')">
                         <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
                       </label>
 
@@ -125,7 +125,7 @@
         <div class="panel-body nopadding">
           <ul class="question_number-options">
             <li ng-repeat="questionNumber in numberOfQuestions" ng-class="{ 'active': isSettingOn('questions', questionNumber) }" ng-click="settings.questions=questionNumber">
-              <span class="label">{{questionNumber}}</label>
+              <label >{{questionNumber}}</label>
             </li>
           </ul>
 
