@@ -18,19 +18,10 @@ frmServices.factory('authenticationService', ['$resource','$http',
     };
 
 
-    $http.post('/sfdc/auth/user', authReq).success(function(data){
+    $http.post('/sfdc/auth/user', authReq).success(function(user){
 
-      if(data.totalSize > 1) {
-        return callback(401,{error:"Multiple users found!"});
-      }
-      if(data.totalSize == 0) {
-        return callback(401,{error:"Users not found!"});
-      }
-
-      authenticationService.user = data.records[0];
-
+      authenticationService.user = user;
       localStorage.authUser = JSON.stringify(authenticationService.user);
-
       callback(null, authenticationService.user);
 
     }).error(function(data, status, headers, config) {

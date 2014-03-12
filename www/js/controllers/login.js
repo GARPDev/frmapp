@@ -38,7 +38,11 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
       var userName = $('#userName').val();
       var password = $('#password').val();
 
+      localStorage.authUser=null;
+
       authenticationService.authenticateUser(userName, password, function(err, result) {
+
+        remoteDataService.clearData();
 
         if(err) {
           $('#errormsg').html("Cannot login!");
