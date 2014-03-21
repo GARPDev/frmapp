@@ -1,14 +1,24 @@
 html, body{
     height: 100%;
-    background-color: #CBD5D6;
+    background-color: #081A31;
     margin: auto;
 
-  background: url('../img/AA031639.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  #background: url('../img/plus.png') no-repeat center center fixed; 
+  #-webkit-background-size: cover;
+  #-moz-background-size: cover;
+  #-o-background-size: cover;
+  #background-size: cover;
 
+}
+
+.background {
+}
+
+.background:before {
+    content: url('../img/plus.png');
+    
+    #filter:alpha(opacity=50);
+    #filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
 }
 
 a {
@@ -683,6 +693,10 @@ a:hover {
 .login-footer-area {
   text-align: center;
   padding-top: 20px;
+}
+
+.login-footer-area p {
+  color: #ffffff;
 }
 
 .hoz-center {
