@@ -2,26 +2,21 @@ html, body{
     height: 100%;
     background-color: #081A31;
     margin: auto;
-
-  #background: url('../img/plus.png') no-repeat center center fixed; 
-  #-webkit-background-size: cover;
-  #-moz-background-size: cover;
-  #-o-background-size: cover;
-  #background-size: cover;
-
 }
 
-.background {
-    opacity:0.3;
-    position: fixed;
+#background {
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    left: 0px; 
     top: 0px; 
+    z-index: 0;
+    opacity:0.3;
 }
 
-.background:before {
-    content: url('../img/plus.png');
-    
-    filter:alpha(opacity=50);
-    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+.stretch {
+    width:100%;
+    height:100%;
 }
 
 a {
