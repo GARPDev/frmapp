@@ -1,6 +1,8 @@
 frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService','navigationService',
   function($scope,$timeout,$location,examSharedService,remoteDataService,navigationService) {
 
+    $scope.lessons = remoteDataService.lessonData;
+
     $scope.settings = {
       mode:0,
       topics:[],
@@ -12,6 +14,13 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
     $timeout(function() {
       navigationService.pageTransitionIn();
     }, 0);
+
+    $scope.selectAll = function() {
+      for (index = 0; index < $scope.lessons.length; ++index) {
+        $scope.lessons[index].checked=true;
+      }
+      return true;
+    }
 
     $scope.isSettingOn = function(type, value) {
       if(Object.prototype.toString.call( $scope.settings[type] ) == "[object Array]") {
@@ -36,136 +45,55 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
     $scope.saveSettings = function() {
       examSharedService.settings = $scope.settings;
 
+
       // Complie Questions
       var finalQuestions = [];
-      switch($scope.settings.topics)
-      {
-        case 0:  // Everything I have learned so far
-          var readings = _.where(remoteDataService.metaData, {done: true});
-          var readingsIds = _.pluck(readings, 'id');
-          var questions = _.reject(remoteDataService.questionData, function(question) { 
-            var inter = _.intersection(readingsIds, question.readings)
-            return inter.length == 0; 
-          });
+      var readingQuestions = [];
 
-          var maxQuestions = $scope.settings.questions;
-          if(questions.length < maxQuestions)
-            maxQuestions = questions.length;
+      for(var i=0; i<remoteDataService.lessonData.length; i++) {
 
-          for(var i=0; i<maxQuestions; i++) {
-            var index = Math.floor(Math.random() * (maxQuestions-i));
-            finalQuestions.push(questions[index]);
-            questions.splice(index,1);
+        var lesson = remoteDataService.lessonData[i];
+        var sl = _.findWhere($scope.lessons, {id: lesson.id});
+
+        if(sl !== null && typeof sl !== "undefined" && sl.checked) {
+
+            var readingsInTopic = lesson.readings;
+
+            var readingsMetaDone = _.where(remoteDataService.metaData, {done: true});
+            var readingsMetaFlagged = _.where(remoteDataService.metaData, {flagged: true});
+
+            var finalReadings = readingsInTopic;
+
+            if(_.indexOf($scope.settings.topics, "learned") > 0) {
+              finalReadings = _.intersection(readingsInTopic,readingsMetaDone);
+            }
+
+            if(_.indexOf($scope.settings.topics, "flagged") > 0) {
+              finalReadings = _.intersection(finalReadings,readingsMetaFlagged);
+            }
+
+            readingQuestions = _.union(readingQuestions, finalReadings);
           }
 
-          examSharedService.questions = finalQuestions;
-        break;
-
-
-        case 1:  // My Trouble Everything Areas
-          var readings = _.where(remoteDataService.metaData, {flagged: true});
-          var readingsIds = _.pluck(readings, 'id');
-          var questions = _.reject(remoteDataService.questionData, function(question) { 
-            var inter = _.intersection(readingsIds, question.readings)
-            return inter.length == 0; 
-          });
-
-          var maxQuestions = $scope.settings.questions;
-          if(questions.length < maxQuestions)
-            maxQuestions = questions.length;
-
-          for(var i=0; i<maxQuestions; i++) {
-            var index = Math.floor(Math.random() * (maxQuestions-i));
-            finalQuestions.push(questions[index]);
-            questions.splice(index,1);
-          }
-
-          examSharedService.questions = finalQuestions;        
-        break;
-
-
-        case 2:  // By Section
-
-          var readingQuestions = [];
-          for(var i=0; i<remoteDataService.lessonData.length; i++) {
-
-            var lesson = remoteDataService.lessonData[i];
-
-            if(lesson !== null && typeof lesson !== "undefined") {
-
-              var readings = lesson.readings;
-              var readingsIds = _.pluck(readings, 'id');
-
-              var meta = _.where(remoteDataService.metaData, {done: true});
-              if(meta !== null || typeof meta !== "undefined" && readingsIds !== null && typeof readingsIds !== "undefined") {
-                var metaIds = _.pluck(meta, 'id');
-                var inter = _.intersection(readingsIds,metaIds)
-
-                if(inter.length > 0) {
-
-                  for(var j=0; j<lesson.readings.length; j++) {
-                    readingQuestions.push(lesson.readings[j]);
-                  }
-
-                }
-              }
-            } 
-          }
-
-          var readingsIds = _.pluck(readingQuestions, 'id');
-          var questions = _.reject(remoteDataService.questionData, function(question) { 
-            var inter = _.intersection(readingsIds, question.readings)
-            return inter.length == 0; 
-          });
-
-          var maxQuestions = $scope.settings.questions;
-          if(questions.length < maxQuestions)
-            maxQuestions = questions.length;
-
-          for(var i=0; i<maxQuestions; i++) {
-            var index = Math.floor(Math.random() * (maxQuestions-i));
-            finalQuestions.push(questions[index]);
-            questions.splice(index,1);
-          }
-
-          examSharedService.questions = finalQuestions;                  
-        break;
-
-
-        case 3:  // Everything
-          var readingQuestions = [];
-          for(var i=0; i<remoteDataService.lessonData.length; i++) {
-
-            var lesson = remoteDataService.lessonData[i];
-
-            if(lesson !== null && typeof lesson !== "undefined") {
-              for(var j=0; j<lesson.readings.length; j++) {
-                readingQuestions.push(lesson.readings[j]);
-              }
-            } 
-          }
-
-          var readingsIds = _.pluck(readingQuestions, 'id');
-          var questions = remoteDataService.questionData;
-          // _.reject(remoteDataService.questionData, function(question) { 
-          //   var inter = _.intersection(readingsIds, question.readings)
-          //   return inter.length == 0; 
-          // });
-
-          var maxQuestions = $scope.settings.questions;
-          if(questions.length < maxQuestions)
-            maxQuestions = questions.length;
-
-          for(var i=0; i<maxQuestions; i++) {
-            var index = Math.floor(Math.random() * (maxQuestions-i));
-            finalQuestions.push(questions[index]);
-            questions.splice(index,1);
-          }
-
-          examSharedService.questions = finalQuestions;                  
-        break;
       }
 
+      var readingsIds = _.pluck(readingQuestions, 'id');
+      var questions = _.reject(remoteDataService.questionData, function(question) { 
+        var inter = _.intersection(readingsIds, question.readings)
+        return inter.length == 0; 
+      });
+
+      var maxQuestions = $scope.settings.questions;
+      if(questions.length < maxQuestions)
+        maxQuestions = questions.length;
+
+      for(var i=0; i<maxQuestions; i++) {
+        var index = Math.floor(Math.random() * (maxQuestions-i));
+        finalQuestions.push(questions[index]);
+        questions.splice(index,1);
+      }
+
+      examSharedService.questions = finalQuestions;                        
 
       if(examSharedService.questions.length == 0) {
         $("#myModal").modal();
@@ -174,6 +102,9 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
       }
       
     }
+
+
+    $scope.selectAll();
 
 
   }

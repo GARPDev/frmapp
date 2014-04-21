@@ -26,8 +26,27 @@
       </div>
 
 
-      <div class="panel panel-primary">
+    <div class="panel panel-primary examsettings-options-topicsPanel">
         <div class="panel-heading">Choose Topics</div>
+        <div class="panel-body">
+          <div class="form-group">
+            <div ng-repeat="lesson in lessons" class="checkbox examsettings-options-topics">
+              <label>
+                <input id="{{lesson.id}}" ng-model="lesson.checked" type="checkbox"> {{lesson.title}}
+              </label>
+            </div>
+          </div>
+          <div class="examsettings-options-topics-selectAll">
+            <p>
+              <a ng-click="selectAll()">Select All</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">Filter Topics</div>
         <div class="panel-body nopadding">
 
           <ul class="list-group list-group nopadding">
@@ -35,7 +54,6 @@
             <li class="list-group-item">
               <div class="lesson-item">
                   
-
                 <div class="examsettings-options-heading">
                   What I’ve learned so far
                 </div>
@@ -76,47 +94,7 @@
 
               </div>
             </li>
-            <li class="list-group-item">
-              <div class="lesson-item">
-                <div class="examsettings-options-heading">
-                  By Section
-                </div>
-                <div class="examsettings-options-input">
-                  <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-success multicolor on" ng-class="{'active' : isSettingOn('topics','section')}" ng-click="toggelSetting('topics','section')">
-                        <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
-                      </label>
-
-                      <label class="btn btn-success multicolor off" ng-class="{'active' : !isSettingOn('topics','section')}" ng-click="toggelSetting('topics','section')">
-                        <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
-                      </label>
-
-                    </div>
-                </div>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="lesson-item">
-                <div class="examsettings-options-heading">
-                  Everything
-                </div>
-                <div class="examsettings-options-input">
-                  <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-success multicolor on" ng-class="{'active' : isSettingOn('topics','everything')}" ng-click="toggelSetting('topics','everything')">
-                        <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
-                      </label>
-
-                      <label class="btn btn-success multicolor off" ng-class="{'active' : !isSettingOn('topics','everything')}" ng-click="toggelSetting('topics','everything')">
-                        <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
-                      </label>
-
-                    </div>
-                </div>
-              </div>
-            </li>
-
           </ul>
-
         </div>
       </div>
 

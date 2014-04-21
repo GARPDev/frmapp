@@ -7,6 +7,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
     remoteDataService.showFooter = true;
     remoteDataService.searchTerms = "";
 
+    remoteDataService.opp = [];
+
     // localStorage.readingData = null;
     // localStorage.metaData = null;
     // localStorage.glossaryData = null;
@@ -93,6 +95,14 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
       }
     }
 
+
+    remoteDataService.getOppertunities = function() {
+
+      $http({method:'GET',url:'/sfdc/oppertunities'}).success(function(data){
+        remoteDataService.opp = data;
+      });
+
+    }
 
 
     //our service accepts a promise object which 

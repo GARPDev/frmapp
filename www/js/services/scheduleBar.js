@@ -42,6 +42,11 @@ frmServices.factory('readlingListSharedService', function($rootScope) {
       done: 0
     };
 
+
+  sharedService.getOppertunities = function() {
+
+  }
+
   }    
   return sharedService;
 });

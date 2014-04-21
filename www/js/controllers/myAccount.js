@@ -19,6 +19,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.lessonIndex = 0;
     $scope.currentLesson = {};
 
+    $scope.opp = remoteDataService.getOppertunities();
+
     $scope.orgOptions = [{
           name: 'Week',
           value: 'week'
