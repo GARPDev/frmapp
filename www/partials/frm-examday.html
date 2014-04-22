@@ -2,22 +2,61 @@
 <div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>
   
 <div class="container page-container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>{{userData.registeredExam.name}}</h2>
 
-        <p>{{userData.registeredExam.address}}</p>
-        <p>{{userData.registeredExam.city}}, {{userData.registeredExam.state}} {{userData.registeredExam.zip}}</p>
-        <p>Exam is on: {{userData.registeredExam.day}}</p>
-        <p>Exam starts at: {{userData.registeredExam.time}}</p>
-    </div>
-  </div>
   <div class="row">
     <div class="col-md-6">
-      <div class="examday-map-area" id="map-canvas">
-        xxxx
+
+      <div class="panel panel-primary app-panel dashboard">
+        <div class="panel-heading">Exam Information</div>
+        <div class="panel-body">
+
+          <div class="row">
+            <div class="col-md-12 examday-info">
+              <div class="icon-area">
+                <div class="icon"><span class="glyphicon glyphicon-file"></span></div>
+              </div>
+              <h2>{{userData.registeredExam.name}}</h2>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <span class="examday-info-label">Date:</span>
+              <p>{{userData.registeredExam.day}}</p>
+            </div>
+
+            <div class="col-md-6">
+              <span class="examday-info-label">Start Time:</span>
+              <p>{{userData.registeredExam.time}}</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <span class="examday-info-label">Location:</span><br>
+              <span>{{userData.registeredExam.address}}</span>
+              <span>{{userData.registeredExam.city}}, {{userData.registeredExam.state}}</span>
+              <span>{{userData.registeredExam.zip}}</span>
+            </div>
+
+            <div class="col-md-6">
+              <span class="examday-info-label">End Time:</span>
+              <p>{{userData.registeredExam.time}}</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 examday-info">
+              <div class="examday-map-area" id="map-canvas">
+                xxxx
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
+
     <div class="col-md-6">
 
       <ul id="examday-tabs" class="nav nav-tabs examday-tabs">
@@ -25,7 +64,7 @@
         <li id="tab_tab2" ><a ng-click="tabToItem('tab2')">Things to Know</a></li>
       </ul>
       <div class="tab-pane examday-info-area active" id="tab1">
-        <table class="table table-condensed">
+        <table class="table table-condensed examday-reminder-area">
           <tr>
             <td><input type="checkbox" check="model" value="{{ value }}"></td>
             <td>Exam Admission Ticket</td>
@@ -60,7 +99,6 @@
         <p><a href="map://2130+Fulton+Street+San+Francisco+CA+94117-1080">Exam Location</a></p>
         <p><a href="mailto://help@help.com">Contact Help!</a></p>
         <p><a href="tel://555-5555">Call Now!</a>
-
       </div>
 
     </div>

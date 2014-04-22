@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <p class="navbar-text"><img class="navlogo" src="img/FRM_mark_ko.png"> <span ng-if="innerWidth < 995 && innerWidth > 400"> - {{currentMenuItem}}</span></p>
+          <p class="navbar-text"><img class="navlogo" src="img/FRM_mark_ko.png"></p>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -19,17 +19,18 @@
             <li id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}"><a href ng-click="changeView('messages')"><span class="glyphicon glyphicon-comment nav-item-icon"></span><br>Messages</a></li>
             <li id="mainnav-examday" class="nav-item-area" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')"><span class="glyphicon glyphicon-calendar nav-item-icon"></span><br>Exam Day</a></li>
             </li>
+            <li id="mainnav-glossary" class="nav-item-area" ng-class="{ active: isActive('/glossary')}"><a href ng-click="searchGlossary(searchTerms)"><span class="glyphicon glyphicon-search nav-item-icon"></span><br>Glossary</a></li>
+            </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right nav-right-area">
-           <form ng-if="currentMenuItem != 'Glossary'" class="navbar-form navbar-left" role="search" ng-submit="searchGlossary(searchTerms)">
-            <div class="form-group">
-              <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search">
-            </div>
-            <span ng-click="searchGlossary(searchTerms)" class="glyphicon glyphicon-search nav-icon-search"></span>
-            <input type="submit" style="display:none"/>
-            <img ng-click="changeView('myaccount')" id="userImage" src="img/user.png" width="30">
-          </form>
-		  
+          <div class="nav navbar-nav navbar-right nav-right-area">
+              <form ng-if="currentMenuItem != 'Glossary'" class="navbar-form navbar-left" role="search" ng-submit="searchGlossary(searchTerms)">
+                <div class="form-group nav-glossary-input">
+                  <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary">
+                </div>
+                <span ng-click="searchGlossary(searchTerms)" class="glyphicon glyphicon-search nav-icon-search"></span>
+                <input type="submit" style="display:none"/>
+              </form>
+              <p class="navbar-text nav-photo"><img ng-click="changeView('myaccount')" id="userImage" src="img/user.png" width="30"></p>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

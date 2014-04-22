@@ -3,6 +3,8 @@
 frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce','examSharedService','remoteDataService','navigationService',
   function($scope,$timeout,$location,$sce,examSharedService,remoteDataService,navigationService) {
 
+    $scope.userData = remoteDataService.userData;
+
     $scope.currentQuestion = 0;
     $scope.settings = examSharedService.settings;
     $scope.questions = examSharedService.questions;

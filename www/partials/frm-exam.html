@@ -1,32 +1,77 @@
 <!-- Fixed navbar -->
-<div class="slide-animate" ng-include="'partials/frm-examnav.html'"></div>    
+<div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>
 
 <div class="container page-container">
-  <div class="row">
-    <div class="col-md-12">
-        <div class="exam-setting-title">
-          <h3>Question {{currentQuestion+1}}</h3>
-          {{totalQuestions}} : Correct {{correctAnswers}} : Wrong {{wrongAnswers}}  : Skip {{skipQuestions}}
-        </div>
-        <div class="exam-question-counter">
-        	{{question.id}} : {{question.question}}
-        </div>
-        <div class="exam-question-choices">
-        	<table class="table table-condensed">
-        		<tr ng-repeat="choice in choices">
-        			<td>{{choice.id}}.</td>
-        			<td>{{choice.description}}</td>
-        		</tr>
-        	</table>
-        </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-    	<button type="button" class="btn btn-default exam-question-answer" ng-repeat="answer in answers" ng-click="chooseAnswer(answer.id)">{{answer.id}}. {{answer.answer}}</button>
-    </div>
-  </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary app-panel dashboard">
+        <div class="panel-heading exam-question-heading">
+          <div>
+            <div class="row">
+              <div class="col-md-2  exam-question-heading-left">
+                {{userData.registeredExam.name}}
+              </div>
+
+              <div class="col-md-5 exam-question-heading-center">
+
+                <span class="exam-question-heading-item"><span class="glyphicon glyphicon-ok"></span> Correct:</span> <div class="exam-question-correct">{{correctAnswers}}</div>
+
+                <span class="exam-question-heading-item"><span class="glyphicon glyphicon-remove"></span> Incorrect: <span class="exam-question-incorrect">{{wrongAnswers}}</span></span>
+
+                <span class="exam-question-heading-item"> Skipped: <span class="exam-question-skipped">{{skipQuestions}}</span></span>
+
+              </div>
+              <div class="col-md-5 exam-question-heading-right">
+
+                <span ng-if="currentQuestion > 0 && settings.mode == 0" id="mainnav-dashboard" class="exam-question-heading-item"><a href ng-click="prevQuestion()" class="exam-question-heading-link"><span class="glyphicon glyphicon-chevron-left"/> Prev</a></span>
+
+                <span id="mainnav-dashboard" class="exam-question-heading-item"><span class="glyphicon glyphicon-share-alt"/> <a href ng-click="exitExam()" class="exam-question-heading-link">Exit Test</a></span>
+
+                
+                <span ng-if="currentQuestion < (totalQuestions-1)  && settings.mode == 0" id="mainnav-dashboard" class="exam-question-heading-item"><a href ng-click="skipQuestion()" class="exam-question-heading-link">Next <span class="glyphicon glyphicon-chevron-right"/></a></span>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="panel-body">
+
+          <div class="row exam-question-count-row">
+            <div class="col-md-6 exam-question-heading-left">
+                <span class="exam-question-count">Question {{currentQuestion+1}}</span>
+            </div>
+            <div class="col-md-6 exam-question-heading-right">
+                <span id="mainnav-dashboard" class=""><a ng-click="flagQuestion()"> <span class="glyphicon glyphicon-flag"></span> <span class="reading-list-button">Flag</span></a></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="exam-question">
+                {{question.question}}
+              </div>
+              <div class="exam-question-choices">
+                <table class="table table-condensed">
+                  <tr ng-repeat="choice in choices">
+                    <td class="exam-question-choice">{{choice.id}}.</td>
+                    <td class="exam-question-choice-text">{{choice.description}}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="button" class="btn btn-default exam-question-answer" ng-repeat="answer in answers" ng-click="chooseAnswer(answer.id)">{{answer.id}}. {{answer.answer}}</button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Note Modal -->

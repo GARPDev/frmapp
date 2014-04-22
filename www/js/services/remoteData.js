@@ -160,11 +160,15 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
             
             fetchData('data/readings.json', 'readingData', null, function(err, data) {
 
-              remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
+              if(err != NO_FETCH) {
+                remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
+              }
 
               fetchData('data/questions.json', 'questionData', null, function(err, data) {
 
-                remoteDataService.questionData = data.questions;
+                if(err != NO_FETCH) {
+                  remoteDataService.questionData = data.questions;
+                }
 
                 fetchData('data/glossary.json', 'glossaryData', null, function(err, data) {
 

@@ -63,6 +63,14 @@ a:hover {
   color: #FFFFFF;
 }
 
+.nav-photo {
+  margin-top: 10px;
+}
+
+#mainnav-glossary {
+  display: none;
+}
+
 .login-backdrop-top {
   width: 100%;
   height: 50%;
@@ -273,13 +281,75 @@ a:hover {
     display: none;
 }
 
-
 .large-glyphicon {
   font-size: 28px;  
 }
 
+.examday-map-area {
+  height: 500px;
+}
+
+.examday-info-area {
+  padding: 10px;
+  padding-top: 0px;
+  background-color: #FFFFFF;
+  border: 1px solid #006C99;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #006C99;
+}
+
+.nav-tabs > li > a {
+  background-color: #FFFFFF;
+  color: black;  
+}
+
+.nav-tabs > li > a:hover {
+  background-color: #006C99;
+  border: 1px solid #006C99;
+  color: white;
+}
+
+.nav-tabs > li.active > a {
+  background-color: #006C99;
+  border: 1px solid #006C99;
+  color: white;
+}
+
+.nav-tabs > li.active > a:hover {
+  background-color: #006C99;
+  border: 1px solid #006C99;
+  color: white;
+}
+
+.examday-reminder-area {
+  background-color: #FFFFFF;
+}
+
+.examday-info-label {
+  font-weight: bold;
+}
+
+.examday-info > .icon-area {
+  padding: 15px;
+  float: left;
+}
+
+.examday-info > .icon-area > .icon {
+  border: 5px;
+  border:5px solid #9DA7AE;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px; 
+  background-color: #FFFFFF;
+  padding-left: 7px;
+  padding-top: 6px;  
+  color: #cbd4d6;
+
+}
+
 .examday-tabs {
-  margin: 10px;
 }
 
 .add-reminder-area {
@@ -289,6 +359,99 @@ a:hover {
   margin: 10px;
 }
 
+.exam-question-heading-left {
+  font-weight: bold;
+  color: #000000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.exam-question-heading-center {
+  text-align: center;
+  color: #000000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.exam-question-heading-right {
+  text-align: right;
+  color: #000000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.exam-question-heading {
+  background-color: inherit !important;
+}
+
+.exam-question-heading-item {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;  
+}
+
+.exam-question-heading-item > a {
+  color: #000000; 
+}
+
+.exam-question-heading-item > a:hover {
+  text-decoration: underline;
+}
+
+.exam-question-correct {
+  display: inline-block;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px; 
+  background-color: #b0c636;
+  color: #FFFFFF;
+}
+
+.exam-question-incorrect {
+  display: inline-block;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px; 
+  background-color: #F05123;
+  color: #FFFFFF;
+}
+
+.exam-question-skipped {
+  display: inline-block;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px; 
+  background-color: #FDB515;
+  color: #FFFFFF;
+}
+
+
+.exam-question-count-row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.exam-question-count {
+  font-weight: bold;
+}
+
+.exam-question {
+  margin: 10px;
+}
+
+.exam-question-choices {
+  margin: 10px;  
+}
+
+.exam-question-choice {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.exam-question-choice-text {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
 
 .myaccount-map-area {
   height: 300px;
@@ -745,12 +908,6 @@ a:hover {
 
 .examname {
 }
-.examday-map-area {
-  height: 500px;
-}
-.examday-info-area {
-  margin: 10px;
-}
 
 .addBorder {
 	border: 1px solid;
@@ -993,6 +1150,26 @@ a:hover {
 }
 
 @media (max-width: 995px  ) {
+
+  #mainnav-glossary {
+    display: inline;
+  }
+
+  .navbar-form {
+    display: none !important;
+  }
+
+  .exam-question-heading-left {
+    text-align: center;
+  }
+
+  .exam-question-heading-center {
+    text-align: center;
+  }
+
+  .exam-question-heading-right {
+    text-align: center;
+  }
 
   .messagearea {
     display: none;
