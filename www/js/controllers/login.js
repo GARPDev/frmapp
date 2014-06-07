@@ -44,6 +44,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
 
         remoteDataService.clearData();
 
+        $('#errormsg').html("**" + result + "**" + err);
+
         if(err) {
           navigationService.changeView('myaccount');  
           $('#errormsg').html("Cannot login!");
