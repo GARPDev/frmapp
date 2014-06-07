@@ -47,8 +47,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
         $('#errormsg').html("**" + result + "**" + err);
 
         if(err) {
-          navigationService.changeView('myaccount');  
-          $('#errormsg').html("Cannot login!");
+          //navigationService.changeView('myaccount');  
+          //$('#errormsg').html("Cannot login!");
         } else {
           navigationService.changeView('myaccount');  
         }
