@@ -17,8 +17,12 @@ frmServices.factory('authenticationService', ['$resource','$http',
       password: password
     };
 
+    var url = '/sfdc/auth/user';
+    if(navigator) {
+      url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
+    }
 
-    $http.post('/sfdc/auth/user', authReq).success(function(user){
+    $http.post(url, authReq).success(function(user){
 
       authenticationService.user = user;
       localStorage.authUser = JSON.stringify(authenticationService.user);
