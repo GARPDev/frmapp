@@ -29,7 +29,7 @@ frmServices.factory('authenticationService', ['$resource','$http',
       callback(null, authenticationService.user);
 
     }).error(function(data, status, headers, config) {
-      callback(status, null);
+      callback(status, url);
     });
 
   };
