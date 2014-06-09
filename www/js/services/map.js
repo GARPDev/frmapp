@@ -20,6 +20,8 @@ frmServices.factory('mapService', ['$resource','$http',
 
       } else {
 
+        $('#map-debug').empty().text('Google:' + google); 
+
         map = new google.maps.Map(document.getElementById(selector), mapOptions);
 
         $('#map-debug').empty().text('Get Map');
@@ -55,7 +57,7 @@ frmServices.factory('mapService', ['$resource','$http',
         });
       }
     }
-    
+
     return mapService;
 
   }
