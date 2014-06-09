@@ -24,9 +24,9 @@ frmServices.factory('mapService', ['$resource','$http',
         //       map: map,
         //       position: results[0].geometry.location
         //   });
-        } else {
-          $('#'+selector).innerHTML = ' Geocode was not successful for the following reason: ' + status;
-        }
+        // } else {
+        //   $('#'+selector).innerHTML = ' Geocode was not successful for the following reason: ' + status;
+        // }
       });
 
     }
