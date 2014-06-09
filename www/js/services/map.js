@@ -13,43 +13,49 @@ frmServices.factory('mapService', ['$resource','$http',
 
     mapService.displayMap=function(selector, address, callback) {
 
-      $('#map-debug').empty().text('In displayMap: ' + google + ':' + document.getElementById(selector)); 
+      $('#map-debug').empty().text('In displayMap'); 
 
-      map = new google.maps.Map(document.getElementById(selector), mapOptions);
+      if(google === null || typeof google === "undefined") {
+        $('#map-debug').empty().text('No google');
 
-      $('#map-debug').empty().text('Get Map');
+      } else {
 
-      geocoder = new google.maps.Geocoder();
+        map = new google.maps.Map(document.getElementById(selector), mapOptions);
 
-      $('#map-debug').empty().text('Get geocoder');
-      
-      geocoder.geocode( { 'address': address}, function(results, status) {
+        $('#map-debug').empty().text('Get Map');
 
-        $('#map-debug').empty().text('Call geocoder');
+        geocoder = new google.maps.Geocoder();
 
-        mapService.status = status;
+        $('#map-debug').empty().text('Get geocoder');
+        
+        geocoder.geocode( { 'address': address}, function(results, status) {
 
-        if (status == google.maps.GeocoderStatus.OK) {
+          $('#map-debug').empty().text('Call geocoder');
 
-          $('#map-debug').empty().text('Call setCenter');
+          mapService.status = status;
 
-          map.setCenter(results[0].geometry.location);
+          if (status == google.maps.GeocoderStatus.OK) {
 
-          $('#map-debug').empty().text('New marker');
+            $('#map-debug').empty().text('Call setCenter');
 
-          var marker = new google.maps.Marker({
-              map: map,
-              position: results[0].geometry.location
-          });
-          callback(null, status);
-        } else {
-          $('#'+selector).innerHTML = ' Geocode was not successful for the following reason: ' + status;
-          callback(500, status);
-        }
+            map.setCenter(results[0].geometry.location);
 
-      });
+            $('#map-debug').empty().text('New marker');
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+            });
+            callback(null, status);
+          } else {
+            $('#'+selector).innerHTML = ' Geocode was not successful for the following reason: ' + status;
+            callback(500, status);
+          }
+
+        });
+      }
     }
-
+    
     return mapService;
 
   }
