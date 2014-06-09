@@ -15,7 +15,7 @@ frmServices.factory('mapService', ['$resource','$http',
 
       $('#map-debug').empty().text('In displayMap');
 
-      if(typeof googleXX === "undefined") {
+      if(typeof google === "undefined") {
         $('#map-debug').empty().text('No Google');
       } else {
         $('#map-debug').empty().text('Yes Google');
