@@ -19,9 +19,11 @@ frmServices.factory('authenticationService', ['$resource','$http',
 
     var url = '/sfdc/auth/user';
     //if(navigator.camera) {
-      url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
+    //  url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
     //}
 
+    url = "http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo";
+    
     $('#url').html("**" + url + "**");
     
     $http.post(url, authReq).success(function(user){
