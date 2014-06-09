@@ -13,7 +13,7 @@ frmServices.factory('mapService', ['$resource','$http',
 
     mapService.displayMap=function(selector, address, callback) {
 
-      $('#map-debug').empty().text('In displayMap: ' + google + ':' + document.getElementById(selector));
+      $('#map-debug').empty().text('In displayMap: ' + google + ':' + document.getElementById(selector)); 
 
       map = new google.maps.Map(document.getElementById(selector), mapOptions);
 
