@@ -48,7 +48,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     });
 
     if(remoteDataService.userInfo.photo !== null && typeof remoteDataService.userInfo.photo !== "undefined") {
-      $("#userImage").attr("src",remoteDataService.userInfo.photo);
+      $("#myAccountUserImage").attr("src",remoteDataService.userInfo.photo);
     }
 
     if(navigator.camera === null || typeof navigator.camera === "undefined") {
@@ -58,13 +58,15 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.takePhoto = function () { 
       if(navigator.camera !== null && typeof navigator.camera !== "undefined") {
         navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 20, destinationType: Camera.DestinationType.FILE_URI, correctOrientation: true });
-      } else {
-        onFail('navigator.camera not defined!');
       }
+      // else {
+      //   onFail('navigator.camera not defined!');
+      // }
     };
 
     function onPhotoFileSuccess(imageData) {
       $("#userImage").attr("src",imageData);
+      $("#myAccountUserImage").attr("src",imageData);
       remoteDataService.userInfo.photo = imageData;
     };
 

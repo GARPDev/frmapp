@@ -191,11 +191,17 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
    remoteDataService.commitData = function() {
 
-    $http.put('/frmApp/user/' + authenticationService.user.Id + '/settings', remoteDataService.userSettings).success(function(data){
+    var url = '';
+    if(navigator.camera) {
+      url = serverURL + url;
+    }    
+
+
+    $http.put(url + '/frmApp/user/' + authenticationService.user.Id + '/settings', remoteDataService.userSettings).success(function(data){
 
       localStorage.userSettings = JSON.stringify(remoteDataService.userSettings);
 
-      $http.put('/frmApp/user/' + authenticationService.user.Id + '/metaData', remoteDataService.metaData).success(function(data){
+      $http.put(url + '/frmApp/user/' + authenticationService.user.Id + '/metaData', remoteDataService.metaData).success(function(data){
 
         localStorage.metaData = JSON.stringify(remoteDataService.metaData);
 

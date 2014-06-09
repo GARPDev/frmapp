@@ -4,22 +4,6 @@
 <div class="container page-container">
 
 <div class="row">
-  <div class="col-md-6">
-    <div class="panel panel-primary app-panel">
-      <div class="panel-heading">Exam Information</div>
-      <div class="panel-body">
-        <div class="panel-info">{{userData.registeredExam.name}}</div>
-        <div class="panel-info">{{userData.registeredExam.day}}</div>
-        <div class="panel-info">{{userData.registeredExam.time}}</div>
-        <div  class="panel-info">
-          <div>{{userData.registeredExam.address}}</div>
-          <div>{{userData.registeredExam.city}}, {{userData.registeredExam.state}}</div>
-          <div>{{userData.registeredExam.zip}}</div>
-        </div>
-      </div>    
-      <div id="map-canvas" class="myaccount-map-area"></div>
-    </div>
-  </div>
 
   <div class="col-md-6">
     <div class="panel panel-primary app-panel">
@@ -29,7 +13,9 @@
           <div class="photo">
             <img id="userImage" src="img/user.png" width="230">
           </div>
-          <button id="takePhoto" type="button" class="btn btn-default" ng-click="takePhoto()">Take Photo</button>
+          
+          <p><button id="takePhoto" type="button" class="btn btn-default" ng-click="takePhoto()">Take Photo</button> <span ng-if="camerror">Camera Error: {{camerror}}</span>
+          </p>
 
         <div class="user-info-area">
           <p>{{userData.Name}}</p>
@@ -53,13 +39,28 @@
               <button type="button" class="btn btn-default" ng-click="changeView('login')">Logout</button>
             </div>
           </div>
-          
         </div>
-
-
       </div>    
     </div>
   </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-primary app-panel">
+      <div class="panel-heading">Exam Information</div>
+      <div class="panel-body">
+        <div class="panel-info">{{userData.registeredExam.name}}</div>
+        <div class="panel-info">{{userData.registeredExam.day}}</div>
+        <div class="panel-info">{{userData.registeredExam.time}}</div>
+        <div  class="panel-info">
+          <div>{{userData.registeredExam.address}}</div>
+          <div>{{userData.registeredExam.city}}, {{userData.registeredExam.state}}</div>
+          <div>{{userData.registeredExam.zip}}</div>
+        </div>
+      </div>    
+      <div id="map-canvas" class="myaccount-map-area"></div>
+    </div>
+  </div>
+
 
 
 </div>
