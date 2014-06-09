@@ -33,6 +33,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $scope.orgOption = _.findWhere($scope.orgOptions, {value: $scope.userData.settings.organizeBy })
 
+    $('#map-debug').innerHTML = 'Hello';
+
     $timeout(function() {
       navigationService.pageTransitionIn();
       var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
