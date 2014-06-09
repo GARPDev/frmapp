@@ -36,7 +36,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $timeout(function() {
       navigationService.pageTransitionIn();
       var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
-      $scope.mapStatus = mapService.displayMap('map-canvas',address);
+      mapService.displayMap('map-canvas',address);
+      $scope.mapStatus = mapService.status;
     }, 0);
 
     scheduleBarSharedService.allMode = false;
