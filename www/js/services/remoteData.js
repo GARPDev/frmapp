@@ -171,13 +171,13 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                 remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
               }
 
-              fetchData('/frmApp/www/data/questions.json', 'questionData', null, function(err, data) {
+              fetchData('/frmapp/www/data/questions.json', 'questionData', null, function(err, data) {
 
                 if(err != NO_FETCH) {
                   remoteDataService.questionData = data.questions;
                 }
 
-                fetchData('/frmApp/www/data/glossary.json', 'glossaryData', null, function(err, data) {
+                fetchData('/frmapp/www/data/glossary.json', 'glossaryData', null, function(err, data) {
 
                   q.resolve();
 
