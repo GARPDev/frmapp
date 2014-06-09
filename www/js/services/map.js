@@ -3,8 +3,7 @@ frmServices.factory('mapService', ['$resource','$http',
 
 
     var mapService = {};
-
-    var mapService.status = "pending";
+    mapService.status = "pending";
 
     var geocoder;
     var map;
