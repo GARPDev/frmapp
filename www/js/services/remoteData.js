@@ -2,6 +2,9 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
   function($resource, $http, authenticationService){
 
     var remoteDataService = {};
+
+    var serverURL = "http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000";
+
     remoteDataService.$http = $http;
     remoteDataService.userInfo = {};
     remoteDataService.showFooter = true;
@@ -56,7 +59,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
     var fetchRemoteData=function(url,propertyName,remotePropertyName,callback) {
     
       if(navigator.camera) {
-        url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
+        url = serverURL + url;
       }    
       $http({method:'GET',url:url}).success(function(data){
 
@@ -162,19 +165,19 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
               // remoteDataService.metaData = data.metaData;
             }
             
-            fetchData('data/readings.json', 'readingData', null, function(err, data) {
+            fetchData('/frmApp/data/readings.json', 'readingData', null, function(err, data) {
 
               if(err != NO_FETCH) {
                 remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
               }
 
-              fetchData('data/questions.json', 'questionData', null, function(err, data) {
+              fetchData('/frmApp/data/questions.json', 'questionData', null, function(err, data) {
 
                 if(err != NO_FETCH) {
                   remoteDataService.questionData = data.questions;
                 }
 
-                fetchData('data/glossary.json', 'glossaryData', null, function(err, data) {
+                fetchData('/frmApp/data/glossary.json', 'glossaryData', null, function(err, data) {
 
                   q.resolve();
 
