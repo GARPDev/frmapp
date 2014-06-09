@@ -24,32 +24,15 @@ frmServices.factory('authenticationService', ['$resource','$http',
 
     $('#url').html("**" + url + "**");
     
-    
-  $.post( "http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000/sfdc/auth/user", 
-      authReq,
-      function( user ) {
-        authenticationService.user = user;
-        localStorage.authUser = JSON.stringify(authenticationService.user);
-        callback(null, authenticationService.user);
-      },
-      "application/json")
-    .done(function() {
-      console.log( "second success" );
-    })
-    .fail(function() {
-      callback(status, null);
-    })    
-    
-    
-//    $http.post(url, authReq).success(function(user){
+    $http.post(url, authReq).success(function(user){
 
-//      authenticationService.user = user;
-//      localStorage.authUser = JSON.stringify(authenticationService.user);
-//      callback(null, authenticationService.user);
+      authenticationService.user = user;
+      localStorage.authUser = JSON.stringify(authenticationService.user);
+      callback(null, authenticationService.user);
 
-//    }).error(function(data, status, headers, config) {
-//      callback(status, url);
-//    });
+    }).error(function(data, status, headers, config) {
+      callback(status, url);
+    });
 
   };
 
