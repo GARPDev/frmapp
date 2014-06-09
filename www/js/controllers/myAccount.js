@@ -33,7 +33,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $scope.orgOption = _.findWhere($scope.orgOptions, {value: $scope.userData.settings.organizeBy })
 
-    $('#map-debug').innerHTML = 'Hello';
+    $('#map-debug').empty().text('Hello');
 
     $timeout(function() {
       navigationService.pageTransitionIn();
