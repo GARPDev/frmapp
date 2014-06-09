@@ -11,7 +11,7 @@ frmServices.factory('mapService', ['$resource','$http',
         zoom: 8
       };
 
-    mapService.displayMap=function(selector, address) {
+    mapService.displayMap=function(selector, address, callback) {
       map = new google.maps.Map(document.getElementById(selector), mapOptions);
       geocoder = new google.maps.Geocoder();
       
@@ -25,9 +25,12 @@ frmServices.factory('mapService', ['$resource','$http',
               map: map,
               position: results[0].geometry.location
           });
+          callback(null, status);
         } else {
           $('#'+selector).innerHTML = ' Geocode was not successful for the following reason: ' + status;
+          callback(500, status);
         }
+
       });
     }
 
