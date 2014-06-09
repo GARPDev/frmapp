@@ -16,8 +16,6 @@ frmServices.factory('mapService', ['$resource','$http',
       
       geocoder.geocode( { 'address': address}, function(results, status) {
 
-        $('#map-status').innerHTML = status;
-
         if (status == google.maps.GeocoderStatus.OK) {
           map.setCenter(results[0].geometry.location);
           var marker = new google.maps.Marker({
@@ -28,6 +26,8 @@ frmServices.factory('mapService', ['$resource','$http',
           $('#'+selector).innerHTML = ' Geocode was not successful for the following reason: ' + status;
         }
       });
+
+      return status;
 
     }
 

@@ -19,6 +19,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.lessonIndex = 0;
     $scope.currentLesson = {};
 
+    $scope.mapStatus = "";
+
     //$scope.opp = remoteDataService.getOppertunities();
 
     $scope.orgOptions = [{
@@ -34,7 +36,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $timeout(function() {
       navigationService.pageTransitionIn();
       var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
-      mapService.displayMap('map-canvas',address);
+      $scope.mapStatus = mapService.displayMap('map-canvas',address);
     }, 0);
 
     scheduleBarSharedService.allMode = false;
