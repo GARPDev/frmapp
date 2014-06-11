@@ -33,15 +33,21 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $scope.orgOption = _.findWhere($scope.orgOptions, {value: $scope.userData.settings.organizeBy })
 
-    $('#map-debug').empty().text('Start');
+    $('#map-debug').text('Start');
 
     $timeout(function() {
 
-      $('#map-debug').empty().text('Timeout Start');
+      $('#map-debug').text('Timeout Start');
 
       navigationService.pageTransitionIn();
       var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
+
+      $('#map-debug').text('Call Display Map');
+
       mapService.displayMap('map-canvas',address, function(err, data) {
+
+        $('#map-debug').text('Return from Display Map');
+
         $scope.mapStatus = mapService.status;  
       });
       

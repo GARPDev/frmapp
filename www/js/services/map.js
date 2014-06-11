@@ -12,9 +12,17 @@ frmServices.factory('mapService', ['$resource','$http',
       };
 
     mapService.displayMap=function(selector, address, callback) {
+
+      if(!defined(google)) {
+        $('#map-debug').text('No Google');
+        callback(500, 'No Google');
+      }
+
       map = new google.maps.Map(document.getElementById(selector), mapOptions);
-      geocoder = new google.maps.Geocoder();
-      
+      geocoder = new google.maps.Geocoder();      
+
+      $('#map-debug').text('Created Google Objects');
+
       geocoder.geocode( { 'address': address}, function(results, status) {
 
         mapService.status = status;
