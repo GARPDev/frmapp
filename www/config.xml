@@ -49,12 +49,12 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <gap:plugin name="nl.x-services.plugins.calendar" />
     <gap:plugin name="org.apache.cordova.camera" />
-    <access origin="http://127.0.0.1*" />
-    <access origin="http://maps.googleapis.com" subdomains="true" />
+    <access origin="https://127.0.0.1*" />
     <access origin="http://google.com" subdomains="true" />
     <access origin="http://googleapis.com" subdomains="true" />
     <access origin="http://gstatic.com" subdomains="true" />
     <access origin="http://googleusercontent.com" subdomains="true" />
+    <access origin="http://maps.googleapis.com" subdomains="true" />
     <access origin="http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com" subdomains="true" />
     
 </widget>
