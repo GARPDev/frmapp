@@ -15,9 +15,9 @@ frmServices.factory('mapService', ['$resource','$http',
 
 
       if(typeof google === "undefined") {
-          $('#debug').text($('#debug').text + 'No Google');
+          $('#debug').text($('#debug').text() + 'No Google');
       } else {
-          $('#debug').text($('#debug').text + 'Yes Google');
+          $('#debug').text($('#debug').text() + 'Yes Google');
       }
 
 
