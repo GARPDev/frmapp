@@ -13,7 +13,7 @@ frmServices.factory('mapService', ['$resource','$http',
 
     mapService.displayMap=function(selector, address, callback) {
 
-      if(typeof googleXX === "undefined") {
+      if(typeof google === "undefined") {
         $('#map-debug').text($('#map-debug').text()+'No Google');
         callback(500, 'No Google');
       } else {
