@@ -21,6 +21,19 @@ frmServices.factory('mapService', ['$resource','$http',
       }
 
 
+      if(typeof google.maps === "undefined") {
+          $('#debug').text($('#debug').text() + 'No Google.maps');
+      } else {
+          $('#debug').text($('#debug').text() + 'Yes Google.maps');
+      }
+
+      if(typeof google.maps.Map === "undefined") {
+          $('#debug').text($('#debug').text() + 'No Google.maps.Map');
+      } else {
+          $('#debug').text($('#debug').text() + 'Yes Google.maps.Map');
+      }
+
+
       if(typeof google !== "undefined") {
 
         $('#map-debug').text($('#map-debug').text()+'Yes Google');
@@ -30,7 +43,7 @@ frmServices.factory('mapService', ['$resource','$http',
         } catch(err) {
           $('#map-debug').text($('#map-debug').text()+err);          
         }
-        
+
         geocoder = new google.maps.Geocoder();      
 
         $('#map-debug').text($('#map-debug').text()+'Created Google Objects');
