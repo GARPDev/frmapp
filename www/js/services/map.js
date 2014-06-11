@@ -13,10 +13,16 @@ frmServices.factory('mapService', ['$resource','$http',
 
     mapService.displayMap=function(selector, address, callback) {
 
+
       if(typeof google === "undefined") {
-        $('#map-debug').text($('#map-debug').text()+'No Google');
-        callback(500, 'No Google');
+          $('#debug').text($('#debug').text + 'No Google');
       } else {
+          $('#debug').text($('#debug').text + 'Yes Google');
+      }
+
+
+      if(typeof google !== "undefined") {
+        
         map = new google.maps.Map(document.getElementById(selector), mapOptions);
         geocoder = new google.maps.Geocoder();      
 
