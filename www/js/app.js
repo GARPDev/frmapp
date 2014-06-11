@@ -15,7 +15,7 @@ var phonecatApp = angular.module('frmApp', [
 function defined(ref, strNames) {
     var name;
     
-    if(ref === null || typeof ref === "undefined") {
+    if(typeof ref === "undefined" || ref === null ) {
       return false;
     }
 
