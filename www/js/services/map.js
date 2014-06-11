@@ -13,7 +13,7 @@ frmServices.factory('mapService', ['$resource','$http',
 
     mapService.displayMap=function(selector, address, callback) {
 
-      if(!defined(google)) {
+      if(!defined(googleXX)) {
         $('#map-debug').text($('#map-debug').text()+'No Google');
         callback(500, 'No Google');
       }
