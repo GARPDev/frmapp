@@ -11,6 +11,25 @@ var phonecatApp = angular.module('frmApp', [
   'frmServices'
 ]);
 
+
+function defined(ref, strNames) {
+    var name;
+    
+    if(ref === null || typeof ref === "undefined") {
+      return false;
+    }
+
+    if(strNames !== null && typeof strNames !== "undefined") {
+      var arrNames = strNames.split('.');
+      while (name = arrNames.shift()) {        
+          if (ref[name] === null || typeof ref[name] === "undefined" || !ref.hasOwnProperty(name)) return false;
+          ref = ref[name];
+      } 
+    }
+    return true;
+}
+
+
 phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider',
   function($routeProvider, $anchorScrollProvider, $locationProvider) {
     
