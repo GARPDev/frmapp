@@ -22,7 +22,9 @@ frmServices.factory('mapService', ['$resource','$http',
 
 
       if(typeof google !== "undefined") {
-        
+
+        $('#map-debug').text($('#map-debug').text()+'Yes Google');
+
         map = new google.maps.Map(document.getElementById(selector), mapOptions);
         geocoder = new google.maps.Geocoder();      
 
