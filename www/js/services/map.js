@@ -25,7 +25,12 @@ frmServices.factory('mapService', ['$resource','$http',
 
         $('#map-debug').text($('#map-debug').text()+'Yes Google');
 
-        map = new google.maps.Map(document.getElementById(selector), mapOptions);
+        try {
+          map = new google.maps.Map(document.getElementById(selector), mapOptions);          
+        } catch(err) {
+          $('#map-debug').text($('#map-debug').text()+err);          
+        }
+        
         geocoder = new google.maps.Geocoder();      
 
         $('#map-debug').text($('#map-debug').text()+'Created Google Objects');
