@@ -13,40 +13,16 @@ frmServices.factory('mapService', ['$resource','$http',
 
     mapService.displayMap=function(selector, address, callback) {
 
-
-      if(typeof google === "undefined") {
-          $('#debug').text($('#debug').text() + 'No Google');
-      } else {
-          $('#debug').text($('#debug').text() + 'Yes Google');
-      }
-
-
-      if(typeof google.maps === "undefined") {
-          $('#debug').text($('#debug').text() + 'No Google.maps');
-      } else {
-          $('#debug').text($('#debug').text() + 'Yes Google.maps');
-      }
-
-      if(typeof google.maps.Map === "undefined") {
-          $('#debug').text($('#debug').text() + 'No Google.maps.Map');
-      } else {
-          $('#debug').text($('#debug').text() + 'Yes Google.maps.Map');
-      }
-
-
       if(typeof google !== "undefined") {
-
-        $('#map-debug').text($('#map-debug').text()+'Yes Google');
 
         try {
           map = new google.maps.Map(document.getElementById(selector), mapOptions);          
         } catch(err) {
-          $('#map-debug').text($('#map-debug').text()+err);          
+          $('#'+selector).innerHTML = ' Geocode was not successful for the following reason: ' + err;
+          callback(500, status);
         }
 
         geocoder = new google.maps.Geocoder();      
-
-        $('#map-debug').text($('#map-debug').text()+'Created Google Objects');
 
         geocoder.geocode( { 'address': address}, function(results, status) {
 
