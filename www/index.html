@@ -76,10 +76,7 @@
     </head>
     <body>
         <div id="background">
-            <!-- img src="img/plus.png" class="stretch" alt="" / -->
-            <div style="color:white">
-                debug:<span id="debug"></span>
-            </div>
+            <img src="img/plus.png" class="stretch" alt="" />
         </div>
 		<div id="view-container" class="view-container">
 			<div ng-view class="view-frame"></div>
@@ -97,21 +94,18 @@
 
 
 		<!-- Google Maps -->
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false" /></script>
+		<!-- script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script -->
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDlFl3vPEbgzrr-1KX5E20z_1DowB2ASus&sensor=true">
+    </script>
 
-        <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
 		<!-- PhoneGap Plugins -->
 		<!-- script type="text/javascript" src="PushNotification.js"></script -->
 		<script type="text/javascript" src="Calendar.js"></script>
         
         <script type="text/javascript" src="js/index.js"></script>
-
         <script type="text/javascript">
-            if(typeof google === "undefined") {
-                $('#debug').text('No Google');
-            } else {
-                $('#debug').text('Yes Google');
-            }
             app.initialize();
         </script>
     </body>
