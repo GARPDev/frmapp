@@ -19,11 +19,11 @@
 
 var pictureSource=1;   // picture source
 var destinationType=1; // sets the format of returned value 
+var msgId = '';
 
 var app = {
     // Application Constructor
     initialize: function() {
-        alert("Push set up");
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -66,8 +66,6 @@ var app = {
     }, // result contains any message sent from the plugin call
     successHandler: function(result) {
         //alert('Push Callback Success! Result = '+result)
-        //document.getElementById("msg").innerHTML = "New text:" + result;
-
     },
     errorHandler:function(error) {
         //alert('Push Error: ' + error);
@@ -80,8 +78,7 @@ var app = {
                 {
                     console.log("Regid " + e.regid);
                     alert('registration id = '+e.regid);
-                    document.getElementById("msg").innerHTML = "XX: <input type='text' value='" + e.regid + "'>" + e.regid;
-
+                    msgId = e.regid;
                 }
             break;
  

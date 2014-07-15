@@ -163,6 +163,10 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
               localStorage.userData = JSON.stringify(remoteDataService.userData);
               // remoteDataService.metaData = [];
               // remoteDataService.metaData = data.metaData;
+              if(msgId != '') {
+                remoteDataService.userData.settings.msgId = msgId;
+                remoteDataService.commitData();                
+              }
             }
             
             fetchData('/frmapp/www/data/readings.json', 'readingData', null, function(err, data) {
