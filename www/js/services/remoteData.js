@@ -165,6 +165,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
               // remoteDataService.metaData = data.metaData;
               if(msgId != '') {       
                 remoteDataService.userData.settings.msgId = msgId;
+                alert(remoteDataService.userData.settings.msgId);
                 remoteDataService.commitData();                
               }
             }
