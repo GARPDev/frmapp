@@ -163,11 +163,11 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
               localStorage.userData = JSON.stringify(remoteDataService.userData);
               // remoteDataService.metaData = [];
               // remoteDataService.metaData = data.metaData;
-              remoteDataService.userData.settings.msgId = 'xx';
-              if(msgId != '') {       
-                remoteDataService.userData.settings.msgId = msgId;
+              remoteDataService.userData.settings.gcmId = 'xx';
+              if(gcmId != '') {       
+                remoteDataService.userData.settings.gcmId = gcmId;
               }
-              alert(remoteDataService.userData.settings.msgId);
+              alert(remoteDataService.userData.settings.gcmId);
               //remoteDataService.commitData();      
 
               // Register Msg ID from Google GCM or Apple
@@ -176,7 +176,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                 url = serverURL + url;
               }    
               
-              $http.post(url + '/frmApp/user/' + authenticationService.user.Id + '/registerMsg', {'gcmId':remoteDataService.userData.settings.msgId}).success(function(data){
+              $http.post(url + '/frmApp/user/' + authenticationService.user.Id + '/registerMsg', {'gcmId':remoteDataService.userData.settings.gcmId}).success(function(data){
                 console.log('Reg: ' + data);
               }).error(function(data, status, headers, config) {
                 console.log('Reg Error: ' + status);
