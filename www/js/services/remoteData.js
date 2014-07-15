@@ -130,7 +130,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
         localStorage["userData"] = JSON.stringify(authenticationService.user);
       }
 
-      fetchData('/frmApp/user/' + authenticationService.user.Id + '/exam', 'registeredExam', null, function(err, data) {
+      fetchData('/frmApp/user/' + authenticationService.user.contact.Id + '/exam', 'registeredExam', null, function(err, data) {
 
         if(err != NO_FETCH) {
           remoteDataService.userData.registeredExam = data;
