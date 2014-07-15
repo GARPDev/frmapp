@@ -168,10 +168,10 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                 remoteDataService.userData.settings.gcmId = gcmId;
               }
 
-              if(remoteDataService.userData.registeredExam.records > 0) {
+              if(remoteDataService.userData.registeredExam.records.length > 0) {
                 remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.records[0].Id;
               }
-              alert(remoteDataService.userData.settings);
+              //alert(remoteDataService.userData.settings);
               //remoteDataService.commitData();      
 
               // Register Msg ID from Google GCM or Apple
