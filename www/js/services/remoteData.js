@@ -172,9 +172,9 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
               // Register Msg ID from Google GCM or Apple
               $http.post(url + '/frmApp/user/' + authenticationService.user.Id + '/registerMsg', {'gcmId':remoteDataService.userData.settings.msgId}).success(function(data){
-
+                console.log('Reg: ' + data);
               }).error(function(data, status, headers, config) {
-                
+                console.log('Reg Error: ' + status);
               });
 
             }
