@@ -19,7 +19,7 @@
 
 var pictureSource=1;   // picture source
 var destinationType=1; // sets the format of returned value 
-var msgId = '';
+var gcmId = '';
 
 var app = {
     // Application Constructor
@@ -78,7 +78,7 @@ var app = {
                 {
                     console.log("Regid " + e.regid);
                     alert('registration id = '+e.regid);
-                    msgId = e.regid;
+                    gcmId = e.regid;
                 }
             break;
  
