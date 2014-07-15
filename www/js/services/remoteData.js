@@ -163,7 +163,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
               localStorage.userData = JSON.stringify(remoteDataService.userData);
               // remoteDataService.metaData = [];
               // remoteDataService.metaData = data.metaData;
-              if(msgId != '') {
+              if(msgId != '') {       
                 remoteDataService.userData.settings.msgId = msgId;
                 remoteDataService.commitData();                
               }
