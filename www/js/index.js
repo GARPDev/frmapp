@@ -23,6 +23,7 @@ var destinationType=1; // sets the format of returned value
 var app = {
     // Application Constructor
     initialize: function() {
+        document.getElementById("errormsg").innerHTML = "Push set up";
         this.bindEvents();
     },
     // Bind Event Listeners
