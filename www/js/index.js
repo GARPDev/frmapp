@@ -23,7 +23,7 @@ var destinationType=1; // sets the format of returned value
 var app = {
     // Application Constructor
     initialize: function() {
-        document.getElementById("errormsg").innerHTML = "Push set up";
+        alert("Push set up");
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -47,7 +47,7 @@ var app = {
 
 //alert('Push set up');
 
-document.getElementById("errormsg").innerHTML = "Push set up";
+//document.getElementById("errormsg").innerHTML = "Push set up";
 
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"43874697608","ecb":"app.onNotificationGCM"});
