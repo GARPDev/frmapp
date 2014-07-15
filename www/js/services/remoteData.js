@@ -167,21 +167,26 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
               if(gcmId != '') {       
                 remoteDataService.userData.settings.gcmId = gcmId;
               }
-              alert(remoteDataService.userData.settings.gcmId);
+
+              if(remoteDataService.userData.registeredExam.records > 0) {
+                remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.records[0].Id;
+              }
+              alert(remoteDataService.userData.settings);
               //remoteDataService.commitData();      
 
               // Register Msg ID from Google GCM or Apple
-              var url = '';
-              if(navigator.camera) {
-                url = serverURL + url;
-              }    
+              // var url = '';
+              // if(navigator.camera) {
+              //   url = serverURL + url;
+              // }    
               
-              $http.post(url + '/frmApp/user/' + authenticationService.user.Id + '/registerMsg', {'gcmId':remoteDataService.userData.settings.gcmId}).success(function(data){
-                console.log('Reg: ' + data);
-              }).error(function(data, status, headers, config) {
-                console.log('Reg Error: ' + status);
-              });
-
+              // $http.post(url + '/frmApp/user/' + authenticationService.user.Id + '/registerMsg', {'gcmId':remoteDataService.userData.settings.gcmId}).success(function(data){
+              //   console.log('Reg: ' + data);
+              // }).error(function(data, status, headers, config) {
+              //   console.log('Reg Error: ' + status);
+              // });
+              
+              remoteDataService.commitData();
             }
             
             fetchData('/frmapp/www/data/readings.json', 'readingData', null, function(err, data) {
