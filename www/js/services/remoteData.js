@@ -176,7 +176,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
               //if(authenticationService.user.profile == 'Systems Administrator') {
               if(1 == 1) {
 
-                fetchData('/frmApp/system/examSites', 'examSites', 'examSites', function(err, data) {
+                fetchData('/frmApp/system/examSites', 'examSites', 'records', function(err, data) {
 
                   if(err != NO_FETCH) {
                     if(err == 404) {
