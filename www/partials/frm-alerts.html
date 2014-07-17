@@ -3,6 +3,23 @@
 
 <div class="container page-container">
 
+<div class="row">
+  <div class="col-md-12 ">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Alert Options: <input type=checkbox name=sound> Sound   
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+         <textarea ng-model="message" maxlength="250" cols="60" rows="3"></textarea>
+         <span>Used: {{message.length}} our of 250<span>
+         <button type="button" class="btn btn-success btn-lg" ng-click="sendMsg(message)">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <div class="row">
     <div class="col-md-6 ">
       <div>
@@ -28,27 +45,6 @@
     </div>
   </div>
 
-<div class="row">
-    <div class="col-md-12 ">
-      
-      <div class="panel panel-default">
-        <div class="panel-body">
-          Alert Options: <input type=checkbox name=sound> Sound   
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-body">
-           <textarea ng-model="message" maxlength="250" cols="60" rows="3"></textarea>
-           <span>Used: {{message.length}} our of 250<span>
-           <button type="button" class="btn btn-success btn-lg" ng-click="sendMsg(message)">Continue</button>
-        </div>
-      </div>
-
-  </div>
-
-
-</div>
 
 <div ng-include="'partials/frm-navFooter.html'"></div>
 

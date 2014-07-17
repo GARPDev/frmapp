@@ -112,6 +112,21 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
     }
 
 
+    remoteDataService.sendMsg = function(title, msg, sound, sites, callback) {
+
+      var msgObj = {
+        title: title,
+        msg: msg,
+        sound: sound,
+        sites: sites
+      }
+
+      $http.put(url + '/frmApp/user/' + authenticationService.user.Id + '/msg', msgObj).success(function(data){
+        callback(null, data);
+      }
+
+    }
+
     //our service accepts a promise object which 
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {

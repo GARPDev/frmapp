@@ -4,6 +4,9 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
     $scope.examSites = [];
     $scope.examSites = remoteDataService.examSites;
 
+    $scope.title = '';
+    $scope.message = '';
+
     $timeout(function() {
       navigationService.pageTransitionIn();
       $('body').removeClass("modal-open")
@@ -22,10 +25,17 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
     }
 
     $scope.sendMsg = function(msg) {    
-     
+
+      var sendSites = [];
+      for(var i=0; i<$scope.examSites.length; i++) {
+        if($scope.examSites[i].selected)
+          sendSites.push($scope.examSites[i].Id);
+      }
+
+      remoteDataService.sendMsg($scope.title, $scope.message, sound, sendSites, function(err,data) {
+        console.log(data);
+        alert('Message Sent!');
+      });
     }
-
-
-
   }
 ]);
