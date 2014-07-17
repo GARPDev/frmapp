@@ -35,6 +35,10 @@ a:hover {
 
 /* Custom Classes */
 
+.examSiteSelected {
+  background-color: #006C99;
+}
+
 .view-container {
   margin-top: 80px;
 }

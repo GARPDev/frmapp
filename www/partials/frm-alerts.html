@@ -10,7 +10,7 @@
       </div>
       <div>
         <ul class="list-group">        
-          <li ng-repeat="examSite in examSites | filter:searchTerms" ng-click="selectItem(examSite)" class="list-group-item">
+          <li ng-repeat="examSite in examSites | filter:searchTerms" ng-click="selectItem(examSite)" class="list-group-item" ng-class="{examSite.selected : examSiteSelected}">
             <span>{{examSite.Name}}</span>
           </li>       
         </ul>         
@@ -18,10 +18,11 @@
     </div>
 
     <div class="col-md-6 ">
-      <b>Selected</b>
+      
       <ul class="list-group">        
+          <li class="list-group-item"><b>Selected</b></li>
           <li ng-repeat="examSite in examSites | filter:matchSelected()" class="list-group-item">
-            <span>{{examSite.Name}}</span>
+            <span>{{examSite.Name}}</span> <a href ng-click="selectItem(examSite)" style="float: right; margin: 10px;"><span class="glyphicon glyphicon-remove"></a>
           </li>       
         </ul>         
     </div>
