@@ -126,7 +126,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
         url = serverURL + url;
       }    
 
-      $http.put(url + authenticationService.user.Id + '/msg', msgObj).success(function(data){
+      $http.post(url + authenticationService.user.Id + '/msg', msgObj).success(function(data){
         callback(null, data);
       });
 
