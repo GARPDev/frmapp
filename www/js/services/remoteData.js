@@ -121,7 +121,12 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
         sites: sites
       }
 
-      $http.put(url + '/frmApp/user/' + authenticationService.user.Id + '/msg', msgObj).success(function(data){
+      var url = '/frmApp/user/'
+      if(navigator.camera) {
+        url = serverURL + url;
+      }    
+
+      $http.put(url + authenticationService.user.Id + '/msg', msgObj).success(function(data){
         callback(null, data);
       });
 

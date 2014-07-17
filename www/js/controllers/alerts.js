@@ -6,6 +6,8 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
 
     $scope.title = '';
     $scope.message = '';
+    $scope.sound = true;
+
 
     $timeout(function() {
       navigationService.pageTransitionIn();
