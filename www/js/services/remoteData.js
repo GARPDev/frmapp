@@ -184,7 +184,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                         organizeBy:"topic"
                       };
 
-                      for(var i=0; i<data.length i++) {
+                      for(var i=0; i<data.length; i++) {
                         data[i].selected=0;
                       }
 
