@@ -32,7 +32,7 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
           sendSites.push($scope.examSites[i].Id);
       }
 
-      remoteDataService.sendMsg($scope.title, $scope.message, sound, sendSites, function(err,data) {
+      remoteDataService.sendMsg($scope.title, $scope.message, $scope.sound, sendSites, function(err,data) {
         console.log(data);
         alert('Message Sent!');
       });
