@@ -1,0 +1,29 @@
+<!-- Fixed navbar -->
+<div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>    
+
+<div class="container page-container">
+
+  <div class="row">
+    <div class="col-md-6 ">
+      <div>
+        <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search">
+      </div>
+    </div>
+
+    <div class="col-md-6 ">
+      <div>
+        <ul class="list-group">        
+          <li ng-repeat="examSite in examSites | filter:searchTerms" class="list-group-item">
+            <span>{{examSite.Name}}</span>
+          </li>       
+        </ul>         
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div ng-include="'partials/frm-navFooter.html'"></div>
+
+<div ng-include="'partials/frm-notes.html'"></div>
