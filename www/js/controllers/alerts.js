@@ -11,7 +11,7 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
 
 
     
-    $scope.criteriaMatch = function(value) {
+    $scope.matchSelected = function(value) {
       return function( item ) {
       	return item.selected;
       }
