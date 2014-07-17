@@ -171,6 +171,27 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
               if(remoteDataService.userData.registeredExam.records.length > 0) {
                 remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.records[0].Id;
               }
+
+
+              //if(authenticationService.user.profile == 'Systems Administrator') {
+              if(1 == 1) {
+
+                fetchData('/frmApp/system/examSites', 'examSites', 'examSites', function(err, data) {
+
+                  if(err != NO_FETCH) {
+                    if(err == 404) {
+                      data = {
+                        organizeBy:"topic"
+                      };
+                      localStorage.examSites = JSON.stringify(data);
+                      remoteDataService.examSites = data;
+                    }
+                  }
+                });
+
+              }
+
+
               //alert(remoteDataService.userData.settings);
               //remoteDataService.commitData();      
 

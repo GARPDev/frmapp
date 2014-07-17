@@ -2,6 +2,7 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
   function($scope, $timeout, remoteDataService, navigationService) {
 
     $scope.examSites = [];
+    $scope.examSites = remoteDataService.examSites;
 
     $timeout(function() {
       navigationService.pageTransitionIn();
