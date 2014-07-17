@@ -179,18 +179,12 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                 fetchData('/frmApp/system/examSites', 'examSites', 'records', function(err, data) {
 
                   if(err != NO_FETCH) {
-                    if(err == 404) {
-                      data = {
-                        organizeBy:"topic"
-                      };
-
-                      for(var i=0; i<data.length; i++) {
-                        data[i].selected=0;
-                      }
-
-                      localStorage.examSites = JSON.stringify(data);
-                      remoteDataService.examSites = data;
+                    for(var i=0; i<data.length; i++) {
+                      data[i].selected=0;
                     }
+
+                    localStorage.examSites = JSON.stringify(data);
+                    remoteDataService.examSites = data;
                   }
                 });
 
