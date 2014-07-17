@@ -17,7 +17,8 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
       }
     }
 
-	$scope.selectItem = function(item) {		
-		!item.selected;
+  	$scope.selectItem = function(item) {		
+  		!item.selected;
+    }
   }
 ]);
