@@ -10,7 +10,7 @@
       </div>
       <div>
         <ul class="list-group">        
-          <li ng-repeat="examSite in examSites | filter:searchTerms" ng-click="selectItem(examSite)" class="list-group-item" ng-class="{examSite.selected : examSiteSelected}">
+          <li ng-repeat="examSite in examSites | filter:searchTerms" ng-click="selectItem(examSite)" class="list-group-item" ng-class="{examSiteSelected : examSite.selected}">
             <span>{{examSite.Name}}</span>
           </li>       
         </ul>         
@@ -26,8 +26,27 @@
           </li>       
         </ul>         
     </div>
+  </div>
+
+<div class="row">
+    <div class="col-md-12 ">
+      
+      <div class="panel panel-default">
+        <div class="panel-body">
+          Alert Options: <input type=checkbox name=sound> Sound   
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+           <textarea ng-model="message" maxlength="250" cols="60" rows="3"></textarea>
+           <span>Used: {{message.length}} our of 250<span>
+           <button type="button" class="btn btn-success btn-lg" ng-click="sendMsg(message)">Continue</button>
+        </div>
+      </div>
 
   </div>
+
 
 </div>
 
