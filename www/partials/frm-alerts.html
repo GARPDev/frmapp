@@ -8,16 +8,22 @@
       <div>
         <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search">
       </div>
-    </div>
-
-    <div class="col-md-6 ">
       <div>
         <ul class="list-group">        
-          <li ng-repeat="examSite in examSites | filter:searchTerms" class="list-group-item">
+          <li ng-repeat="examSite in examSites | filter:searchTerms" ng-click="selectItem(examSite)" class="list-group-item">
             <span>{{examSite.Name}}</span>
           </li>       
         </ul>         
-      </div>
+      </div>      
+    </div>
+
+    <div class="col-md-6 ">
+      <b>Selected</b>
+      <ul class="list-group">        
+          <li ng-repeat="examSite in examSites | filter:matchSelected()" class="list-group-item">
+            <span>{{examSite.Name}}</span>
+          </li>       
+        </ul>         
     </div>
 
   </div>

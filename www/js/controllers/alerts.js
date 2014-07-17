@@ -8,5 +8,16 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
       navigationService.pageTransitionIn();
       $('body').removeClass("modal-open")
     }, 0);
+
+
+    
+    $scope.criteriaMatch = function(value) {
+      return function( item ) {
+      	return item.selected;
+      }
+    }
+
+	$scope.selectItem = function(item) {		
+		!item.selected;
   }
 ]);

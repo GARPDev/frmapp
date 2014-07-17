@@ -183,6 +183,11 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                       data = {
                         organizeBy:"topic"
                       };
+
+                      for(var i=0; i<data.length i++) {
+                        data[i].selected=0;
+                      }
+
                       localStorage.examSites = JSON.stringify(data);
                       remoteDataService.examSites = data;
                     }
