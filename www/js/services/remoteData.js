@@ -189,7 +189,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
               }
 
               if(remoteDataService.userData.registeredExam.registrations.records.length > 0) {
-                remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Site__r.Id;
+                remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Site__r.Id; 
               }
 
 
