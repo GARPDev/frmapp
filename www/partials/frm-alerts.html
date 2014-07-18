@@ -7,6 +7,8 @@
   <div class="col-md-12 ">
     <div class="panel panel-default">
       <div class="panel-body">
+        <button ng-if="openMode" type="button" class="btn btn-success btn-lg" ng-click="open(!openMode)">Compose a new Message</button>
+        <button ng-if="!openMode" type="button" class="btn btn-success btn-lg" ng-click="open(!openMode)">Open Exiting Message</button>
         Alert Options: <input type=checkbox ng-model="sound" name="sound"> Sound   
       </div>
     </div>
@@ -15,39 +17,58 @@
         <div>
           Title <input type="text" class="form-control" ng-model="title" placeholder="Search">
         </div>
-
-         <textarea ng-model="message" maxlength="250" cols="60" rows="3"></textarea>
-         <span>Used: {{message.length}} our of 250<span>
-         <button type="button" class="btn btn-success btn-lg" ng-click="sendMsg(message)">Continue</button>
+        <div>
+         <textarea ng-model="message" maxlength="250" cols="60" rows="3"></textarea><br>
+         <span>Used: {{message.length}} our of 250<span><br>
+         <button ng-if="!openMode" type="button" class="btn btn-success btn-lg" ng-click="sendMsg(message)">Send</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-  <div class="row">
-    <div class="col-md-6 ">
-      <div>
-        <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search">
-      </div>
-      <div>
-        <ul class="list-group">        
-          <li ng-repeat="examSite in examSites | filter:searchTerms" ng-click="selectItem(examSite)" class="list-group-item" ng-class="{examSiteSelected : examSite.selected}">
-            <span>{{examSite.Name}}</span>
-          </li>       
-        </ul>         
-      </div>      
+<div class="row" ng-if="openMode">
+  <div class="col-md-12 ">
+    <p><b>Select an existing message:</b></p>
+    <div>
+      <input type="text" class="form-control" ng-model="msgSearchTerms" placeholder="Search">
     </div>
-
-    <div class="col-md-6 ">
-      
+    <div>
       <ul class="list-group">        
-          <li class="list-group-item"><b>Selected</b></li>
-          <li ng-repeat="examSite in examSites | filter:matchSelected()" class="list-group-item">
-            <span>{{examSite.Name}}</span> <a href ng-click="selectItem(examSite)" style="float: right; margin: 10px;"><span class="glyphicon glyphicon-remove"></a>
-          </li>       
-        </ul>         
-    </div>
+        <li ng-repeat="msg in allMessages | filter:msgSearchTerms" ng-click="selectMsg(msg)" class="list-group-item">
+          <p>{{msg.title}} - {{msg.body}}</p>
+          <p>Sent On: {{msg.date}}</p>
+          <p>{{msg.sites}}</p>
+        </li>       
+      </ul>         
+    </div>      
   </div>
+</div>
+
+<div class="row" ng-if="!openMode">
+  <div class="col-md-6 ">
+    <div>
+      <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search">
+    </div>
+    <div>
+      <ul class="list-group">        
+        <li ng-repeat="examSite in examSites | filter:searchTerms" ng-click="selectItem(examSite)" class="list-group-item" ng-class="{examSiteSelected : examSite.selected}">
+          <span>{{examSite.Name}}</span>
+        </li>       
+      </ul>         
+    </div>      
+  </div>
+
+  <div class="col-md-6 ">
+    
+    <ul class="list-group">        
+        <li class="list-group-item"><b>Selected</b></li>
+        <li ng-repeat="examSite in examSites | filter:matchSelected()" class="list-group-item">
+          <span>{{examSite.Name}}</span> <a href ng-click="selectItem(examSite)" style="float: right; margin: 10px;"><span class="glyphicon glyphicon-remove"></a>
+        </li>       
+      </ul>         
+  </div>
+</div>
 
 
 <div ng-include="'partials/frm-navFooter.html'"></div>

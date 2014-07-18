@@ -4,19 +4,19 @@
 
         <ul class="list-group list-group nopadding">
 
-          <li class="list-group-item" ng-repeat="reading in readings | filter:flaggedMatch()" class="">
+          <li class="list-group-item" ng-repeat="message in messages" class="">
             <div class="message-item">
               <div class="icon-area">
                 <div class="icon"><span class="glyphicon glyphicon-bullhorn"></span></div>
               </div>
               <div class="subject">
-                Hi there!
+                {{message.title}}
               </div>
               <div class="date">
-                Oct 31
+                {{getEpochDateTimeText(message.date)}}
               </div>
             </div>
-            <p>This is message text. This is message text. This is message text. This is message text. This is message text. </p>
+            <p>{{message.body}}</p>
           </li>
 
         </ul>

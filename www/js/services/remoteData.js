@@ -206,23 +206,20 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                   }
                 });
 
+                fetchData('/frmApp/msg', 'allmessages', 'records', function(err, messages) {
+                  if(err != NO_FETCH) {
+                    remoteDataService.allMessages = messages;
+                  }
+                });
+
+
               }
 
-
-              //alert(remoteDataService.userData.settings);
-              //remoteDataService.commitData();      
-
-              // Register Msg ID from Google GCM or Apple
-              // var url = '';
-              // if(navigator.camera) {
-              //   url = serverURL + url;
-              // }    
-              
-              // $http.post(url + '/frmApp/user/' + authenticationService.user.Id + '/registerMsg', {'gcmId':remoteDataService.userData.settings.gcmId}).success(function(data){
-              //   console.log('Reg: ' + data);
-              // }).error(function(data, status, headers, config) {
-              //   console.log('Reg Error: ' + status);
-              // });
+              fetchData('/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg', 'messages', 'records', function(err, messages) {
+                if(err != NO_FETCH) {
+                  remoteDataService.messages = messages;
+                }
+              });
               
               remoteDataService.commitData();
             }

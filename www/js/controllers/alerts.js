@@ -8,6 +8,8 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
     $scope.message = '';
     $scope.sound = true;
 
+    $scope.openMode = false;
+    $scope.allMessages = remoteDataService.allMessages;
 
     $timeout(function() {
       navigationService.pageTransitionIn();
@@ -15,6 +17,9 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
     }, 0);
 
 
+    $scope.open = function(mode) {
+      $scope.openMode = mode;      
+    }
     
     $scope.matchSelected = function(value) {
       return function( item ) {
@@ -24,6 +29,27 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataSe
 
   	$scope.selectItem = function(item) {		
   		item.selected = !item.selected;
+    }
+
+    $scope.selectMsg = function(msg) {
+      $scope.title = msg.title;
+      $scope.message = msg.body;
+
+      for(var i=0; i<$scope.examSites.length; i++) {
+        $scope.examSites[i].selected=0;
+
+        var found = false;
+        for(var j=0; j<msg.sites.length; j++) {
+          if(msg.sites[j] == $scope.examSites[i].Id) {
+            found = true;
+            break;
+          }
+        }            
+        if(found)
+          $scope.examSites[i].selected=1;
+      }
+
+      $scope.openMode=false;
     }
 
     $scope.sendMsg = function(msg) {    

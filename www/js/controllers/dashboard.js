@@ -8,6 +8,9 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
     $scope.readings = $scope.lessons[0].readings;
     $scope.userData = remoteDataService.userData;
     $scope.metaData = remoteDataService.metaData;
+
+    $scope.messages = remoteDataService.messages;
+
     $scope.doneItems = [];
 
     $scope.percentCompleteTotals = remoteDataService.getPercentCompleteTotals();
@@ -44,6 +47,10 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
 
     $scope.removeFlag = function(id) {
       remoteDataService.toggelReadingAttribute(id, 'flagged');
+    }
+
+    $scope.getEpochDateTimeText = function(epochDate) {
+      return getEpochDateTimeText(epochDate);
     }
 
   }
