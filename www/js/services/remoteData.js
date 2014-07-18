@@ -188,8 +188,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                 remoteDataService.userData.settings.gcmId = gcmId;
               }
 
-              if(remoteDataService.userData.registeredExam.records.length > 0) {
-                remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.records[0].Exam_Site__c;
+              if(remoteDataService.userData.registeredExam.registrations.records.length > 0) {
+                remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__c;
               }
 
 
