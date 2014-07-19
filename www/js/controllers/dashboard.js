@@ -21,7 +21,7 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
 
     $http({method:'GET',url:'/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg'}).success(function(data){
 
-      $scope.messages = data.records;
+      $scope.messages = data;
 
     }).error(function(data, status, headers, config) {
         alert('Could not load messages!');

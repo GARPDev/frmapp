@@ -23,7 +23,7 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','$http','remo
 
         $http({method:'GET',url:'/frmApp/msg'}).success(function(data){
 
-          $scope.allMessages = data.records;
+          $scope.allMessages = data;
 
         }).error(function(data, status, headers, config) {
             alert('Could not load messages!');
