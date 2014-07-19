@@ -126,12 +126,16 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
         url = serverURL + url;
       }    
 
-      $http.post(url + authenticationService.user.Id + '/msg', msgObj).success(function(data){
-        callback(null, data);
-      }).error(function(data, status, headers, config) {
-        callback(err, data);
+      $http({
+          url: url + authenticationService.user.Id + '/msg',
+          method: "POST",
+          data: msgObj,
+          headers: {'Content-Type': 'application/json'}
+      }).success(function (data, status, headers, config) {
+          callback(status, data);
+      }).error(function (data, status, headers, config) {
+           callback(status, data);
       });
-
     }
 
     //our service accepts a promise object which 
