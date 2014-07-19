@@ -1,5 +1,5 @@
-frmServices.factory('remoteDataService', ['$resource','$http','authenticationService',
-  function($resource, $http, authenticationService){
+frmServices.factory('remoteDataService', ['$resource','$http','$httpProvider','authenticationService',
+  function($resource, $http, $httpProvider, authenticationService){
 
     var remoteDataService = {};
 
@@ -15,6 +15,16 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
     // localStorage.readingData = null;
     // localStorage.metaData = null;
     // localStorage.glossaryData = null;
+
+    $httpProvider.interceptors.push(function($q) {
+      return {
+       'responseError': function(rejection) {
+          console.log("We need to $q.reject it!");
+          return $q.reject(rejection);
+          //return rejection;
+        }
+      }
+    })    
 
 
     // Helper Functions
@@ -126,19 +136,16 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
         url = serverURL + url;
       }    
 
-      var sendMsg = $http({
-        url: url + authenticationService.user.Id + '/msg',
-        method: "POST",
-        data: msgObj,
-        headers: {'Content-Type': 'application/json'}
-      });
-
-      sendMsg.then(function(data, status){
+      $http({
+          url: url + authenticationService.user.Id + '/msg',
+          method: "POST",
+          data: msgObj,
+          headers: {'Content-Type': 'application/json'}
+      }).success(function (data, status, headers, config) {
           callback(status, data);
-      }, function(data, status){
-          callback(status, data);
+      }).error(function (data, status, headers, config) {
+           callback(status, data);
       });
-
     }
 
     //our service accepts a promise object which 
