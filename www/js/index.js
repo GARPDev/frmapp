@@ -77,14 +77,14 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
-                    alert('registration id = '+e.regid);
+                    //alert('registration id = '+e.regid);
                     gcmId = e.regid;
                 }
             break;
  
             case 'message':
               // this is the actual push notification. its format depends on the data model from the push server
-              alert('message = '+e.message+' msgcnt = '+e.msgcnt);
+              alert('Push Message Recieved: '+e.message);
               
             break;
  
