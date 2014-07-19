@@ -1,5 +1,5 @@
-frmServices.factory('remoteDataService', ['$resource','$http','$httpProvider','authenticationService',
-  function($resource, $http, $httpProvider, authenticationService){
+frmServices.factory('remoteDataService', ['$resource','$http','authenticationService',
+  function($resource, $http, authenticationService){
 
     var remoteDataService = {};
 
@@ -15,16 +15,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$httpProvider','a
     // localStorage.readingData = null;
     // localStorage.metaData = null;
     // localStorage.glossaryData = null;
-
-    $httpProvider.interceptors.push(function($q) {
-      return {
-       'responseError': function(rejection) {
-          console.log("We need to $q.reject it!");
-          return $q.reject(rejection);
-          //return rejection;
-        }
-      }
-    })    
 
 
     // Helper Functions
