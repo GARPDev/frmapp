@@ -81,11 +81,11 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','$http','remo
           sendSites.push($scope.examSites[i].Id);
       }
 
-      remoteDataService.sendMsg($scope.title, $scope.message, $scope.sound, sendSites, function(err,data) {
+      remoteDataService.sendMsg($scope.title, $scope.message, $scope.sound, sendSites, function(status,data) {
 
         console.log(err + ':' + data);
         
-        if(err) {
+        if(status != 200) {
           alert('Could not send messages!');
         } else {
           alert('Message Sent!');
