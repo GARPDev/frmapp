@@ -4,11 +4,13 @@ function tellAngular() {
     console.log("tellAngular call");
     var domElt = document.getElementById('view-container');
     var scope = angular.element(domElt).scope();
-    scope.$apply(function() {
-        scope.width = window.innerWidth;
-        scope.height = window.innerHeight;
-        scope.$broadcast('browserResize');
-    });
+    if(defined(scope)) {
+      scope.$apply(function() {
+          scope.width = window.innerWidth;
+          scope.height = window.innerHeight;
+          scope.$broadcast('browserResize');
+      });      
+    }
 }
 
 
