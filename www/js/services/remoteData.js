@@ -128,6 +128,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
       $http.post(url + authenticationService.user.Id + '/msg', msgObj).success(function(data){
         callback(null, data);
+      }).error(function(data, status, headers, config) {
+        callback(err, data);
       });
 
     }
