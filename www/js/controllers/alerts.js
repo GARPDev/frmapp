@@ -16,6 +16,16 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','$http','remo
       $('body').removeClass("modal-open")
     }, 0);
 
+    $scope.clear = function() {
+
+      for(var i=0; i<$scope.examSites.length; i++) {
+        $scope.examSites[i].selected=0;
+      }  
+
+      $scope.title = '';
+      $scope.message = '';
+      $scope.sound = true;
+    }
 
     $scope.open = function(mode) {
       $scope.openMode = mode;      
