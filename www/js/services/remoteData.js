@@ -206,13 +206,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                   }
                 });
 
-                fetchData('/frmApp/msg', 'allmessages', 'records', function(err, messages) {
-                  if(err != NO_FETCH) {
-                    remoteDataService.allMessages = messages;
-                  }
-                });
-
-
               }
 
               fetchData('/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg', 'messages', 'records', function(err, messages) {
