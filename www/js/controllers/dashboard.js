@@ -9,7 +9,7 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
     $scope.userData = remoteDataService.userData;
     $scope.metaData = remoteDataService.metaData;
 
-    $scope.messages = remoteDataService.messages;
+    //$scope.messages = remoteDataService.messages;
 
     $scope.doneItems = [];
 
@@ -18,6 +18,15 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout', 'Reading
     $timeout(function() {
       navigationService.pageTransitionIn();
     }, 0);
+
+    $http({method:'GET',url:'/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg'}).success(function(data){
+
+      $scope.messages = data.records;
+
+    }).error(function(data, status, headers, config) {
+        alert('Could not load messages!');
+    });
+
 
     $scope.flaggedMatch = function(value) {
       return function( item ) {
