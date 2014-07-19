@@ -83,7 +83,7 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','$http','remo
 
       remoteDataService.sendMsg($scope.title, $scope.message, $scope.sound, sendSites, function(status,data) {
 
-        console.log(err + ':' + data);
+        console.log(status + ':' + data);
         
         if(status != 200) {
           alert('Could not send messages!');
