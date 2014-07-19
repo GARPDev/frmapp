@@ -1,5 +1,5 @@
-frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','remoteDataService','navigationService',
-  function($scope, $timeout, remoteDataService, navigationService) {
+frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','$http','remoteDataService','navigationService',
+  function($scope, $timeout, $http, remoteDataService, navigationService) {
 
     $scope.examSites = [];
     $scope.examSites = remoteDataService.examSites;
