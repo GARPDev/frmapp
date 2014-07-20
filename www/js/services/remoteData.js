@@ -271,25 +271,26 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
    }
 
    remoteDataService.clearData = function() {
-      localStorage.userData = null;
+
+      localStorage.removeItem('userData');
       remoteDataService.userData = null;
 
-      localStorage.metaData = null;
+      localStorage.removeItem('metaData');
       remoteDataService.metaData = null;
 
-      localStorage.userSettings = null;
+      localStorage.removeItem('userSettings');
       remoteDataService.userSettings = null;
 
-      localStorage.registeredExam = null;
+      localStorage.removeItem('registeredExam');
       remoteDataService.registeredExam = null;
 
-      localStorage.readingData = null;
+      localStorage.removeItem('readingData');
       remoteDataService.readingData = null;
 
-      localStorage.questionData = null;
+      localStorage.removeItem('questionData');
       remoteDataService.questionData = null;
 
-      localStorage.glossaryData = null;
+      localStorage.removeItem('glossaryData');
       remoteDataService.glossaryData = null;
 
       localStorage.userSession = {};

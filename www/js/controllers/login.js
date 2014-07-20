@@ -1,6 +1,21 @@
 frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','remoteDataService','navigationService','authenticationService',
   function($scope, $timeout, $location, remoteDataService, navigationService, authenticationService) {
 
+    var localPropRemember = 'frmAppLoginRemember';
+    var localPropUserName = 'frmAppLoginUserName';
+    var localPropUserPassword = 'frmAppLoginPassword';
+
+    if(localStorage[localPropRemember] == 'null' || typeof localStorage[localPropRemember] === "undefined" || localStorage[localPropRemember] === null) {
+      $scope.remember = false;
+    } else {
+      $scope.remember = localStorage[localPropRemember];
+    }
+
+    if($scope.remember) {
+      $scope.userName = localStorage[localPropUserName];
+      $scope.password = localStorage[localPropUserPassword];
+    }
+
     $timeout(function() {
       navigationService.pageTransitionIn();
     }, 0);
@@ -38,7 +53,18 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
       var userName = $('#userName').val();
       var password = $('#password').val();
 
-      localStorage.authUser=null;
+    var localPropUserName = 'frmAppLoginUserName';
+    var localPropUserPassword = 'frmAppLoginPassword';
+
+      if($scope.remember) {
+        localStorage[localPropUserName] = userName;
+        localStorage[localPropUserPassword] = password;
+      } else {
+        localStorage.removeItem(localPropUserName);
+        localStorage.removeItem(localPropUserPassword);
+      }
+
+      localStorage.removeItem('authUser');
 
       authenticationService.authenticateUser(userName, password, function(err, result) {
 
