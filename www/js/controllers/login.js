@@ -52,14 +52,17 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
 
       var userName = $('#userName').val();
       var password = $('#password').val();
+      var remember = $('#remember').val();
 
     var localPropUserName = 'frmAppLoginUserName';
     var localPropUserPassword = 'frmAppLoginPassword';
 
-      if($scope.remember) {
+      if(remember) {
+        localStorage[localPropRemember] = true;
         localStorage[localPropUserName] = userName;
         localStorage[localPropUserPassword] = password;
       } else {
+        localStorage.removeItem(localPropRemember);
         localStorage.removeItem(localPropUserName);
         localStorage.removeItem(localPropUserPassword);
       }
