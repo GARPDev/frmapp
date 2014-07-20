@@ -6,6 +6,7 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
     var localPropUserPassword = 'frmAppLoginPassword';
 
     $scope.remember = false;
+    $scope.redirect = true;
 
     if(localStorage[localPropRemember] !== 'null' && typeof localStorage[localPropRemember] !== "undefined" && localStorage[localPropRemember] !== null) {
       $scope.remember = true;
