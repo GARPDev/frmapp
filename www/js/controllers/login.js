@@ -8,7 +8,11 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
     $scope.autologin = true;
 
     if(localStorage[localPropRemember] !== 'null' && typeof localStorage[localPropRemember] !== "undefined" && localStorage[localPropRemember] !== null) {
-      $scope.autologin = localStorage[localPropRemember];
+      if(localStorage[localPropRemember] == "true") {
+        $scope.autologin = true;  
+      } else {
+        $scope.autologin = false;  
+      }
     }
 
     if($scope.autologin) {
