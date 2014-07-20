@@ -5,9 +5,10 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
     var localPropUserName = 'frmAppLoginUserName';
     var localPropUserPassword = 'frmAppLoginPassword';
 
-    if(localStorage[localPropRemember] == 'null' || typeof localStorage[localPropRemember] === "undefined" || localStorage[localPropRemember] === null) {
-      $scope.remember = false;
-    } else {
+    $scope.remember = false;
+
+    if(localStorage[localPropRemember] !== 'null' && typeof localStorage[localPropRemember] !== "undefined" && localStorage[localPropRemember] !== null) {
+      $scope.remember = true;
       $scope.remember = localStorage[localPropRemember];
     }
 
