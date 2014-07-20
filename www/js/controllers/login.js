@@ -58,6 +58,12 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
       var password = $('#password').val();
       //var remember = $('#remember').val();
 
+      var selector = '.login-area';
+      var obj = $(selector)
+      if(defined(obj) && obj.length > 0) {
+        var spinner = new Spinner(opts).spin(obj[0]);
+      }      
+
       var localPropUserName = 'frmAppLoginUserName';
       var localPropUserPassword = 'frmAppLoginPassword';
 
@@ -78,6 +84,9 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
         remoteDataService.clearData();
 
         if(err) {
+          if(defined(spinner)) {
+            spinner.stop();  
+          }
           $('#errormsg').html("Cannot login!");
         } else {
           navigationService.changeView('myaccount');  
