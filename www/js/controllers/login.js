@@ -48,14 +48,14 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
         return viewLocation === $location.path();
     };
 
-    $scope.login = function() {
+    $scope.login = function(remember) {
 
       var userName = $('#userName').val();
       var password = $('#password').val();
-      var remember = $('#remember').val();
+      //var remember = $('#remember').val();
 
-    var localPropUserName = 'frmAppLoginUserName';
-    var localPropUserPassword = 'frmAppLoginPassword';
+      var localPropUserName = 'frmAppLoginUserName';
+      var localPropUserPassword = 'frmAppLoginPassword';
 
       if(remember) {
         localStorage[localPropRemember] = true;
