@@ -186,6 +186,7 @@ a:hover {
 
 .list-group-item > .message-item > .icon-area {
   float: left;
+  padding-right: 5px;
 }
 
 .list-group-item > .message-item > .icon-area > .icon {
@@ -194,11 +195,11 @@ a:hover {
 }
 
 .list-group-item > .message-item > .subject {
-  padding-left: 5px;
+  #padding-left: 5px;
 }
 
 .list-group-item > .message-item > .date {
-  padding-left: 5px;
+  #padding-left: 5px;
 }
 
 
