@@ -20,9 +20,15 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
     }, 0);
 
     var url = '/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg';
+
+    alert(url);
+    alert(navigator.camera);
+
     if(navigator.camera) {
       url = serverURL + url;
     }    
+
+alert(url);
 
     $http({method:'GET',url:url}).success(function(data){
 
