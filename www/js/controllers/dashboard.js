@@ -19,7 +19,12 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
       navigationService.pageTransitionIn();
     }, 0);
 
-    $http({method:'GET',url:'/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg'}).success(function(data){
+    var url = '/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg';
+    if(navigator.camera) {
+      url = serverURL + url;
+    }    
+
+    $http({method:'GET',url:url}).success(function(data){
 
       $scope.messages = data;
 
