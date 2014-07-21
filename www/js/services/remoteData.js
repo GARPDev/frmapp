@@ -105,12 +105,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
     remoteDataService.getOppertunities = function() {
 
-      var url = '/sfdc/oppertunities';
-      if(navigator.camera) {
-        url = serverURL + url;
-      }    
-
-      $http({method:'GET',url:url}).success(function(data){
+      $http({method:'GET',url:'/sfdc/oppertunities'}).success(function(data){
         remoteDataService.opp = data;
       });
 

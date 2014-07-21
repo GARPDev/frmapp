@@ -31,12 +31,7 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','$http','remo
       $scope.openMode = mode;      
       if(mode == true) {
 
-        var url = '/frmApp/msg';
-        if(navigator.camera) {
-          url = serverURL + url;
-        }    
-
-        $http({method:'GET',url:url}).success(function(data){
+        $http({method:'GET',url:'/frmApp/msg'}).success(function(data){
 
           $scope.allMessages = data;
 
