@@ -11,6 +11,8 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
 
     //$scope.messages = remoteDataService.messages;
 
+    var serverURL = "http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000";
+
     $scope.doneItems = [];
 
     $scope.percentCompleteTotals = remoteDataService.getPercentCompleteTotals();
@@ -21,14 +23,9 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
 
     var url = '/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg';
 
-    alert(url);
-    alert(navigator.camera);
-
     if(navigator.camera) {
       url = serverURL + url;
     }    
-
-alert(url);
 
     $http({method:'GET',url:url}).success(function(data){
 
