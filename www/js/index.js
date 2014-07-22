@@ -50,7 +50,9 @@ var app = {
 //document.getElementById("errormsg").innerHTML = "Push set up";
 
         var pushNotification = window.plugins.pushNotification;
-        pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"43874697608","ecb":"app.onNotificationGCM"});
+        //pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"43874697608","ecb":"app.onNotificationGCM"});
+
+        pushNotification.register(app.successHandler, app.errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});        
 
 
 		/*
@@ -65,10 +67,10 @@ var app = {
 		*/
     }, // result contains any message sent from the plugin call
     successHandler: function(result) {
-        //alert('Push Callback Success! Result = '+result)
+        alert('Push Callback Success! Result = '+result)
     },
     errorHandler:function(error) {
-        //alert('Push Error: ' + error);
+        alert('Push Error: ' + error);
     },
     onNotificationGCM: function(e) {
         switch( e.event )
@@ -95,6 +97,23 @@ var app = {
             default:
               alert('An unknown GCM event has occurred');
               break;
+        }
+    },
+    onNotificationAPN: function(e) {
+        console.log("On Notification");
+        if (e.alert) {
+            console.log("Alert " + e.alert);
+            navigator.notification.alert(e.alert);
+        }
+        if (e.badge) {
+            console.log("Badge number " + e.badge);
+            var pushNotification = window.plugins.pushNotification;
+            pushNotification.setApplicationIconBadgeNumber(app.successHandler, app.errorHandler, e.badge);
+        }
+        if (e.sound) {
+            console.log("Sound passed in " + e.sound);
+            var snd = new Media(e.sound);
+            snd.play();
         }
     }
 };
