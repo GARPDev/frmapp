@@ -68,6 +68,7 @@ var app = {
     }, // result contains any message sent from the plugin call
     successHandler: function(result) {
         alert('Push Callback Success! Result = '+result)
+        gcmId = result;
     },
     errorHandler:function(error) {
         alert('Push Error: ' + error);
