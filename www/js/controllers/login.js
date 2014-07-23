@@ -67,47 +67,34 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
       var localPropUserName = 'frmAppLoginUserName';
       var localPropUserPassword = 'frmAppLoginPassword';
 
-      var con = checkConnection();
-
-      // offline
-      if(con == Connection.UNKNOWN || con == Connection.NONE) {
-
-        if(localStorage[localPropUserName] === userName && localStorage[localPropUserPassword] === password) {
-          navigationService.changeView('myaccount');
-        } else {
-          $('#errormsg').html("Wrong username or password. Please try again.");
-        }
-
+      if(remember) {
+        localStorage[localPropRemember] = true;
+        localStorage[localPropUserName] = userName;
+        localStorage[localPropUserPassword] = password;
       } else {
+        localStorage.removeItem(localPropRemember);
+        localStorage.removeItem(localPropUserName);
+        localStorage.removeItem(localPropUserPassword);
+      }
 
-        if(remember) {
-          localStorage[localPropRemember] = true;
-          localStorage[localPropUserName] = userName;
-          localStorage[localPropUserPassword] = password;
+      localStorage.removeItem('authUser');
+
+      authenticationService.authenticateUser(userName, password, function(err, result) {
+
+        remoteDataService.clearData();
+
+        if(err) {
+          if(defined(spinner)) {
+            spinner.stop();  
+          }
+          $('#errormsg').html("Cannot login!");
         } else {
-          localStorage.removeItem(localPropRemember);
-          localStorage.removeItem(localPropUserName);
-          localStorage.removeItem(localPropUserPassword);
+          navigationService.changeView('myaccount');  
         }
 
-        localStorage.removeItem('authUser');
-
-        authenticationService.authenticateUser(userName, password, function(err, result) {
-
-          remoteDataService.clearData();
-
-          if(err) {
-            if(defined(spinner)) {
-              spinner.stop();  
-            }
-            $('#errormsg').html("Cannot login!");
-          } else {
-            navigationService.changeView('myaccount');  
-          }
-
-        });
-
-      }     
+      })
+     
     }
+
   }
 ]);
