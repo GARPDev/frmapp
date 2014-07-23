@@ -1,5 +1,10 @@
 var serverURL = "http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000";
 
+var localPropRemember = 'frmAppLoginRemember';
+var localPropUserName = 'frmAppLoginUserName';
+var localPropUserPassword = 'frmAppLoginPassword';
+
+
 function defined(ref, strNames) {
     var name;
     

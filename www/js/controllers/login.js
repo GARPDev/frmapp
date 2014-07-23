@@ -1,10 +1,6 @@
 frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','remoteDataService','navigationService','authenticationService',
   function($scope, $timeout, $location, remoteDataService, navigationService, authenticationService) {
 
-    var localPropRemember = 'frmAppLoginRemember';
-    var localPropUserName = 'frmAppLoginUserName';
-    var localPropUserPassword = 'frmAppLoginPassword';
-
     $scope.autologin = false;
 
     if(localStorage[localPropRemember] !== 'null' && typeof localStorage[localPropRemember] !== "undefined" && localStorage[localPropRemember] !== null) {
@@ -67,15 +63,14 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
       var localPropUserName = 'frmAppLoginUserName';
       var localPropUserPassword = 'frmAppLoginPassword';
 
-      localStorage.removeItem('authUser');
-
       authenticationService.authenticateUser(userName, password, function(err, result) {
 
         var con = checkConnection();
-        
+
         // On Web OR Mobile Online
         if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
 
+          localStorage.removeItem('authUser');
           remoteDataService.clearData();
           if(remember) {
             localStorage[localPropRemember] = true;
