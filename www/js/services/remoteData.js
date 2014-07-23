@@ -59,7 +59,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
     var fetchRemoteData=function(url,propertyName,remotePropertyName,callback) {
     
       var con = checkConnection();
-
+      // Offline
       if(defined(con) && (con == Connection.UNKNOWN || con == Connection.NONE)) {
         
         alert("You are currently offline. Please re-login when you are back online to continue to use the app.")
@@ -252,6 +252,10 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                       remoteDataService.userData.settings.gcmId = apnId;
                     }
 
+                    // for now set all as admins
+                    // check on the server side also!!
+                    remoteDataService.userData.settings.admin = true;
+
                     if(remoteDataService.userData.registeredExam.registrations.records.length > 0) {
                       remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Site__r.Id; 
                     }
@@ -373,37 +377,40 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
     };
 
-   remoteDataService.commitData = function() {
+    remoteDataService.commitData = function() {
 
-    var url = '';
-    if(navigator.camera) {
-      url = serverURL + url;
-    }    
-
-
-    $http.put(url + '/frmApp/user/' + authenticationService.user.Id + '/settings', remoteDataService.userSettings).success(function(data){
-
-      localStorage.userSettings = JSON.stringify(remoteDataService.userSettings);
-
-      $http.put(url + '/frmApp/user/' + authenticationService.user.Id + '/metaData', remoteDataService.metaData).success(function(data){
-
+      var con = checkConnection();
+      // Offline
+      if(defined(con) && (con == Connection.UNKNOWN || con == Connection.NONE)) {
+        localStorage.userSettings = JSON.stringify(remoteDataService.userSettings);
         localStorage.metaData = JSON.stringify(remoteDataService.metaData);
+        return;
+      }
 
+      var url = '';
+      if(navigator.camera) {
+        url = serverURL + url;
+      }    
+
+      $http.put(url + '/frmApp/user/' + authenticationService.user.Id + '/settings', remoteDataService.userSettings).success(function(data){
+
+        localStorage.userSettings = JSON.stringify(remoteDataService.userSettings);
+
+        $http.put(url + '/frmApp/user/' + authenticationService.user.Id + '/metaData', remoteDataService.metaData).success(function(data){
+
+          localStorage.metaData = JSON.stringify(remoteDataService.metaData);
+
+
+        }).error(function(data, status, headers, config) {
+          //callback(status, null);
+        });
 
       }).error(function(data, status, headers, config) {
-        callback(status, null);
+        //callback(status, null);
       });
+    }
 
-    }).error(function(data, status, headers, config) {
-      callback(status, null);
-    });
-
-      // var userData = JSON.parse(localStorage.userData);
-      // userData.metaData = remoteDataService.metaData;
-      // localStorage.userData = JSON.stringify(userData);
-   }
-
-   remoteDataService.clearData = function() {
+    remoteDataService.clearData = function() {
 
       localStorage.removeItem('userData');
       remoteDataService.userData = null;
@@ -427,7 +434,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
       remoteDataService.glossaryData = null;
 
       localStorage.userSession = {};
-   }
+    }
 
   // Lessons
   // Lesson is the Organized By Unit [ Week | Topic ]

@@ -4,6 +4,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
     $scope.searchTerms = "";
+    $scope.userData = remoteDataService.userData;
 
     switch(document.location.hash) {
       case '#/readings':
@@ -33,6 +34,10 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       $scope.innerWidth = window.innerWidth;
       $scope.innerHeight = window.innerHeight;
     });
+
+    $scope.isOnline = function() {
+      return isOnline();
+    }
 
     $scope.searchGlossary = function(terms) {
       remoteDataService.searchTerms = terms;

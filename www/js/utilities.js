@@ -41,3 +41,13 @@ function checkConnection() {
         return null;
     }
 }
+
+function isOnline() {
+    var con = checkConnection();
+    // On Web OR Mobile Online
+    if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
+        return true;
+    } else {
+        return false;
+    }
+}
