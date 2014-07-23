@@ -60,10 +60,11 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
     
       var con = checkConnection();
 
-      // offline
-      if(con == Connection.UNKNOWN || con == Connection.NONE) {
+      if(defined(con) && (con == Connection.UNKNOWN || con == Connection.NONE)) {
+        
         alert("You are currently offline. Please re-login when you are back online to continue to use the app.")
         callback(401, null);
+
       } else {
 
         if(navigator.camera) {

@@ -30,7 +30,7 @@ function getEpochDateTimeText(epochDate) {
 
 function checkConnection() {
 
-    if(defined(navigator,"connection")) {
+    if(defined(navigator,"connection") && defined(Connection)) {
         return navigator.connection.type;
     } else {
         return null;

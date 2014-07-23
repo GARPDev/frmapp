@@ -67,21 +67,26 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
       var localPropUserName = 'frmAppLoginUserName';
       var localPropUserPassword = 'frmAppLoginPassword';
 
-      if(remember) {
-        localStorage[localPropRemember] = true;
-        localStorage[localPropUserName] = userName;
-        localStorage[localPropUserPassword] = password;
-      } else {
-        localStorage.removeItem(localPropRemember);
-        localStorage.removeItem(localPropUserName);
-        localStorage.removeItem(localPropUserPassword);
-      }
-
       localStorage.removeItem('authUser');
 
       authenticationService.authenticateUser(userName, password, function(err, result) {
 
-        remoteDataService.clearData();
+        var con = checkConnection();
+        
+        // On Web OR Mobile Online
+        if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
+
+          remoteDataService.clearData();
+          if(remember) {
+            localStorage[localPropRemember] = true;
+            localStorage[localPropUserName] = userName;
+            localStorage[localPropUserPassword] = password;
+          } else {
+            localStorage.removeItem(localPropRemember);
+            localStorage.removeItem(localPropUserName);
+            localStorage.removeItem(localPropUserPassword);
+          }
+        }
 
         if(err) {
           if(defined(spinner)) {
