@@ -16,7 +16,7 @@ frmServices.factory('authenticationService', ['$resource','$http',
     // On Web OR Mobile Online
     if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
 
-      if(localStorage[localPropUserName] === userName && localStorage[localPropUserPassword] === password) {
+      if(localStorage[localPropUserName] === userName && localStorage[localPropUserPassword] === password && defined(localStorage,"authUser"))) {
         
         authenticationService.user = JSON.parse(localStorage.authUser);
         callback(null, authenticationService.user);
