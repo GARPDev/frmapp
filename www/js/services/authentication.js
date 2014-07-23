@@ -16,17 +16,6 @@ frmServices.factory('authenticationService', ['$resource','$http',
     // On Web OR Mobile Online
     if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
 
-      if(localStorage[localPropUserName] === userName && localStorage[localPropUserPassword] === password && defined(localStorage,"authUser")) {
-        
-        authenticationService.user = JSON.parse(localStorage.authUser);
-        callback(null, authenticationService.user);
-
-      } else {
-        callback(401, null);
-      }
-
-    } else {
-
       var authReq = {
         userName: userName,
         password: password
@@ -46,6 +35,18 @@ frmServices.factory('authenticationService', ['$resource','$http',
       }).error(function(data, status, headers, config) {
         callback(status, url);
       });
+
+    } else {
+
+      if(localStorage[localPropUserName] === userName && localStorage[localPropUserPassword] === password && defined(localStorage,"authUser")) {
+        
+        authenticationService.user = JSON.parse(localStorage.authUser);
+        callback(null, authenticationService.user);
+
+      } else {
+        callback(401, null);
+      }
+
     }
 
   };
