@@ -58,23 +58,41 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
     var fetchRemoteData=function(url,propertyName,remotePropertyName,callback) {
     
-      if(navigator.camera) {
-        url = serverURL + url;
-      }    
-      $http({method:'GET',url:url}).success(function(data){
+      var con = checkConnection();
 
-        if(remotePropertyName != null) {
-          remoteDataService[propertyName] = data[remotePropertyName];
-          localStorage[propertyName] = JSON.stringify(data[remotePropertyName]);
-          callback(null, data[remotePropertyName]);
-        } else {        
-          remoteDataService[propertyName] = data;
-          localStorage[propertyName] = JSON.stringify(data);
-          callback(null, data);
-        }
-        
-      }).error(function(data, status, headers, config) {
-        callback(status, null);
+      // offline
+      if(con == Connection.UNKNOWN || con == Connection.NONE) {
+        alert("You are currently offline. Please re-login when you are back online to continue to use the app.")
+        callback(401, null);
+      } else {
+
+        if(navigator.camera) {
+          url = serverURL + url;
+        }    
+        $http({method:'GET',url:url}).success(function(data){
+
+          if(remotePropertyName != null) {
+            remoteDataService[propertyName] = data[remotePropertyName];
+            localStorage[propertyName] = JSON.stringify(data[remotePropertyName]);
+            callback(null, data[remotePropertyName]);
+          } else {        
+            remoteDataService[propertyName] = data;
+            localStorage[propertyName] = JSON.stringify(data);
+            callback(null, data);
+          }
+          
+        }).error(function(data, status, headers, config) {
+          callback(status, null);
+        });
+
+      }
+    }
+
+    var fetchDataObj=function(obj, callback) {
+      fetchData(obj.url,obj.propertyName, obj.remotePropertyName, function(err, data) {
+
+        callback(null, {propertyName: obj.propertyName, data: data, err: err});
+ 
       });
     }
 
@@ -89,11 +107,9 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
         } else {
 
           try {
-            //Run some code here
             remoteDataService[propertyName] = JSON.parse(localStorage[propertyName]);
             callback(null, remoteDataService[propertyName]);
           } catch(err) {
-            //Handle errors here
             fetchRemoteData(url,propertyName,callback);
           }
         }
@@ -156,6 +172,118 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
         localStorage["userData"] = JSON.stringify(authenticationService.user);
       }
 
+
+      var examFetch = {
+        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/exam', 
+        propertyName: 'registeredExam',
+        remotePropertyName: null
+      }
+      var metaDataFetch = {
+        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData', 
+        propertyName: 'metaData',
+        remotePropertyName: 'metaData'
+      }
+      var settingsDataFetch = {
+        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/settings', 
+        propertyName: 'userSettings',
+        remotePropertyName: 'settings'
+      }
+      var examSitesDataFetch = {
+        url : '/frmApp/system/examSites', 
+        propertyName: 'examSites',
+        remotePropertyName: 'records'
+      }
+      var readingsDataFetch = {
+        url : '/frmapp/www/data/readings.json', 
+        propertyName: 'readingData',
+        remotePropertyName: null
+      }
+      var questionsDataFetch = {
+        url : '/frmapp/www/data/questions.json', 
+        propertyName: 'questionData',
+        remotePropertyName: null
+      }
+      var glossaryDataFetch = {
+        url : '/frmapp/www/data/glossary.json', 
+        propertyName: 'glossaryData',
+        remotePropertyName: null
+      }
+
+      async.map([examFetch,metaDataFetch,settingsDataFetch,examSitesDataFetch,readingsDataFetch,questionsDataFetch,glossaryDataFetch], fetchDataObj, function(err, results){
+          // results is now an array of stats for each file
+          for(var i=0; i<results.length; i++) {
+
+            var data = results[i].data;
+            var err = results[i].err;
+            var propertyName = results[i].propertyName;
+
+            if(err == 401) {
+              q.resolve();
+              return;
+            }
+
+            switch(propertyName) {
+                case 'metaData':
+                  if(err != NO_FETCH) {
+                    if(err == 404) {
+                      data = [];
+                      localStorage.metaData = JSON.stringify(data);
+                      remoteDataService.metaData = data;
+                    }
+                    remoteDataService.userData.metaData = data;
+                  }
+                  break;
+                case 'userSettings':
+                  if(err != NO_FETCH) {
+                    if(err == 404) {
+                      data = {
+                        organizeBy:"topic"
+                      };
+                      localStorage.userSettings = JSON.stringify(data);
+                      remoteDataService.userSettings = data;
+                    }
+                    remoteDataService.userData.settings = data;
+                    localStorage.userData = JSON.stringify(remoteDataService.userData);
+                    if(gcmId != '') {       
+                      remoteDataService.userData.settings.gcmId = gcmId;
+                    }
+                    if(apnId != '') {       
+                      remoteDataService.userData.settings.gcmId = apnId;
+                    }
+
+                    if(remoteDataService.userData.registeredExam.registrations.records.length > 0) {
+                      remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Site__r.Id; 
+                    }
+                  }
+                  break;
+
+                case 'examSites':
+                  if(err != NO_FETCH) {
+                    for(var i=0; i<data.length; i++) {
+                      data[i].selected=0;
+                    }
+                    remoteDataService.examSites = data;
+                  }
+                  break;
+
+                case 'examSites':
+                  if(err != NO_FETCH) {
+                    remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
+                  }
+                  break;
+
+                default:
+                  if(err != NO_FETCH) {
+                    remoteDataService.userData[propertyName] = data;
+                  }
+                  break;
+            }
+          }
+          remoteDataService.commitData();
+          q.resolve();
+      });
+
+/*
       fetchData('/frmApp/user/' + authenticationService.user.contact.Id + '/exam', 'registeredExam', null, function(err, data) {
 
         if(err != NO_FETCH) {
@@ -165,7 +293,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
         fetchData('/frmApp/user/' + authenticationService.user.Id + '/metaData', 'metaData', 'metaData', function(err, data) {
 
           if(err != NO_FETCH) {
-
             if(err == 404) {
               data = [];
               localStorage.metaData = JSON.stringify(data);
@@ -192,6 +319,9 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
               //remoteDataService.userData.settings.gcmId = 'xx';
               if(gcmId != '') {       
                 remoteDataService.userData.settings.gcmId = gcmId;
+              }
+              if(apnId != '') {       
+                remoteDataService.userData.settings.gcmId = apnId;
               }
 
               if(remoteDataService.userData.registeredExam.registrations.records.length > 0) {
@@ -238,6 +368,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
           });
         });
       });
+      */
+
     };
 
    remoteDataService.commitData = function() {

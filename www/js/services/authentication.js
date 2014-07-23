@@ -11,26 +11,43 @@ frmServices.factory('authenticationService', ['$resource','$http',
     }
 
   authenticationService.authenticateUser=function(userName,password,callback) {
-    // Fake Auth!!
-    var authReq = {
-      userName: userName,
-      password: password
-    };
-
-    var url = '/sfdc/auth/user';
-    if(navigator.camera) {
-      url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
-    }
     
-    $http.post(url, authReq).success(function(user){
+    var con = checkConnection();
 
-      authenticationService.user = user;
-      localStorage.authUser = JSON.stringify(authenticationService.user);
-      callback(null, authenticationService.user);
+    // offline
+    if(con == Connection.UNKNOWN || con == Connection.NONE) {
 
-    }).error(function(data, status, headers, config) {
-      callback(status, url);
-    });
+      if(localStorage[localPropUserName] === userName && localStorage[localPropUserPassword] === password) {
+        
+        authenticationService.user = JSON.parse(localStorage.authUser);
+        callback(null, authenticationService.user);
+
+      } else {
+        callback(401, null);
+      }
+
+    } else {
+
+      var authReq = {
+        userName: userName,
+        password: password
+      };
+
+      var url = '/sfdc/auth/user';
+      if(navigator.camera) {
+        url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
+      }
+      
+      $http.post(url, authReq).success(function(user){
+
+        authenticationService.user = user;
+        localStorage.authUser = JSON.stringify(authenticationService.user);
+        callback(null, authenticationService.user);
+
+      }).error(function(data, status, headers, config) {
+        callback(status, url);
+      });
+    }
 
   };
 
