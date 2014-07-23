@@ -20,6 +20,7 @@
 var pictureSource=1;   // picture source
 var destinationType=1; // sets the format of returned value 
 var gcmId = '';
+var apnId = '';
 
 var app = {
     // Application Constructor
@@ -45,33 +46,24 @@ var app = {
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
 
-//alert('Push set up');
-
-//document.getElementById("errormsg").innerHTML = "Push set up";
-
+        var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
         var pushNotification = window.plugins.pushNotification;
-        //pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"43874697608","ecb":"app.onNotificationGCM"});
 
-        pushNotification.register(app.successHandler, app.errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});        
-
-
-		/*
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-		*/
+        if(deviceType == "iOS") {
+            pushNotification.register(app.successApnHandler, app.errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});        
+        } else if(deviceType == "Android") {
+            pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"43874697608","ecb":"app.onNotificationGCM"});
+        }
+    }, // result contains any message sent from the plugin call
+    successApnHandler: function(result) {
+        alert('APN Push Callback Success! Result = '+result)
+        apnId = result;
     }, // result contains any message sent from the plugin call
     successHandler: function(result) {
-        alert('Push Callback Success! Result = '+result)
-        gcmId = result;
+        alert('GCM Push Callback Success! Result = '+result)
     },
     errorHandler:function(error) {
-        alert('Push Error: ' + error);
+        alert('Push Registration Error: ' + error);
     },
     onNotificationGCM: function(e) {
         switch( e.event )
@@ -80,14 +72,14 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
-                    //alert('registration id = '+e.regid);
+                    alert('GCM Registration id = '+e.regid);
                     gcmId = e.regid;
                 }
             break;
  
             case 'message':
               // this is the actual push notification. its format depends on the data model from the push server
-              alert('Push Message Recieved: '+e.message);
+              alert('GCM Push Message Recieved: '+e.message);
               
             break;
  
@@ -103,21 +95,21 @@ var app = {
     onNotificationAPN: function(e) {
         console.log("On Notification");
         if (e.alert) {
-            //console.log("Alert " + e.alert);
-            //navigator.notification.alert(e.alert);
-            alert('Push Message Recieved: '+e.alert);
+            console.log("Alert " + e.alert);
+            navigator.notification.alert(e.alert);
+            alert('Alert Push Message Recieved: '+e.alert);
         }
         if (e.badge) {
-            // console.log("Badge number " + e.badge);
-            // var pushNotification = window.plugins.pushNotification;
-            // pushNotification.setApplicationIconBadgeNumber(app.successHandler, app.errorHandler, e.badge);
-            alert('Push Message Recieved: '+e.badge);
+            console.log("Badge number " + e.badge);
+            var pushNotification = window.plugins.pushNotification;
+            pushNotification.setApplicationIconBadgeNumber(app.successHandler, app.errorHandler, e.badge);
+            alert('Badge Push Message Recieved: '+e.badge);
         }
         if (e.sound) {
-            // console.log("Sound passed in " + e.sound);
-            // var snd = new Media(e.sound);
-            // snd.play();
-            alert('Push Message Recieved: '+e.sound);            
+            console.log("Sound passed in " + e.sound);
+            var snd = new Media(e.sound);
+            snd.play();
+            alert('Sound Push Message Recieved: '+e.sound);            
         }
     }
 };
