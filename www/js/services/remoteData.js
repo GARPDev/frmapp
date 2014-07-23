@@ -180,12 +180,12 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
         remotePropertyName: null
       }
       var metaDataFetch = {
-        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData', 
+        url : '/frmApp/user/' + authenticationService.user.Id + '/metaData', 
         propertyName: 'metaData',
         remotePropertyName: 'metaData'
       }
       var settingsDataFetch = {
-        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/settings', 
+        url : '/frmApp/user/' + authenticationService.user.Id + '/settings', 
         propertyName: 'userSettings',
         remotePropertyName: 'settings'
       }

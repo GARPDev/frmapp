@@ -74,7 +74,7 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
           var con = checkConnection();
           // On Web OR Mobile Online
           if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
-            localStorage.removeItem('authUser');
+            //localStorage.removeItem('authUser');
             remoteDataService.clearData();
             if(remember) {
               localStorage[localPropRemember] = true;
