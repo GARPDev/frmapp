@@ -267,7 +267,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
                   }
                   break;
 
-                case 'examSites':
+                case 'readingData':
                   if(err != NO_FETCH) {
                     remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
                   }
