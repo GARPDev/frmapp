@@ -65,30 +65,27 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
 
       authenticationService.authenticateUser(userName, password, function(err, result) {
 
-        var con = checkConnection();
-
-        // On Web OR Mobile Online
-        if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
-
-          localStorage.removeItem('authUser');
-          remoteDataService.clearData();
-          if(remember) {
-            localStorage[localPropRemember] = true;
-            localStorage[localPropUserName] = userName;
-            localStorage[localPropUserPassword] = password;
-          } else {
-            localStorage.removeItem(localPropRemember);
-            localStorage.removeItem(localPropUserName);
-            localStorage.removeItem(localPropUserPassword);
-          }
-        }
-
         if(err) {
           if(defined(spinner)) {
             spinner.stop();  
           }
           $('#errormsg').html("Cannot login!");
         } else {
+          var con = checkConnection();
+          // On Web OR Mobile Online
+          if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
+            localStorage.removeItem('authUser');
+            remoteDataService.clearData();
+            if(remember) {
+              localStorage[localPropRemember] = true;
+              localStorage[localPropUserName] = userName;
+              localStorage[localPropUserPassword] = password;
+            } else {
+              localStorage.removeItem(localPropRemember);
+              localStorage.removeItem(localPropUserName);
+              localStorage.removeItem(localPropUserPassword);
+            }
+          }          
           navigationService.changeView('myaccount');  
         }
 
