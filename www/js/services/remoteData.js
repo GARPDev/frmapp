@@ -436,6 +436,33 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
       localStorage.userSession = {};
     }
 
+  remoteDataService.getMessges = function(callback) {
+
+    var con = checkConnection();
+    // Offline
+    if(defined(con) && (con == Connection.UNKNOWN || con == Connection.NONE) && defined(localStorage,"messages")) {
+      callback(null, JSON.parse(localStorage.messages));
+      
+    } else {
+
+      var url = '/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg';
+
+      if(navigator.camera) {
+        url = serverURL + url;
+      }    
+
+      $http({method:'GET',url:url}).success(function(data){
+
+        localStorage.messages=JSON.stringify(data);
+        callback(null, data);
+
+      }).error(function(data, status, headers, config) {
+          //alert('Could not load messages!');
+          callback(status, null);
+      });
+    }  
+  }
+
   // Lessons
   // Lesson is the Organized By Unit [ Week | Topic ]
   remoteDataService.getLessonByID = function(lessonId) {

@@ -17,20 +17,9 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
       navigationService.pageTransitionIn();
     }, 0);
 
-    var url = '/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg';
-
-    if(navigator.camera) {
-      url = serverURL + url;
-    }    
-
-    $http({method:'GET',url:url}).success(function(data){
-
-      $scope.messages = data;
-
-    }).error(function(data, status, headers, config) {
-        alert('Could not load messages!');
+    getMessges(function(err, msgs) {
+      $scope.messages = msgs;
     });
-
 
     $scope.flaggedMatch = function(value) {
       return function( item ) {
