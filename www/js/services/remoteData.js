@@ -264,8 +264,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
                 case 'examSites':
                   if(err != NO_FETCH) {
-                    for(var i=0; i<data.length; i++) {
-                      data[i].selected=0;
+                    for(var j=0; j<data.length; j++) {
+                      data[j].selected=0;
                     }
                     remoteDataService.examSites = data;
                   }
