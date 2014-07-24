@@ -17,7 +17,7 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
       navigationService.pageTransitionIn();
     }, 0);
 
-    getMessges(function(err, msgs) {
+    remoteDataService.getMessges(function(err, msgs) {
       $scope.messages = msgs;
     });
 
