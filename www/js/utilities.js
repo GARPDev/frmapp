@@ -49,6 +49,7 @@ function isOnline() {
         return true;
         //return false;
     } else {
+        localStorage.wasOffLine = true;
         return false;
         //return true;
     }

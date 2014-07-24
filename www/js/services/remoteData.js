@@ -385,6 +385,20 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
         return;
       }
 
+      if(defined(localStorage,"wasOffLine")) {
+        // Ask User to overwrite server or not!
+        if (confirm("You were offline last time your data was saved. Do you want this device's changes to be saved? Click OK to save this devices changes to all devices or click Cancel to used changes from last time you were online.")) {
+            // will save data on next commit.
+        } else {
+            // Clear local device data
+            remoteDataService.clearData();
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+        }
+        localStorage.removeItem('wasOffLine');   
+      }
+
+
       var url = '';
       if(navigator.camera) {
         url = serverURL + url;
