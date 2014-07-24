@@ -1,5 +1,5 @@
-frmServices.factory('remoteDataService', ['$resource','$http','authenticationService',
-  function($resource, $http, authenticationService){
+frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticationService',
+  function($resource, $http, $q, authenticationService){
 
     var remoteDataService = {};
 
@@ -387,7 +387,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
       if(defined(localStorage,"wasOffLine")) {
         // Ask User to overwrite server or not!
-        if (confirm("You were offline last time your data was saved. Do you want this device's changes to be saved? Click OK to save this devices changes to all devices or click Cancel to used changes from last time you were online.")) {
+        if (confirm("You were offline last time your data was saved. You are now back online. \n\n Do you want this device's changes to be saved? Click OK to save this devices changes to all devices or click Cancel to use changes from last time you were online.")) {
             // will save data on next commit.
         } else {
             // Clear local device data
