@@ -48,6 +48,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
         return viewLocation === $location.path();
     };
 
+
+
     $scope.login = function(remember) {
 
       var userName = $('#userName').val();
@@ -74,8 +76,18 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
 
           // On Web OR Mobile Online
           if(isOnline()) {
-            //localStorage.removeItem('authUser');
-            remoteDataService.clearData();
+
+            if(defined(localStorage,"wasOffLine")) {
+              // Ask User to overwrite server or not!
+              if (confirm("You were offline last time you logged in. Do you want this device's changes to be saved?")) {
+                  // will save data on next commit.
+              } else {
+                  // Clear local device data
+                  remoteDataService.clearData();
+              }
+              localStorage.removeItem('wasOffLine');   
+            }
+
             if(remember) {
               localStorage[localPropRemember] = true;
               localStorage[localPropUserName] = userName;
@@ -85,7 +97,9 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
               localStorage.removeItem(localPropUserName);
               localStorage.removeItem(localPropUserPassword);
             }
-          }          
+          } else {
+            localStorage.wasOffLine = true;
+          }
           navigationService.changeView('myaccount');  
         }
 
