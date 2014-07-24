@@ -58,9 +58,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
     var fetchRemoteData=function(url,propertyName,remotePropertyName,callback) {
     
-      var con = checkConnection();
       // Offline
-      if(defined(con) && (con == Connection.UNKNOWN || con == Connection.NONE)) {
+      if(!isOnline()) {
         
         alert("You are currently offline. Please re-login when you are back online to continue to use the app.")
         callback(401, null);
@@ -379,9 +378,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
     remoteDataService.commitData = function() {
 
-      var con = checkConnection();
       // Offline
-      if(defined(con) && (con == Connection.UNKNOWN || con == Connection.NONE)) {
+      if(!isOnline()) {
         localStorage.userSettings = JSON.stringify(remoteDataService.userSettings);
         localStorage.metaData = JSON.stringify(remoteDataService.metaData);
         return;
@@ -438,11 +436,13 @@ frmServices.factory('remoteDataService', ['$resource','$http','authenticationSer
 
   remoteDataService.getMessges = function(callback) {
 
-    var con = checkConnection();
     // Offline
-    if(defined(con) && (con == Connection.UNKNOWN || con == Connection.NONE) && defined(localStorage,"messages")) {
-      callback(null, JSON.parse(localStorage.messages));
-      
+    if(!isOnline()) {
+      if(defined(localStorage,"messages")) {
+        callback(null, JSON.parse(localStorage.messages));
+      } else {
+        callback(404, null);
+      }
     } else {
 
       var url = '/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg';

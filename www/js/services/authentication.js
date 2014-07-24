@@ -12,9 +12,8 @@ frmServices.factory('authenticationService', ['$resource','$http',
 
   authenticationService.authenticateUser=function(userName,password,callback) {
     
-    var con = checkConnection();
     // On Web OR Mobile Online
-    if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
+    if(isOnline()) {
 
       var authReq = {
         userName: userName,

@@ -71,9 +71,9 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
           }
           $('#errormsg').html("Cannot login!");
         } else {
-          var con = checkConnection();
+
           // On Web OR Mobile Online
-          if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
+          if(isOnline()) {
             //localStorage.removeItem('authUser');
             remoteDataService.clearData();
             if(remember) {

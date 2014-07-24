@@ -47,7 +47,9 @@ function isOnline() {
     // On Web OR Mobile Online
     if(!defined(con) || (defined(con) && con !== Connection.UNKNOWN && con !== Connection.NONE)) {
         return true;
+        //return false;
     } else {
         return false;
+        //return true;
     }
 }
