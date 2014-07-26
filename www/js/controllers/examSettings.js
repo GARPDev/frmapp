@@ -78,7 +78,7 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
       }
 
       var readingsIds = _.pluck(readingQuestions, 'id');
-      var questions = _.reject(remoteDataService.questionData, function(question) { 
+      var questions = _.reject(remoteDataService.questionData.questions, function(question) { 
         var inter = _.intersection(readingsIds, question.readings)
         return inter.length == 0; 
       });
