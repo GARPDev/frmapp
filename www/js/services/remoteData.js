@@ -248,7 +248,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       remoteDataService.userData.settings.gcmId = gcmId;
                     }
                     if(apnId != '') {       
-                      remoteDataService.userData.settings.gcmId = apnId;
+                      remoteDataService.userData.settings.apnId = apnId;
                     }
 
                     // for now set all as admins
