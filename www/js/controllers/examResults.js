@@ -19,7 +19,7 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
 
     $scope.exitExam = function() {
       $('body').removeClass("modal-open");
-      document.location.hash = '#/dashboard';
+      document.location.hash = '#!/dashboard';
       //navigationService.changeView('dash');
     }
 
