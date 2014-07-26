@@ -86,6 +86,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
                   remoteDataService.clearData();
               }
               localStorage.removeItem('wasOffLine');   
+            } else {
+              remoteDataService.clearData();
             }
 
             if(remember) {
