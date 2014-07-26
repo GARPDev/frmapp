@@ -95,21 +95,21 @@ var app = {
     onNotificationAPN: function(e) {
         console.log("On Notification");
         if (e.alert) {
-            console.log("Alert " + e.alert);
-            navigator.notification.alert(e.alert);
+            //console.log("Alert " + e.alert);
+            //navigator.notification.alert(e.alert);
             alert('Alert Push Message Recieved: '+e.alert);
         }
         if (e.badge) {
-            console.log("Badge number " + e.badge);
-            var pushNotification = window.plugins.pushNotification;
-            pushNotification.setApplicationIconBadgeNumber(app.successHandler, app.errorHandler, e.badge);
-            alert('Badge Push Message Recieved: '+e.badge);
+            // console.log("Badge number " + e.badge);
+            // var pushNotification = window.plugins.pushNotification;
+            // pushNotification.setApplicationIconBadgeNumber(app.successHandler, app.errorHandler, e.badge);
+            //alert('Badge Push Message Recieved: '+e.badge);
         }
         if (e.sound) {
-            console.log("Sound passed in " + e.sound);
-            var snd = new Media(e.sound);
-            snd.play();
-            alert('Sound Push Message Recieved: '+e.sound);            
+            // console.log("Sound passed in " + e.sound);
+            // var snd = new Media(e.sound);
+            // snd.play();
+            //alert('Sound Push Message Recieved: '+e.sound);            
         }
     }
 };
