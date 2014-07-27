@@ -18,6 +18,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.correctAnswers = 0;
     $scope.wrongAnswers=0;
     $scope.skipQuestions = 0;
+    $scope.flaggedQuestions = 0;
+
 
     $scope.userAnswers = [];
 
@@ -87,6 +89,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       examSharedService.correctAnswers = $scope.correctAnswers;
       examSharedService.skipQuestions = $scope.skipQuestions;
       examSharedService.wrongAnswers = $scope.wrongAnswers;
+      examSharedService.flaggedQuestions = $scope.flaggedQuestions;
       
       $scope.currentQuestion--;
       $scope.question = examSharedService.questions[$scope.currentQuestion];
@@ -157,6 +160,9 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
     $scope.flagQuestion = function() {
       
+      $scope.flaggedQuestions++;
+      examSharedService.flaggedQuestions = $scope.flaggedQuestions;
+
       for(var i=0; i < $scope.question.readings.length; i++) {
 
         var id = $scope.question.readings[i];

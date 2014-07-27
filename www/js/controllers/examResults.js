@@ -5,6 +5,8 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
     $scope.correctAnswers = examSharedService.correctAnswers;
     $scope.wrongAnswers = examSharedService.wrongAnswers;
     $scope.skipQuestions = examSharedService.skipQuestions;
+    $scope.flaggedQuestions = examSharedService.flaggedQuestions;
+
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.settings = examSharedService.settings;
 
