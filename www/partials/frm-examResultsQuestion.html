@@ -46,8 +46,8 @@
               <div class="exam-question-choices">
                 <table class="table table-condensed">
                   <tr ng-repeat="choice in choices">
-                    <td class="exam-question-choice"><span ng-class="{correctAnswer : inAnswer(choice.id, correctChoice.answer)}">{{choice.id}}.</span></td>
-                    <td class="exam-question-choice-text"><span ng-class="{correctAnswer : inAnswer(choice.id, correctChoice.answer)}">{{choice.description}}</span></td>
+                    <td class="exam-question-choice"><span ng-class="{correctAnswerText : inAnswer(choice.id, correctChoice.answer)}">{{choice.id}}.</span></td>
+                    <td class="exam-question-choice-text"><span ng-class="{correctAnswerText : inAnswer(choice.id, correctChoice.answer)}">{{choice.description}}</span></td>
                   </tr>
                 </table>
               </div>

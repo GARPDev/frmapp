@@ -35,6 +35,9 @@ a:hover {
 
 /* Custom Classes */
 
+.correctAnswerText {
+  color: #b0c636;  
+}
 .correctAnswer {
   background-color: #b0c636;  
 }
