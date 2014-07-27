@@ -47,6 +47,9 @@ a:hover {
 .flaggedQuestion {
   background-color: #00A2DD;  
 }
+.skippedQuestion {
+  background-color: #FDB515;  
+}
 
 .exam-results-correct {
   display: inline-block;

@@ -20,7 +20,7 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
     }, 0);
 
     $scope.calcCorrect = function() {
-      return formatNumber($scope.correctAnswers/$scope.totalQuestions,0)
+      return formatNumber(($scope.correctAnswers/$scope.totalQuestions)*100,0)
     }
 
     $scope.gotoQuestion = function(index) {
