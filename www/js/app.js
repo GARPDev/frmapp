@@ -133,6 +133,18 @@ phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider'
           }
         }
       }).      
+      when('/examresultsquestion', {
+        templateUrl: 'partials/frm-examResultsQuestion.html',
+        controller: 'FRMExamResultsQuestionCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            var defer = $q.defer();
+            remoteDataService.fetchData(defer, $http);
+            return defer.promise;
+          }
+        }
+      }).      
       when('/login', {
         templateUrl: 'partials/frm-login.html',
         controller: 'FRMAppLoginCtrl'

@@ -24,7 +24,7 @@
             <tr>
               <td class="exam-question-choice">
                 <p style="font-size:20px;margin-bottom:20px">Final Score: <span style="font-weight:bold;font-size:25px">{{formatNumber(correctAnswers/totalQuestions,0)}} /</span> <span style="font-size:25px">100</span></p>
-                <div>
+                <div style="width:500px;margin-left: auto;margin-right: auto;">
                   <div style="float:left;margin-right:20px;font-weight:bold">Average Questions per minute: XX</div>
                   <div style="float:left;font-weight:bold">Total Time Spent: YY</div>
                 </div>
@@ -51,7 +51,7 @@
                 <p style="font-size:20px;margin-bottom:20px">Question Links:</p>
                 <div class="form-group">
                   <div ng-repeat="userAnswer in userAnswers" class="examsettings-options-topics">
-                    <div style="border:1px solid #000000;width:30px;height:30px;padding-left:10px;padding-top:5px;" ng-class="{correctAnswer: (userAnswer.question.answer == userAnswer.choice), incorrectAnswer: (userAnswer.question.answer != userAnswer.choice), flaggedQuestion: !userAnswer.choice}">{{$index}}</div>
+                    <div style="border:1px solid #000000;width:30px;height:30px;padding-left:10px;padding-top:5px;" ng-class="{correctAnswer: (userAnswer.question.answer == userAnswer.choice), incorrectAnswer: (userAnswer.question.answer != userAnswer.choice), flaggedQuestion: !userAnswer.choice}" ng-click="gotoQuestion($index)">{{$index+1}}</div>
                   </div>
                 </div>
               </td>

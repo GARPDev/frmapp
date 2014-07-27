@@ -17,6 +17,9 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
       $('body').removeClass("modal-open");
     }, 0);
 
+    $scope.gotoQuestion = function(index) {
+      document.location.hash = '#!/exam/questionIdx/' + index;
+    }
 
     $scope.formatNumber = function(amount, percision) {
       return formatNumber(amount, percision);
