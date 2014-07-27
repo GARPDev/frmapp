@@ -44,6 +44,13 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
       navigationService.changeView('dashboard');
     }
 
+    $scope.inAnswer = function(choice, answer) {
+      if(answer.indexOf(choice + ',') > -1) return true;
+      if(answer.indexOf(choice + ' ') > -1) return true;
+      if(answer.indexOf('and ' + choice) > -1) return true;
+      return false;
+    }
+
     $scope.chooseAnswer = function(id) {
 
       var userAnswer = {};
