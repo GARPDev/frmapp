@@ -23,7 +23,7 @@
           <table class="table table-condensed">
             <tr>
               <td class="exam-question-choice">
-                <p style="font-size:20px;margin-bottom:30px">Final Score: <span style="font-weight:bold;font-size:25px">{{formatNumber(correctAnswers/totalQuestions,0)}} /</span> <span style="font-size:25px">100</span></p>
+                <p style="font-size:20px;margin-bottom:20px">Final Score: <span style="font-weight:bold;font-size:25px">{{formatNumber(correctAnswers/totalQuestions,0)}} /</span> <span style="font-size:25px">100</span></p>
                 <div>
                   <div style="float:left;margin-right:20px;font-weight:bold">Average Questions per minute: XX</div>
                   <div style="float:left;font-weight:bold">Total Time Spent: YY</div>
@@ -32,20 +32,22 @@
             </tr>
             <tr>
               <td class="exam-question-choice">
-                <p style="font-size:20px;margin-bottom:30px">Answer Stats:</p>
+                <p style="font-size:20px;margin-bottom:20px">Answer Stats:</p>
                 <div>
-                  <span class="exam-question-heading-item"><span class="glyphicon glyphicon-ok"></span> Correct Answers:</span> <div class="exam-results-correct">{{correctAnswers}}</div>
-                  <span class="exam-question-heading-item"><span class="glyphicon glyphicon-remove"></span> Incorrect Answers: <span class="exam-results-incorrect">{{wrongAnswers}}</span></span>
-                </div>
-                <div>
-                  <span class="exam-question-heading-item"> Skipped Questions: <span class="exam-results-skipped">{{skipQuestions}}</span></span>
-                  <span class="exam-question-heading-item"> Flagged Questions: <span class="exam-results-skipped">{{skipQuestions}}</span></span>
+                  <div style="margin-left: auto;margin-right: auto;">
+                    <span class="exam-question-heading-item"><span class="glyphicon glyphicon-ok"></span> Correct Answers:</span> <div class="exam-results-correct">{{correctAnswers}}</div><br>
+                    <span class="exam-question-heading-item"><span class="glyphicon glyphicon-remove"></span> Incorrect Answers: <span class="exam-results-incorrect">{{wrongAnswers}}</span></span>
+                  </div>
+                  <div>
+                    <span class="exam-question-heading-item"> Skipped Questions: <span class="exam-results-skipped">{{skipQuestions}}</span></span>
+                    <span class="exam-question-heading-item"> Flagged Questions: <span class="exam-results-skipped">{{skipQuestions}}</span></span>
+                  </div>
                 </div>
               </td>
             </tr>
             <tr>
               <td class="exam-question-choice">
-                <p style="font-size:20px;margin-bottom:30px">Question Links:</p>
+                <p style="font-size:20px;margin-bottom:20px">Question Links:</p>
                 <div class="form-group">
                   <div ng-repeat="userAnswer in userAnswers" class="examsettings-options-topics">
                     <div style="border:1px solid #000000;width:30px;height:30px;padding-left:10px;padding-top:5px;" ng-class="{correctAnswer: (userAnswer.question.answer == userAnswer.choice), incorrectAnswer: (userAnswer.question.answer != userAnswer.choice), flaggedQuestion: !userAnswer.choice}">{{$index}}</div>
