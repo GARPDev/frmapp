@@ -10,53 +10,54 @@
         <div class="panel-heading exam-question-heading">
           <div>
             <div class="row">
-              <div style="float:left">{{userData.registeredExam.name}}</div>
-              <div style="float:right;margin-right:10px;">
-                <div ng-click="reTake()"><span class="glyphicon glyphicon-pencil"></span> Retake Exam</div>
-                <div ng-click="exitExam()"><span class="glyphicon glyphicon-share-alt"></span> Exit Exam</div>
+              <div style="float:left;color:black">{{userData.registeredExam.registrations.records[0].Name}}</div>
+              <div style="float:right;margin-right:10px;margin-left:10px;color:black;">
+                <div ng-click="reTake()" style="float:left;margin-right:30px"><span class="glyphicon glyphicon-pencil"></span> Retake Exam</div>
+                <div ng-click="exitExam()" style="float:left;margin-right:10px"><span class="glyphicon glyphicon-share-alt"></span> Exit Exam</div>
               </div>
             </div>
           </div>
         </div>
         <div class="panel-body">
 
-        <table class="table table-condensed">
-          <tr ng-repeat="choice in choices">
-            <td class="exam-question-choice">
-              <p>Final Score: <span style="font-weight:bold">{{formatNumber(correctAnswers/totalQuestions,0)}} /</span> 100</p>
-              <div>
-                <div style="float:left;margin-right:20px;">Average Questions per minute: XX</div>
-                <div style="float:left">Total Time Spent: YY</div>
-              </div>
-            </td>
-          </tr>
-          <tr ng-repeat="choice in choices">
-            <td class="exam-question-choice">
-              <p>Answer Stats:</p>
-              <div>
-                <div style="float:left;margin-right:20px;">Average Questions per minute: XX</div>
-                <div style="float:left">Total Time Spent: YY</div>
-              </div>
-              <div>
-                <span class="exam-question-heading-item"><span class="glyphicon glyphicon-ok"></span> Correct Answers:</span> <div class="exam-question-correct">{{correctAnswers}}</div>
-                <span class="exam-question-heading-item"><span class="glyphicon glyphicon-remove"></span> Incorrect Answers: <span class="exam-question-incorrect">{{wrongAnswers}}</span></span>
-              </div>
-              <div>
-                <span class="exam-question-heading-item"> Skipped Questions: <span class="exam-question-skipped">{{skipQuestions}}</span></span>
-                <span class="exam-question-heading-item"> Flagged Questions: <span class="exam-question-skipped">{{skipQuestions}}</span></span>
-              </div>
-            </td>
-          </tr>
-          <tr ng-repeat="choice in choices">
-            <td class="exam-question-choice">
-              <p>Question Links:</p>
-              <div class="form-group">
-                <div ng-repeat="userAnswer in userAnswers" class="examsettings-options-topics">
-                  <div style="border:1px solid #000000;width:10px;height:10px" ng-class="{correctAnswer: (userAnswer.question.answer == userAnswer.choice), incorrectAnswer: (userAnswer.question.answer != userAnswer.choice), flaggedQuestion: !userAnswer.choice}">{{$index}}</div>
+          <table class="table table-condensed">
+            <tr ng-repeat="choice in choices">
+              <td class="exam-question-choice">
+                <p>Final Score: <span style="font-weight:bold">{{formatNumber(correctAnswers/totalQuestions,0)}} /</span> 100</p>
+                <div>
+                  <div style="float:left;margin-right:20px;">Average Questions per minute: XX</div>
+                  <div style="float:left">Total Time Spent: YY</div>
                 </div>
-              </div>
-            </td>
-          </tr>
+              </td>
+            </tr>
+            <tr ng-repeat="choice in choices">
+              <td class="exam-question-choice">
+                <p>Answer Stats:</p>
+                <div>
+                  <div style="float:left;margin-right:20px;">Average Questions per minute: XX</div>
+                  <div style="float:left">Total Time Spent: YY</div>
+                </div>
+                <div>
+                  <span class="exam-question-heading-item"><span class="glyphicon glyphicon-ok"></span> Correct Answers:</span> <div class="exam-question-correct">{{correctAnswers}}</div>
+                  <span class="exam-question-heading-item"><span class="glyphicon glyphicon-remove"></span> Incorrect Answers: <span class="exam-question-incorrect">{{wrongAnswers}}</span></span>
+                </div>
+                <div>
+                  <span class="exam-question-heading-item"> Skipped Questions: <span class="exam-question-skipped">{{skipQuestions}}</span></span>
+                  <span class="exam-question-heading-item"> Flagged Questions: <span class="exam-question-skipped">{{skipQuestions}}</span></span>
+                </div>
+              </td>
+            </tr>
+            <tr ng-repeat="choice in choices">
+              <td class="exam-question-choice">
+                <p>Question Links:</p>
+                <div class="form-group">
+                  <div ng-repeat="userAnswer in userAnswers" class="examsettings-options-topics">
+                    <div style="border:1px solid #000000;width:10px;height:10px" ng-class="{correctAnswer: (userAnswer.question.answer == userAnswer.choice), incorrectAnswer: (userAnswer.question.answer != userAnswer.choice), flaggedQuestion: !userAnswer.choice}">{{$index}}</div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
