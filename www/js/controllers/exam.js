@@ -29,7 +29,6 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
     $timeout(function() {
       navigationService.pageTransitionIn();
-      display_c(86501);
     }, 0);
 
     $timeout(function() {
