@@ -200,18 +200,6 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       alert('Question has been flagged.');
     }
 
-
-    function display_c(start){
-        window.start = parseFloat(start);
-        var end = 0 // change this to stop the counter at a higher value
-        var refresh=1000; // Refresh rate in milli seconds
-        if(window.start >= end ){
-            mytime=setTimeout('display_ct()',refresh)
-        } else {
-            alert("Time Over ");
-        }
-    }
-
     function display_ct() {
         // Calculate the number of days left
         var days=Math.floor(window.start / 86400);
@@ -231,6 +219,17 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
         window.start= window.start- 1;
         tt=display_c(window.start);
+    }
+
+    function display_c(start){
+        window.start = parseFloat(start);
+        var end = 0 // change this to stop the counter at a higher value
+        var refresh=1000; // Refresh rate in milli seconds
+        if(window.start >= end ){
+            var mytime=setTimeout('display_ct()',refresh)
+        } else {
+            alert("Time Over ");
+        }
     }
 
     function stop() {
