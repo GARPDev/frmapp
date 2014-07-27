@@ -200,7 +200,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       alert('Question has been flagged.');
     }
 
-    function display_ct() {
+    var display_ct = function() {
         // Calculate the number of days left
         var days=Math.floor(window.start / 86400);
         // After deducting the days calculate the number of hours left
