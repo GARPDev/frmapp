@@ -1,6 +1,6 @@
 'use strict';
 
-frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce','$routeParams','examSharedService','remoteDataService','navigationService',
+frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$location','$sce','$routeParams','examSharedService','remoteDataService','navigationService',
   function($scope,$timeout,$location,$sce,$routeParams,examSharedService,remoteDataService,navigationService) {
 
     $scope.userData = remoteDataService.userData;
