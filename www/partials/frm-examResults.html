@@ -23,7 +23,7 @@
           <table class="table table-condensed">
             <tr>
               <td class="exam-question-choice">
-                <p style="font-size:20px;margin-bottom:20px">Final Score: <span style="font-weight:bold;font-size:25px">{{formatNumber(correctAnswers/totalQuestions,0)}} /</span> <span style="font-size:25px">100</span></p>
+                <p style="font-size:20px;margin-bottom:20px">Final Score: <span style="font-weight:bold;font-size:25px">{{calcCorrect()}} /</span> <span style="font-size:25px">100</span></p>
                 <div style="width:500px;margin-left: auto;margin-right: auto;">
                   <div style="float:left;margin-right:20px;font-weight:bold">Average Questions per minute: XX</div>
                   <div style="float:left;font-weight:bold">Total Time Spent: YY</div>
@@ -64,90 +64,4 @@
       </div>
     </div>
   </div>
-
-
-
-  <div class="row">
-    <div class="col-md-12">
-
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="exam-results-header">
-            <h3>Test Results</h3>
-            <p>Correct Answers: {{correctAnswers}}</p>
-            <p>Wrong Answers: {{wrongAnswers}}</p>
-            <p ng-if="settings.mode == 0">Skipped Questions: {{skipQuestions}}</p>        
-          </div>
-        </div>
-      </div>
-
-      
-      <div id="accordian">
-        <div ng-repeat="userAnswer in userAnswers" class="panel-group">
-          <div class="panel panel-default">
-
-            <div class="panel-heading" ng-click="showQuestion(userAnswer.question.id)">
-              <h4 ng-if="userAnswer.choice" class="panel-title">Question {{$index+1}}: {{(userAnswer.question.answer == userAnswer.choice) ? 'Correct' : 'Incorrect'}}</h4>
-              <h4 ng-if="!userAnswer.choice" class="panel-title">Question {{$index+1}}: Skipped</h4>
-            </div>
-            <div id="{{userAnswer.question.id}}" class="panel-collapse collapse">
-              <div class="panel-body">
-                <div class="exam-question-counter">
-                  {{userAnswer.question.id}} : {{userAnswer.question.question}}
-                </div>
-                <div class="exam-question-choices">
-                  <table class="table table-condensed">
-                    <tr ng-repeat="choice in userAnswer.question.choices">
-                      <td>{{choice.id}}.</td>
-                      <td>{{choice.description}}</td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <button type="button" class="btn btn-default exam-question-answer" ng-repeat="answer in userAnswer.question.answers">{{answer.id}}. {{answer.answer}}</button>
-                  </div>
-                </div>
-                <p ng-if="userAnswer.choice && (userAnswer.question.answer != userAnswer.choice)">You chose {{userAnswer.choice}}</p>
-                <p>The correct answer is {{userAnswer.question.answer}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="test-results-bottom-nav-area">
-            <a href="" ng-click="exitExam()">Exit Test</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>
-
-<!-- Note Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">{{answerResponse}}</h4>
-      </div>
-      <div class="modal-body">
-      	<p ng-if="correctAnswer.length > 0">The correct answer is {{correctAnswer}}</p>
-      	<p>{{answerReason}}</p>
-      </div>
-      <div class="modal-footer">
-      	<div ng-if="currentQuestion == totalQuestions">
-        	<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="nextQuestion()">Finish</button>
-      	</div>
-      	<div ng-if="currentQuestion < totalQuestions">
-        	<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="nextQuestion()">Next Question</button>
-        </div>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
