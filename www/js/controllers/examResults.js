@@ -18,7 +18,7 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
     }, 0);
 
     $scope.gotoQuestion = function(index) {
-      document.location.hash = '#!/exam?questionIdx=' + index;
+      document.location.hash = '#!/examresultsquestion?questionIdx=' + index;
     }
 
     $scope.formatNumber = function(amount, percision) {
