@@ -22,6 +22,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
     $scope.flagged=false;
     $scope.elapsedTime = 0;
+    $scope.elapsedTimeStart = 0;
+    $scope.elapsedTimeEnd = 0;
 
     $scope.userAnswers = [];
 
@@ -29,11 +31,9 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
     $timeout(function() {
       navigationService.pageTransitionIn();
+      $scope.elapsedTimeStart = (new Date).getTime();
     }, 0);
 
-    $timeout(function() {
-      $scope.elapsedTime++;
-    }, 1000);
 
     $scope.exitExam = function() {
       $('body').removeClass("modal-open");
@@ -46,6 +46,9 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       var userAnswer = {};
       userAnswer.question = $scope.question;
       userAnswer.choice = id;
+
+      $scope.elapsedTimeEnd = (new Date).getTime();
+      userAnswer.elapsedTime = ($scope.elapsedTimeEnd - $scope.elapsedTimeStart)
 
       if($scope.question.answer == id) {
         $scope.correct = true;
@@ -68,7 +71,6 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
       userAnswer.correct = $scope.correct;
       userAnswer.flagged = $scope.flagged;
-      userAnswer.elapsedTime = $scope.elapsedTime;
       $scope.userAnswers.push(userAnswer);
       $scope.flagged=false;
       $scope.elapsedTime=0;
@@ -108,6 +110,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
       $scope.flagged=false;
       $scope.elapsedTime=0;
+      $scope.elapsedTimeStart = (new Date).getTime();
     }
 
 
@@ -164,6 +167,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         $scope.answerReason = "";      
         $scope.flagged=false;
         $scope.elapsedTime=0;
+        $scope.elapsedTimeStart = (new Date).getTime();
       }
     }
 
