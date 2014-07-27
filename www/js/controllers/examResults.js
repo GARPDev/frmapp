@@ -35,11 +35,14 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
       var minutes = Math.floor(($scope.totalTime - (hours *60*60*1000)) /1000/60);
       var secs = Math.floor(($scope.totalTime - (hours *60*60*1000) - (minutes *60*1000) ) / 1000)
 
-      if(hours.length < 2) { hours = "0" + hours}
-      if(minutes.length < 2) { minutes = "0" + minutes}
-      if(secs.length < 2) { secs = "0" + secs}
+      var h = hours.toString();
+      var m = minutes.toString();
+      var s = secs.toString();
+      if(h.length < 2) { h = "0" + h }
+      if(m.length < 2) { m = "0" + m}
+      if(s.length < 2) { s = "0" +s}
 
-      return hours + ":" + minutes + ":" + secs
+      return h + ":" + m + ":" + s;
     }
 
     $scope.gotoQuestion = function(index) {
