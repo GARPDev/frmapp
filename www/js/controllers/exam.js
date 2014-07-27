@@ -20,6 +20,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.skipQuestions = 0;
     $scope.flaggedQuestions = 0;
 
+    $scope.flagged=false;
+
 
     $scope.userAnswers = [];
 
@@ -62,6 +64,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       }
 
       userAnswer.correct = $scope.correct;
+      userAnswer.flagged = $scope.flagged;
       $scope.userAnswers.push(userAnswer);
 
     }
@@ -83,6 +86,10 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         } else {
           $scope.skipQuestions--;
         }
+
+        if($scope.flagged) {
+          $scope.flaggedQuestions--;
+        }
       }
 
       examSharedService.userAnswers = $scope.userAnswers;
@@ -103,6 +110,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       userAnswer.question = $scope.question;
       userAnswer.choice = null;
       userAnswer.correct = null;
+      
       $scope.userAnswers.push(userAnswer);
 
       $scope.skipQuestions++;
@@ -161,6 +169,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.flagQuestion = function() {
       
       $scope.flaggedQuestions++;
+      $scope.flagged=true;
       examSharedService.flaggedQuestions = $scope.flaggedQuestions;
 
       for(var i=0; i < $scope.question.readings.length; i++) {
@@ -178,6 +187,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         }
 
       }
+      alert('Question has been flagged.');
     }
 
   }
