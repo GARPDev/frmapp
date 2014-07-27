@@ -17,6 +17,17 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
       $('body').removeClass("modal-open");
     }, 0);
 
+
+    $scope.formatNumber = function(amount, percision) {
+      return formatNumber(amount, percision);
+    }
+
+    $scope.reTake = function() {
+      $('body').removeClass("modal-open");
+      document.location.hash = '#!/exam';
+      //navigationService.changeView('dash');
+    }
+
     $scope.exitExam = function() {
       $('body').removeClass("modal-open");
       document.location.hash = '#!/dashboard';

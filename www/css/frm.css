@@ -35,6 +35,16 @@ a:hover {
 
 /* Custom Classes */
 
+.correctAnswer {
+  background-color: #b0c636;  
+}
+.incorrectAnswer {
+  background-color: #F05123;  
+}
+.flaggedQuestion {
+  background-color: #00A2DD;  
+}
+
 .examSiteSelected {
   background-color: #006C99;
 }

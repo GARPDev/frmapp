@@ -4,6 +4,12 @@ var localPropRemember = 'frmAppLoginRemember';
 var localPropUserName = 'frmAppLoginUserName';
 var localPropUserPassword = 'frmAppLoginPassword';
 
+function formatNumber(amount, percision) {
+  if(!defined(amount)) {
+    amount=0;
+  }
+  return parseFloat(Math.round(amount * 100) / 100).toFixed(percision);  
+}
 
 function defined(ref, strNames) {
     var name;
