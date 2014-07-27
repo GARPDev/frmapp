@@ -25,8 +25,8 @@
               <td class="exam-question-choice">
                 <p style="font-size:20px;margin-bottom:20px">Final Score: <span style="font-weight:bold;font-size:25px">{{calcCorrect()}} /</span> <span style="font-size:25px">100</span></p>
                 <div style="width:500px;margin-left: auto;margin-right: auto;">
-                  <div style="float:left;margin-right:20px;font-weight:bold">Average Questions per minute: XX</div>
-                  <div style="float:left;font-weight:bold">Total Time Spent: YY</div>
+                  <div style="float:left;margin-right:20px;font-weight:bold">Average Questions per minute: {{formatNumber(avgTime,2)}}</div>
+                  <div style="float:left;font-weight:bold">Total Time Spent: {{formatTime(totalTime)}}</div>
                 </div>
               </td>
             </tr>

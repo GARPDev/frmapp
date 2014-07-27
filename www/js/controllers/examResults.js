@@ -14,6 +14,13 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
     $scope.results = true;
     $scope.wrongAnswers = ($scope.totalQuestions-$scope.correctAnswers-$scope.skipQuestions);
 
+    $scope.totalTime=0;
+    for(var i=0; i<$scope.userAnswers.length; i++) {
+      $scope.totalTime+=$scope.userAnswers.elapsedTime;
+    }
+    $scope.avgTime = $scope.userAnswers.length/($scope.totalTime/1000/60);
+
+
     $timeout(function() {
       navigationService.pageTransitionIn();
       $('body').removeClass("modal-open");
@@ -21,6 +28,18 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
 
     $scope.calcCorrect = function() {
       return formatNumber(($scope.correctAnswers/$scope.totalQuestions)*100,0)
+    }
+
+    $scope.formatTime = function(time) {
+      var hours = Math.floor($scope.totalTime/1000/60/60);
+      var minutes = Math.floor(($scope.totalTime - (hours *60*60*1000)) /1000/60);
+      var secs = Math.floor(($scope.totalTime - (hours *60*60*1000) - (minutes *60*1000) ) / 1000)
+
+      if(hours.length < 2) { hours = "0" + hours}
+      if(minutes.length < 2) { minutes = "0" + minutes}
+      if(secs.length < 2) { secs = "0" + secs}
+
+      return hours + ":" + minutes + ":" + secs
     }
 
     $scope.gotoQuestion = function(index) {
