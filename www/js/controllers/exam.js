@@ -21,7 +21,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.flaggedQuestions = 0;
 
     $scope.flagged=false;
-
+    $scope.elapsedTime = 0;
 
     $scope.userAnswers = [];
 
@@ -29,6 +29,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
     $timeout(function() {
       navigationService.pageTransitionIn();
+      display_c(86501);
     }, 0);
 
 
@@ -65,9 +66,10 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
       userAnswer.correct = $scope.correct;
       userAnswer.flagged = $scope.flagged;
+      userAnswer.elapsedTime = $scope.elapsedTime;
       $scope.userAnswers.push(userAnswer);
       $scope.flagged=false;
-
+      $scope.elapsedTime=0;
     }
 
     $scope.getCurrentReason = function() {
@@ -102,6 +104,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       $scope.currentQuestion--;
       $scope.question = examSharedService.questions[$scope.currentQuestion];
 
+      $scope.flagged=false;
+      $scope.elapsedTime=0;
     }
 
 
@@ -116,6 +120,10 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
       $scope.skipQuestions++;
       examSharedService.skipQuestions = $scope.skipQuestions;
+
+      $scope.flagged=false;
+      $scope.elapsedTime=0;
+
       $scope.nextQuestion();
     }
 
@@ -145,14 +153,15 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
           $scope.currentQuestion++;  
         }
         
-       
       } else {
         $scope.currentQuestion++;
         $scope.question = examSharedService.questions[$scope.currentQuestion];
         $scope.answers = $scope.question.answers;
         $scope.choices = $scope.question.choices;
         $scope.answerResponse = "";
-        $scope.answerReason = "";              
+        $scope.answerReason = "";      
+        $scope.flagged=false;
+        $scope.elapsedTime=0;
       }
     }
 
@@ -190,6 +199,45 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       }
       alert('Question has been flagged.');
     }
+
+
+    function display_c(start){
+        window.start = parseFloat(start);
+        var end = 0 // change this to stop the counter at a higher value
+        var refresh=1000; // Refresh rate in milli seconds
+        if(window.start >= end ){
+            mytime=setTimeout('display_ct()',refresh)
+        } else {
+            alert("Time Over ");
+        }
+    }
+
+    function display_ct() {
+        // Calculate the number of days left
+        var days=Math.floor(window.start / 86400);
+        // After deducting the days calculate the number of hours left
+        var hours = Math.floor((window.start - (days * 86400 ))/3600)
+        // After days and hours , how many minutes are left
+        var minutes = Math.floor((window.start - (days * 86400 ) - (hours *3600 ))/60)
+        // Finally how many seconds left after removing days, hours and minutes.
+        var secs = Math.floor((window.start - (days * 86400 ) - (hours *3600 ) - (minutes*60)))
+
+        var x = window.start + "(" + days + " Days " + hours + " Hours " + minutes + " Minutes and " + secs + " Secondes " + ")";
+
+
+        //document.getElementById('ct').innerHTML = x;
+
+        $scope.elapsedTime = secs;
+
+        window.start= window.start- 1;
+        tt=display_c(window.start);
+    }
+
+    function stop() {
+        clearTimeout(mytime);
+    }
+
+
 
   }
 ]);
