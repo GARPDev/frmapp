@@ -66,6 +66,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       userAnswer.correct = $scope.correct;
       userAnswer.flagged = $scope.flagged;
       $scope.userAnswers.push(userAnswer);
+      $scope.flagged=false;
 
     }
 
@@ -110,7 +111,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       userAnswer.question = $scope.question;
       userAnswer.choice = null;
       userAnswer.correct = null;
-      
+
       $scope.userAnswers.push(userAnswer);
 
       $scope.skipQuestions++;
