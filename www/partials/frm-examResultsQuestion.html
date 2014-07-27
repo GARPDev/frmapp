@@ -9,7 +9,7 @@
         <div class="panel-heading exam-question-heading">
           <div>
             <div class="row">
-              <div style="float:left;color:black">{{userData.registeredExam.registrations.records[0].Name}}</div>
+              <div style="float:left;color:black;margin-left:10px;font-weight:bold;font-size:20px;">{{userData.registeredExam.registrations.records[0].Name}}</div>
               <div style="float:right;margin-right:10px;margin-left:10px;color:black;">
                 <div ng-click="reTake()" style="float:left;margin-right:30px"><span class="glyphicon glyphicon-pencil"></span> Retake Exam</div>
                 <div ng-click="exitExam()" style="float:left;margin-right:10px"><span class="glyphicon glyphicon-share-alt"></span> Exit Exam</div>
@@ -32,8 +32,8 @@
                 {{question.question}}
               </div>
               <div style="font-size:30px;font-weight:bold;color:#b0c636;margin-left:auto;margin-right:auto;">
-                <div style="float:left;margin-right:20px;">Correct Answer: {{correctAnswer}}</span>
-                <div style="float:left;margin-right:20px;">Your Answer: {{answerResponse}}</span>
+                <div style="float:left;margin-right:20px;">Correct Answer: {{userAnswer.question.answer}}</div>
+                <div style="float:left;margin-right:20px;">Your Answer: {{userAnswer}}</div>
               </div>
               <div class="exam-question-choices">
                 <table class="table table-condensed">

@@ -9,6 +9,9 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
     $scope.settings = examSharedService.settings;
     $scope.questions = examSharedService.questions;
     $scope.question = examSharedService.questions[$scope.currentQuestion];
+    
+    $scope.userAnswer = examSharedService.userAnswers[$routeParams.questionIdx];
+
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.answers = $scope.question.answers;
     $scope.choices = $scope.question.choices;
@@ -19,9 +22,9 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
     $scope.wrongAnswers=0;
     $scope.skipQuestions = 0;
 
-    $scope.userAnswers = [];
+    //$scope.userAnswers = [];
 
-    examSharedService.resetData();
+    //examSharedService.resetData();
 
     $timeout(function() {
       navigationService.pageTransitionIn();
