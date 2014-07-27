@@ -16,7 +16,7 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
 
     $scope.totalTime=0;
     for(var i=0; i<$scope.userAnswers.length; i++) {
-      $scope.totalTime+=$scope.userAnswers.elapsedTime;
+      $scope.totalTime+=$scope.userAnswers[i].elapsedTime;
     }
     $scope.avgTime = $scope.userAnswers.length/($scope.totalTime/1000/60);
 
