@@ -12,8 +12,8 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
     
     $scope.userAnswer = examSharedService.userAnswers[$routeParams.questionIdx];
 
-    $scope.userChoice = _.findWhere($scope.userAnswer.questions.answers, {id: userAnswer.choice});        
-    $scope.correctChoice = _.findWhere($scope.userAnswer.questions.answers, {id: userAnswer.question.answer});        
+    $scope.userChoice = _.findWhere($scope.userAnswer.question.answers, {id: $scope.userAnswer.choice});        
+    $scope.correctChoice = _.findWhere($scope.userAnswer.question.answers, {id: $scope.userAnswer.question.answer});        
 
 
     $scope.totalQuestions = examSharedService.questions.length;
