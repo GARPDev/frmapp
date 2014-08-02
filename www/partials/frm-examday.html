@@ -82,6 +82,11 @@
             <td>#2 or Hard Black (HB) pencils</td>
           </tr>
         </table>
+          xxxxxx
+        <div class="insperation-area">
+          <textarea class="form-control" rows="3" placeholder="Add your own reminder">{{newReminder}}</textarea>
+        </div>
+
         <div class="add-reminder-area">
           <div ng-if="!userSession.reminderAdded">
             <button type="submit" ng-click="addReminder('ticket')" class="btn">Add Reminder</button>  <span id="reminderStatus">{{reminderStatus}}</span>
