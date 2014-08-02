@@ -6,7 +6,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $scope.reminderStatus = "";
     $scope.userSession = remoteDataService.userSession;
     $scope.userData = remoteDataService.userData;
-
+    $scope.newReminder = "";
 
     $timeout(function() {
       navigationService.pageTransitionIn();
