@@ -19,7 +19,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     }
     
     $scope.addMyReminder=function() {
-      if(!defined(remoteDataService."userData.settings.reminders"))
+      if(!defined(remoteDataService,"userData.settings.reminders"))
         remoteDataService.userData.settings.reminders = [];
       remoteDataService.userData.settings.reminders.push($scope.newReminder);
       $scope.newReminder = '';
