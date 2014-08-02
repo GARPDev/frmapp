@@ -81,6 +81,10 @@
             <td><input type="checkbox"></td>
             <td>#2 or Hard Black (HB) pencils</td>
           </tr>
+          <tr ng-repeat="rem in userData.settings.reminders">
+            <td><input type="checkbox"></td>
+            <td>{{rem}}</td>
+          </tr>
         </table>
 
         <div class="insperation-area">
