@@ -84,9 +84,9 @@
         </table>
 
         <div class="insperation-area">
-          <textarea class="form-control" rows="3" placeholder="Add your own reminder">{{newReminder}}</textarea>
+          <textarea class="form-control" ng-model="newReminder" rows="3" placeholder="Add your own reminder (100 char max)" maxlength="100">{{newReminder}}</textarea>
         </div>
-        <button type="button" class="btn btn-success btn-lg" ng-click="addReminder()">Add Reminder</button>
+        <button type="button" class="btn btn-success btn-lg" ng-click="addMyReminder()">Add Reminder</button>
 
         <div class="add-reminder-area">
           <div ng-if="!userSession.reminderAdded">

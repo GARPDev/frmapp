@@ -18,6 +18,11 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
       $('.add-reminder-area').hide();
     }
     
+    $scope.addMyReminder=function() {
+      remoteDataService.userData.settings.reminders.push($scope.newReminder);
+      $scope.newReminder = '';
+    }
+
     $scope.addReminder=function(type) {
 
       if(typeof cordova === "undefined" || cordova === null) {
