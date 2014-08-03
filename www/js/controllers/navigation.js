@@ -5,9 +5,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.innerHeight = window.innerHeight;
     $scope.searchTerms = "";
     $scope.userData = remoteDataService.userData;
-    $scope.currentMessage = {
-      title: 'hi bob!'
-    };
+    $scope.currentMessage = {};
 
     switch(document.location.hash) {
       case '#/readings':
@@ -46,12 +44,8 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       return isOnline();
     }
 
-    $scope.getCurrentMessage = function() {
-      return $scope.currentMessage.title;
-    }
-
     $scope.openMessage = function(msg) {
-        //$scope.currentMessage = msg;
+        $scope.currentMessage = msg;
         $("#myModal").modal();
     }
 
