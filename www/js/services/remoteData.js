@@ -283,7 +283,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                   break;
             }
           }
-          remoteDataService.commitData();
+          //remoteDataService.commitData();
           q.resolve();
       });
 
