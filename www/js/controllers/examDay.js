@@ -57,7 +57,6 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
             break;
         }
       }
-
       
       var startDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
       var endDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
