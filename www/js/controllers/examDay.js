@@ -75,7 +75,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
           //var endDate = new Date(2014,2,15,19,30,0,0,0);
           //var title = "My nice event";
           //var location = "Home";
-          //var notes = "Some notes about this event.";
+          //var notes = "Some notes about this event."; 
           var success = function(message) { alert("Success: " + JSON.stringify(message)); };
           var error = function(message) { alert("Error: " + message); };
           alert("in5"); 
