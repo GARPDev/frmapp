@@ -58,16 +58,17 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
         }
       }
 
+      
+      var startDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
+      var endDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
+      var title = reminder.text;
+      var location = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
+    mapService.displayMap('map-canvas',address);
+
+      var cordova = window.plugins.calendar;
       if(defined(cordova)) {
 
-        var startDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
-        var endDate = new startDate;
-        var title = reminder.text;
-
-        var location = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
-      mapService.displayMap('map-canvas',address);
-
-        //var notes = "Some notes about this event.";
+        var notes = "";
         var success = function(message) { 
 
           $scope.reminderStatus = "Success: " + message;
@@ -78,7 +79,8 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
         };
         var error = function(message) { $scope.reminderStatus = "Failure: " + message };      
 
-        cordova.exec(success, error, "Calendar", "createEvent", [title, location, notes, startDate.getTime(), endDate.getTime()]);
+        //cordova.exec(success, error, "Calendar", "createEvent", [title, location, notes, startDate.getTime(), endDate.getTime()]);
+        window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
       }
     }
 
