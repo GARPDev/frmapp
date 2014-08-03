@@ -1,5 +1,6 @@
     <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavController">
+  <div ng-controller="NavController">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -54,26 +55,28 @@
 
           </ul>
         </div><!--/.nav-collapse -->
-      </div>
-
-<!-- Note Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">{{currentMessage.title}}</h4>
-      </div>
-      <div class="modal-body">
-        <div class="message-item">
-          <div class="date">
-           {{getEpochDateTimeText(currentMessage.date)}}
-          </div>
-          <p>{{currentMessage.body}}</p>            
-        </div>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-      
+      </div>      
     </div>
+
+
+    <!-- Note Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">{{currentMessage.title}}</h4>
+          </div>
+          <div class="modal-body">
+            <div class="message-item">
+              <div class="date">
+               {{getEpochDateTimeText(currentMessage.date)}}
+              </div>
+              <p>{{currentMessage.body}}</p>            
+            </div>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+  </div>    
