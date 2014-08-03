@@ -5,6 +5,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.innerHeight = window.innerHeight;
     $scope.searchTerms = "";
     $scope.userData = remoteDataService.userData;
+    $scope.currentMessage = {};
 
     switch(document.location.hash) {
       case '#/readings':
