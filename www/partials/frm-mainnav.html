@@ -36,7 +36,7 @@
             <p class="navbar-text nav-photo"><img ng-click="changeView('myaccount')" id="userImage" src="img/user.png" width="30"></p>
 
               <li id="mainnav-readings">
-                <a class="dropdown-toggle" data-toggle="dropdown"> {{currentMessage}} <span class="glyphicon glyphicon-exclamation-sign nav-item-icon"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-exclamation-sign nav-item-icon"></span></a>
                 <ul class="dropdown-menu list-group">
                   <li class="list-group-item" ng-repeat="message in messages">
                     <div class="message-item">
@@ -64,7 +64,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">xx {{getCurrentMessage()}}</h4>
+        <h4 class="modal-title" id="myModalLabel">{{currentMessage}}</h4>
       </div>
       <div class="modal-body">
         <div class="message-item">
