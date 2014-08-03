@@ -56,11 +56,11 @@ var app = {
         }
     }, // result contains any message sent from the plugin call
     successApnHandler: function(result) {
-        alert('APN Push Callback Success! Result = '+result)
+        //alert('APN Push Callback Success! Result = '+result)
         apnId = result;
     }, // result contains any message sent from the plugin call
     successHandler: function(result) {
-        alert('GCM Push Callback Success! Result = '+result)
+        //alert('GCM Push Callback Success! Result = '+result)
     },
     errorHandler:function(error) {
         alert('Push Registration Error: ' + error);
@@ -72,7 +72,7 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
-                    alert('GCM Registration id = '+e.regid);
+                    //alert('GCM Registration id = '+e.regid);
                     gcmId = e.regid;
                 }
             break;
@@ -97,7 +97,7 @@ var app = {
         if (e.alert) {
             //console.log("Alert " + e.alert);
             //navigator.notification.alert(e.alert);
-            alert('Alert Push Message Recieved: '+e.alert);
+            alert('Push Message Recieved: '+e.alert);
         }
         if (e.badge) {
             // console.log("Badge number " + e.badge);
