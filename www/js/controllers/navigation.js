@@ -48,9 +48,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     }
 
     $scope.openMessage = function(msg) {
-        scope.$apply(function() {
-          $scope.currentMessage = msg;
-        });
+        $scope.currentMessage = msg;
         $("#myModal").modal();
     }
 
