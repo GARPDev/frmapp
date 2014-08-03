@@ -70,7 +70,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
 
       try {
         if(typeof window.plugins.calendar != "undefined") {
-          alert("in4");      
+          alert("in4" + window.plugins.calendar);      
           var startDate = new Date(2014,2,15,18,30,0,0,0); // beware: month 0 = january, 11 = december
           var endDate = new Date(2014,2,15,19,30,0,0,0);
           var title = "My nice event";
@@ -85,23 +85,13 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
 
           alert("in6"); 
 
-          // if you want to create a calendar with a specific color, pass in a JS object like this:
-          var createCalOptions = window.plugins.calendar.getCreateCalendarOptions();
-          createCalOptions.calendarName = "My Cal Name";
-          createCalOptions.calendarColor = "#FF0000"; // an optional hex color (with the # char), default is null, so the OS picks a color
-          window.plugins.calendar.createCalendar(createCalOptions,success,error);
-          alert("in7"); 
-
-          // delete a calendar (iOS only for now)
-          //window.plugins.calendar.deleteCalendar(calendarName,success,error);
-
           // create an event silently (on Android < 4 an interactive dialog is shown)
           window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
-          alert("in8");
+          alert("in7");
         }
       }
       catch(err) {
-          alert(err.message);
+          alert("Excpetion: " + err.message);
       }
 
     }
