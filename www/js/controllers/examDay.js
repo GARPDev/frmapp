@@ -63,6 +63,8 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
       var title = reminder.text;
       var location = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
 
+      alert(location);
+
       if(typeof cordova != "undefined") {
       var cordova = window.plugins.calendar;
     
