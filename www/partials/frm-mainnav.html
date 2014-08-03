@@ -41,7 +41,7 @@
                   <li class="list-group-item" ng-repeat="message in messages">
                     <div class="message-item">
                       <div class="subject">
-                        <a href="" ng-click="">{{message.title}}</a>
+                        <a href="" ng-click="openMessage(message)">{{message.title}}</a>
                       </div>
                       <div class="date">
                         {{getEpochDateShortText(message.date)}}
@@ -56,3 +56,24 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
+
+
+<!-- Note Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">{{currentMessage.title}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="message-item">
+          <div class="date">
+           {{getEpochDateTimeText(currentMessage.date)}}
+          </div>
+          <p>{{currentMessage.body}}</p>            
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -39,6 +39,11 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       return isOnline();
     }
 
+    $scope.openMessage = function(msg) {
+        $scope.currentMessage = msg;
+        $("#myModal").modal();
+    }
+
     $scope.searchGlossary = function(terms) {
       remoteDataService.searchTerms = terms;
       $scope.changeView('glossary');
