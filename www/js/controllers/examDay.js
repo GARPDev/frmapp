@@ -62,10 +62,9 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
       var endDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
       var title = reminder.text;
       var location = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
-    mapService.displayMap('map-canvas',address);
 
+      if(typeof cordova != "undefined") {
       var cordova = window.plugins.calendar;
-      if(defined(cordova)) {
 
         var notes = "";
         var success = function(message) { 
