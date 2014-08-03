@@ -43,6 +43,9 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       return isOnline();
     }
 
+    $scope.getcurrentMessage() {
+      return $scope.currentMessage.title;
+    }
 
     $scope.openMessage = function(msg) {
         scope.$apply(function() {
