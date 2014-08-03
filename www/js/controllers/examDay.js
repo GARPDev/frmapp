@@ -7,6 +7,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $scope.userSession = remoteDataService.userSession;
     $scope.userData = remoteDataService.userData;
     $scope.newReminder = "";
+    $scope.isMobile = isMobile();
 
     $timeout(function() {
       navigationService.pageTransitionIn();
@@ -31,7 +32,15 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
       remoteDataService.commitData();
     }
 
-    $scope.addReminder=function(type) {
+    $scope.copyToDevice =function(idx) {
+    
+      var reminder= {};
+      if(idx > -1) {
+        reminder.text = remoteDataService.userData.settings.reminders[idx];
+      } else {
+        reminder
+      }
+
 
       if(typeof cordova === "undefined" || cordova === null) {
 

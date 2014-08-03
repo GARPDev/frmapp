@@ -39,6 +39,10 @@ function getEpochDateTimeText(epochDate) {
   }
 }
 
+function isMobile() {
+  return defined(navigator,"connection");
+}
+
 function checkConnection() {
 
     if(defined(navigator,"connection") && defined(Connection)) {

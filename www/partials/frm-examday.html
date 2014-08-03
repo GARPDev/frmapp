@@ -68,27 +68,27 @@
           <tr>
             <td><input type="checkbox" check="model" value="{{ value }}"></td>
             <td>Exam Admission Ticket</td>
-            <td><span  ng-click="copyToDevice(-1)" class="glyphicon glyphicon-alt"></span></td>
+            <td><span ng-if="isMobile" ng-click="copyToDevice(-1)" class="glyphicon glyphicon-share-alt"></span></td>
           </tr>
           <tr>
             <td><input type="checkbox"></td>
             <td>Current non-expired Government Issued Photo ID</td>
-            <td><span  ng-click="copyToDevice(-1)" class="glyphicon glyphicon-alt"></span></td>
+            <td><span ng-if="isMobile" ng-click="copyToDevice(-2)" class="glyphicon glyphicon-share-alt"></span></td>
           </tr>
           <tr>
             <td><input type="checkbox"></td>
             <td>Approved Calculator</td>
-            <td><span  ng-click="copyToDevice(-1)" class="glyphicon glyphicon-alt"></span></td>
+            <td><span ng-if="isMobile" ng-click="copyToDevice(-3)" class="glyphicon glyphicon-share-alt"></span></td>
           </tr>
           <tr>
             <td><input type="checkbox"></td>
             <td>#2 or Hard Black (HB) pencils</td>
-            <td><span  ng-click="copyToDevice(-1)" class="glyphicon glyphicon-share-alt"></span></td>
+            <td><span ng-if="isMobile" ng-click="copyToDevice(-4)" class="glyphicon glyphicon-share-alt"></span></td>
           </tr>
           <tr ng-repeat="rem in userData.settings.reminders">
             <td><input type="checkbox"></td>
             <td>{{rem}}</td>
-            <td><span ng-click="removeMyReminder($index)" class="glyphicon glyphicon-remove"></span> <span  ng-click="copyToDevice($index)" class="glyphicon glyphicon-alt"></span></td>
+            <td><span ng-if="isMobile" ng-click="copyToDevice($index)" class="glyphicon glyphicon-share-alt"></span> <span ng-click="removeMyReminder($index)" class="glyphicon glyphicon-remove"></span></td>
           </tr>
         </table>
 
