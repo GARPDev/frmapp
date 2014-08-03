@@ -8,8 +8,8 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $scope.userData = remoteDataService.userData;
     $scope.newReminder = "";
     
-    //$scope.isMobile = isMobile();
-    $scope.isMobile = true;
+    $scope.isMobile = isMobile();
+    alert($scope.isMobile);
 
     $timeout(function() {
       navigationService.pageTransitionIn();
@@ -36,6 +36,8 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
 
     $scope.copyToDevice =function(idx) {
     
+      alert("in1");
+
       var reminder= {};
       if(idx > -1) {
         reminder.text = remoteDataService.userData.settings.reminders[idx];
@@ -57,31 +59,26 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
             break;
         }
       }
-      
+      alert("in1");
+
       var startDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
       var endDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
       var title = reminder.text;
       var location = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
 
-      if(typeof cordova != "undefined") {
-      var cordova = window.plugins.calendar;
-    
-        var notes = "";
-        var success = function(message) { 
-          alert(message);
-          $scope.reminderStatus = "Success: " + message;
-          remoteDataService.userSession.reminderAdded = true;
-          remoteDataService.commitData();
-        };
-        var error = function(message) { 
-          alert(error);
-          $scope.reminderStatus = "Failure: " + message 
-        };      
+      alert("in3");
 
-        alert('call');
-        //cordova.exec(success, error, "Calendar", "createEvent", [title, location, notes, startDate.getTime(), endDate.getTime()]);
-        window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
+      try {
+        var cordova = window.plugins.calendar;  
+        alert("in4");
+        if(typeof cordova != "undefined") {
+          alert("done!!");
+        }
       }
+      catch(err) {
+          alert(err.message);
+      }
+
     }
 
     $scope.tabToItem = function(item) {
