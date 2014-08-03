@@ -64,7 +64,10 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
       try {
         if(typeof window.plugins.calendar != "undefined") {
           var notes = ""; 
-          var success = function(message) { alert("Success: " + JSON.stringify(message)); };
+          var success = function(message) { 
+            //alert("Success: " + JSON.stringify(message)); 
+            alert("Event Added Successfull on " + getEpochDateShortText(startDate));
+          };
           var error = function(message) { alert("Error: " + message); };
 
           // create an event silently (on Android < 4 an interactive dialog is shown)
