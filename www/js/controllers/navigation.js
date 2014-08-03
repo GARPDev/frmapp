@@ -35,9 +35,14 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       $scope.innerHeight = window.innerHeight;
     });
 
+    remoteDataService.getMessges(function(err, msgs) {
+      $scope.messages = msgs;
+    });
+
     $scope.isOnline = function() {
       return isOnline();
     }
+
 
     $scope.openMessage = function(msg) {
         $scope.currentMessage = msg;
