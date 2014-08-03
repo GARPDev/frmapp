@@ -9,7 +9,6 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $scope.newReminder = "";
     
     $scope.isMobile = isMobile();
-    alert($scope.isMobile);
 
     $timeout(function() {
       navigationService.pageTransitionIn();
@@ -36,8 +35,6 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
 
     $scope.copyToDevice =function(idx) {
     
-      alert("in1");
-
       var reminder= {};
       if(idx > -1) {
         reminder.text = remoteDataService.userData.settings.reminders[idx];
@@ -59,35 +56,19 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
             break;
         }
       }
-      alert("in2");
 
       var startDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
       var endDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
       var title = reminder.text;
       var location = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
-
-      alert("in3");
-
       try {
         if(typeof window.plugins.calendar != "undefined") {
-          alert("in4" + window.plugins.calendar);      
-          //var startDate = new Date(2014,2,15,18,30,0,0,0); // beware: month 0 = january, 11 = december
-          //var endDate = new Date(2014,2,15,19,30,0,0,0);
-          //var title = "My nice event";
-          //var location = "Home";
           var notes = ""; 
           var success = function(message) { alert("Success: " + JSON.stringify(message)); };
           var error = function(message) { alert("Error: " + message); };
-          alert("in5"); 
-          // create a calendar (iOS only for now)
-          var calendarName = "GARP";
-          window.plugins.calendar.createCalendar(calendarName,success,error);
-
-          alert("in6"); 
 
           // create an event silently (on Android < 4 an interactive dialog is shown)
           window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
-          alert("in7");
         }
       }
       catch(err) {
