@@ -68,12 +68,10 @@
             <h4 class="modal-title" id="myModalLabel">{{currentMessage.title}}</h4>
           </div>
           <div class="modal-body">
-            <div class="message-item">
-              <div class="date">
+            <p>
                {{getEpochDateTimeText(currentMessage.date)}}
-              </div>
-              <p>{{currentMessage.body}}</p>            
-            </div>
+            </p>
+            <p>{{currentMessage.body}}</p>            
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
