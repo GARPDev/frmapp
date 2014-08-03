@@ -95,16 +95,9 @@
         <div class="insperation-area">
           <textarea class="form-control" ng-model="newReminder" rows="3" placeholder="Add your own reminder (100 char max)" maxlength="100">{{newReminder}}</textarea>
         </div>
-        <button type="button" class="btn btn-success btn-lg" ng-click="addMyReminder()">Add Reminder</button>
 
-        <div class="add-reminder-area">
-          <div ng-if="!userSession.reminderAdded">
-            <button type="submit" ng-click="addReminder('ticket')" class="btn">Add Reminder</button>  <span id="reminderStatus">{{reminderStatus}}</span>
-          </div>
-          <div ng-if="userSession.reminderAdded">
-            <span>Reminder Added to Calendar</span> <span>{{reminderStatus}}</span>
-          </div>
-        </div>
+        <button type="button" class="btn btn-success btn-lg" ng-click="addMyReminder()">Add Reminder</button>
+        <div id="reminderStatus">{{reminderStatus}}</div>
       </div>
 
       <div class="tab-pane examday-info-area" id="tab2">

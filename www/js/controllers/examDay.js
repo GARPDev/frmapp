@@ -63,22 +63,22 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
       var title = reminder.text;
       var location = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
 
-      alert(location);
-
       if(typeof cordova != "undefined") {
       var cordova = window.plugins.calendar;
     
         var notes = "";
         var success = function(message) { 
-
+          alert(message);
           $scope.reminderStatus = "Success: " + message;
-          alert($scope.reminderStatus);
-          //$scope.userSession.reminderAdded = true;
           remoteDataService.userSession.reminderAdded = true;
           remoteDataService.commitData();
         };
-        var error = function(message) { $scope.reminderStatus = "Failure: " + message };      
+        var error = function(message) { 
+          alert(error);
+          $scope.reminderStatus = "Failure: " + message 
+        };      
 
+        alert('call');
         //cordova.exec(success, error, "Calendar", "createEvent", [title, location, notes, startDate.getTime(), endDate.getTime()]);
         window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
       }
