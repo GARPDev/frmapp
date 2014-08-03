@@ -6,6 +6,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.searchTerms = "";
     $scope.userData = remoteDataService.userData;
     $scope.currentMessage = {};
+    $scope.isMobile = isMobile();
 
     switch(document.location.hash) {
       case '#/readings':
