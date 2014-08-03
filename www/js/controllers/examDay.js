@@ -65,7 +65,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
 
       if(typeof cordova != "undefined") {
       var cordova = window.plugins.calendar;
-
+    
         var notes = "";
         var success = function(message) { 
 
