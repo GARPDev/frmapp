@@ -5,18 +5,7 @@
         <ul class="list-group list-group nopadding">
 
           <li class="list-group-item" ng-repeat="message in messages" class="">
-            <div class="message-item">
-              <div class="icon-area">
-                <div class="icon"><span class="glyphicon glyphicon-bullhorn"></span></div>
-              </div>
-              <div class="subject">
-                {{message.title}}
-              </div>
-              <div class="date">
-                {{getEpochDateTimeText(message.date)}}
-              </div>
-            </div>
-            <p>{{message.body}}</p>
+            
           </li>
 
         </ul>

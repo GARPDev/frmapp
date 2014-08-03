@@ -24,24 +24,37 @@
             <li id="mainnav-glossary" class="nav-item-area" ng-class="{ active: isActive('/glossary')}"><a href ng-click="searchGlossary(searchTerms)"><span class="glyphicon glyphicon-search nav-item-icon"></span><br>Glossary</a></li>
             </li>
           </ul>
+
           <div class="nav navbar-nav navbar-right nav-right-area">
-              <form ng-if="currentMenuItem != 'Glossary'" class="navbar-form navbar-left" role="search" ng-submit="searchGlossary(searchTerms)">
-                <div class="form-group nav-glossary-input">
-                  <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary">
-                </div>
-                <span ng-click="searchGlossary(searchTerms)" class="glyphicon glyphicon-search nav-icon-search"></span>
-                <input type="submit" style="display:none"/>
-              </form>
-              <p class="navbar-text nav-photo"><img ng-click="changeView('myaccount')" id="userImage" src="img/user.png" width="30"></p>
+            <form ng-if="currentMenuItem != 'Glossary'" class="navbar-form navbar-left" role="search" ng-submit="searchGlossary(searchTerms)">
+              <div class="form-group nav-glossary-input">
+                <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary">
+              </div>
+              <span ng-click="searchGlossary(searchTerms)" class="glyphicon glyphicon-search nav-icon-search"></span>
+              <input type="submit" style="display:none"/>
+            </form>
+            <p class="navbar-text nav-photo"><img ng-click="changeView('myaccount')" id="userImage" src="img/user.png" width="30"></p>
 
-
-                <li id="mainnav-readings">
-                  <a class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-exclamation-sign nav-item-icon"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a ui-sref="examTicket">Urgent Message!</a></li>
-                  </ul>
-                </li>
-
+              <li id="mainnav-readings">
+                <a class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-exclamation-sign nav-item-icon"></span></a>
+                <ul class="dropdown-menu">
+                  <li ng-repeat="message in messages">
+                    <div class="message-item">
+                      <div class="icon-area">
+                        <div class="icon"><span class="glyphicon glyphicon-bullhorn"></span></div>
+                      </div>
+                      <div class="subject">
+                        {{message.title}}
+                      </div>
+                      <div class="date">
+                        {{getEpochDateTimeText(message.date)}}
+                      </div>
+                    </div>
+                    <p>{{message.body}}</p>
+                  </li>
+                </ul>
+              </li>
+            </div>
 
           </ul>
         </div><!--/.nav-collapse -->
