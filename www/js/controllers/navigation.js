@@ -51,5 +51,9 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
     };    
+
+    $scope.getEpochDateShortText = function(epochDate) {
+      return getEpochDateShortText(epochDate);
+    }
   }
 ]);

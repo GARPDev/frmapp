@@ -41,10 +41,10 @@
                   <li class="list-group-item" ng-repeat="message in messages">
                     <div class="message-item">
                       <div class="subject">
-                        {{message.title}}
+                        <a href="" ng-click="">{{message.title}}</a>
                       </div>
                       <div class="date">
-                        {{getEpochDateTimeText(message.date)}}
+                        {{getEpochDateShortText(message.date)}}
                       </div>
                     </div>
                   </li>
