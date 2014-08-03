@@ -40,9 +40,6 @@
                 <ul class="dropdown-menu">
                   <li ng-repeat="message in messages">
                     <div class="message-item">
-                      <div class="icon-area">
-                        <div class="icon"><span class="glyphicon glyphicon-bullhorn"></span></div>
-                      </div>
                       <div class="subject">
                         {{message.title}}
                       </div>
@@ -50,7 +47,6 @@
                         {{getEpochDateTimeText(message.date)}}
                       </div>
                     </div>
-                    <p>{{message.body}}</p>
                   </li>
                 </ul>
               </li>
