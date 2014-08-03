@@ -43,7 +43,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       return isOnline();
     }
 
-    $scope.getcurrentMessage() {
+    $scope.getCurrentMessage = function() {
       return $scope.currentMessage.title;
     }
 
