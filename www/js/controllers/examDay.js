@@ -13,7 +13,8 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $timeout(function() {
       navigationService.pageTransitionIn();
       var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
-      mapService.displayMap('map-canvas',address);
+      mapService.displayMap('map-canvas',address, function(err, status) {
+      });
     }, 0);
 
     if(navigator.camera === null || typeof navigator.camera === "undefined") {
