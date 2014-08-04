@@ -47,7 +47,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
 
     $scope.openMessage = function(msg) {
         $scope.currentMessage = msg;
-        $("#myModal").modal();
+        $("#msgModal").modal();
     }
 
     $scope.searchGlossary = function(terms) {
