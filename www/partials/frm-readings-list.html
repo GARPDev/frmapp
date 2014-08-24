@@ -18,7 +18,7 @@
 
               <p ng-if="reading.book.title">{{reading.id}} - {{reading.book.title}} by <span ng-if="reading.book.author">{{reading.book.author}}</span></p> 
   						
-              <p ng-if="!reading.chapter.length"><span ng-if="reading.chapter.title">Chapter {{chap.id}}: {{reading.chapter.title}}</span> <span ng-if="reading.section.title">, {{reading.section.title}}</span> </p>
+              <p ng-if="!reading.chapter.length"><span ng-if="reading.chapter.title">Chapter {{reading.chapter.id}}: {{reading.chapter.title}}</span> <span ng-if="reading.section.title">, {{reading.section.title}}</span> </p>
 
               <p ng-if="reading.chapter.length">
                 <div ng-repeat="chap in reading.chapter" ng-if="chap.title">Chapter {{chap.id}}: {{chap.title}}</span> <span ng-if="chap.section.title">, {{chap.section.title}}</div>
