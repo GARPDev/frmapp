@@ -14,11 +14,9 @@
   ], 
   "answer": "i", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B01C00S00"
   ] 
 },
-
-
 {
   "id":"02", 
   "question":"An analyst is preparing a valuation report on Wacha Corporation, a conglomerate which consists of three sep- arate business units. The analyst has already estimated the unlevered beta of each of the firm’s business units based on data from the unit’s closest competitors, but would like to construct a beta metric that reflects the composite risk profile of the firm, taking into consideration its financing. According to its most recent financial statements, the firm has a debt to equity ratio of 1.1 and an effective corporate tax rate of 32.0%. Additional information about the firm’s three business units is as follows:", 
@@ -32,11 +30,9 @@
   ], 
   "answer": "i", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B01C00S00"
   ] 
 },
-
-
 
 {
   "id":"03", 
@@ -51,11 +47,9 @@
   ], 
   "answer": "iii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B06C03S00"
   ] 
 },
-
-
 {
   "id":"04", 
   "question":"Suppose the S&P 500 has an expected annual return of 7.6% and volatility of 10.8%. Suppose the Atlantis Fund has an expected annual return of 8.3% and volatility of 8.8% and is benchmarked against the S&P 500. If the risk- free rate is 2.0% per year, what is the beta of the Atlantis Fund according to the Capital Asset Pricing Model?", 
@@ -69,11 +63,9 @@
   ], 
   "answer": "iii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B02C13S00"
   ] 
 },
-
-
 {
   "id":"05", 
   "question":"In October 1994, General Electric sold Kidder Peabody to Paine Webber, which eventually dismantled the firm.Which of the following led up to the sale?", 
@@ -87,11 +79,9 @@
   ], 
   "answer": "iv", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B07C04S00"
   ] 
 },
-
-
 {
   "id":"06", 
   "question":"", 
@@ -105,11 +95,9 @@
   ], 
   "answer": "i", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B04C04S02"
   ] 
 },
-
-
 {
   "id":"07", 
   "question":"You have estimated a regression of your firm’s monthly portfolio returns against the returns of three U.S. domestic equity indexes: the Russell 1000 index, the Russell 2000 index, and the Russell 3000 index. The results are shown below. Based on the regression results, which statement is correct?", 
@@ -123,11 +111,9 @@
   ], 
   "answer": "iv", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B11C04S00"
   ] 
 },
-
-
 
 {
   "id":"08", 
@@ -142,11 +128,9 @@
   ], 
   "answer": "iii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B11C04S00"
   ] 
 },
-
-
 
 
 {
@@ -162,11 +146,9 @@
   ], 
   "answer": "i", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B10C02S00"
   ] 
 },
-
-
 
 {
   "id":"10", 
@@ -181,11 +163,9 @@
   ], 
   "answer": "i", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B11C04S00"
   ] 
 },
-
-
 
 {
   "id":"11", 
@@ -200,13 +180,9 @@
   ], 
   "answer": "ii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B13C22S00"
   ] 
 },
-
-
-
-
 
 {
   "id":"12", 
@@ -221,11 +197,9 @@
   ], 
   "answer": "ii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B10C02S00"
   ] 
 },
-
-
 
 {
   "id":"13", 
@@ -240,11 +214,9 @@
   ], 
   "answer": "ii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B15C01S00"
   ] 
 },
-
-
 
 {
   "id":"14", 
@@ -259,15 +231,13 @@
   ], 
   "answer": "iii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B15C01S00"
   ] 
 },
-
-
 {
   "id":"15", 
   "question":"1. A 15-month futures contract on an equity index is currently trading at USD 3,767.52. The underlying index is currently valued at USD 3,625 and has a continuously-compounded dividend yield of 2% per year. The continu- ously compounded risk-free rate is 5% per year. Assuming no transactions costs, what is the potential arbitrage profit per contract and the appropriate strategy?", 
-  "reason":"Explanation: This is an example of index arbitrage. The no-arbitrage value of the futures contract can be calculated as the future value of the spot price: S0   *  e(risk-free – dividend yield) x t, where S0 equals the current spot price and t equals the time in years.::::::::::::Future value of the spot price = S0 * exp[(risk free rate — dividend yield) * 1.25] = 3763.5::::::::::::Since this value is different from the current futures contract price, a potential arbitrage situation exists. Since the futures price is higher than the future value of the spot price in this case, one can short sell the higher priced futures contract, and buy the underlying stocks in the index at the current price. The arbitrage profit would equal 3,767.52 - 3,763.52 = USD 4.::::::::::::", 
+  "reason":"Explanation: This is an example of index arbitrage. The no-arbitrage value of the futures contract can be calculated as the future value of the spot price: S0   *  e(risk-free – dividend yield) x t, where S0 equals the current spot price and t equals the time in years.::::::::::::Future value of the spot price = S0 * exp[(risk free rate — dividend yield) * 1.25] = 3763.5::::::::::::Since this value is different from the current futures contract price, a potential arbitrage situation exists. Since the futures price is higher than the future value of the spot price in this case, one can short sell the higher priced futures contract, and buy the underlying stocks in the index at the current price. The arbitrage profit would equal 3,767.52 - 3,763.52 = USD 4.::::::::::::",
   "choices":[ 
     {"id":"i", "description":"USD 189, buy the futures contract and sell the underlying"},
     {"id":"ii", "description":"USD 4, buy the futures contract and sell the underlying."}, 
@@ -277,11 +247,9 @@
   ], 
   "answer": "iv", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B15C01S00"
   ] 
 },
-
-
 
 {
   "id":"16", 
@@ -296,11 +264,9 @@
   ], 
   "answer": "ii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B15C01S00"
   ] 
 },
-
-
 
 {
   "id":"17", 
@@ -315,11 +281,9 @@
   ], 
   "answer": "iv", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B16C06S00"
   ] 
 },
-
-
 
 {
   "id":"18", 
@@ -334,11 +298,9 @@
   ], 
   "answer": "ii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B19C12S00"
   ] 
 },
-
-
 
 {
   "id":"19", 
@@ -353,11 +315,9 @@
   ], 
   "answer": "i", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B24C03S00"
   ] 
 },
-
-
 
 
 {
@@ -373,11 +333,9 @@
   ], 
   "answer": "iv", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B27C02S00"
   ] 
 },
-
-
 
 {
   "id":"21", 
@@ -392,11 +350,9 @@
   ], 
   "answer": "ii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B22C12S00"
   ] 
 },
-
-
 
 {
   "id":"22", 
@@ -411,11 +367,9 @@
   ], 
   "answer": "iv", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B36C07S00"
   ] 
 },
-
-
 
 
 {
@@ -431,11 +385,9 @@
   ], 
   "answer": "ii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B36C07S00"
   ] 
 },
-
-
 
 {
   "id":"24", 
@@ -450,11 +402,9 @@
   ], 
   "answer": "iv", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B36C07S00"
   ] 
 },
-
-
 
 {
   "id":"25", 
@@ -469,11 +419,9 @@
   ], 
   "answer": "iii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B29C00S00"
   ] 
 },
-
-
 
 {
   "id":"26", 
@@ -488,11 +436,9 @@
   ], 
   "answer": "ii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B39C01S00"
   ] 
 },
-
-
 
 {
   "id":"27", 
@@ -507,11 +453,9 @@
   ], 
   "answer": "iv", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B37C19S00"
   ] 
 },
-
-
 
 
 {
@@ -527,11 +471,9 @@
   ], 
   "answer": "i", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B30C03S00"
   ] 
 },
-
-
 
 {
   "id":"29", 
@@ -546,11 +488,9 @@
   ], 
   "answer": "ii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B66C07S00"
   ] 
 },
-
-
 
 {
   "id":"30", 
@@ -565,11 +505,9 @@
   ], 
   "answer": "iii", 
   "answers" : [], 
-  "readings" : [ 
+  "readings" : ["B66C07S00"
   ] 
 },
-
-
 
 {
   "id":"31", 
@@ -584,7 +522,246 @@
   ], 
   "answer": "iv", 
   "answers" : [], 
+  "readings" : ["B36C07S00"
+  ] 
+},
+{
+  "id":"32", 
+  "question":"A firm has entered into a USD 20 million total return swap on the NASDAQ 100 Index as the index payer with ABC Corporation, which will pay 1-year LIBOR + 2.5%. The contract will last 1 year, and cash flows will be exchanged annually. Suppose the NASDAQ 100 Index is currently at 2,900 and LIBOR is 1.25%. The firm conducts a stress test on this total return swap using the following scenario: NASDAQ 100 in 1 year: 3,625::::::LIBOR in 1 year: 0.50%::::::::::::For this scenario, what is the firm's net cash flow in year 1?::::::", 
+  "reason":"Explanation: The NASDAQ will increase 25%, or (3625/2900)-1, over the next year, so the index payer will pay USD 5 million (0.25 * 20 million) to ABC Corp. Since ABC Corp’s payments depend on today’s LIBOR, it will pay 3.75% (1.25% + 2.5%) or USD 0.75 million (0.0375 * 20 million). So the firm's net cash flow would be 0.75 million –5 million = -USD 4.25 million.", 
+  "choices":[ 
+    {"id":"i", "description":"A net cash outflow of USD 4.40 million."}, 
+    {"id":"ii", "description":"A net cash outflow of USD 4.25 million."}, 
+    {"id":"iii", "description":"A new cash inflow of USD 4.25 million."}, 
+    {"id":"iv", "description":"A new cash inflow of USD 4.40 million."}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "ii", 
+  "answers" : [], 
+  "readings" : ["B45C12S00"
+  ] 
+},
+
+{
+  "id":"33", 
+  "question":"An analyst is reviewing a bond for investment purposes. The bond is expected to have a default probability of 2%, with an expected loss of 80 bps in the event of default. If the current risk-free rate is 4%, what is the mini- mum coupon spread needed on the bond for its expected return to match the risk-free rate?", 
+  "reason":"Explanation: The credit risky bond is preferable when (1-PD) * (1 + r + z) + PD * RR > 1 + r where PD is the probability of default, RR is the recovery rate, r is the coupon paid by a risk-free bond, and z is the coupon spread for a risky bond that compensates for the default risk. Since expected loss (EL) = PD * the loss given default (LGD), LGD = (EL/PD). Also the recovery rate RR = 1-LGD. Therefore RR = 1-EL/PD = 0.6, and using the relationship above: (1-2%) * (1 + 4% + z) + 2% * 60% > 1 + 4%.  Making the calculations simplifies the equation as follows: 0.98 * (1.04 + z) + 0.012 > 1.04;::::::hence z > (1.04 − 0.012) − 1.04 so z > 0.00897 or 90 bps.::::::", 
+  "choices":[ 
+    {"id":"i", "description":"90 bps"}, 
+    {"id":"ii", "description":"120 bps"}, 
+    {"id":"iii", "description":"200 bps"}, 
+    {"id":"iv", "description":"280 bps"}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "i", 
+  "answers" : [], 
+  "readings" : ["B43C06S00"
+  ] 
+},
+
+{
+  "id":"34", 
+  "question":"You are the credit risk manager for a bank and are looking to mitigate counterparty credit risk exposure to ABCO, an A-rated firm. Currently your bank has the following derivatives contracts with ABCO:::::::Contract::::::Contract Value (HKD)::::::A::::::20,000,000::::::B::::::30,000,000::::::C::::::14,000,000D1,000,000With the information provided, what is the most appropriate credit risk mitigation technique in this case?", 
+  "reason":"Explanation: Increasing collateral would effectively reduce current credit exposure depending on the contract parameters, mainly minimum transfer amount and threshold.", 
+  "choices":[ 
+    {"id":"i", "description":"Implement a netting scheme."}, 
+    {"id":"ii", "description":"Use credit triggers."}, 
+    {"id":"iii", "description":"Sell credit default swaps on ABCO"}, 
+    {"id":"iv", "description":"Increase collateral"}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "iv", 
+  "answers" : [], 
+  "readings" : ["B44C03S00"
+  ] 
+},
+
+{
+  "id":"35", 
+  "question":"::::::The exhibit below presents a summary of bilateral mark-to-market (MtM) trades for three counterparties. If netting agreements exist between all pairs of counterparties shown, what is the correct order of net exposure per counterparty, from highest to lowest?::::::::::::MtM Trades for Four Counterparties (USD Million)::::::::::::::::::::::::Opposing Counterparty B;;;C::::::Counterparty A::::::::::::Trades with positive MtM;;;10;;;10::::::Trades with negative MtM;;;-10;;;0:::::: _;;;A;;;C _;;;::::::Counterparty B::::::Counterparty C::::::::::::Trades with positive MtM;;;10;;;0::::::Trades with negative MtM;;;-10;;;-5::::::::::::A;;;B::::::Trades with positive MtM;;;0;;;5::::::Trades with negative MtM;;;-10;;;0::::::", 
+  "reason":"Explanation: One must properly net the positive and negative trades per counterparty for all three counterparties shown. The properly netted amounts are:::::::::::::For counterparty A: exposure to B = USD 0, exposure to C = USD 10 for a sum of USD 10; For counterparty B: exposure to A = USD 0, exposure to C = USD 0 for a sum of USD 0; For counterparty C: exposure to A = USD 0, exposure to B = USD 5 for a sum of USD5.::::::::::::Therefore, the correct sequence is as shown above.::::::", 
+  "choices":[ 
+    {"id":"i", "description":"A-B-C"}, 
+    {"id":"ii", "description":"A-C-B"}, 
+    {"id":"iii", "description":"C-A-B"}, 
+    {"id":"iv", "description":"C-B-A"}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "ii", 
+  "answers" : [], 
   "readings" : [ 
   ] 
-}]
+},
+
+{
+  "id":"36", 
+  "question":"An underlying exposure with an effective annual price volatility of 6% is collateralized by a 10-year U.S. Treasury note with an effective price volatility of 8%. The correlation between the exposure and the U.S. Treasury note is zero. Changes in the value of the overall position (exposure plus collateral) are calculated for a 10-day horizon at a 95% confidence interval (assume a year of 250 days). Which of the following would one expect to observe from this analysis?", 
+  "reason":"Explanation: Worse case change for the value of the collateral is: -1.96 * 8% * (10/250)0.5 = -3.136% The overall volatility of the position: (.06^2 + .08^2)^0.5 = 10%Thus the worst case change in the value of this position (exposure + collateral) is:-1.96 * 10% * (10/250)0.5 = -3.92%Thus, the collateral mitigates the exposure today while increasing the volatility of the position in the future.", 
+  "choices":[ 
+    {"id":"i", "description":"The presence of collateral increases the current exposure and increases the volatility of the exposure between remargining periods."}, 
+    {"id":"ii", "description":"The presence of collateral increases the current exposure, but decreases the volatility of the exposure between remargining periods."}, 
+    {"id":"iii", "description":"The presence of collateral decreases the current exposure, but increases the volatility of the exposure between remargining periods."}, 
+    {"id":"iv", "description":"The presence of collateral decreases the current exposure and decreases the volatility of the exposure between remargining periods."}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "iii", 
+  "answers" : [], 
+  "readings" : ["B44C03S00"
+  ] 
+},
+
+{
+  "id":"37", 
+  "question":"A trader observes a quote for Stock ZZZ, and the midpoint of its current best bid and best ask prices is CAD 35.::::::ZZZ has an estimated daily return volatility of 0.25% and average bid-ask spread of CAD 0.1. Assuming the::::::returns of ZZZ are normally distributed, what is closest to the estimated liquidity-adjusted, 1-day 95% VaR,::::::using the constant spread approach on a 10,000 share position?::::::", 
+  "reason":"The daily 95% VaR = 35 *10,000 * (1.645 * 0.0025) = CAD 1,440 The constant spread approach adds half of the bid-ask spread (as a percent) to the VaR calculation, using the following formula: Liquidity Cost (LC) = ½ (Spread * P), where Spread is equal to the actual spread divided by the midpoint and P is the value of the position. Therefore the liquidity cost (LC) = 350,000 * (0.5 * 0.1/35) = CAD 500 Liquidity-adjusted VaR (LVaR) = VaR + LC = CAD 1,940.", 
+  "choices":[ 
+    {"id":"i", "description":"CAD 1,000"}, 
+    {"id":"ii", "description":"CAD 2,000"}, 
+    {"id":"iii", "description":"CAD 3,000"}, 
+    {"id":"iv", "description":"CAD 4,000"}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "ii", 
+  "answers" : [], 
+  "readings" : ["B53C14S00"
+  ] 
+},
+
+{
+  "id":"38", 
+  "question":"Thus, the collateral mitigates the exposure today while increasing the volatility of the position in the future.The risk management department at Southern Essex Bank is trying to assess the impact of the capital conser- vation and countercyclical buffers defined in the Basel III framework. They consider a scenario in which the bank’s capital and risk-weighted assets are as shown in the table below (all values are in EUR millions):::::::::::::Risk-weighted assets::::::3,110::::::Common equity Tier 1 (CET1) capital::::::230::::::Additional Tier 1  capital::::::34::::::Total Tier 1 capital::::::264::::::Tier 2 capital::::::81::::::Tier 3 capital::::::-::::::Total capital::::::345::::::::::::Assuming that all Basel III phase-ins have occurred and that the bank’s required countercyclical buffer is 0.75%, which of the capital ratios does the bank satisfy?::::::::::::", 
+  "reason":"Explanation: The bank has CET1 capital ratio of (230/3110) or 7.4%. This ratio meets the 4.5% minimum and the additional 2.5% capital conservation buffer but not the additional countercyclical buffer of 0.75% (4.5% + 2.5% + 0.75 = 7.75%).", 
+  "choices":[ 
+    {"id":"i", "description":"The CET1 capital ratio only"}, 
+    {"id":"ii", "description":"The CET1 capital ratio plus the capital conservation buffer only"}, 
+    {"id":"iii", "description":"The CET1 capital ratio plus the capital conservation buffer and the countercyclical buffer."}, 
+    {"id":"iv", "description":"None of the above."}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "ii", 
+  "answers" : [], 
+  "readings" : ["B60C00S00"
+  ] 
+},
+
+{
+  "id":"39", 
+  "question":"An operational risk manager is trying to compute the aggregate loss distribution for a firm's investment bank- ing division. When using Monte Carlo simulation, which of the following loss frequency and loss severity distri- bution pairs is the most appropriate to use?", 
+  "reason":"Explanation: Pareto and lognormal distributions (fat-tailed) are generally used for loss severity, Poisson and Negative Binomial distributions are appropriate for loss frequency.", 
+  "choices":[ 
+    {"id":"i", "description":"Poisson, normal"}, 
+    {"id":"ii", "description":"Poisson, lognormal"}, 
+    {"id":"iii", "description":"Binomial, lognormal"}, 
+    {"id":"iv", "description":"Binomial, normal"}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "ii", 
+  "answers" : [], 
+  "readings" : ["B49C00S00"
+  ] 
+},
+
+
+{
+  "id":"40", 
+  "question":"Under the proposals for Basel III, which of the following instruments would meet the criteria to be eligible to be considered as Tier II capital?", 
+  "reason":"Explanation: Choice c meets all of the Basel Committee’s proposed criteria for inclusion in Tier II capital while the others do not. In this case, the bond is subordinated, has a minimum original maturity of at least five years and it is callable at the initiative of the issuer only after a minimum of five years.", 
+  "choices":[ 
+    {"id":"i", "description":"A senior unsecured bond with a step-up coupon and six years left until maturity."}, 
+    {"id":"ii", "description":"A senior unsecured bond with 10 years left until maturity."}, 
+    {"id":"iii", "description":"A subordinated bond with original maturity of seven years and a call option exercisable after five years."}, 
+    {"id":"iv", "description":"A subordinated bond with nine years left until maturity that is guaranteed by a subsidiary of the issuing entity."}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "iii", 
+  "answers" : [], 
+  "readings" : ["B60C00S00"
+  ] 
+},
+
+{
+  "id":"41", 
+  "question":"Even though risk managers cannot eliminate model risk, there are many ways managers can protect them- selves against model risk. Which of the following statements about managing model risk is correct?", 
+  "reason":"One way to protect against model risk is to test a model against known problems. It is always a good idea to check a model against simple problems to which one already knows the answer, and many problems can be distilled to simple special cases that have known answers. If the model fails to give the correct answer to a problem whose solution is already known, then this indicates that there is something wrong with it.", 
+  "choices":[ 
+    {"id":"i", "description":"Models should be tested against known problems."}, 
+    {"id":"ii", "description":"It is not advisable to estimate model risk using simulations."}, 
+    {"id":"iii", "description":"Complex models are generally preferable to simple models."}, 
+    {"id":"iv", "description":"Small discrepancies in model outputs are always acceptable."}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "i", 
+  "answers" : [], 
+  "readings" : ["B53C14S00"
+  ] 
+},
+
+{
+  "id":"42", 
+  "question":"When marking-to-market an illiquid position for Basel II compliance, the least desirable source of price information would be:", 
+  "reason":"Explanation: Marking-to-market is the process of valuing positions, at least daily, using readily available close out prices in orderly transactions that are sourced independently. Examples of readily available close out prices include exchange prices, screen prices, or quotes from several independent reputable brokers. Only where marking-to-mar- ket is not possible, should banks mark-to-model. Marking-to model is defined as any valuation which has to be benchmarked, extrapolated or otherwise calculated from a market input.", 
+  "choices":[ 
+    {"id":"i", "description":"An interpolation from trade prices on liquid securities similar to the one being valued."}, 
+    {"id":"ii", "description":"An average of price quotes given over the phone from three reputable independent brokers."}, 
+    {"id":"iii", "description":"A price from a broker screen."}, 
+    {"id":"iv", "description":"A price from an active exchange."}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "i", 
+  "answers" : [], 
+  "readings" : ["B62C00S00"
+  ] 
+},
+
+{
+  "id":"43", 
+  "question":"A risk analyst is evaluating the risks of a portfolio of stocks. Currently, the portfolio is valued at EUR 110 mil- lion and contains EUR 10 million in stock A. The standard deviation of returns of stock A is 12% annually and that of the overall portfolio is 19% annually. The correlation of returns between stock A and the portfolio is 0.5. Assuming the risk analyst uses a 1-year 99% VaR and that returns are normally distributed, how much is the component VaR of stock A?", 
+  "reason":"Let a(99%) represent the 99% confidence factor for the VaR estimate, which is 2.326. VaRA = wA * sA * a(99%) = EUR 10 million x 0.12 x 2.326 = EUR 2.792 million::::::Component VaRA = ? * VaRA = 0.5 x 2.792 = EUR 1.396 million::::::", 
+  "choices":[ 
+    {"id":"i", "description":"EUR 0.254 million"}, 
+    {"id":"ii", "description":"EUR 0.986 million"}, 
+    {"id":"iii", "description":"EUR 1.396 million"}, 
+    {"id":"iv", "description":"EUR 3.499 million"}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "iii", 
+  "answers" : [], 
+  "readings" : ["B66C07S00"
+  ] 
+},
+
+{
+  "id":"44", 
+  "question":"Which of the following statements about risk management in the pension fund industry is correct?", 
+  "reason":"Explanation: Nominal pension obligations are similar to a short position in a bond.", 
+  "choices":[ 
+    {"id":"i", "description":"A pension plan’s total VaR is equal to the sum of its policy-mix VaR and active-management VaR."}, 
+    {"id":"ii", "description":"Pension fund risk analysis does not consider performance relative to a benchmark."}, 
+    {"id":"iii", "description":"In most defined-benefit pension plans, if liabilities exceed assets, the shortfall does not create a risk for the plan sponsor."}, 
+    {"id":"iv", "description":"From the plan sponsor’s perspective, nominal pension obligations are similar to a short position in a long term bond."}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "iv", 
+  "answers" : [], 
+  "readings" : ["B66C07S00"
+  ] 
+},
+
+
+{
+  "id":"45", 
+  "question":"A risk manager is evaluating a pairs trading strategy recently initiated by one of the firm’s traders. The strategy involves establishing a long position in Stock A and a short position in Stock B. The following information is also provided:::::::::::::1-day 99% VaR of Stock A is USD 100 million::::::1-day 99% VaR of Stock B is USD 125 million::::::The estimated correlation between long positions in Stock A and Stock B is 0.8::::::::::::Assuming that the returns of Stock A and Stock B are jointly normally distributed, the 1-day 99% VaR of the com- bined positions is closest to?::::::", 
+  "reason":"(VaR2  + VaR2  + 2*?*VaR::::::::::::*VaR::::::::::::)   =        (1002 + 1252 + 2* - 0.8*100*125) = USD 75 million::::::A        B        A        B::::::Since this is a pairs trading strategy with a long and a short position, the proper correlation to use is -0.8.::::::", 
+  "choices":[ 
+    {"id":"i", "description":"USD 0 million"}, 
+    {"id":"ii", "description":"USD 75 million"}, 
+    {"id":"iii", "description":"USD 160 million"}, 
+    {"id":"iv", "description":"USD 225 million"}, 
+    {"id":"v", "description":""} 
+  ], 
+  "answer": "ii", 
+  "answers" : [], 
+  "readings" : ["B66C07S00"
+  ] 
 }
+]}
