@@ -17,6 +17,8 @@
   "readings" : ["B01C00S00"
   ] 
 },
+
+
 {
   "id":"02", 
   "question":"An analyst is preparing a valuation report on Wacha Corporation, a conglomerate which consists of three sep- arate business units. The analyst has already estimated the unlevered beta of each of the firm’s business units based on data from the unit’s closest competitors, but would like to construct a beta metric that reflects the composite risk profile of the firm, taking into consideration its financing. According to its most recent financial statements, the firm has a debt to equity ratio of 1.1 and an effective corporate tax rate of 32.0%. Additional information about the firm’s three business units is as follows:", 
@@ -34,6 +36,8 @@
   ] 
 },
 
+
+
 {
   "id":"03", 
   "question":"A bank’s risk manager is considering different viewpoints for reporting data quality metrics within a data quality scorecard: a data quality issues viewpoint, a business process viewpoint, and a business impact viewpoint. For which of the following purposes would a business process viewpoint be most effective?:", 
@@ -50,12 +54,14 @@
   "readings" : ["B06C03S00"
   ] 
 },
+
+
 {
   "id":"04", 
   "question":"Suppose the S&P 500 has an expected annual return of 7.6% and volatility of 10.8%. Suppose the Atlantis Fund has an expected annual return of 8.3% and volatility of 8.8% and is benchmarked against the S&P 500. If the risk- free rate is 2.0% per year, what is the beta of the Atlantis Fund according to the Capital Asset Pricing Model?", 
   "reason":"::::::Explanation: Since the correlation or covariance between the Atlantis Fund and the S&P 500 is notknown,CAPM::::::must be used to back out the beta: −  = �::::::::::::+ 𝛽∙(−::::::::::::− � ).::::::�𝑖::::::::::::� 𝑖::::::::::::�𝑀�::::::::::::Therefore:::::::::::::::::::(8.3% − 2.0%):::::: 8.3% = 2.0% + 𝛽𝑖∙(7.6% − 2.0%); hence  𝛽𝑖= (7.6% − 2.0%) or 1.13. ", 
   "choices":[ 
-    {"id":"i", "description":"1. 0.81"}, 
+    {"id":"i", "description":"0.81"}, 
     {"id":"ii", "description":"0.89"}, 
     {"id":"iii", "description":"1.13"}, 
     {"id":"iv", "description":"1.23"}, 
@@ -66,6 +72,8 @@
   "readings" : ["B02C13S00"
   ] 
 },
+
+
 {
   "id":"05", 
   "question":"In October 1994, General Electric sold Kidder Peabody to Paine Webber, which eventually dismantled the firm.Which of the following led up to the sale?", 
@@ -82,6 +90,8 @@
   "readings" : ["B07C04S00"
   ] 
 },
+
+
 {
   "id":"06", 
   "question":"", 
@@ -98,6 +108,8 @@
   "readings" : ["B04C04S02"
   ] 
 },
+
+
 {
   "id":"07", 
   "question":"You have estimated a regression of your firm’s monthly portfolio returns against the returns of three U.S. domestic equity indexes: the Russell 1000 index, the Russell 2000 index, and the Russell 3000 index. The results are shown below. Based on the regression results, which statement is correct?", 
@@ -114,6 +126,8 @@
   "readings" : ["B11C04S00"
   ] 
 },
+
+
 
 {
   "id":"08", 
@@ -133,6 +147,8 @@
 },
 
 
+
+
 {
   "id":"09", 
   "question":"Emanuel Lee is analyzing his new credit portfolio, which consists of a large number of companies. He assumes that the time, measured in years, between successive defaults follows an exponential distribution. If N denotes the number of defaults over the next year, what is the appropriate probability distribution of N?", 
@@ -149,6 +165,8 @@
   "readings" : ["B10C02S00"
   ] 
 },
+
+
 
 {
   "id":"10", 
@@ -167,6 +185,8 @@
   ] 
 },
 
+
+
 {
   "id":"11", 
   "question":" Which of the following statements about the exponentially weighted moving average (EWMA) model and the generalized autoregressive conditional heteroscedasticity (GARCH(1,1)) model is correct?",
@@ -183,6 +203,10 @@
   "readings" : ["B13C22S00"
   ] 
 },
+
+
+
+
 
 {
   "id":"12", 
@@ -201,6 +225,8 @@
   ] 
 },
 
+
+
 {
   "id":"13", 
   "question":"1. An experienced commodities risk manager is examining corn futures quotes from the CME Group. Which of the following observations would the risk manager most likely view as a potential problem with the quotation data?", 
@@ -218,15 +244,17 @@
   ] 
 },
 
+
+
 {
   "id":"14", 
   "question":"A portfolio manager controls USD 88 million par value of zero-coupon bonds maturing in 5 years and yielding 4%. The portfolio manager expects that interest rates will increase. To hedge the exposure, the portfolio manager wants to sell part of the 5-year bond position and use the proceeds from the sale to purchase zero-coupon bonds maturing in 1.5 years and yielding 3%. What is the market value of the 1.5-year bonds that the portfolio manager should purchase to reduce the duration on the combined position to 3 years?", 
   "reason":"Explanation: In order to find the proper amount, we first need to calculate the current market value of the portfolio (P), which is:::::::::::::P = 88 * exp (-0.04 * 5) = 72.05 million.::::::::::::The desired portfolio duration (after the sale of the 5-year bond and purchase of the 1.5 year bond) can be expressed as:::::::::::::[5 * (P-X) + 1.5* X]/P = 3 where X represents the market value of the zero-coupon bond with a maturity of 1.5 years. This equation holds true when X = (4/7) * P, or 41.17 million.::::::", 
   "choices":[ 
     {"id":"i", "description":"USD 41.17 million"}, 
-    {"id":"ii", "description":"1. USD 43.06 million"}, 
-    {"id":"iii", "description":"1. USD 43.28 million"}, 
-    {"id":"iv", "description":"1. USD 50.28 million"}, 
+    {"id":"ii", "description":"USD 43.06 million"}, 
+    {"id":"iii", "description":"USD 43.28 million"}, 
+    {"id":"iv", "description":"USD 50.28 million"}, 
     {"id":"v", "description":""} 
   ], 
   "answer": "iii", 
@@ -234,6 +262,8 @@
   "readings" : ["B15C01S00"
   ] 
 },
+
+
 {
   "id":"15", 
   "question":"1. A 15-month futures contract on an equity index is currently trading at USD 3,767.52. The underlying index is currently valued at USD 3,625 and has a continuously-compounded dividend yield of 2% per year. The continu- ously compounded risk-free rate is 5% per year. Assuming no transactions costs, what is the potential arbitrage profit per contract and the appropriate strategy?", 
@@ -251,15 +281,17 @@
   ] 
 },
 
+
+
 {
   "id":"16", 
   "question":"1. Savers Bancorp entered into a swap agreement over a 2-year period on August 9, 2008, with which it received a 4.00% fixed rate and paid LIBOR plus 1.20% on a notional amount of USD 6.5 million. Payments were to be made every 6 months. The table below displays the actual annual 6-month LIBOR rates over the 2-year period. Assuming no default, how much did Savers Bancorp receive on August 9, 2010?", 
   "reason":"Explanation: The proper interest rate to use is the 6-month LIBOR rate at February 9, 2010, since it is the 6-month LIBOR that will yield the payoff on August 9, 2010. Therefore the net settlement amount on August 9th, 2010 is as follows: Savers receives: 6,500,000 * 4.00% * 0.5 years, or USD 130,000::::::Savers pays 6,500,000 * (0.39% + 1.20%) * 0.5 , or USD 51,675.::::::Therefore Savers would receive the difference, or 78,325.::::::::::::", 
   "choices":[ 
-    {"id":"i", "description":"1. USD 72,150"}, 
-    {"id":"ii", "description":"1. USD 78,325"}, 
-    {"id":"iii", "description":"1. USD 117,325"}, 
-    {"id":"iv", "description":"1. USD 156,650"}, 
+    {"id":"i", "description":"USD 72,150"}, 
+    {"id":"ii", "description":"USD 78,325"}, 
+    {"id":"iii", "description":"USD 117,325"}, 
+    {"id":"iv", "description":"USD 156,650"}, 
     {"id":"v", "description":""} 
   ], 
   "answer": "ii", 
@@ -267,6 +299,8 @@
   "readings" : ["B15C01S00"
   ] 
 },
+
+
 
 {
   "id":"17", 
@@ -276,7 +310,7 @@
     {"id":"i", "description":"Short the forward contract and short the zero-coupon bond."}, 
     {"id":"ii", "description":"Short the forward contract and buy the zero-coupon bond"}, 
     {"id":"iii", "description":"Buy the forward contract and short the zero-coupon bond."}, 
-    {"id":"iv", "description":"1. Buy the forward contract and buy the zero-coupon bond."}, 
+    {"id":"iv", "description":"Buy the forward contract and buy the zero-coupon bond."}, 
     {"id":"v", "description":""} 
   ], 
   "answer": "iv", 
@@ -284,6 +318,8 @@
   "readings" : ["B16C06S00"
   ] 
 },
+
+
 
 {
   "id":"18", 
@@ -301,6 +337,8 @@
   "readings" : ["B19C12S00"
   ] 
 },
+
+
 
 {
   "id":"19", 
@@ -320,6 +358,8 @@
 },
 
 
+
+
 {
   "id":"20", 
   "question":"1. Portfolio A has a 1-day 95% VaR, denoted by VaR(A), and Portfolio B has a 1-day 95% VaR, denoted by VaR(B). If Portfolio A and Portfolio B are combined into a new Portfolio C with a 1-day 95% VaR denoted by VaR(C),  which of the following statements will always be correct?", 
@@ -337,6 +377,8 @@
   ] 
 },
 
+
+
 {
   "id":"21", 
   "question":"1. In evaluating the dynamic delta hedging of a portfolio of short option positions, which of the following is correct?", 
@@ -353,6 +395,8 @@
   "readings" : ["B22C12S00"
   ] 
 },
+
+
 
 {
   "id":"22", 
@@ -372,6 +416,8 @@
 },
 
 
+
+
 {
   "id":"23", 
   "question":"A risk manager is evaluating the price sensitivity of an investment-grade callable bond using the firm’s valuation system. The table below presents information on the bond as well as on the embedded option. The current interest rate environment is flat at 5%.::::::::::::Value in USD per USD 100 face value::::::::::::Interest Rate Level::::::Callable Bond::::::Call Option::::::4.98%::::::102.07848::::::2.08719::::::5.00%::::::101.61158::::::2.05010::::::5.02%::::::100.92189::::::2.01319::::::::::::::::::::::::The convexity of the callable bond can be estimated as:::::::", 
@@ -388,6 +434,8 @@
   "readings" : ["B36C07S00"
   ] 
 },
+
+
 
 {
   "id":"24", 
@@ -406,6 +454,8 @@
   ] 
 },
 
+
+
 {
   "id":"25", 
   "question":"1. An implementation principle recommended by the Basel Committee to banks for the governance of sound stress testing practices is that stress testing reports should:", 
@@ -423,6 +473,8 @@
   ] 
 },
 
+
+
 {
   "id":"26", 
   "question":"A fund holds a portfolio of principal-only strips of mortgage-backed securities. All other things being equal, which of the following will most likely reduce the weighted average maturity of the portfolio?", 
@@ -439,6 +491,8 @@
   "readings" : ["B39C01S00"
   ] 
 },
+
+
 
 {
   "id":"27", 
@@ -458,6 +512,8 @@
 },
 
 
+
+
 {
   "id":"28", 
   "question":"A fund holds a portfolio of principal-only strips of mortgage-backed securities. All other things being equal, which of the following will most likely reduce the weighted average maturity of the portfolio?", 
@@ -474,6 +530,8 @@
   "readings" : ["B30C03S00"
   ] 
 },
+
+
 
 {
   "id":"29", 
@@ -492,6 +550,8 @@
   ] 
 },
 
+
+
 {
   "id":"30", 
   "question":"Which of the following is not a VaR mapping method for fixed-income portfolios?", 
@@ -509,6 +569,8 @@
   ] 
 },
 
+
+
 {
   "id":"31", 
   "question":"A risk manager is constructing a term structure model and intends to use the Cox-Ingersoll-Ross Model. Which of the following describes this model?", 
@@ -525,6 +587,8 @@
   "readings" : ["B36C07S00"
   ] 
 },
+
+
 {
   "id":"32", 
   "question":"A firm has entered into a USD 20 million total return swap on the NASDAQ 100 Index as the index payer with ABC Corporation, which will pay 1-year LIBOR + 2.5%. The contract will last 1 year, and cash flows will be exchanged annually. Suppose the NASDAQ 100 Index is currently at 2,900 and LIBOR is 1.25%. The firm conducts a stress test on this total return swap using the following scenario: NASDAQ 100 in 1 year: 3,625::::::LIBOR in 1 year: 0.50%::::::::::::For this scenario, what is the firm's net cash flow in year 1?::::::", 
@@ -541,6 +605,8 @@
   "readings" : ["B45C12S00"
   ] 
 },
+
+
 
 {
   "id":"33", 
@@ -559,6 +625,8 @@
   ] 
 },
 
+
+
 {
   "id":"34", 
   "question":"You are the credit risk manager for a bank and are looking to mitigate counterparty credit risk exposure to ABCO, an A-rated firm. Currently your bank has the following derivatives contracts with ABCO:::::::Contract::::::Contract Value (HKD)::::::A::::::20,000,000::::::B::::::30,000,000::::::C::::::14,000,000D1,000,000With the information provided, what is the most appropriate credit risk mitigation technique in this case?", 
@@ -575,6 +643,8 @@
   "readings" : ["B44C03S00"
   ] 
 },
+
+
 
 {
   "id":"35", 
@@ -593,6 +663,8 @@
   ] 
 },
 
+
+
 {
   "id":"36", 
   "question":"An underlying exposure with an effective annual price volatility of 6% is collateralized by a 10-year U.S. Treasury note with an effective price volatility of 8%. The correlation between the exposure and the U.S. Treasury note is zero. Changes in the value of the overall position (exposure plus collateral) are calculated for a 10-day horizon at a 95% confidence interval (assume a year of 250 days). Which of the following would one expect to observe from this analysis?", 
@@ -609,6 +681,8 @@
   "readings" : ["B44C03S00"
   ] 
 },
+
+
 
 {
   "id":"37", 
@@ -627,6 +701,8 @@
   ] 
 },
 
+
+
 {
   "id":"38", 
   "question":"Thus, the collateral mitigates the exposure today while increasing the volatility of the position in the future.The risk management department at Southern Essex Bank is trying to assess the impact of the capital conser- vation and countercyclical buffers defined in the Basel III framework. They consider a scenario in which the bank’s capital and risk-weighted assets are as shown in the table below (all values are in EUR millions):::::::::::::Risk-weighted assets::::::3,110::::::Common equity Tier 1 (CET1) capital::::::230::::::Additional Tier 1  capital::::::34::::::Total Tier 1 capital::::::264::::::Tier 2 capital::::::81::::::Tier 3 capital::::::-::::::Total capital::::::345::::::::::::Assuming that all Basel III phase-ins have occurred and that the bank’s required countercyclical buffer is 0.75%, which of the capital ratios does the bank satisfy?::::::::::::", 
@@ -643,6 +719,8 @@
   "readings" : ["B60C00S00"
   ] 
 },
+
+
 
 {
   "id":"39", 
@@ -662,6 +740,8 @@
 },
 
 
+
+
 {
   "id":"40", 
   "question":"Under the proposals for Basel III, which of the following instruments would meet the criteria to be eligible to be considered as Tier II capital?", 
@@ -678,6 +758,8 @@
   "readings" : ["B60C00S00"
   ] 
 },
+
+
 
 {
   "id":"41", 
@@ -696,6 +778,8 @@
   ] 
 },
 
+
+
 {
   "id":"42", 
   "question":"When marking-to-market an illiquid position for Basel II compliance, the least desirable source of price information would be:", 
@@ -712,6 +796,8 @@
   "readings" : ["B62C00S00"
   ] 
 },
+
+
 
 {
   "id":"43", 
@@ -730,6 +816,8 @@
   ] 
 },
 
+
+
 {
   "id":"44", 
   "question":"Which of the following statements about risk management in the pension fund industry is correct?", 
@@ -746,6 +834,8 @@
   "readings" : ["B66C07S00"
   ] 
 },
+
+
 
 
 {
