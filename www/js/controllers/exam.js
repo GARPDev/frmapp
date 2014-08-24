@@ -61,7 +61,9 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         $scope.wrongAnswers++;
         $scope.answerResponse = "Sorry, that is not right.";
         $scope.correctAnswer = $scope.question.answer;
+
         $scope.answerReason = $scope.question.reason;
+        $scope.answerReason = $scope.answerReason..replace(/:+/g,'<br>');
       }
       if(examSharedService.settings.mode == 0) {
         $("#myModal").modal();
