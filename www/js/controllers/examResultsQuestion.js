@@ -45,12 +45,14 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
     }
 
     $scope.inAnswer = function(choice, answer) {
-      var ans = answer.replace(",","");
-      ans = ans.replace("and","");
-      var opt = ans.split(" ");
-      for(var i=0; i<opt.length; i++) {
-        if(opt[i] == choice)
-          return true;
+      if(defined(answer)) {
+        var ans = answer.replace(",","");
+        ans = ans.replace("and","");
+        var opt = ans.split(" ");
+        for(var i=0; i<opt.length; i++) {
+          if(opt[i] == choice)
+            return true;
+        }        
       }
       return false;
     }
