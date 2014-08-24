@@ -32,12 +32,12 @@
                 {{question.question}}
               </div>
               <div ng-if="userAnswer.choice" style="font-size:20px;font-weight:bold;color:#b0c636;margin-left:auto;margin-right:auto;width: 600px;height: 50px;">
-                <div style="float:left;margin-right:20px;">Correct Answer: {{correctChoice.answer}}</div>
-                <div ng-if="correctChoice == userAnswer" style="float:left;margin-right:20px;">
+                <div style="float:left;margin-right:20px;">Correct Answer: {{correctChoice}}</div>
+                <div ng-if="correctChoice == userAnswer.choice" style="float:left;margin-right:20px;">
                   <span class="glyphicon glyphicon-ok"></span>
                   Your Answer: {{userAnswer.choice}}
                 </div>
-                <div ng-if="correctChoice != userAnswer" style="float:left;margin-right:20px;color:#F05123">
+                <div ng-if="correctChoice != userAnswer.choice" style="float:left;margin-right:20px;color:#F05123">
                   <span class="glyphicon glyphicon-remove"></span>
                   Your Answer: {{userAnswer.choice}}
                 </div>
