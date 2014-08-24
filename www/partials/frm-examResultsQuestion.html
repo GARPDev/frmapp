@@ -35,11 +35,11 @@
                 <div style="float:left;margin-right:20px;">Correct Answer: {{correctChoice.answer}}</div>
                 <div ng-if="correctChoice.answer == userChoice.answer" style="float:left;margin-right:20px;">
                   <span class="glyphicon glyphicon-ok"></span>
-                  Your Answer: {{userChoice.answer}}
+                  Your Answer: {{userAnswer.choice}}
                 </div>
                 <div ng-if="correctChoice.answer != userChoice.answer" style="float:left;margin-right:20px;color:#F05123">
                   <span class="glyphicon glyphicon-remove"></span>
-                  Your Answer: {{userChoice.answer}}
+                  Your Answer: {{userAnswer.choice}}
                 </div>
               </div>
               <div class="exam-question-choices">
