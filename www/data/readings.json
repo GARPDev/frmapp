@@ -6,7 +6,7 @@
   "book": { "id":"01", "title":"Risk taking: a Corporate governance Perspective", "author":"", "publisher":"International Finance Corporation, World Bank group, June 2012"},
   "chapter": [{"id":"", "title":""},{"id":"", "title":""}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"01", "order":1, "title":"Readings for Foundations of Risk Management"},
   "attachment" : {} 
   },
@@ -16,7 +16,7 @@
   "book": { "id":"02", "title":"Modern Portfolio Theory and Investment Analysis, 8th Edition", "author":"edwin J. elton, Martin J. gruber, stephen J. Brown and William n. goetzmann", "publisher":"new York: Mcgraw-Hill, 2010"},
   "chapter": {"id":"13", "title":"The Standard Capital Asset Pricing Model"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"01", "order":1, "title":"Readings for Foundations of Risk Management"},
   "attachment" : {} 
   },
@@ -26,7 +26,7 @@
   "book": { "id":"03", "title":"Investments, 9th Edition", "author":"Zvi Bodie, alex kane, and alan J. Marcus", "publisher":"Hoboken, nJ: John Wiley & sons, 2009"},
   "chapter": {"id":"10", "title":"Arbitrage Pricing Theory and Multifactor Models of Risk and Retun"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"01", "order":1, "title":"Readings for Foundations of Risk Management"},
   "attachment" : {} 
   },
@@ -36,7 +36,7 @@
   "book": { "id":"04", "title":"Portfolio Theory and Performance Analysis", "author":"noel amenc and Veronique Le sourd", "publisher":"West sussex, england: John Wiley & sons, 2003"},
   "chapter": {"id":"10", "title":"Applying the CAPM to Performance Measurement: Single-Index Performance Measurement Indicators"},
   "section": { "id":"2", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"01", "order":1, "title":"Readings for Foundations of Risk Management"},
   "attachment" : {} 
   },
@@ -46,7 +46,7 @@
   "book": { "id":"05", "title":"understanding and Communicating Risk appetite", "author":"dr. Larry Rittenberg and Frank Martens", "publisher":"Coso, January 2012"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"01", "order":1, "title":"Readings for Foundations of Risk Management"},
   "attachment" : {} 
   },
@@ -56,7 +56,7 @@
   "book": { "id":"06", "title":"Risk Management in Finance: Six Sigma and Other Next Generation Techniques", "author":"anthony tarantino and deborah Cernauskas", "publisher":"Hoboken, nJ: John Wiley & sons, 2009"},
   "chapter": {"id":"3", "title":"Information Risk and Data Quality Management"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"01", "order":1, "title":"Readings for Foundations of Risk Management"},
   "attachment" : {} 
   },
@@ -66,7 +66,7 @@
   "book": { "id":"07", "title":"Financial Risk Management: A Practitioner’s Guide to Managing Market and Credit Risk, 2nd Edition", "author":"steve allen", "publisher":"new York: John Wiley & sons, 2013"},
   "chapter": {"id":"4", "title":"Financial Disasters"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"01", "order":1, "title":"Readings for Foundations of Risk Management"},
   "attachment" : {} 
   },
@@ -76,7 +76,7 @@
   "book": { "id":"08", "title":"Risk Management Failures: What are they and When do they Happen?", "author":"", "publisher":"Fisher College of Business Working Paper series, october 2008.*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"01", "order":1, "title":"Readings for Foundations of Risk Management"},
   "attachment" : {} 
   },
@@ -86,7 +86,7 @@
   "book": { "id":"09", "title":"gaRP Code of Conduct.*", "author":"", "publisher":""},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"01", "order":1, "title":"Readings for Foundations of Risk Management"},
   "attachment" : {} 
   },
@@ -96,7 +96,7 @@
   "book": { "id":"10", "title":"Mathematics and Statistics for Financial Risk Management", "author":"Michael Miller", "publisher":"Hoboken, nJ: John Wiley & sons, 2012"},
   "chapter": [{"id":"2", "title":"Probabilities"},{"id":"3", "title":"Basic Statistics"},{"id":"4", "title":"Distributions"},{"id":"5", "title":"Hypothesis Testing and Conﬁdence Intervals"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"02", "order":1, "title":"Readings for Quantitative Analysis"},
   "attachment" : {} 
   },
@@ -106,7 +106,7 @@
   "book": { "id":"11", "title":"Introduction to Econometrics, Brief Edition", "author":"James stock and Mark Watson", "publisher":"Boston: Pearson education, 2008"},
   "chapter": [{"id":"4", "title":"Linear Regression with One Regressor"},{"id":"5", "title":"Regression with a Single Regressor"},{"id":"6", "title":"Linear Regression with Multiple Regressors"},{"id":"7", "title":"Hypothesis Tests and Conﬁdence Intervals in Multiple Regression"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"02", "order":1, "title":"Readings for Quantitative Analysis"},
   "attachment" : {} 
   },
@@ -116,7 +116,7 @@
   "book": { "id":"12", "title":"Simulation and Optimization in Finance", "author":"dessislava Pachamanova and Frank Fabozzi", "publisher":"Hoboken, nJ: John Wiley & sons, 2010"},
   "chapter": {"id":"4", "title":"Simulation Modeling"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"02", "order":1, "title":"Readings for Quantitative Analysis"},
   "attachment" : {} 
   },
@@ -126,7 +126,7 @@
   "book": { "id":"13", "title":"Options, Futures, and Other Derivatives, 8th Edition", "author":"John Hull", "publisher":"new York: Pearson Prentice Hall, 2012"},
   "chapter": {"id":"22", "title":"Estimating Volatilities and Correlations"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"02", "order":1, "title":"Readings for Quantitative Analysis"},
   "attachment" : {} 
   },
@@ -136,7 +136,7 @@
   "book": { "id":"14", "title":"andrew W. Lo Financial Analysts Journal, Vol. 57, no. 6", "author":"", "publisher":""},
   "chapter": [{"id":"01", "title":"Introduction:  Futures  and  Options  Markets"},{"id":"02", "title":"Futures Industry Institutions and Professionals"},{"id":"07", "title":"Hedging with Futures and Options"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"03", "order":1, "title":"Readings for Financial Markets and Products"},
   "attachment" : {} 
   },
@@ -146,7 +146,7 @@
   "book": { "id":"15", "title":"Hull, Options, Futures, and Other Derivatives, 8th Edition.", "author":"", "publisher":""},
   "chapter": [{"id":"1", "title":"Introduction"},{"id":"2", "title":"Mechanics of Futures Markets"},{"id":"3", "title":"Hedging Strategies Using Futures"},{"id":"4", "title":"Interest Rates"},{"id":"5", "title":"Determination of Forward and Futures Prices"},{"id":"6", "title":"Interest Rate Futures"},{"id":"7", "title":"Swaps"},{"id":"10", "title":"Properties of Stock Options"},{"id":"11", "title":"Trading Strategies Involving Options"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"03", "order":1, "title":"Readings for Financial Markets and Products"},
   "attachment" : {} 
   },
@@ -156,7 +156,7 @@
   "book": { "id":"16", "title":"Derivatives Markets, 3rd Edition", "author":"Robert Mcdonald", "publisher":"Boston: addison-Wesley, 2013"},
   "chapter": {"id":"6", "title":"Commodity Forwards and Futures"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"03", "order":1, "title":"Readings for Financial Markets and Products"},
   "attachment" : {} 
   },
@@ -166,7 +166,7 @@
   "book": { "id":"17", "title":"Commodities and Commodity Derivatives: Modeling and Pricing for Agriculturals, Metals and Energy", "author":"Helyette geman", "publisher":"West sussex, england: John Wiley & sons, 2005"},
   "chapter": {"id":"1", "title":"Fundamentals of Commodity Spot and Futures Markets: Instruments, Exchanges and  Strategies"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"03", "order":1, "title":"Readings for Financial Markets and Products"},
   "attachment" : {} 
   },
@@ -176,7 +176,7 @@
   "book": { "id":"18", "title":"Financial Institutions Management: A Risk Management Approach, 7th Edition", "author":"anthony saunders and Marcia Millon Cornett", "publisher":"new York: Mcgraw-Hill, 2011"},
   "chapter": {"id":"14", "title":"Foreign Exchange Risk"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"03", "order":1, "title":"Readings for Financial Markets and Products"},
   "attachment" : {} 
   },
@@ -186,7 +186,7 @@
   "book": { "id":"19", "title":"The Handbook of Fixed Income Securities, 8th Edition", "author":"Frank Fabozzi", "publisher":"new York: Mcgraw-Hill, 2012"},
   "chapter": {"id":"12", "title":"Corporate Bonds, by Frank Fabozzi, Steven Mann and Adam Cohen"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"03", "order":1, "title":"Readings for Financial Markets and Products"},
   "attachment" : {} 
   },
@@ -196,7 +196,7 @@
   "book": { "id":"20", "title":"Managing Credit Risk, 2nd Edition", "author":"John B. Caouette, edward i. altman, Paul narayanan, and Robert W.J. nimmo", "publisher":"new York: John Wiley & sons, 2008"},
   "chapter": {"id":"6", "title":"The Rating Agencies"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"03", "order":1, "title":"Readings for Financial Markets and Products"},
   "attachment" : {} 
   },
@@ -206,7 +206,7 @@
   "book": { "id":"21", "title":"Managing Credit Risk, 2nd Edition", "author":"John B. Caouette, edward i. altman, Paul narayanan, and Robert W.J. nimmo", "publisher":"new York: John Wiley & sons, 2008"},
   "chapter": [{"id":"2", "title":"Quantifying Volatility in VaR Models"},{"id":"3", "title":"Putting VaR to Work"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"04", "order":1, "title":"Readings for Valuation and Risk Models"},
   "attachment" : {} 
   },
@@ -216,7 +216,7 @@
   "book": { "id":"22", "title":"Hull, Options, Futures, and Other Derivatives, 8th Edition", "author":"", "publisher":""},
   "chapter": [{"id":"12", "title":"Binomial Trees"},{"id":"14", "title":"The Black-Scholes-Merton Model"},{"id":"18", "title":"The Greek Letters"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"04", "order":1, "title":"Readings for Valuation and Risk Models"},
   "attachment" : {} 
   },
@@ -226,7 +226,7 @@
   "book": { "id":"23", "title":"Fixed Income Securities, 3rd Edition", "author":"Bruce tuckman", "publisher":"Hoboken, nJ: John Wiley & sons, 2011"},
   "chapter": [{"id":"1", "title":"Prices,  Discount  Factors,  and  Arbitrage"},{"id":"2", "title":"Spot, Forward and Par Rates"},{"id":"3", "title":"Returns, Spreads and Yields"},{"id":"4", "title":"One-Factor Risk Metrics and Hedges"},{"id":"5", "title":"Multi-Factor Risk Metrics and Hedges"},{"id":"6", "title":"Empirical Approaches to Risk Metrics and Hedges"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"04", "order":1, "title":"Readings for Valuation and Risk Models"},
   "attachment" : {} 
   },
@@ -236,7 +236,7 @@
   "book": { "id":"24", "title":"Understanding Market, Credit and Operational Risk: The Value at Risk Approach", "author":"Linda allen, Jacob Boudoukh and anthony saunders", "publisher":"oxford: Blackwell Publishing, 2004"},
   "chapter": [{"id":"3", "title":"Assessing Country Risk"},{"id":"4", "title":"Country Risk Assessment in Practice"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"04", "order":1, "title":"Readings for Valuation and Risk Models"},
   "attachment" : {} 
   },
@@ -246,7 +246,7 @@
   "book": { "id":"25", "title":"Measuring and Managing Credit Risk", "author":"arnaud de servigny and olivier Renault", "publisher":"new York: Mcgraw-Hill, 2004"},
   "chapter": {"id":"2", "title":"External and Internal Ratings"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"04", "order":1, "title":"Readings for Valuation and Risk Models"},
   "attachment" : {} 
   },
@@ -256,7 +256,7 @@
   "book": { "id":"26", "title":"Internal Credit Risk Models: Capital Allocation and Performance Measurement", "author":"Michael ong", "publisher":"London: Risk Books, 2003"},
   "chapter": [{"id":"4", "title":"Loan Portfolios and Expected Loss"},{"id":"5", "title":"Unexpected Loss"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"04", "order":1, "title":"Readings for Valuation and Risk Models"},
   "attachment" : {} 
   },
@@ -266,7 +266,7 @@
   "book": { "id":"27", "title":"Measuring Market Risk, 2nd Edition", "author":"kevin dowd", "publisher":"West sussex, england: John Wiley & sons, 2005"},
   "chapter": {"id":"2", "title":"Measures of Financial Risk"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"04", "order":1, "title":"Readings for Valuation and Risk Models"},
   "attachment" : {} 
   },
@@ -276,7 +276,7 @@
   "book": { "id":"28", "title":"Risk Management and Financial Institutions, 3rd Edition", "author":"John Hull", "publisher":"Boston: Pearson Prentice Hall, 2012"},
   "chapter": {"id":"20", "title":"Operational Risk"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"04", "order":1, "title":"Readings for Valuation and Risk Models"},
   "attachment" : {} 
   },
@@ -286,7 +286,7 @@
   "book": { "id":"29", "title":"Value-at-Risk: The New Benchmark for Managing Financial Risk, 3rd Edition", "author":"Philippe Jorion", "publisher":"new York: Mcgraw Hill, 2007"},
   "chapter": {"id":"14", "title":"Stress Testing"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"04", "order":1, "title":"Readings for Valuation and Risk Models"},
   "attachment" : {} 
   },
@@ -296,7 +296,7 @@
   "book": { "id":"29", "title":"Principles for sound stress testing Practices and supervision", "author":"", "publisher":"Basel Committee on Banking supervision Publication, May 2009"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"04", "order":1, "title":"Readings for Valuation and Risk Models"},
   "attachment" : {} 
   },
@@ -306,7 +306,7 @@
   "book": { "id":"30", "title":"Measuring Market Risk, 2nd Edition", "author":"kevin dowd", "publisher":"West sussex, england: John Wiley & sons, 2005"},
   "chapter": [{"id":"3", "title":"Estimating Market Risk Measures"},{"id":"4", "title":"Non-parametric Approaches"},{"id":"5", "title":"Appendix—Modeling Dependence: Correlations and Copulas"},{"id":"7", "title":"Parametric Approaches (II): Extreme Value"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"05", "order":1, "title":"Readings for Market Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -316,7 +316,7 @@
   "book": { "id":"31", "title":"Measuring Market Risk, 2nd Edition", "author":"kevin dowd", "publisher":"West sussex, england: John Wiley & sons, 2005"},
   "chapter": [{"id":"6", "title":"Backtesting VaR"},{"id":"11", "title":"VaR Mapping"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"05", "order":1, "title":"Readings for Market Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -326,7 +326,7 @@
   "book": { "id":"32", "title":"the Best of Both Worlds: a Hybrid approach to Calculating Value at Risk", "author":"Jacob Boudoukh, Matthew Richardson and Robert F. Whitelaw", "publisher":"stern school of Business, nYu."},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"05", "order":1, "title":"Readings for Market Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -336,7 +336,7 @@
   "book": { "id":"33", "title":"incorporating Volatility updating into the Historical simulation Method for Value at Risk", "author":"John Hull and alan White", "publisher":"Journal of Risk, october 1998."},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"05", "order":1, "title":"Readings for Market Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -346,7 +346,7 @@
   "book": { "id":"34", "title":"Messages from the academic Literature on Risk Measurement for the trading Book", "author":"", "publisher":"Basel Committee on Banking supervision, Working Paper no. 19, Jan 2011."},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"05", "order":1, "title":"Readings for Market Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -356,7 +356,7 @@
   "book": { "id":"35", "title":"LiBoR vs. ois: the derivatives discounting dilemma", "author":"John Hull and alan White", "publisher":"Journal of investment Management, 2013"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"05", "order":1, "title":"Readings for Market Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -366,7 +366,7 @@
   "book": { "id":"36", "title":"Fixed Income Securities, 3rd Edition", "author":"Bruce tuckman", "publisher":"Hoboken, nJ: John Wiley & sons, 2011"},
   "chapter": [{"id":"7", "title":"The Science of Term Structure Models"},{"id":"8", "title":"The Evolution of Short Rates and the Shape of the Term Structure"},{"id":"9", "title":"The Art of Term Structure Models: Drift"},{"id":"10", "title":"The Art of Term Structure Models: Volatility and Distribution"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"05", "order":1, "title":"Readings for Market Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -376,7 +376,7 @@
   "book": { "id":"37", "title":"Hull, Options, Futures, and Other Derivatives, 8th Edition", "author":"", "publisher":""},
   "chapter": [{"id":"19", "title":"Volatility Smiles"},{"id":"25", "title":"Exotic Options"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"05", "order":1, "title":"Readings for Market Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -386,7 +386,7 @@
   "book": { "id":"38", "title":"Fixed Income Securities", "author":"Pietro Veronesi", "publisher":"Hoboken, nJ: John Wiley & sons, 2010"},
   "chapter": {"id":"8", "title":"Basics of Residential Mortgage Backed Securities"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"05", "order":1, "title":"Readings for Market Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -396,7 +396,7 @@
   "book": { "id":"39", "title":"Mortgage-Backed Securities, 3rd Edition", "author":"Frank Fabozzi, anand Bhattacharya, William Berliner", "publisher":"Hoboken, nJ: John Wiley & sons, 2011"},
   "chapter": [{"id":"1", "title":"Overview of Mortgages and the Consumer Mortgage Market"},{"id":"2", "title":"Overview of the Mortgage-Backed Securities Market"},{"id":"10", "title":"Techniques for Valuing MBS"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"05", "order":1, "title":"Readings for Market Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -406,7 +406,7 @@
   "book": { "id":"40", "title":"The Bank Credit Analysis Handbook", "author":"Jonathan golin and Philippe delhaise", "publisher":"Hoboken, nJ: John Wiley & sons, 2013"},
   "chapter": [{"id":"1", "title":"The Credit Decision"},{"id":"2", "title":"The Credit Analyst"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"06", "order":1, "title":"Readings for Credit Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -416,7 +416,7 @@
   "book": { "id":"41", "title":"Measuring and Managing Credit Risk", "author":"de servigny and Renault", "publisher":""},
   "chapter": {"id":"3", "title":"Default Risk: Quantitative Methodologies"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"06", "order":1, "title":"Readings for Credit Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -426,7 +426,7 @@
   "book": { "id":"42", "title":"Risk Management & Derivatives", "author":"René stulz", "publisher":"Florence, kY: thomson south-Western, 2002"},
   "chapter": {"id":"18", "title":"Credit Risks and Credit Derivatives"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"06", "order":1, "title":"Readings for Credit Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -436,7 +436,7 @@
   "book": { "id":"43", "title":"Financial Risk Management: Models, History, and Institutions", "author":"allan Malz", "publisher":"Hoboken, nJ: John Wiley & sons, 2011"},
   "chapter": [{"id":"6", "title":"Credit and Counterparty Risk"},{"id":"7", "title":"Spread Risk and Default Intensity Models"},{"id":"8", "title":"Portfolio Credit Risk"},{"id":"9", "title":"Structured Credit Risk"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"06", "order":1, "title":"Readings for Credit Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -446,7 +446,7 @@
   "book": { "id":"44", "title":"Counterparty Credit Risk and Credit Value Adjustment: A Continuing Challenge for Global Financial Markets, 2nd Edition", "author":"Jon gregory", "publisher":"West sussex, uk: John Wiley & sons, 2012"},
   "chapter": [{"id":"3", "title":"Deﬁning Counterparty Credit Risk"},{"id":"4", "title":"Netting, Compression, Resets, and Termination Features"},{"id":"5", "title":"Collateral"},{"id":"8", "title":"Credit Exposure"},{"id":"10", "title":"Default Probability, Credit Spreads, and Credit Derivatives"},{"id":"12", "title":"Credit Value Adjustment"},{"id":"15", "title":"Wrong Way Risk"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"06", "order":1, "title":"Readings for Credit Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -456,7 +456,7 @@
   "book": { "id":"45", "title":"Structured Finance and Insurance: The Art of Managing Capital and Risk", "author":"Christopher Culp", "publisher":"Hoboken, nJ: John Wiley & sons, 2006"},
   "chapter": [{"id":"12", "title":"Credit Derivatives and Credit-Linked Notes"},{"id":"13", "title":"The Structuring Process"},{"id":"16", "title":"Securitization"},{"id":"17", "title":"Cash Collateralized Debt Obligations"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"06", "order":1, "title":"Readings for Credit Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -466,7 +466,7 @@
   "book": { "id":"46", "title":"understanding the securitization of subprime Mortgage Credit", "author":"adam ashcraft and til schuermann", "publisher":"Federal Reserve Bank of new York staff Reports, no. 318 (March 2008).*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"06", "order":1, "title":"Readings for Credit Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -476,7 +476,7 @@
   "book": { "id":"47", "title":"Principles for the sound Management of operational Risk", "author":"", "publisher":"Basel Committee on Banking supervision Publication, June 2011*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -486,7 +486,7 @@
   "book": { "id":"48", "title":"a Review of the key issues in operational Risk Capital Modeling", "author":"Mo Chaudhury", "publisher":"The Journal of Operational Risk, Volume 5/number 3, Fall 2010: pp. 37-66."},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -496,7 +496,7 @@
   "book": { "id":"49", "title":"Challenges and Pitfalls in Measuring operational Risk from Loss data", "author":"eric Cope, giulio Mignola, gianluca antonini and Roberto ugoccioni", "publisher":"The Journal of Operational Risk, Volume 4/number 4, Winter 2009/10: pp. 3-27."},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -506,7 +506,7 @@
   "book": { "id":"50", "title":"enterprise Risk Management: theory and Practice", "author":"Brian nocco and René stulz", "publisher":"Journal of Applied Corporate Finance 18, no. 4 (2006): 8–20.*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -516,7 +516,7 @@
   "book": { "id":"51", "title":"Risk Management", "author":"Michel Crouhy, dan galai and Robert Mark", "publisher":"new York: Mcgraw-Hill, 2001"},
   "chapter": {"id":"14", "title":"Capital Allocation and Performance Measurement"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -526,7 +526,7 @@
   "book": { "id":"52", "title":"Range of Practices and issues in economic Capital Frameworks", "author":"", "publisher":"Basel Committee on Banking supervision Publication, March 2009*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -536,7 +536,7 @@
   "book": { "id":"53", "title":"Measuring Market Risk, 2nd Edition", "author":"kevin dowd", "publisher":""},
   "chapter": [{"id":"14", "title":"Estimating Liquidity Risks"},{"id":"16", "title":"Model Risk"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -546,7 +546,7 @@
   "book": { "id":"54", "title":"Financial Risk Management: Models, History, and Institutions", "author":"Malz", "publisher":""},
   "chapter": [{"id":"11", "title":"Assessing the Quality of Risk Measures", "section": "11.1"},{"id":"16", "title":"Liquidity and Leverage"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -556,7 +556,7 @@
   "book": { "id":"55", "title":"observations on developments in Risk appetite Frameworks and it infrastructure", "author":"", "publisher":"senior supervisors group, december 2010*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -566,7 +566,7 @@
   "book": { "id":"56", "title":"Principles for effective data aggregation and Risk Reporting", "author":"", "publisher":"Basel Committee on Banking supervision Publication, January 2013"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -576,7 +576,7 @@
   "book": { "id":"57", "title":"stress testing Banks", "author":"til schuermann", "publisher":""},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -586,7 +586,7 @@
   "book": { "id":"58", "title":"Failure Mechanics of dealer Banks", "author":"darrell duffie", "publisher":"2010  Journal of Economic Perspectives 24:1, 51-72.*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"07", "order":1, "title":"Readings for Operational Risk Measurement and Management"},
   "attachment" : {} 
   },
@@ -596,7 +596,7 @@
   "book": { "id":"59", "title":"Basel ii: international Convergence of Capital Measurement and Capital standards: a Revised Framework— Comprehensive Version", "author":"", "publisher":"Basel Committee on Banking supervision Publication, June 2006*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"08", "order":1, "title":"Readings for Regulatory Reference"},
   "attachment" : {} 
   },
@@ -606,7 +606,7 @@
   "book": { "id":"60", "title":"Basel iii: a global Regulatory Framework for More Resilient Banks and Banking systems—Revised Version", "author":"", "publisher":"Basel Committee on Banking supervision Publication, June 2011*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"08", "order":1, "title":"Readings for Regulatory Reference"},
   "attachment" : {} 
   },
@@ -616,7 +616,7 @@
   "book": { "id":"61", "title":"Basel iii: the Liquidity Coverage Ratio and Liquidity Risk Monitoring tools", "author":"", "publisher":"Basel Committee on Banking supervision Publication, January 2013"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"08", "order":1, "title":"Readings for Regulatory Reference"},
   "attachment" : {} 
   },
@@ -626,7 +626,7 @@
   "book": { "id":"62", "title":"Revisions to the Basel ii Market Risk Framework—updated as of 31 december 2010", "author":"", "publisher":"Basel Committee on Banking supervision Publication, February 2011*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"08", "order":1, "title":"Readings for Regulatory Reference"},
   "attachment" : {} 
   },
@@ -636,7 +636,7 @@
   "book": { "id":"63", "title":"operational Risk—supervisory guidelines for the advanced Measurement approaches", "author":"", "publisher":"Basel Committee on Banking supervision Publication, June 2011*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"08", "order":1, "title":"Readings for Regulatory Reference"},
   "attachment" : {} 
   },
@@ -646,7 +646,7 @@
   "book": { "id":"64", "title":"a Comparative assessment of Basel ii/iii and solvency ii", "author":"nadine gatzert", "publisher":"Hannah Wesker Working Paper, Friedrich-alexander-university of erlangen-nuremberg, Version: october 2011*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"08", "order":1, "title":"Readings for Regulatory Reference"},
   "attachment" : {} 
   },
@@ -656,7 +656,7 @@
   "book": { "id":"65", "title":"Active Portfolio Management: A Quantitative Approach for Producing Superior Returns and Controlling Risk, 2nd Edition", "author":"Richard grinold and Ronald kahn", "publisher":"new York: Mcgraw-Hill, 2000"},
   "chapter": {"id":"14", "title":"Portfolio Construction"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"09", "order":1, "title":"Readings for Risk Management and Investment Management"},
   "attachment" : {} 
   },
@@ -666,7 +666,7 @@
   "book": { "id":"66", "title":" Value-at-Risk: The New Benchmark for Managing Financial Risk, 3rd Edition", "author":"Jorion", "publisher":""},
   "chapter": [{"id":"7", "title":"Portfolio Risk: Analytical Methods"},{"id":"17", "title":"VaR and Risk Budgeting in Investment Management"}],
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"09", "order":1, "title":"Readings for Risk Management and Investment Management"},
   "attachment" : {} 
   },
@@ -676,7 +676,7 @@
   "book": { "id":"67", "title":"Modern Investment Management: An Equilibrium Approach", "author":"Robert Litterman and the Quantitative Resources group", "publisher":"Hoboken, nJ: John Wiley & sons, 2003"},
   "chapter": {"id":"17", "title":"Risk Monitoring and Performance Measurement"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"09", "order":1, "title":"Readings for Risk Management and Investment Management"},
   "attachment" : {} 
   },
@@ -686,7 +686,7 @@
   "book": { "id":"68", "title":"Investments, 9th Edition", "author":"Zvi Bodie, alex kane, and alan J. Marcus", "publisher":"new York: Mcgraw-Hill, 2010"},
   "chapter": {"id":"24", "title":"Portfolio Performance Evaluation"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"09", "order":1, "title":"Readings for Risk Management and Investment Management"},
   "attachment" : {} 
   },
@@ -696,7 +696,7 @@
   "book": { "id":"69", "title":"Hedge Fund Investing: A Practical Approach to Understanding Investor Motivation, Manager Proﬁts, and Fund Performance", "author":"kevin R. Mirabile", "publisher":"Hoboken, nJ: Wiley Finance, 2013"},
   "chapter": {"id":"11", "title":"Performing Due Diligence on Speciﬁc Managers and Funds"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"09", "order":1, "title":"Readings for Risk Management and Investment Management"},
   "attachment" : {} 
   },
@@ -706,7 +706,7 @@
   "book": { "id":"69", "title":"Handbook of the Economics of Finance, Volume 2B", "author":"g. Constantinides, M. Harris and R. stulz", "publisher":"oxford: elsevier, 2013"},
   "chapter": {"id":"17", "title":"Hedge Funds, by William Fung and David Hsieh"},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"09", "order":1, "title":"Readings for Risk Management and Investment Management"},
   "attachment" : {} 
   },
@@ -716,7 +716,7 @@
   "book": { "id":"70", "title":"Risk Management for Hedge Funds: introduction and overview", "author":"andrew W. Lo", "publisher":"Financial Analysts Journal, Vol. 57, no. 6 (november-december 2001), pp. 16-33*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"09", "order":1, "title":"Readings for Risk Management and Investment Management"},
   "attachment" : {} 
   },
@@ -726,7 +726,7 @@
   "book": { "id":"71", "title":"u.s. House of Representatives subcommittee Report on MF global (through p. 75), november 2012*", "author":"", "publisher":""},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"10", "order":1, "title":"Readings for Current Issues in Financial Markets"},
   "attachment" : {} 
   },
@@ -736,7 +736,7 @@
   "book": { "id":"72", "title":"JPMorgan Chase Whale trades: a Case History of derivatives Risks and abuses—executive summary", "author":"", "publisher":"u.s. senate subcommittee on investigations, april 2013*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"10", "order":1, "title":"Readings for Current Issues in Financial Markets"},
   "attachment" : {} 
   },
@@ -746,7 +746,7 @@
   "book": { "id":"73", "title":"towards Better Reference Rate Practices: a Central Bank Perspective", "author":"", "publisher":"Working group established by the Bis economic Consultative Committee, March 2013*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"10", "order":1, "title":"Readings for Current Issues in Financial Markets"},
   "attachment" : {} 
   },
@@ -756,7 +756,7 @@
   "book": { "id":"74", "title":"otC derivatives: a Comparative analysis of Regulation in the united states, european union, and singapore", "author":"Rajarshi aroskar", "publisher":"iFM Review of Futures Markets, Volume 21, March 2013*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"10", "order":1, "title":"Readings for Current Issues in Financial Markets"},
   "attachment" : {} 
   },
@@ -766,7 +766,7 @@
   "book": { "id":"75", "title":"a new Look at the Role of sovereign Credit default swaps", "author":"", "publisher":"iMF global Financial stability Report, Chapter 2, april 2013*"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"10", "order":1, "title":"Readings for Current Issues in Financial Markets"},
   "attachment" : {} 
   },
@@ -776,7 +776,7 @@
   "book": { "id":"76", "title":"Capital Planning at Large Bank Holding Companies: supervisory expectations and Range of Current Practice", "author":"", "publisher":"Board of governors of the Federal Reserve system, august 2013"},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"10", "order":1, "title":"Readings for Current Issues in Financial Markets"},
   "attachment" : {} 
   },
@@ -786,7 +786,7 @@
   "book": { "id":"77", "title":"sovereign Creditworthiness and Financial stability: an international Perspective", "author":"Jaime Caruana and stefan avdjiev", "publisher":"Banque de France Financial stability Review, no. 16 (april 2012), pp. 71-85."},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
-  "week": { "id":"", "order":0, "title":""},
+  "week": { "id":"01", "order":1, "title":"Week 1"},
   "topic": { "id":"10", "order":1, "title":"Readings for Current Issues in Financial Markets"},
   "attachment" : {} 
   }]
