@@ -11,7 +11,7 @@
     {"id":"c", "description":"2.15"}, 
     {"id":"d", "description":"2.33"}
   ], 
-  "answer": "i", 
+  "answer": "a", 
   "answers" : [], 
   "readings" : ["B01C00S00"
   ] 
@@ -28,7 +28,7 @@
     {"id":"c", "description":"2.15"}, 
     {"id":"d", "description":"2.33"}
   ], 
-  "answer": "i", 
+  "answer": "a", 
   "answers" : [], 
   "readings" : ["B01C00S00"
   ] 
@@ -46,7 +46,7 @@
     {"id":"c", "description":"Isolating the point at which data issues begin to arise in a foreign exchange hedging procedure."}, 
     {"id":"d", "description":"Identifying organizational processes that require enhanced monitoring and control."}
   ], 
-  "answer": "iii", 
+  "answer": "c", 
   "answers" : [], 
   "readings" : ["B06C03S00"
   ] 
@@ -63,7 +63,7 @@
     {"id":"c", "description":"1.13"}, 
     {"id":"d", "description":"1.23"}
   ], 
-  "answer": "iii", 
+  "answer": "c", 
   "answers" : [], 
   "readings" : ["B02C13S00"
   ] 
@@ -80,7 +80,7 @@
     {"id":"c", "description":"Kidder Peabody suffered a large loss when counterparties to its CDS portfolio could not honor their contracts, which left the company with little equity."}, 
     {"id":"d", "description":"Kidder Peabody reported a sudden large accounting loss to correct an error in the firm's accounting system, which called into question the management team's competence."}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B07C04S00"
   ] 
@@ -97,7 +97,7 @@
     {"id":"c", "description":""}, 
     {"id":"d", "description":""}
   ], 
-  "answer": "i", 
+  "answer": "a", 
   "answers" : [], 
   "readings" : ["B04C04S02"
   ] 
@@ -114,7 +114,7 @@
     {"id":"c", "description":"The high p-value of 0.9452 indicates that the regression coefficient of the returns of Russell 1000 is more statistically significant than the other two indexes."}, 
     {"id":"d", "description":"The high correlations between each pair of index returns indicate that multicollinearity exists between the variables in this regression."}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B11C04S00"
   ] 
@@ -132,7 +132,7 @@
     {"id":"c", "description":"1.75%"}, 
     {"id":"d", "description":"1.80%"}
   ], 
-  "answer": "iii", 
+  "answer": "c", 
   "answers" : [], 
   "readings" : ["B11C04S00"
   ] 
@@ -151,7 +151,7 @@
     {"id":"c", "description":"Weibull"}, 
     {"id":"d", "description":"Gamma"}
   ], 
-  "answer": "i", 
+  "answer": "a", 
   "answers" : [], 
   "readings" : ["B10C02S00"
   ] 
@@ -169,7 +169,7 @@
     {"id":"c", "description":" Jarque-Bera test statistic"}, 
     {"id":"d", "description":"Sum of squared residuals"}
   ], 
-  "answer": "i", 
+  "answer": "a", 
   "answers" : [], 
   "readings" : ["B11C04S00"
   ] 
@@ -187,7 +187,7 @@
     {"id":"c", "description":" The GARCH(1,1) model always assigns less weight to the prior day’s estimated variance than the EWMA model."}, 
     {"id":"d", "description":" A variance estimate from the GARCH(1,1) model is always between the prior day’s estimated variance and the prior day’s squared return."}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B13C22S00"
   ] 
@@ -207,7 +207,7 @@
     {"id":"c", "description":"About 80%"}, 
     {"id":"d", "description":"About 85%"}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B10C02S00"
   ] 
@@ -225,7 +225,7 @@
     {"id":"c", "description":" The settlement price for a specific contract is above the high price."}, 
     {"id":"d", "description":" There is no contract with maturity in a particular month."}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B15C01S00"
   ] 
@@ -243,7 +243,7 @@
     {"id":"c", "description":"USD 43.28 million"}, 
     {"id":"d", "description":"USD 50.28 million"}
   ], 
-  "answer": "iii", 
+  "answer": "c", 
   "answers" : [], 
   "readings" : ["B15C01S00"
   ] 
@@ -260,7 +260,7 @@
     {"id":"c", "description":"USD 189, sell the futures contract and buy the underlying."}, 
     {"id":"d", "description":"USD 4, sell the futures contract and buy the underlying."}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B15C01S00"
   ] 
@@ -278,7 +278,7 @@
     {"id":"c", "description":"USD 117,325"}, 
     {"id":"d", "description":"USD 156,650"}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B15C01S00"
   ] 
@@ -296,7 +296,7 @@
     {"id":"c", "description":"Buy the forward contract and short the zero-coupon bond."}, 
     {"id":"d", "description":"Buy the forward contract and buy the zero-coupon bond."}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B16C06S00"
   ] 
@@ -314,7 +314,7 @@
     {"id":"c", "description":"investor, greater"}, 
     {"id":"d", "description":"investor, lower"}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B19C12S00"
   ] 
@@ -332,7 +332,7 @@
     {"id":"c", "description":"Current Black-Scholes-Merton option value: USD 5.20"}, 
     {"id":"d", "description":"Option delta: 0.6"}
   ], 
-  "answer": "i", 
+  "answer": "a", 
   "answers" : [], 
   "readings" : ["B24C03S00"
   ] 
@@ -351,7 +351,7 @@
     {"id":"c", "description":"VaR(C) ≥ VaR(A) + VaR(B)"}, 
     {"id":"d", "description":"None of the above."}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B27C02S00"
   ] 
@@ -369,7 +369,7 @@
     {"id":"c", "description":"The interest cost of carrying the delta hedge will be lowest when the options are at-the-money."}, 
     {"id":"d", "description":""}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B22C12S00"
   ] 
@@ -387,7 +387,7 @@
     {"id":"c", "description":"0.2891"}, 
     {"id":"d", "description":"0.3077"}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B36C07S00"
   ] 
@@ -406,7 +406,7 @@
     {"id":"c", "description":"-5.5698"}, 
     {"id":"d", "description":"-5.4814"}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B36C07S00"
   ] 
@@ -424,7 +424,7 @@
     {"id":"c", "description":"Can be effectively hedged by the sale of a negatively convex financial instrument."}, 
     {"id":"d", "description":"Implies that the option increases in value as market volatility increases."}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B36C07S00"
   ] 
@@ -442,7 +442,7 @@
     {"id":"c", "description":"Challenge prior assumptions to help foster debate among decision makers."}, 
     {"id":"d", "description":"Be separated by business lines to help identify risk concentrations."}
   ], 
-  "answer": "iii", 
+  "answer": "c", 
   "answers" : [], 
   "readings" : ["B29C00S00"
   ] 
@@ -460,7 +460,7 @@
     {"id":"c", "description":"A small decrease in the value of the homes backing the mortgage pool."}, 
     {"id":"d", "description":"A small decrease in the real incomes of the underlying mortgage holders."}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B39C01S00"
   ] 
@@ -478,7 +478,7 @@
     {"id":"c", "description":"Asian options are not suitable for hedging exposures that involve regular cashflows."}, 
     {"id":"d", "description":"Asian options tend to have payoffs that are less volatile than those of comparable European options."}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B37C19S00"
   ] 
@@ -497,7 +497,7 @@
     {"id":"c", "description":"Copulas require the estimation of only one parameter."}, 
     {"id":"d", "description":"Copulas necessarily provide better estimates of tail dependence than correlation estimates for multivariate distributions."}
   ], 
-  "answer": "i", 
+  "answer": "a", 
   "answers" : [], 
   "readings" : ["B30C03S00"
   ] 
@@ -515,7 +515,7 @@
     {"id":"c", "description":"10"}, 
     {"id":"d", "description":"12"}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B66C07S00"
   ] 
@@ -533,7 +533,7 @@
     {"id":"c", "description":"Convexity mapping"}, 
     {"id":"d", "description":"Cash mapping"}
   ], 
-  "answer": "iii", 
+  "answer": "c", 
   "answers" : [], 
   "readings" : ["B66C07S00"
   ] 
@@ -551,7 +551,7 @@
     {"id":"c", "description":"The model presumes that the basis-point volatility of the short rate will be proportional to the rate."}, 
     {"id":"d", "description":"The model presumes that the basis-point volatility of the short rate will be proportional to the square root of the rate."}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B36C07S00"
   ] 
@@ -568,7 +568,7 @@
     {"id":"c", "description":"A new cash inflow of USD 4.25 million."}, 
     {"id":"d", "description":"A new cash inflow of USD 4.40 million."}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B45C12S00"
   ] 
@@ -586,7 +586,7 @@
     {"id":"c", "description":"200 bps"}, 
     {"id":"d", "description":"280 bps"}
   ], 
-  "answer": "i", 
+  "answer": "a", 
   "answers" : [], 
   "readings" : ["B43C06S00"
   ] 
@@ -604,7 +604,7 @@
     {"id":"c", "description":"Sell credit default swaps on ABCO"}, 
     {"id":"d", "description":"Increase collateral"}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B44C03S00"
   ] 
@@ -622,7 +622,7 @@
     {"id":"c", "description":"C-A-B"}, 
     {"id":"d", "description":"C-B-A"}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : [ 
   ] 
@@ -640,7 +640,7 @@
     {"id":"c", "description":"The presence of collateral decreases the current exposure, but increases the volatility of the exposure between remargining periods."}, 
     {"id":"d", "description":"The presence of collateral decreases the current exposure and decreases the volatility of the exposure between remargining periods."}
   ], 
-  "answer": "iii", 
+  "answer": "c", 
   "answers" : [], 
   "readings" : ["B44C03S00"
   ] 
@@ -658,7 +658,7 @@
     {"id":"c", "description":"CAD 3,000"}, 
     {"id":"d", "description":"CAD 4,000"}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B53C14S00"
   ] 
@@ -676,7 +676,7 @@
     {"id":"c", "description":"The CET1 capital ratio plus the capital conservation buffer and the countercyclical buffer."}, 
     {"id":"d", "description":"None of the above."}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B60C00S00"
   ] 
@@ -694,7 +694,7 @@
     {"id":"c", "description":"Binomial, lognormal"}, 
     {"id":"d", "description":"Binomial, normal"}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B49C00S00"
   ] 
@@ -713,7 +713,7 @@
     {"id":"c", "description":"A subordinated bond with original maturity of seven years and a call option exercisable after five years."}, 
     {"id":"d", "description":"A subordinated bond with nine years left until maturity that is guaranteed by a subsidiary of the issuing entity."}
   ], 
-  "answer": "iii", 
+  "answer": "c", 
   "answers" : [], 
   "readings" : ["B60C00S00"
   ] 
@@ -731,7 +731,7 @@
     {"id":"c", "description":"Complex models are generally preferable to simple models."}, 
     {"id":"d", "description":"Small discrepancies in model outputs are always acceptable."}
   ], 
-  "answer": "i", 
+  "answer": "a", 
   "answers" : [], 
   "readings" : ["B53C14S00"
   ] 
@@ -749,7 +749,7 @@
     {"id":"c", "description":"A price from a broker screen."}, 
     {"id":"d", "description":"A price from an active exchange."}
   ], 
-  "answer": "i", 
+  "answer": "a", 
   "answers" : [], 
   "readings" : ["B62C00S00"
   ] 
@@ -767,7 +767,7 @@
     {"id":"c", "description":"EUR 1.396 million"}, 
     {"id":"d", "description":"EUR 3.499 million"}
   ], 
-  "answer": "iii", 
+  "answer": "c", 
   "answers" : [], 
   "readings" : ["B66C07S00"
   ] 
@@ -785,7 +785,7 @@
     {"id":"c", "description":"In most defined-benefit pension plans, if liabilities exceed assets, the shortfall does not create a risk for the plan sponsor."}, 
     {"id":"d", "description":"From the plan sponsor’s perspective, nominal pension obligations are similar to a short position in a long term bond."}
   ], 
-  "answer": "iv", 
+  "answer": "d", 
   "answers" : [], 
   "readings" : ["B66C07S00"
   ] 
@@ -804,7 +804,7 @@
     {"id":"c", "description":"USD 160 million"}, 
     {"id":"d", "description":"USD 225 million"}
   ], 
-  "answer": "ii", 
+  "answer": "b", 
   "answers" : [], 
   "readings" : ["B66C07S00"
   ] 
