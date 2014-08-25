@@ -25,15 +25,29 @@ frmServices.factory('authenticationService', ['$resource','$http',
         url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
       }
       
-      $http.post(url, authReq).success(function(user){
 
-        authenticationService.user = user;
+      $http({
+          url: url,
+          method: "POST",
+          data: authReq,
+          headers: {'Content-Type': 'application/json'}
+      }).success(function (data, status, headers, config) {
+        authenticationService.user = data;
         localStorage.authUser = JSON.stringify(authenticationService.user);
         callback(null, authenticationService.user);
-
-      }).error(function(data, status, headers, config) {
-        callback(status, url);
+      }).error(function (data, status, headers, config) {
+           callback(status, data);
       });
+
+      // $http.post(url, authReq).success(function(user){
+
+      //   authenticationService.user = user;
+      //   localStorage.authUser = JSON.stringify(authenticationService.user);
+      //   callback(null, authenticationService.user);
+
+      // }).error(function(data, status, headers, config) {
+      //   callback(status, url);
+      // });
 
     } else {
 
