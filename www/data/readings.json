@@ -83,7 +83,7 @@
   
  {
   "id": "B09C00S00",
-  "book": { "id":"09", "title":"gaRP Code of Conduct.*", "author":"", "publisher":""},
+  "book": { "id":"09", "title":"GARP Code of Conduct.*", "author":"", "publisher":""},
   "chapter": {"id":"", "title":""},
   "section": { "id":"", "title":""},
   "week": { "id":"01", "order":1, "title":"Week 1"},
