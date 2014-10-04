@@ -7,12 +7,12 @@
     <div class="col-md-12">
       <div class="panel panel-primary">
         <div class="panel-heading">Exam Settings</div>
-        <div class="panel-body nopadding">
+        <div class="panel-body">
           <div class="row">
-            <div class="col-xs-8 examsettings-options-heading">
+            <div class="col-xs-8">
               Select a Test Mode
             </div>
-            <div class="col-xs-4 examsettings-options-input">
+            <div class="col-xs-4">
               <div class="btn-group" data-toggle="buttons">
                   <label class="btn btn-success multicolor" ng-class="{'active' : isSettingOn('mode', 0)}" ng-click="settings.mode=0">
                     <input type="radio" name="study" id="0"> Study
@@ -49,17 +49,17 @@
 
       <div class="panel panel-primary">
         <div class="panel-heading">Filter Topics</div>
-        <div class="panel-body nopadding">
+        <div class="panel-body">
 
           <ul class="list-group list-group nopadding">
 
             <li class="list-group-item">
-              <div class="option-item">
+              <div class="row">
                   
-                <div class="examsettings-options-heading">
+                <div class="col-xs-8">
                   What I’ve learned so far
                 </div>
-                <div class="examsettings-options-input">
+                <div class="col-xs-4">
                   <div class="btn-group" data-toggle="buttons">
                       <label class="btn btn-success multicolor on" ng-class="{'active' : isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
                         <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
@@ -76,12 +76,12 @@
               </div>
             </li>
             <li class="list-group-item">
-              <div class="lesson-item">
+              <div class="row">
                   
-                <div class="examsettings-options-heading">
+                <div class="col-xs-8">
                   All of my trouble areas
                 </div>
-                <div class="examsettings-options-input">
+                <div class="col-xs-4">
                   <div class="btn-group" data-toggle="buttons">
                       <label class="btn btn-success multicolor on" ng-class="{'active' : isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
                         <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
