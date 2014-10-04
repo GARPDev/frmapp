@@ -1,8 +1,3 @@
-html, body{
-    height: 100%;
-    background-color: #081A31;
-    margin: auto;
-}
 
 .page-container {
   display: none;
@@ -325,7 +320,7 @@ a:hover {
 }
 
 .app-panel {
-  background-color: #eee
+  background-color: #FFFFFF
 }
 
 .panel-info {
@@ -932,7 +927,7 @@ a:hover {
 }
 
 .login-footer-area p {
-  color: #ffffff;
+  color: #000000;
 }
 
 .hoz-center {
