@@ -217,11 +217,11 @@ a:hover {
   margin-bottom: 0px;
 }
 
-.list-group-item .divider {
+.list-group-item.divider {
   border-bottom: 1px solid #dddddd;
 }
 
-.list-group-item .nodivider {
+.list-group-item.nodivider {
   border: none;
 }
 
