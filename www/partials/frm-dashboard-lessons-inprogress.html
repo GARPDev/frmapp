@@ -5,9 +5,9 @@
         <ul class="list-group list-group nopadding">
 
           <li class="list-group-item" ng-repeat="lesson in lessons | filter:lessonInProgressMatch(true)" class="">
-            <div class="lesson-item">
-                <div class="title">{{lesson.title}}</div>
-                <div class="buttons"><button type="button" ng-click="navToLessonReadings(lesson.id)" class="btn btn-success">Study</button></div>
+            <div class="row lesson-item">
+                <div class="col-xs-8 title">{{lesson.title}}</div>
+                <div class="col-xs-4 buttons"><button type="button" ng-click="navToLessonReadings(lesson.id)" class="btn btn-success">Study</button></div>
             </div>
           </li>
 

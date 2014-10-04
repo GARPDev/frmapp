@@ -218,16 +218,16 @@ a:hover {
 }
 
 .list-group-item > .lesson-item {
-  height: 50px;
+  #height: 50px;
 }
 
 
 .list-group-item > .lesson-item > .title {
-  float: left;
+  text-align: left;
 }
 
 .list-group-item > .lesson-item > .buttons {
-  float: right;
+  text-align: right;
 }
 
 .highlight .panel-body {
