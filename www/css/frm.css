@@ -244,6 +244,17 @@ a:hover {
   text-align: right;
 }
 
+.btn.btn-toggel {
+  color: #ffffff;
+  background-color: red;
+}
+
+.btn.btn-danger.active {
+  color: #ffffff;
+  background-color: #b0c636;
+  border-color: #9eb231;  
+}
+
 .highlight .panel-body {
   background-color: #FFFFFF;
   color: #000000;
