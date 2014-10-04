@@ -63,10 +63,10 @@
 
 
                 <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-primary active">
+                  <label class="btn btn-primary" ng-class="{'active' : isSettingOn('topics', 'learned')}>
                     <input type="radio" name="options" id="option2" checked> <span class="glyphicon glyphicon-ok"></span>
                   </label>
-                  <label class="btn btn-primary">
+                  <label class="btn btn-primary" ng-class="{'active' : !isSettingOn('topics', 'learned')}>
                     <input type="radio" name="options" id="option3"> <span class="glyphicon glyphicon-remove"></span>
                   </label>
                 </div>
