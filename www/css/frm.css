@@ -574,11 +574,20 @@ a:hover {
   background-color: #afc936;
 }
 
+.examsettings-options-input .btn-success.multicolor.on:hover, .btn-success.multicolor.on {
+  color: #ffffff;
+  background-color: #b0cb36;
+}
 
 
 .examsettings-options-input .btn-success.multicolor.on:hover, .btn-success.multicolor.on.active {
   color: #ffffff;
   background-color: #b0cb36;
+}
+
+.examsettings-options-input .btn-success.multicolor.off:hover, .btn-success.multicolor.off {
+  color: #ffffff;
+  background-color: red;
 }
 
 .examsettings-options-input .btn-success.multicolor.off:hover, .btn-success.multicolor.off.active {
