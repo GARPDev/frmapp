@@ -8,19 +8,21 @@
       <div class="panel panel-primary">
         <div class="panel-heading">Exam Settings</div>
         <div class="panel-body nopadding">
-          <div class="examsettings-options-heading">
-            Select a Test Mode
-          </div>
-          <div class="examsettings-options-input">
-            <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-success multicolor" ng-class="{'active' : isSettingOn('mode', 0)}" ng-click="settings.mode=0">
-                  <input type="radio" name="study" id="0"> Study
-                </label>
+          <div class="row">
+            <div class="col-xs-8 examsettings-options-heading">
+              Select a Test Mode
+            </div>
+            <div class="col-xs-4 examsettings-options-input">
+              <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-success multicolor" ng-class="{'active' : isSettingOn('mode', 0)}" ng-click="settings.mode=0">
+                    <input type="radio" name="study" id="0"> Study
+                  </label>
 
-                <label class="btn btn-success multicolor" ng-class="{'active' : isSettingOn('mode', 1)}" ng-click="settings.mode=1">
-                  <input type="radio" name="examprep" id="1"> Exam Prep
-                </label>
-              </div>
+                  <label class="btn btn-success multicolor" ng-class="{'active' : isSettingOn('mode', 1)}" ng-click="settings.mode=1">
+                    <input type="radio" name="examprep" id="1"> Exam Prep
+                  </label>
+                </div>
+            </div>
           </div>
         </div>
       </div>
@@ -52,7 +54,7 @@
           <ul class="list-group list-group nopadding">
 
             <li class="list-group-item">
-              <div class="lesson-item">
+              <div class="option-item">
                   
                 <div class="examsettings-options-heading">
                   What I’ve learned so far

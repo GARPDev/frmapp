@@ -221,6 +221,10 @@ a:hover {
   #height: 50px;
 }
 
+.list-group-item > .option-item {
+  height: 50px;
+}
+
 
 .list-group-item > .lesson-item > .title {
   text-align: left;
@@ -1189,7 +1193,9 @@ a:hover {
   .reading-list-button {
     display: none;
   }
-
+  .icon-area {
+    display: none; 
+  }
   .btn .badge {
     top: -4px;
   }
