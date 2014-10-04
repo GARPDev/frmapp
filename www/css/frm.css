@@ -218,7 +218,8 @@ a:hover {
 }
 
 .list-group-item.divider {
-  border-bottom: 1px solid #dddddd;
+  border: none;
+  border-top: 1px solid #dddddd;
 }
 
 .list-group-item.nodivider {
