@@ -55,57 +55,35 @@
 
             <li class="list-group-item nodivider">
               <div class="row">
-                  
                 <div class="col-xs-8">
                   What I’ve learned so far
                 </div>
                 <div class="col-xs-4">
-
-
                 <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-danger" ng-class="{'active' : isSettingOn('topics', 'learned')}">
+                  <label class="btn btn-danger" ng-class="{'active' : isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','flagged')">
                     <input type="radio" name="options" id="option2" checked> <span class="glyphicon glyphicon-ok"></span>
                   </label>
                   <label class="btn btn-danger" ng-class="{'active' : !isSettingOn('topics', 'learned')}">
-                    <input type="radio" name="options" id="option3"> <span class="glyphicon glyphicon-remove"></span>
+                    <input type="radio" name="options" id="option3"> <span class="glyphicon glyphicon-remove" ng-click="toggelSetting('topics','flagged')"></span>
                   </label>
                 </div>
-
-
-                  <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-success multicolor on" ng-class="{'active' : isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
-                        <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
-                      </label>
-
-                      <label class="btn btn-success multicolor off" ng-class="{'active' : !isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
-                        <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
-                      </label>
-
-                    </div>
-                </div>
-
-
               </div>
             </li>
             <li class="list-group-item divider">
               <div class="row">
-                  
                 <div class="col-xs-8">
                   All of my trouble areas
                 </div>
                 <div class="col-xs-4">
                   <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-success multicolor on" ng-class="{'active' : isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
-                        <input type="radio" name="study" id="0"> <span class="glyphicon glyphicon-ok"></span>
-                      </label>
-
-                      <label class="btn btn-success multicolor off" ng-class="{'active' : !isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
-                        <input type="radio" name="examprep" id="1"> <span class="glyphicon glyphicon-remove"></span>
-                      </label>
-
-                    </div>
+                    <label class="btn btn-danger" ng-class="{'active' : isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
+                      <input type="radio" name="options" id="option2" checked> <span class="glyphicon glyphicon-ok"></span>
+                    </label>
+                    <label class="btn btn-danger" ng-class="{'active' : !isSettingOn('topics', 'flagged')}">
+                      <input type="radio" name="options" id="option3"> <span class="glyphicon glyphicon-remove" ng-click="toggelSetting('topics','flagged')"></span>
+                    </label>
+                  </div>
                 </div>
-
               </div>
             </li>
           </ul>
