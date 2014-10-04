@@ -217,6 +217,15 @@ a:hover {
   margin-bottom: 0px;
 }
 
+.list-group-item .divider {
+  border-bottom: 1px solid #dddddd;
+}
+
+.list-group-item .nodivider {
+  border: none;
+}
+
+
 .list-group-item > .lesson-item {
   #height: 50px;
 }
