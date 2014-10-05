@@ -172,12 +172,14 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
         localStorage["userData"] = JSON.stringify(authenticationService.user);
       }
 
+      var reqs = [];
+
       if(defined(remoteDataService,"userData.contact.examRegistrations")) {
 
         var data = remoteDataService.userData.contact.examRegistrations;
         remoteDataService.registeredExam = data;
         localStorage.registeredExam = JSON.stringify(data);
-        
+
       } else {
 
         var examFetch = {
@@ -185,40 +187,52 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
           propertyName: 'registeredExam',
           remotePropertyName: null
         }
-
+        reqs.push(examFetch);
       }
+
       var metaDataFetch = {
         url : '/frmApp/user/' + authenticationService.user.Id + '/metaData', 
         propertyName: 'metaData',
         remotePropertyName: 'metaData'
       }
+      reqs.push(metaDataFetch);
+
       var settingsDataFetch = {
         url : '/frmApp/user/' + authenticationService.user.Id + '/settings', 
         propertyName: 'userSettings',
         remotePropertyName: 'settings'
       }
+      reqs.push(settingsDataFetch);
+
       var examSitesDataFetch = {
         url : '/frmApp/system/examSites', 
         propertyName: 'examSites',
         remotePropertyName: 'records'
       }
+      reqs.push(examSitesDataFetch);
+
       var readingsDataFetch = {
         url : '/frmapp/www/data/readings.json', 
         propertyName: 'readingData',
         remotePropertyName: null
       }
+      reqs.push(readingsDataFetch);
+
       var questionsDataFetch = {
         url : '/frmapp/www/data/questions.json', 
         propertyName: 'questionData',
         remotePropertyName: null
       }
+      reqs.push(questionsDataFetch);
+
       var glossaryDataFetch = {
         url : '/frmapp/www/data/glossary.json', 
         propertyName: 'glossaryData',
         remotePropertyName: null
       }
+      reqs.push(glossaryDataFetch);
 
-      async.map([examFetch,metaDataFetch,settingsDataFetch,examSitesDataFetch,readingsDataFetch,questionsDataFetch,glossaryDataFetch], fetchDataObj, function(err, results){
+      async.map(glossaryDataFetch, fetchDataObj, function(err, results){
           // results is now an array of stats for each file
           for(var i=0; i<results.length; i++) {
 
