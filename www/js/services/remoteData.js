@@ -172,11 +172,20 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
         localStorage["userData"] = JSON.stringify(authenticationService.user);
       }
 
+      if(defined(remoteDataService,"userData.contact.examRegistrations")) {
 
-      var examFetch = {
-        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/exam', 
-        propertyName: 'registeredExam',
-        remotePropertyName: null
+        var data = remoteDataService.userData.contact.examRegistrations;
+        remoteDataService.registeredExam = data;
+        localStorage.registeredExam = JSON.stringify(data);
+        
+      } else {
+
+        var examFetch = {
+          url : '/frmApp/user/' + authenticationService.user.contact.Id + '/exam', 
+          propertyName: 'registeredExam',
+          remotePropertyName: null
+        }
+
       }
       var metaDataFetch = {
         url : '/frmApp/user/' + authenticationService.user.Id + '/metaData', 
