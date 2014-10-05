@@ -232,7 +232,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       }
       reqs.push(glossaryDataFetch);
 
-      async.map(glossaryDataFetch, fetchDataObj, function(err, results){
+      async.map(reqs, fetchDataObj, function(err, results){
           // results is now an array of stats for each file
           for(var i=0; i<results.length; i++) {
 
