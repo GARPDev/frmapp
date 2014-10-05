@@ -178,6 +178,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
         var data = remoteDataService.userData.contact.examRegistrations;
         remoteDataService.registeredExam = data;
+        remoteDataService.userData.registeredExam = data;
         localStorage.registeredExam = JSON.stringify(data);
 
       } else {
