@@ -15,17 +15,17 @@ frmServices.factory('authenticationService', ['$resource','$http',
     // On Web OR Mobile Online
     if(isOnline()) {
 
+      // try legacy first
       var authReq = {
         userName: userName,
         password: password
       };
 
-      var url = '/sfdc/auth/user';
+      var url = '/legacy/auth/user';
       if(navigator.camera) {
         url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
       }
       
-
       $http({
           url: url,
           method: "POST",
@@ -36,19 +36,32 @@ frmServices.factory('authenticationService', ['$resource','$http',
         localStorage.authUser = JSON.stringify(authenticationService.user);
         callback(null, authenticationService.user);
       }).error(function (data, status, headers, config) {
-           callback(status, data);
+           
+        var authReq = {
+          userName: userName,
+          password: password
+        };
+
+        var url = '/sfdc/auth/user';
+        if(navigator.camera) {
+          url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
+        }
+        
+        $http({
+            url: url,
+            method: "POST",
+            data: authReq,
+            headers: {'Content-Type': 'application/json'}
+        }).success(function (data, status, headers, config) {
+          authenticationService.user = data;
+          localStorage.authUser = JSON.stringify(authenticationService.user);
+          callback(null, authenticationService.user);
+        }).error(function (data, status, headers, config) {
+             callback(status, data);
+        });
+
       });
-
-      // $http.post(url, authReq).success(function(user){
-
-      //   authenticationService.user = user;
-      //   localStorage.authUser = JSON.stringify(authenticationService.user);
-      //   callback(null, authenticationService.user);
-
-      // }).error(function(data, status, headers, config) {
-      //   callback(status, url);
-      // });
-
+      
     } else {
 
       if(localStorage[localPropUserName] === userName && localStorage[localPropUserPassword] === password && defined(localStorage,"authUser")) {
