@@ -1,5 +1,5 @@
-frmServices.factory('navigationService', ['$resource','$http','$state','$stateParams',
-  function($resource, $http, $state, $stateParams){
+frmServices.factory('navigationService', ['$resource','$http','$route',
+  function($resource, $http, $route){
 
 
     var navigationService = {};
@@ -8,11 +8,7 @@ frmServices.factory('navigationService', ['$resource','$http','$state','$statePa
     navigationService.pageTransitionOut = function(view) {
 
       if(navigationService.currentNav == view) {
-        util.$state.transitionTo($state.current, $stateParams, {
-            reload: true,
-            inherit: false,
-            notify: true
-        });
+        $scope.reloadPage=$route.reload();
       } else {
         navigationService.currentNav = view;
         $('.page-container').fadeOut(function() {
