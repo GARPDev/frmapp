@@ -30,7 +30,7 @@ function defined(ref, strNames) {
 }
 
 
-phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider',
+phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider','$stateProvider',
   function($routeProvider, $anchorScrollProvider, $locationProvider) {
     
     $routeProvider.
