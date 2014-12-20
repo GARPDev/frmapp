@@ -1,5 +1,5 @@
-frmServices.factory('navigationService', ['$resource','$http','$route',
-  function($resource, $http, $route){
+frmServices.factory('navigationService', ['$resource','$http',
+  function($resource, $http){
 
 
     var navigationService = {};
@@ -8,7 +8,9 @@ frmServices.factory('navigationService', ['$resource','$http','$route',
     navigationService.pageTransitionOut = function(view) {
 
       if(navigationService.currentNav == view) {
-        $scope.reloadPage=$route.reload();
+        //$scope.reloadPage=$route.reload();
+        document.location = document.location;
+
       } else {
         navigationService.currentNav = view;
         $('.page-container').fadeOut(function() {
