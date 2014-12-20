@@ -20,7 +20,7 @@
             <li id="mainnav-examday" class="nav-item-area" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')"><span class="glyphicon glyphicon-calendar nav-item-icon"></span><br>Exam Day</a></li>
             </li>
 
-            <li ng-if="isOnline() && userData.settings.admin && !isMobile" id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}"><a href ng-click="changeView('alerts')"><span class="glyphicon glyphicon-comment nav-item-icon"></span><br>Messages</a></li>
+            <li ng-if="isOnline() && userData.contact.Mobile_App_Administration && !isMobile" id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}"><a href ng-click="changeView('alerts')"><span class="glyphicon glyphicon-comment nav-item-icon"></span><br>Messages</a></li>
 
             <li id="mainnav-glossary" class="nav-item-area" ng-class="{ active: isActive('/glossary')}"><a href ng-click="searchGlossary(searchTerms)"><span class="glyphicon glyphicon-search nav-item-icon"></span><br>Glossary</a></li>
             </li>
