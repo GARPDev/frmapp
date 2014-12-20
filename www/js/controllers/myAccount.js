@@ -21,6 +21,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $scope.mapStatus = "";
 
+    $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
+
     //$scope.opp = remoteDataService.getOppertunities();
 
     $scope.orgOptions = [{
@@ -40,7 +42,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       $('#map-debug').text($('#map-debug').text()+'Timeout Start');
 
       navigationService.pageTransitionIn();
-      var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
+      // registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
+      var address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
 
       $('#map-debug').text($('#map-debug').text()+'Call Display Map');
 
