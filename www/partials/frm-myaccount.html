@@ -19,7 +19,7 @@
 
         <div class="user-info-area">
           <p>{{userData.Name}}</p>
-          <p>ID: {{userData.Id}}</p>
+          <p>GARP ID: {{userData.contact.GARP_ID__c}}</p>
         </div>
         <div class="insperation-area">
           <textarea class="form-control" rows="3" placeholder="What's your inspiration?">{{userData.insperation}}</textarea>
@@ -43,19 +43,14 @@
       </div>    
     </div>
   </div>
-
   <div class="col-md-6">
     <div class="panel panel-primary app-panel">
       <div class="panel-heading">Exam Information</div>
       <div class="panel-body">
-        <div class="panel-info">{{userData.registeredExam.name}}</div>
-        <div class="panel-info">{{userData.registeredExam.day}}</div>
-        <div class="panel-info">{{userData.registeredExam.time}}</div>
-        <div  class="panel-info">
-          <div>{{userData.registeredExam.address}}</div>
-          <div>{{userData.registeredExam.city}}, {{userData.registeredExam.state}}</div>
-          <div>{{userData.registeredExam.zip}}</div>
-        </div>
+        <div class="panel-info">{{userData.contact.KPI_Current_Exam_Registration__c}}</div>
+        <div class="panel-info">{{userData.contact.KPI_Current_Exam_Date__c}}</div>
+        <div class="panel-info">{{userData.contact.time}}</div>
+        <div  class="panel-info">{{userData.contact.KPI_Current_Exam_Location__c}}</div>
       </div>
       <div id="map-canvas" class="myaccount-map-area"></div>
     </div>
