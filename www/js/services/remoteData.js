@@ -277,7 +277,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
                     // for now set all as admins
                     // check on the server side also!!
-                    remoteDataService.userData.settings.admin = true;
+                    //remoteDataService.userData.settings.admin = true;
 
                     if(remoteDataService.userData.registeredExam.registrations.records.length > 0) {
                       remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Site__r.Id; 
