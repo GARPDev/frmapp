@@ -7,12 +7,15 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $scope.userSession = remoteDataService.userSession;
     $scope.userData = remoteDataService.userData;
     $scope.newReminder = "";
-    
+    $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
+
     $scope.isMobile = isMobile();
 
     $timeout(function() {
       navigationService.pageTransitionIn();
-      var address = $scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
+      //$scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;      
+      var address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
+
       mapService.displayMap('map-canvas',address, function(err, status) {
       });
     }, 0);
