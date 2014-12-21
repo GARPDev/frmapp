@@ -199,7 +199,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       reqs.push(metaDataFetch);
 
       var settingsDataFetch = {
-        url : '/frmApp/user/' + authenticationService.user.Id + '/settings', 
+        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/settings', 
         propertyName: 'userSettings',
         remotePropertyName: 'settings'
       }
