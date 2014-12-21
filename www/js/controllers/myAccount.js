@@ -110,6 +110,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     }
 
     $scope.changeView=function(view) {
+      remoteDataService.userSettings = $scope.userSettings;
       remoteDataService.commitData();
       navigationService.changeView(view);
     }
