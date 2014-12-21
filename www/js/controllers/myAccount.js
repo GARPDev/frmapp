@@ -35,7 +35,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
          value: 'topic'
       }];
 
-    $scope.orgOption = _.findWhere($scope.orgOptions, {value: $scope.userData.settings.organizeBy })
+    $scope.orgOption = _.findWhere($scope.orgOptions, {value: $scope.userSettings.organizeBy })
 
     $('#map-debug').text($('#map-debug').text()+'Start');
 
