@@ -430,6 +430,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       $http.put(url + '/frmApp/user/' + authenticationService.user.contact.Id + '/settings', remoteDataService.userSettings).success(function(data){
 
+        remoteDataService.userSettings = data;
         localStorage.userSettings = JSON.stringify(remoteDataService.userSettings);
 
         $http.put(url + '/frmApp/user/' + authenticationService.user.Id + '/metaData', remoteDataService.metaData).success(function(data){
