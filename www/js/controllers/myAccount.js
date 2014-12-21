@@ -16,6 +16,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.destinationType = destinationType;
     $scope.userData = remoteDataService.userData;
     $scope.lessons = remoteDataService.lessonData;
+    $scope.userSettings = remoteDataService.userSettings;
+
     $scope.lessonIndex = 0;
     $scope.currentLesson = {};
 
@@ -108,6 +110,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     }
 
     $scope.changeView=function(view) {
+      remoteDataService.commitData();
       navigationService.changeView(view);
     }
 
