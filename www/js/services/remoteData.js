@@ -249,7 +249,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
             switch(propertyName) {
                 case 'metaData':
                   if(err != NO_FETCH) {
-                    if(err == 404) {
+                    if(err == 404 || data === null || typeof data === 'undefined') {
                       data = [];
                       localStorage.metaData = JSON.stringify(data);
                       remoteDataService.metaData = data;
