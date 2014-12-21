@@ -22,8 +22,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var org = "week";
       if(remoteDataService.userData !== null && typeof remoteDataService.userData !== "undefined" &&
-         remoteDataService.userData.settings !== null && typeof remoteDataService.userData.settings !== "undefined") {
-        if(remoteDataService.userData.settings.organizeBy == "topic") {
+         remoteDataService.userSettings !== null && typeof remoteDataService.userSettings !== "undefined") {
+        if(remoteDataService.userSettings.organizeBy == "topic") {
           org = "topic";
         }
 
@@ -51,7 +51,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
 
     remoteDataService.changeOrgOption = function(org) {
-      remoteDataService.userData.settings.organizeBy = org;
+      remoteDataService.userSettings.organizeBy = org;
       remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
     }
 
@@ -266,21 +266,16 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       localStorage.userSettings = JSON.stringify(data);
                       remoteDataService.userSettings = data;
                     }
-                    remoteDataService.userData.settings = data;
+                    remoteDataService.userSettings = data;
                     localStorage.userData = JSON.stringify(remoteDataService.userData);
                     if(gcmId != '') {       
-                      remoteDataService.userData.settings.gcmId = gcmId;
+                      remoteDataService.userSettings.gcmId = gcmId;
                     }
                     if(apnId != '') {       
-                      remoteDataService.userData.settings.apnId = apnId;
+                      remoteDataService.userSettings.apnId = apnId;
                     }
-
-                    // for now set all as admins
-                    // check on the server side also!!
-                    //remoteDataService.userData.settings.admin = true;
-
                     if(remoteDataService.userData.registeredExam.registrations.records.length > 0) {
-                      remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Site__r.Id; 
+                      remoteDataService.userSettings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Site__r.Id; 
                     }
                   }
                   break;
@@ -310,94 +305,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
           //remoteDataService.commitData();
           q.resolve();
       });
-
-/*
-      fetchData('/frmApp/user/' + authenticationService.user.contact.Id + '/exam', 'registeredExam', null, function(err, data) {
-
-        if(err != NO_FETCH) {
-          remoteDataService.userData.registeredExam = data;
-        }
-
-        fetchData('/frmApp/user/' + authenticationService.user.Id + '/metaData', 'metaData', 'metaData', function(err, data) {
-
-          if(err != NO_FETCH) {
-            if(err == 404) {
-              data = [];
-              localStorage.metaData = JSON.stringify(data);
-              remoteDataService.metaData = data;
-            }
-            remoteDataService.userData.metaData = data;
-          }
-
-
-          fetchData('/frmApp/user/' + authenticationService.user.Id + '/settings', 'userSettings', 'settings', function(err, data) {
-
-            if(err != NO_FETCH) {
-              if(err == 404) {
-                data = {
-                  organizeBy:"topic"
-                };
-                localStorage.userSettings = JSON.stringify(data);
-                remoteDataService.userSettings = data;
-              }
-              remoteDataService.userData.settings = data;
-              localStorage.userData = JSON.stringify(remoteDataService.userData);
-              // remoteDataService.metaData = [];
-              // remoteDataService.metaData = data.metaData;
-              //remoteDataService.userData.settings.gcmId = 'xx';
-              if(gcmId != '') {       
-                remoteDataService.userData.settings.gcmId = gcmId;
-              }
-              if(apnId != '') {       
-                remoteDataService.userData.settings.gcmId = apnId;
-              }
-
-              if(remoteDataService.userData.registeredExam.registrations.records.length > 0) {
-                remoteDataService.userData.settings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Site__r.Id; 
-              }
-
-
-              //if(authenticationService.user.profile == 'Systems Administrator') {
-              if(1 == 1) {
-
-                fetchData('/frmApp/system/examSites', 'examSites', 'records', function(err, data) {
-
-                  if(err != NO_FETCH) {
-                    for(var i=0; i<data.length; i++) {
-                      data[i].selected=0;
-                    }
-                    remoteDataService.examSites = data;
-                  }
-                });
-
-              }              
-              remoteDataService.commitData();
-            }
-            
-            fetchData('/frmapp/www/data/readings.json', 'readingData', null, function(err, data) {
-
-              if(err != NO_FETCH) {
-                remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
-              }
-
-              fetchData('/frmapp/www/data/questions.json', 'questionData', null, function(err, data) {
-
-                if(err != NO_FETCH) {
-                  remoteDataService.questionData = data.questions;
-                }
-
-                fetchData('/frmapp/www/data/glossary.json', 'glossaryData', null, function(err, data) {
-
-                  q.resolve();
-
-                });
-              });
-            });
-          });
-        });
-      });
-      */
-
     };
 
     remoteDataService.commitData = function() {
@@ -486,7 +393,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       }
     } else {
 
-      var url = '/frmApp/exam/' + remoteDataService.userData.settings.examId + '/msg';
+      var url = '/frmApp/exam/' + remoteDataService.userSettings.examId + '/msg';
 
       if(navigator.camera) {
         url = serverURL + url;

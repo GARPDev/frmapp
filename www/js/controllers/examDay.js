@@ -26,14 +26,14 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     
     $scope.addMyReminder=function() {
       if(!defined(remoteDataService,"userData.settings.reminders"))
-        remoteDataService.userData.settings.reminders = [];
-      remoteDataService.userData.settings.reminders.push($scope.newReminder);
+        remoteDataService.userSettings.reminders = [];
+      remoteDataService.userSettings.reminders.push($scope.newReminder);
       remoteDataService.commitData();
       $scope.newReminder = '';
     }
 
     $scope.removeMyReminder=function(idx) {
-      remoteDataService.userData.settings.reminders.splice(idx, 1);
+      remoteDataService.userSettings.reminders.splice(idx, 1);
       remoteDataService.commitData();
     }
 
@@ -41,7 +41,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     
       var reminder= {};
       if(idx > -1) {
-        reminder.text = remoteDataService.userData.settings.reminders[idx];
+        reminder.text = remoteDataService.userSettings.reminders[idx];
         reminder.startDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
       } else {
         
