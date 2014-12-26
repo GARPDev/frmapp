@@ -7,9 +7,10 @@ frmServices.factory('navigationService', ['$resource','$http',
 
     navigationService.pageTransitionOut = function(view) {
 
-      if(navigationService.currentNav == view) {
-        //$scope.reloadPage=$route.reload();
-        document.location = document.location;
+      var currentLoc = document.location.hash;
+      if(currentLoc.indexOf(view) > -1) {
+
+        //document.location.href = 
 
       } else {
         navigationService.currentNav = view;
