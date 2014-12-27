@@ -16,26 +16,26 @@ frmServices.factory('authenticationService', ['$resource','$http',
     if(isOnline()) {
 
       // try legacy first
-      var authReq = {
-        userName: userName,
-        password: 'xxx'
-      };
+      // var authReq = {
+      //   userName: userName,
+      //   password: 'xxx'
+      // };
 
-      var url = '/legacy/auth/user';
-      if(navigator.camera) {
-        url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
-      }
+      // var url = '/legacy/auth/user';
+      // if(navigator.camera) {
+      //   url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
+      // }
       
-      $http({
-          url: url,
-          method: "POST",
-          data: authReq,
-          headers: {'Content-Type': 'application/json'}
-      }).success(function (data, status, headers, config) {
-        authenticationService.user = data;
-        localStorage.authUser = JSON.stringify(authenticationService.user);
-        callback(null, authenticationService.user);
-      }).error(function (data, status, headers, config) {
+      // $http({
+      //     url: url,
+      //     method: "POST",
+      //     data: authReq,
+      //     headers: {'Content-Type': 'application/json'}
+      // }).success(function (data, status, headers, config) {
+      //   authenticationService.user = data;
+      //   localStorage.authUser = JSON.stringify(authenticationService.user);
+      //   callback(null, authenticationService.user);
+      // }).error(function (data, status, headers, config) {
            
         var authReq = {
           userName: userName,
@@ -60,7 +60,7 @@ frmServices.factory('authenticationService', ['$resource','$http',
              callback(status, data);
         });
 
-      });
+      //});
       
     } else {
 
