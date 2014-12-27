@@ -18,7 +18,7 @@ frmServices.factory('authenticationService', ['$resource','$http',
       // try legacy first
       var authReq = {
         userName: userName,
-        password: password
+        password: 'xxx'
       };
 
       var url = '/legacy/auth/user';
