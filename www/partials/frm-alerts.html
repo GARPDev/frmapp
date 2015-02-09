@@ -45,7 +45,7 @@
           <p>{{msg.title}} - {{msg.body}}</p>
           <p>Sent On: {{msg.date}}</p>
           <p>
-            <span ng-repeat="site in msg.sites">{{sites.name}}, </span>
+            <span ng-repeat="site in msg.sites">{{site.name}} {{$last ? '' : ', '}}</span>
           </p>
         </li>       
       </ul>         
