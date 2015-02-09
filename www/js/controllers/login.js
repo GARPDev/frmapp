@@ -64,14 +64,32 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
 
       var localPropUserName = 'frmAppLoginUserName';
       var localPropUserPassword = 'frmAppLoginPassword';
+      var errmsg = "Cannot login";
 
       authenticationService.authenticateUser(userName, password, function(err, result) {
+
+        if(defined(result,"records.length") && result.records.length == 0) {
+          var rec = result.records[0];
+          if(!defined(rec,"KPI_Current_Exam_Registration__c.length") || rec.KPI_Current_Exam_Registration__c.length==0) {
+            err = 401;
+            errmsg = "You are not registered for the current FRM exam.";            
+          } else {
+            if(rec.KPI_Current_Exam_Registration__c.indexOf('FRM') == -1) {
+              err = 401;
+              errmsg = "You are not registered for the current FRM exam.";                          
+            }
+          }
+        } else {
+          err = 401;
+          errmsg = "You are not registered for the current FRM exam.";
+        }
+
 
         if(err) {
           if(defined(spinner)) {
             spinner.stop();  
           }
-          $('#errormsg').html("Cannot login!");
+          $('#errormsg').html(errmsg);
         } else {
 
           // On Web OR Mobile Online
