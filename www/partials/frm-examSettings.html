@@ -1,135 +1,143 @@
 <!-- Fixed navbar -->
-<div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>    
+<div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>
 
 
 <div class="container page-container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Exam Settings</div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-xs-8">
-              Select a Test Mode
-            </div>
-            <div class="col-xs-4">
-              <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-success multicolor" ng-class="{'active' : isSettingOn('mode', 0)}" ng-click="settings.mode=0">
-                    <input type="radio" name="study" id="0"> Study
-                  </label>
+    <div class="row">
+        <div class="col-md-12">
+            
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">Exam Settings</div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <span style="color: rgb(81, 68, 68);font-size: larger;">Select a Test Mode</span>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-justify garp-btn-white" ng-class="{'active' : isSettingOn('mode', 0)}" ng-click="settings.mode=0">
+                                    <input type="radio" name="study" id="0">Study
+                                </label>
 
-                  <label class="btn btn-success multicolor" ng-class="{'active' : isSettingOn('mode', 1)}" ng-click="settings.mode=1">
-                    <input type="radio" name="examprep" id="1"> Exam Prep
-                  </label>
+                                <label class="btn btn-justify garp-btn-white" ng-class="{'active' : isSettingOn('mode', 1)}" ng-click="settings.mode=1">
+                                    <input type="radio" name="examprep" id="1">Exam Prep
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-          </div>
-        </div>
-      </div>
 
 
-    <div class="panel panel-primary examsettings-options-topicsPanel">
-        <div class="panel-heading">Choose Topics</div>
-        <div class="panel-body">
-          <div class="form-group">
-            <div ng-repeat="lesson in lessons" class="checkbox examsettings-options-topics">
-              <label>
-                <input id="{{lesson.id}}" ng-model="lesson.checked" type="checkbox"> {{lesson.title}}
-              </label>
+            <div class="panel panel-primary">
+                <div class="panel-heading">Choose Topics</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div ng-repeat="lesson in lessons" class="checkbox examsettings-options-topics">
+                            <label>
+                                <input id="{{lesson.id}}" ng-model="lesson.checked" type="checkbox">{{lesson.title}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="examsettings-options-topics-selectAll">
+                        <p>
+                            <a ng-click="selectAll()">Select All</a>
+                        </p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="examsettings-options-topics-selectAll">
-            <p>
-              <a ng-click="selectAll()">Select All</a>
-            </p>
-          </div>
+
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">Filter Topics</div>
+                </div>
+                <div class="panel-body">
+
+                    <ul class="list-group list-group nopadding">
+
+                        <li class="list-group-item nodivider">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    What I’ve learned so far
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-info" ng-class="{'active' : isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
+                                            <input type="radio" name="options" id="option2"> <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                        <label class="btn btn-danger" ng-class="{'active' : !isSettingOn('topics', 'learned')}">
+                                            <input type="radio" name="options" id="option3"> <span class="glyphicon glyphicon-remove" ng-click="toggelSetting('topics','learned')"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                        </li>
+                        <li class="list-group-item divider">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    All of my trouble areas
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-info" ng-class="{'active' : isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
+                                            <input type="radio" name="options" id="option2" checked> <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                        <label class="btn btn-danger" ng-class="{'active' : !isSettingOn('topics', 'flagged')}">
+                                            <input type="radio" name="options" id="option3"> <span class="glyphicon glyphicon-remove" ng-click="toggelSetting('topics','flagged')"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Number of Questions</div>
+                    <div class="panel-body nopadding">
+                        <ul class="question_number-options">
+                            <li ng-repeat="questionNumber in numberOfQuestions" ng-class="{ 'active': isSettingOn('questions', questionNumber) }" ng-click="settings.questions=questionNumber">
+                                <label>{{questionNumber}}</label>
+                            </li>
+                        </ul>
+
+                        <div class="exam-setting-button">
+                            <button type="button" class="btn btn-success btn-lg" ng-click="saveSettings()">Begin Test</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+
+                </div>
+            </div>
         </div>
-      </div>
 
-
-      <div class="panel panel-primary">
-        <div class="panel-heading">Filter Topics</div>
-        <div class="panel-body">
-
-          <ul class="list-group list-group nopadding">
-
-            <li class="list-group-item nodivider">
-              <div class="row">
-                <div class="col-xs-8">
-                  What I’ve learned so far
-                </div>
-                <div class="col-xs-4">
-                <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-danger" ng-class="{'active' : isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
-                    <input type="radio" name="options" id="option2"> <span class="glyphicon glyphicon-ok"></span>
-                  </label>
-                  <label class="btn btn-danger" ng-class="{'active' : !isSettingOn('topics', 'learned')}">
-                    <input type="radio" name="options" id="option3"> <span class="glyphicon glyphicon-remove" ng-click="toggelSetting('topics','learned')"></span>
-                  </label>
-                </div>
-              </div>
-            </li>
-            <li class="list-group-item divider">
-              <div class="row">
-                <div class="col-xs-8">
-                  All of my trouble areas
-                </div>
-                <div class="col-xs-4">
-                  <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-danger" ng-class="{'active' : isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
-                      <input type="radio" name="options" id="option2" checked> <span class="glyphicon glyphicon-ok"></span>
-                    </label>
-                    <label class="btn btn-danger" ng-class="{'active' : !isSettingOn('topics', 'flagged')}">
-                      <input type="radio" name="options" id="option3"> <span class="glyphicon glyphicon-remove" ng-click="toggelSetting('topics','flagged')"></span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="panel panel-primary">
-        <div class="panel-heading">Number of Questions</div>
-        <div class="panel-body nopadding">
-          <ul class="question_number-options">
-            <li ng-repeat="questionNumber in numberOfQuestions" ng-class="{ 'active': isSettingOn('questions', questionNumber) }" ng-click="settings.questions=questionNumber">
-              <label >{{questionNumber}}</label>
-            </li>
-          </ul>
-
-          <div class="exam-setting-button">
-            <button type="button" class="btn btn-success btn-lg" ng-click="saveSettings()">Begin Test</button>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="FRMNotesCtrl">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="FRMNotesCtrl">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">
           Please choose other settings!
         </h4>
-      </div>
-      <div class="modal-body">
+                    </div>
+                    <div class="modal-body">
 
-        There does not seem to be enough questions of the type you choose to run a test.
+                        There does not seem to be enough questions of the type you choose to run a test.
 
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
 

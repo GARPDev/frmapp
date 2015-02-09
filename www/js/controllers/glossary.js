@@ -1,8 +1,10 @@
-frmControllers.controller('FRMGlossaryCtrl', ['$scope','$timeout','remoteDataService','navigationService',
-  function($scope, $timeout, remoteDataService, navigationService) {
+frmControllers.controller('FRMGlossaryCtrl', ['$scope','$timeout', '$location', 'remoteDataService','navigationService',
+  function($scope, $timeout, $location, remoteDataService, navigationService) {
 
     $scope.searchTerms = remoteDataService.searchTerms;
     $scope.glossaryData = remoteDataService.glossaryData;
+      
+    $scope.showGlossarySearch = $location.path() === '/glossary';
 
     $timeout(function() {
       navigationService.pageTransitionIn();

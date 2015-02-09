@@ -3,8 +3,10 @@
 
 <div ng-controller="TopicPanelController">
 
-  <div class="panel panel-primary app-panel">
-    <div class="panel-heading">{{currentLesson.title}}</div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">{{currentLesson.title}}</div>
+      </div>
     <div class="panel-body nopadding">
 
 			<ul class="list-group" ng-controller="FRMAppReadingsListCtrl">				
