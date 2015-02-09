@@ -42,6 +42,10 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','$http','remo
       }
     }
     
+    $scope.getEpochDateShortText = function(epochDate) {
+      return getEpochDateShortText(epochDate);
+    }
+    
     $scope.matchSelected = function(value) {
       return function( item ) {
       	return item.selected;
