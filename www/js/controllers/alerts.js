@@ -31,7 +31,7 @@ frmControllers.controller('FRMAppAlertsCtrl', ['$scope','$timeout','$http','remo
       $scope.openMode = mode;      
       if(mode == true) {
 
-        $http({method:'GET',url:'/frmApp/msg'}).success(function(data){
+        $http({method:'GET',url:'/sfdc/exam/alerts'}).success(function(data){
 
           $scope.allMessages = data;
 

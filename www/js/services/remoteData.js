@@ -206,7 +206,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       reqs.push(settingsDataFetch);
 
       var examSitesDataFetch = {
-        url : '/frmApp/system/examSites', 
+        url : '/sfdc/exam/sites', 
         propertyName: 'examSites',
         remotePropertyName: 'records'
       }
@@ -394,7 +394,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       }
     } else {
 
-      var url = '/frmApp/exam/' + remoteDataService.userSettings.examId + '/msg';
+      var url = '/sfdc/exam/' + remoteDataService.userSettings.examId + '/alerts';
 
       if(navigator.camera) {
         url = serverURL + url;
