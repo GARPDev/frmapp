@@ -44,7 +44,9 @@
         <li ng-repeat="msg in allMessages | filter:msgSearchTerms" ng-click="selectMsg(msg)" class="list-group-item">
           <p>{{msg.title}} - {{msg.body}}</p>
           <p>Sent On: {{msg.date}}</p>
-          <p>{{msg.sites}}</p>
+          <p>
+            <span ng-repeat="site in msg.sites">{{sites.name}}, </span>
+          </p>
         </li>       
       </ul>         
     </div>      
