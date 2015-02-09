@@ -275,7 +275,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       remoteDataService.userSettings.apnId = apnId;
                     }
                     if(remoteDataService.userData.registeredExam.registrations.records.length > 0) {
-                      remoteDataService.userSettings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Site__c; 
+                      remoteDataService.userSettings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__c; 
                     }
                   }
                   break;
