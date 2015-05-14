@@ -305,16 +305,17 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       var reading = data.records[i];
                       var obj = {
                         id: reading.Id,
-                        book: { "id":"01", "title":"Risk taking: a Corporate governance Perspective", "author":"", "publisher":"International Finance Corporation, World Bank group, June 2012"},
+                        book: { id:"01", title:"", "author":"", "publisher":""},
                         chapter: [{id:"", title:""},{id:"", title:""}],
                         section: { id:"", title:""},
-                        week: { id:"01", order:1, title:Week 1},
-                        topic: { id:"01", order:1, title:"Readings for Foundations of Risk Management"},
+                        desc: reading.Description__c,
+                        week: { id:"01", order:1, title:"Week 1"},
+                        topic: { id:reading.Study_Guide_Domain__c, order:reading.Study_Guide_Domain__r.ID__c, title:reading.Study_Guide_Domain__r.Name},
                         attachment : {} 
                       }
-
+                      readObj.readings.push(obj);
                     }
-
+                    remoteDataService.readingData.readings = readObj;
                     remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
                   }
                   break;
