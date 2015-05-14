@@ -212,15 +212,20 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       }
       reqs.push(examSitesDataFetch);
 
+      var now = new Date()
+      var year = now.getYear() + 1900;
+
       var readingsDataFetch = {
-        url : '/frmapp/www/data/readings.json', 
+        //url : '/frmapp/www/data/readings.json', 
+        url : '/frmApp/readings/' + year, 
         propertyName: 'readingData',
         remotePropertyName: null
       }
       reqs.push(readingsDataFetch);
 
       var questionsDataFetch = {
-        url : '/frmapp/www/data/questions.json', 
+        //url : '/frmapp/www/data/questions.json', 
+        url : '/frmApp/readings/' + year, 
         propertyName: 'questionData',
         remotePropertyName: null
       }
@@ -291,6 +296,25 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
                 case 'readingData':
                   if(err != NO_FETCH) {
+
+                    var readObj = {
+                      id: 'frm' + year,
+                      readings: []
+                    }
+                    for(var i=0; i<data.records.length; i++) {
+                      var reading = data.records[i];
+                      var obj = {
+                        id: reading.Id,
+                        book: { "id":"01", "title":"Risk taking: a Corporate governance Perspective", "author":"", "publisher":"International Finance Corporation, World Bank group, June 2012"},
+                        chapter: [{id:"", title:""},{id:"", title:""}],
+                        section: { id:"", title:""},
+                        week: { id:"01", order:1, title:Week 1},
+                        topic: { id:"01", order:1, title:"Readings for Foundations of Risk Management"},
+                        attachment : {} 
+                      }
+
+                    }
+
                     remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
                   }
                   break;

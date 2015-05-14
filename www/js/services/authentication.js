@@ -44,7 +44,7 @@ frmServices.factory('authenticationService', ['$resource','$http',
 
         var url = '/sfdc/auth/user';
         if(navigator.camera) {
-          url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
+          url = serverURL + url;
         }
         
         $http({
