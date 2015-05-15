@@ -315,7 +315,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       }
                       readObj.readings.push(obj);
                     }
-                    remoteDataService.readingData.readings = readObj;
+                    remoteDataService.readingData.readings = readObj.readings;
                     remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
                   }
                   break;
