@@ -373,6 +373,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       if(match !== null || typeof match !== "undefined") {
                         match.readings.push(qr.Study_Guide_Reading__c);
                       }
+                    }
                   }
                   break;
 
