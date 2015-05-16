@@ -237,7 +237,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
         propertyName: 'questionsReadingsData',
         remotePropertyName: null
       }
-      reqs.push(questionsDataFetch);
+      reqs.push(questionsReadingDataFetch);
 
       var glossaryDataFetch = {
         url : '/frmapp/www/data/glossary.json', 
