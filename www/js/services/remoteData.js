@@ -369,7 +369,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                     for(var i=0; i<data.records.length; i++) {
                       var qr = data.records[i];
 
-                      var match _.findWhere(remoteDataService.questionData.questions, {id: qr.Practice_Exam_Question__c});
+                      var match = _.findWhere(remoteDataService.questionData.questions, {id: qr.Practice_Exam_Question__c});
                       if(match !== null || typeof match !== "undefined") {
                         match.readings.push(qr.Study_Guide_Reading__c);
                       }
