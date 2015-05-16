@@ -225,8 +225,16 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/readings/' + year, 
+        url : '/frmApp/questions/' + year, 
         propertyName: 'questionData',
+        remotePropertyName: null
+      }
+      reqs.push(questionsDataFetch);
+
+      var questionsReadingDataFetch = {
+        //url : '/frmapp/www/data/questions.json', 
+        url : '/frmApp/questionsReadings/' + year, 
+        propertyName: 'questionsReadingsData',
         remotePropertyName: null
       }
       reqs.push(questionsDataFetch);
@@ -318,6 +326,44 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                     remoteDataService.readingData.readings = readObj.readings;
                     remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
                   }
+                  break;
+
+                case 'questionData':
+                  if(err != NO_FETCH) {
+
+                    var readObj = {
+                      id: 'frm' + year,
+                      questions: []
+                    }
+                    for(var i=0; i<data.records.length; i++) {
+                      var question = data.records[i];
+                      var obj = {
+                        id: question.Id,
+                        question:question.Question__c, 
+                        reason:question.Rationale__c, 
+                        choices:[ 
+                          {"id":"a", "description":"1.75"}, 
+                          {"id":"b", "description":"1.92"}, 
+                          {"id":"c", "description":"2.15"}, 
+                          {"id":"d", "description":"2.33"}
+                        ], 
+                        "answer": "a", 
+                        "answers" : [], 
+                        "readings" : ["B01C00S00"
+                        ] 
+
+
+
+
+                      }
+                      readObj.readings.push(obj);
+                    }
+                    remoteDataService.readingData.readings = readObj.readings;
+                    remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
+                  }
+                  break;
+
+                case 'questionsReadingsData':
                   break;
 
                 default:
