@@ -351,11 +351,11 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       }
                       for(var j=0; j<choices.length; j++) {
                         var choice = choices[j].replace("\r","");
-                        var obj = {
+                        var cobj = {
                           id: j,
                           description: choice
                         }
-                        obj.choices.push(choice);
+                        obj.choices.push(cobj);
                       }
                       questionObj.questions.push(obj);
                     }
