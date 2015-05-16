@@ -309,8 +309,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       id: 'frm' + year,
                       readings: []
                     }
-                    for(var i=0; i<data.records.length; i++) {
-                      var reading = data.records[i];
+                    for(var j=0; j<data.records.length; j++) {
+                      var reading = data.records[j];
                       var obj = {
                         id: reading.Id,
                         book: { id:"01", title:"", "author":"", "publisher":""},
@@ -335,8 +335,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       id: 'frm' + year,
                       questions: []
                     }
-                    for(var i=0; i<data.records.length; i++) {
-                      var question = data.records[i];
+                    for(var j=0; j<data.records.length; j++) {
+                      var question = data.records[j];
 
                       var choices = question.Choices__c.split("\n");
 
