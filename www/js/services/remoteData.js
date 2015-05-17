@@ -231,13 +231,13 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       }
       reqs.push(questionsDataFetch);
 
-      var questionsReadingDataFetch = {
+      var questionsReadingsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
         url : '/frmApp/questionsReadings/' + year, 
         propertyName: 'questionsReadingsData',
         remotePropertyName: null
       }
-      reqs.push(questionsReadingDataFetch);
+      reqs.push(questionsReadingsDataFetch);
 
       var glossaryDataFetch = {
         url : '/frmapp/www/data/glossary.json', 
@@ -455,6 +455,9 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       localStorage.removeItem('readingData');
       remoteDataService.readingData = null;
+
+      localStorage.removeItem('questionsReadingsData');
+      remoteDataService.questionData = null;
 
       localStorage.removeItem('questionData');
       remoteDataService.questionData = null;
