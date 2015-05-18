@@ -10,7 +10,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.questions = examSharedService.questions;
     
     $scope.question = examSharedService.questions[$scope.currentQuestion];
-    $scope.htmlString = $sce.trustAsHtml($scope.question);
+    $scope.htmlString = $sce.trustAsHtml($scope.question.question);
 
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.answers = $scope.question.answers;
