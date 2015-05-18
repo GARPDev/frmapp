@@ -10,8 +10,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.questions = examSharedService.questions;
     
     $scope.question = examSharedService.questions[$scope.currentQuestion];
-    $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question.question));
-    $scope.imageUrl = $sce.trustAsUrl("https://c.na2.content.force.com/servlet/rtaImage?eid=a2240000000P1DT&feoid=00N40000002hFZK&refid=0EM400000004q2I");
+    $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question));
 
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.answers = $scope.question.answers;
@@ -113,7 +112,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       
       $scope.currentQuestion--;
       $scope.question = examSharedService.questions[$scope.currentQuestion];
-      $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question.question));
+      $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question));
 
       $scope.flagged=false;
       $scope.elapsedTime=0;
@@ -170,8 +169,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         $scope.question = examSharedService.questions[$scope.currentQuestion];
         var re = /&amp;/ig
         $scope.question = $scope.question.question.replace(re,"&")
-        $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question.question));
-        $scope.imageUrl = $sce.trustAsUrl("https://c.na2.content.force.com/servlet/rtaImage?eid=a2240000000P1DT&feoid=00N40000002hFZK&refid=0EM400000004q2I");
+        $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question));
 
         $scope.answers = $scope.question.answers;
         $scope.choices = $scope.question.choices;
