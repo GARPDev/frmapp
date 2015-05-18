@@ -10,7 +10,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.questions = examSharedService.questions;
     
     $scope.question = examSharedService.questions[$scope.currentQuestion];
-    $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question));
+    $scope.htmlString = $sce.trustAsHtml($scope.question);
 
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.answers = $scope.question.answers;
@@ -112,7 +112,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       
       $scope.currentQuestion--;
       $scope.question = examSharedService.questions[$scope.currentQuestion];
-      $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question));
+      $scope.htmlString = $sce.trustAsHtml($scope.question);
 
       $scope.flagged=false;
       $scope.elapsedTime=0;
@@ -169,7 +169,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         $scope.question = examSharedService.questions[$scope.currentQuestion];
         var re = /&amp;/ig
         $scope.question = $scope.question.question.replace(re,"&")
-        $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question));
+        $scope.htmlString = $sce.trustAsHtml($scope.question);
 
         $scope.answers = $scope.question.answers;
         $scope.choices = $scope.question.choices;
