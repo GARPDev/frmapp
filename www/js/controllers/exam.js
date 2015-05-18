@@ -76,6 +76,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       $scope.userAnswers.push(userAnswer);
       $scope.flagged=false;
       $scope.elapsedTime=0;
+
+      $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question.question));
     }
 
     $scope.getCurrentReason = function() {
