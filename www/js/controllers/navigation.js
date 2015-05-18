@@ -7,6 +7,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.userData = remoteDataService.userData;
     $scope.currentMessage = {};
     $scope.isMobile = isMobile();
+    $scope.messages = null;
 
     switch(document.location.hash) {
       case '#/readings':
@@ -38,7 +39,8 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     });
 
     remoteDataService.getMessges(function(err, msgs) {
-      $scope.messages = msgs;
+      if(defined(msgs,"length") && msgs.length > 0)
+        $scope.messages = msgs;
     });
 
     $scope.isOnline = function() {
