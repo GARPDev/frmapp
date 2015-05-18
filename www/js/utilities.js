@@ -30,6 +30,15 @@ function defined(ref, strNames) {
     return true;
 }
 
+
+function decodeEntities(s){
+  var str, temp= document.createElement('p');
+  temp.innerHTML= s;
+  str= temp.textContent || temp.innerText;
+  temp=null;
+  return str;
+}
+
 function getEpochDateShortText(epochDate) {
   if(epochDate !== null && typeof epochDate !== "undefined") {
 
