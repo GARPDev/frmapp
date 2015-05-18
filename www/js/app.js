@@ -29,7 +29,7 @@ function defined(ref, strNames) {
     return true;
 }
 
-phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider','"$compileProvider',
+phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider','$compileProvider',
   function($routeProvider, $anchorScrollProvider, $locationProvider, $compileProvider) {
     
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(blob:|data:image)/);
