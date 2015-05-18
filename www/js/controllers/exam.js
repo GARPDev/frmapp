@@ -11,6 +11,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     
     $scope.question = examSharedService.questions[$scope.currentQuestion];
     $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question.question));
+    $scope.imageUrl = $sce.trustAsUrl("https://c.na2.content.force.com/servlet/rtaImage?eid=a2240000000P1DT&feoid=00N40000002hFZK&refid=0EM400000004q2I");
 
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.answers = $scope.question.answers;
@@ -170,7 +171,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         var re = /&amp;/ig
         $scope.question = $scope.question.question.replace(re,"&")
         $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question.question));
-        $scope.url = $sce.trustAsUrl("https://c.na2.content.force.com/servlet/rtaImage?eid=a2240000000P1DT&feoid=00N40000002hFZK&refid=0EM400000004q2I");
+        $scope.imageUrl = $sce.trustAsUrl("https://c.na2.content.force.com/servlet/rtaImage?eid=a2240000000P1DT&feoid=00N40000002hFZK&refid=0EM400000004q2I");
 
         $scope.answers = $scope.question.answers;
         $scope.choices = $scope.question.choices;
