@@ -457,7 +457,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       remoteDataService.readingData = null;
 
       localStorage.removeItem('questionsReadingsData');
-      remoteDataService.questionData = null;
+      remoteDataService.questionsReadingsData = null;
 
       localStorage.removeItem('questionData');
       remoteDataService.questionData = null;
