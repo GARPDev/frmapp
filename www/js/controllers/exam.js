@@ -8,7 +8,10 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.currentQuestion = 0;
     $scope.settings = examSharedService.settings;
     $scope.questions = examSharedService.questions;
+    
     $scope.question = examSharedService.questions[$scope.currentQuestion];
+    $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question.question));
+
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.answers = $scope.question.answers;
     $scope.choices = $scope.question.choices;
@@ -76,8 +79,6 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       $scope.userAnswers.push(userAnswer);
       $scope.flagged=false;
       $scope.elapsedTime=0;
-
-      $scope.htmlString = $sce.trustAsHtml(decodeEntities($scope.question.question));
     }
 
     $scope.getCurrentReason = function() {
