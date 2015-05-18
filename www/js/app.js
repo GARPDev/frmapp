@@ -29,17 +29,11 @@ function defined(ref, strNames) {
     return true;
 }
 
-app.config(["$compileProvider" function($compileProvider) {
-
-    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(blob:|data:image)/);
-
-}]);
-
 phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider','"$compileProvider',
   function($routeProvider, $anchorScrollProvider, $locationProvider, $compileProvider) {
     
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(blob:|data:image)/);
-    
+
     $routeProvider.
       when('/dashboard', {
         templateUrl: 'partials/frm-dashboard.html',
