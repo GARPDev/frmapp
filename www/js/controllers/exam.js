@@ -167,7 +167,10 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       } else {
         $scope.currentQuestion++;
         $scope.question = examSharedService.questions[$scope.currentQuestion];
+        $scope.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL)
+
         $scope.htmlString = $sce.trustAsHtml($scope.question.question);
+        
 
         $scope.answers = $scope.question.answers;
         $scope.choices = $scope.question.choices;
