@@ -10,8 +10,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.questions = examSharedService.questions;
     
     $scope.question = examSharedService.questions[$scope.currentQuestion];
-    $scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL)
-    $scope.htmlString = $sce.trustAsHtml($scope.question.question);
+    $scope.htmlString = $sce.trustAsHtml($scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL));
 
     $scope.totalQuestions = examSharedService.questions.length;
     $scope.answers = $scope.question.answers;
@@ -83,8 +82,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     }
 
     $scope.getCurrentReason = function() {
-      var reason = $scope.question.reason.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL)
-      return $sce.trustAsHtml(reason);
+      return $sce.trustAsHtml($scope.question.reason.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL));
     }
 
 
@@ -114,8 +112,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       
       $scope.currentQuestion--;
       $scope.question = examSharedService.questions[$scope.currentQuestion];
-      $scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL)
-      $scope.htmlString = $sce.trustAsHtml($scope.question.question);
+      $scope.htmlString = $sce.trustAsHtml($scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL));
 
       $scope.flagged=false;
       $scope.elapsedTime=0;
@@ -170,10 +167,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       } else {
         $scope.currentQuestion++;
         $scope.question = examSharedService.questions[$scope.currentQuestion];
-        $scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL)
-        $scope.htmlString = $sce.trustAsHtml($scope.question.question);
+        $scope.htmlString = $sce.trustAsHtml($scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL));
         
-
         $scope.answers = $scope.question.answers;
         $scope.choices = $scope.question.choices;
         $scope.answerResponse = "";
