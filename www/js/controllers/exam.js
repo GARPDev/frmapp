@@ -10,6 +10,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.questions = examSharedService.questions;
     
     $scope.question = examSharedService.questions[$scope.currentQuestion];
+    $scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL)
     $scope.htmlString = $sce.trustAsHtml($scope.question.question);
 
     $scope.totalQuestions = examSharedService.questions.length;
@@ -82,7 +83,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     }
 
     $scope.getCurrentReason = function() {
-       return $sce.trustAsHtml($scope.answerReason);
+      var reason = $scope.question.reason.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL)
+      return $sce.trustAsHtml(reason);
     }
 
 
@@ -112,6 +114,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       
       $scope.currentQuestion--;
       $scope.question = examSharedService.questions[$scope.currentQuestion];
+      $scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL)
       $scope.htmlString = $sce.trustAsHtml($scope.question.question);
 
       $scope.flagged=false;
@@ -167,8 +170,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       } else {
         $scope.currentQuestion++;
         $scope.question = examSharedService.questions[$scope.currentQuestion];
-        $scope.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL)
-
+        $scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,"https://"+salesForcePublicURL)
         $scope.htmlString = $sce.trustAsHtml($scope.question.question);
         
 
