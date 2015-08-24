@@ -9,6 +9,8 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
     $scope.settings = examSharedService.settings;
     $scope.questions = examSharedService.questions;
     $scope.question = examSharedService.questions[$scope.currentQuestion];
+
+    $scope.htmlString = $sce.trustAsHtml($scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,+"/servlet"));
     
     $scope.userAnswer = examSharedService.userAnswers[$routeParams.questionIdx];
 
@@ -116,7 +118,8 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
       
       $scope.currentQuestion--;
       $scope.question = examSharedService.questions[$scope.currentQuestion];
-
+      $scope.htmlString = $sce.trustAsHtml($scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,+"/servlet"));
+    
     }
 
 
@@ -163,6 +166,8 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
       } else {
         $scope.currentQuestion++;
         $scope.question = examSharedService.questions[$scope.currentQuestion];
+        $scope.htmlString = $sce.trustAsHtml($scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,+"/servlet"));
+    
         $scope.answers = $scope.question.answers;
         $scope.choices = $scope.question.choices;
         $scope.answerResponse = "";

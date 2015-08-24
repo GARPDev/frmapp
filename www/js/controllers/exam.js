@@ -114,6 +114,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       $scope.question = examSharedService.questions[$scope.currentQuestion];
       $scope.htmlString = $sce.trustAsHtml($scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,+"/servlet"));
 
+      $scope.choices = $scope.question.choices;
+
       $scope.flagged=false;
       $scope.elapsedTime=0;
       $scope.elapsedTimeStart = (new Date).getTime();

@@ -29,23 +29,23 @@
           <div class="row">
             <div class="col-md-12">
               <div class="exam-question">
-                {{question.question}}
+                <p data-ng-bind-html="htmlString"></p>
               </div>
               <div ng-if="userAnswer.choice" style="font-size:20px;font-weight:bold;color:#b0c636;margin-left:auto;margin-right:auto;width: 600px;height: 50px;">
-                <div style="float:left;margin-right:20px;">Correct Answer: {{correctChoice}}</div>
+                <div style="float:left;margin-right:20px;">Correct Answer: {{correctChoice+1}}</div>
                 <div ng-if="correctChoice == userAnswer.choice" style="float:left;margin-right:20px;">
                   <span class="glyphicon glyphicon-ok"></span>
-                  Your Answer: {{userAnswer.choice}}
+                  Your Answer: {{userAnswer.choice+1}}
                 </div>
                 <div ng-if="correctChoice != userAnswer.choice" style="float:left;margin-right:20px;color:#F05123">
                   <span class="glyphicon glyphicon-remove"></span>
-                  Your Answer: {{userAnswer.choice}}
+                  Your Answer: {{userAnswer.choice+1}}
                 </div>
               </div>
               <div class="exam-question-choices">
                 <table class="table table-condensed">
                   <tr ng-repeat="choice in choices">
-                    <td class="exam-question-choice"><span ng-class="{correctAnswerText : inAnswer(choice.id, correctChoice.answer)}">{{choice.id}}.</span></td>
+                    <td class="exam-question-choice"><span ng-class="{correctAnswerText : inAnswer(choice.id, correctChoice.answer)}">{{choice.id+1}}.</span></td>
                     <td class="exam-question-choice-text"><span ng-class="{correctAnswerText : inAnswer(choice.id, correctChoice.answer)}">{{choice.description}}</span></td>
                   </tr>
                 </table>

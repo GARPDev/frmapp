@@ -8,7 +8,18 @@ frmServices.factory('navigationService', ['$resource','$http',
     navigationService.pageTransitionOut = function(view) {
 
       var currentLoc = document.location.hash;
-      if(currentLoc.indexOf(view) > -1) {
+      var route = null;
+      if(currentLoc.indexOf('#!/') > -1) {
+        var route = currentLoc.substring(3);
+        if(route.indexOf('/') > -1) {
+          route = route.substring(0,route.indexOf('?'));
+        } else if(route.indexOf('?') > -1) {
+          route = route.substring(0,route.indexOf('?'));
+        }
+
+      }
+
+      if(route != null && route == view) {
 
         //document.location.href = 
 
