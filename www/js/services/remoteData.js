@@ -426,7 +426,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
         url = serverURL + url;
       }    
 
-      $http.put(url + '/frmApp/user/' + authenticationService.user.contact.Id + '/metaDataItem', metaItem).success(function(data){
+      $http.put(url + '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData', metaItem).success(function(data){
         if(defined(data,"Id")) {
           var foundItem = remoteDataService.getReadingByID(data.ReadingId__c);
           if(defined(foundItem) && !defined(foundItem,"id")) {
