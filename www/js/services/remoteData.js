@@ -217,7 +217,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var readingsDataFetch = {
         //url : '/frmapp/www/data/readings.json', 
-        url : '/frmApp/readings/frm/' + year, 
+        url : '/frmApp/readings/' + year, 
         propertyName: 'readingData',
         remotePropertyName: null
       }
@@ -225,7 +225,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/questions/frm/' + year, 
+        url : '/frmApp/questions/' + year, 
         propertyName: 'questionData',
         remotePropertyName: null
       }
@@ -233,7 +233,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsReadingsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/questionsReadings/frm/' + year, 
+        url : '/frmApp/questionsReadings/' + year, 
         propertyName: 'questionsReadingsData',
         remotePropertyName: null
       }
