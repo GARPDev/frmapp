@@ -64,12 +64,24 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
 
             var finalReadings = readingsInTopic;
 
-            if(_.indexOf($scope.settings.topics, "learned") > 0) {
-              finalReadings = _.intersection(readingsInTopic,readingsMetaDone);
+            if(_.indexOf($scope.settings.topics, "learned") > -1) {
+
+              finalReadings = _.reject(readingsInTopic, function(reading) { 
+                var fnd = _.findWhere(readingsMetaDone, {readingId: reading.id})
+                return !defined(fnd);
+              });              
+
+              //finalReadings = _.intersection(readingsInTopic,readingsMetaDone);
             }
 
-            if(_.indexOf($scope.settings.topics, "flagged") > 0) {
-              finalReadings = _.intersection(finalReadings,readingsMetaFlagged);
+            if(_.indexOf($scope.settings.topics, "flagged") > -1) {
+
+              finalReadings = _.reject(readingsInTopic, function(reading) { 
+                var fnd = _.findWhere(readingsMetaFlagged, {readingId: reading.id})
+                return !defined(fnd);
+              });              
+
+              //finalReadings = _.intersection(finalReadings,readingsMetaFlagged);
             }
 
             readingQuestions = _.union(readingQuestions, finalReadings);

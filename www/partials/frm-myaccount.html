@@ -33,7 +33,7 @@
                             Organize Work By:
                             <br>
                             <div class="btn-group" data-toggle="buttons">
-                                <label ng-repeat="org in orgOptions" class="btn btn-justify garp-btn-white" ng-class="{'active' : userData.settings.organizeBy == org.value}" ng-click="changeOrgOption(org.value)">
+                                <label ng-repeat="org in orgOptions" class="btn btn-justify garp-btn-white" ng-class="{'active' : userSettings.organizeBy == org.value}" ng-click="changeOrgOption(org.value)">
                                     <input type="radio" name="{{org.value}}" id="{{org.value}}">{{org.name}}
                                 </label>
                             </div>

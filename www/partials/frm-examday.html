@@ -84,7 +84,7 @@
             <td>Bring #2 or Hard Black (HB) pencils only</td>
             <td><span ng-if="isMobile" ng-click="copyToDevice(-4)" class="glyphicon glyphicon-share-alt"></span></td>
           </tr>
-          <tr ng-repeat="rem in userData.settings.reminders">
+          <tr ng-repeat="rem in userSettings.reminders">
             <td><input type="checkbox"></td>
             <td>{{rem}}</td>
             <td><span ng-if="isMobile" ng-click="copyToDevice($index)" class="glyphicon glyphicon-share-alt"></span> <span ng-click="removeMyReminder($index)" class="glyphicon glyphicon-remove"></span></td>

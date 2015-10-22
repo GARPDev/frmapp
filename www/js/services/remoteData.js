@@ -217,7 +217,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var readingsDataFetch = {
         //url : '/frmapp/www/data/readings.json', 
-        url : '/frmApp/readings/' + year, 
+        url : '/frmApp/readings/frm/' + year, 
         propertyName: 'readingData',
         remotePropertyName: null
       }
@@ -225,7 +225,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/questions/' + year, 
+        url : '/frmApp/questions/frm/' + year, 
         propertyName: 'questionData',
         remotePropertyName: null
       }
@@ -233,7 +233,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsReadingsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/questionsReadings/' + year, 
+        url : '/frmApp/questionsReadings/frm/' + year, 
         propertyName: 'questionsReadingsData',
         remotePropertyName: null
       }
@@ -312,25 +312,37 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                     for(var j=0; j<data.records.length; j++) {
                       var reading = data.records[j];
 
-                      var week = 0;
-                      var description = "No Topic";
-                      if(defined(reading,"Study_App_Lesson_Plan__r.Week__c") && defined(reading,"Study_App_Lesson_Plan__r.Description__c")) {
-                        week = reading.Study_App_Lesson_Plan__r.Week__c;
-                        description = reading.Study_App_Lesson_Plan__r.Description__c;
-                      }
+                      if(defined(reading,"Study_App_Lesson_Plan__r.Week__c") && 
+                         defined(reading,"Study_App_Lesson_Plan__r.Description__c") &&
+                         defined(reading,"Study_App_Lesson_Plan__r.Exam__c")) {
 
-                      var obj = {
-                        id: reading.Id,
-                        book: { id:"01", title:"", "author":"", "publisher":""},
-                        chapter: [{id:"", title:""},{id:"", title:""}],
-                        section: { id:"", title:""},
-                        desc: reading.Description__c,
-                        week: { id:week, order:week, title:"Week " + week + " - " + description},
-                        topic: { id:reading.Study_Guide_Domain__c, order:reading.Study_Guide_Domain__r.ID__c, title:reading.Study_Guide_Domain__r.Name},
-                        attachment : {} 
+                        var userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
+
+                        if((reading.Study_App_Lesson_Plan__r.Exam__c == 'FRM Exam Part I' && userExam == 'FRM Part 1' || userExam == 'FRM Part 1 & 2' ) ||
+                           (reading.Study_App_Lesson_Plan__r.Exam__c == 'FRM Exam Part II' && userExam == 'FRM Part 2' || userExam == 'FRM Part 1 & 2' )) {
+
+                          var week = 0;
+                          var description = "No Topic";
+                            week = reading.Study_App_Lesson_Plan__r.Week__c;
+                            description = reading.Study_App_Lesson_Plan__r.Description__c;
+
+                          var obj = {
+                            id: reading.Id,
+                            book: { id:"01", title:"", "author":"", "publisher":""},
+                            chapter: [{id:"", title:""},{id:"", title:""}],
+                            section: { id:"", title:""},
+                            desc: reading.Description__c,
+                            week: { id:week, order:week, title:"Week " + week + " - " + description},
+                            topic: { id:reading.Study_Guide_Domain__c, order:reading.Study_Guide_Domain__r.ID__c, title:reading.Study_Guide_Domain__r.Name},
+                            attachment : {} 
+                          }
+                          readObj.readings.push(obj);
+
+
+                        }
                       }
-                      readObj.readings.push(obj);
                     }
+
                     remoteDataService.readingData.readings = readObj.readings;
                     remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
                   }
@@ -426,7 +438,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
         url = serverURL + url;
       }    
 
-      $http.put(url + '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData', metaItem).success(function(data){
+      $http.put(url + '/frmApp/user/' + authenticationService.user.contact.Id + '/metaDataItem', metaItem).success(function(data){
         if(defined(data,"Id")) {
           var foundItem = remoteDataService.getReadingByID(data.ReadingId__c);
           if(defined(foundItem) && !defined(foundItem,"id")) {
@@ -476,12 +488,12 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
         if(remoteDataService.userSettings.Id == '')
           remoteDataService.userSettings.Id = data.id;
 
-        //localStorage.userSettings = JSON.stringify(remoteDataService.userSettings);
+        localStorage.userSettings = JSON.stringify(remoteDataService.userSettings);
 
         $http.put(url + '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData', remoteDataService.metaData).success(function(data){
 
           //remoteDataService.metaData = data;
-          //localStorage.metaData = JSON.stringify(remoteDataService.metaData);
+          localStorage.metaData = JSON.stringify(remoteDataService.metaData);
 
 
         }).error(function(data, status, headers, config) {

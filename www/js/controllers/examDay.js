@@ -8,6 +8,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $scope.userData = remoteDataService.userData;
     $scope.newReminder = "";
     $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
+    $scope.userSettings = remoteDataService.userSettings;
 
     $scope.isMobile = isMobile();
 
@@ -25,7 +26,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     }
     
     $scope.addMyReminder=function() {
-      if(!defined(remoteDataService,"userData.settings.reminders"))
+      if(!defined(remoteDataService,"userSettings.reminders"))
         remoteDataService.userSettings.reminders = [];
       remoteDataService.userSettings.reminders.push($scope.newReminder);
       remoteDataService.commitData();

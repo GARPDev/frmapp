@@ -57,7 +57,7 @@ frmControllers.controller('FRMNotesCtrl', ['$scope','scheduleBarSharedService','
       var foundItem = _.findWhere(remoteDataService.metaData, {readingId: readlingListSharedService.readingIndex});
       if(foundItem !== null && typeof foundItem !== "undefined") {
         var foundNote = _.indexOf(foundItem.Notes, note);        
-        if(foundNote !== null && typeof foundNote !== "undefined") {
+        if(foundNote > -1) {
           foundItem.notes.splice(foundNote,1);
           $scope.notes = foundItem.notes;
           remoteDataService.commitData();

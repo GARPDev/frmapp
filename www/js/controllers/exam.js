@@ -205,9 +205,10 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         var found = 0;
         var foundItem = _.findWhere(remoteDataService.metaData, {readingId: id});
         if(foundItem === null || typeof foundItem === "undefined") {
-          var newItem = {id: id};
+          var newItem = {readingId: id};
           newItem[type] = true;
           remoteDataService.metaData.push(newItem);
+          remoteDataService.setMetaData(newItem);
         } else {
           foundItem[type]=true;
         }
