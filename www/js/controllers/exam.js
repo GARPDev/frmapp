@@ -38,6 +38,20 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       $scope.elapsedTimeStart = (new Date).getTime();
     }, 0);
 
+    function refreshImages() {
+
+      $timeout(function() {
+        $('img').each(function () {
+          var curSrc = $(this).attr('src');
+          if ( curSrc.indexOf('servlet/rtaImage') > -1) {
+              var newSrc = curSrc.replace(/https:\/\/([^\/]*)\/servlet/,salesForcePublicURL+"/servlet");
+              $(this).attr('src', newSrc);
+          }
+        });
+      }, 0);
+    }
+
+    refreshImages();
 
     $scope.exitExam = function() {
       $('body').removeClass("modal-open");
@@ -73,6 +87,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         $scope.answerReason = $scope.answerReason.replace(/:+/g,'<br>');
       }
       if(examSharedService.settings.mode == 0) {
+        refreshImages();
         $("#myModal").modal();
       } else {
         $scope.nextQuestion();
@@ -125,6 +140,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
       $scope.flagged=false;
       $scope.elapsedTime=0;
       $scope.elapsedTimeStart = (new Date).getTime();
+
+      refreshImages();
     }
 
 
@@ -184,6 +201,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         $scope.flagged=false;
         $scope.elapsedTime=0;
         $scope.elapsedTimeStart = (new Date).getTime();
+
+        refreshImages();
       }
     }
 
