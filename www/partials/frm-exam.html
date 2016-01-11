@@ -83,7 +83,7 @@
         <h4 class="modal-title" id="myModalLabel">{{answerResponse}}</h4>
       </div>
       <div class="modal-body">
-      	<p ng-if="correctAnswer.length > 0">The correct answer is {{correctAnswer}}</p>
+      	<p ng-if="correctAnswer">The correct answer is {{correctAnswer}}</p>
         <div ng-bind-html="getCurrentReason()"></div>
       </div>
       <div class="modal-footer">

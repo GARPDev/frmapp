@@ -47,6 +47,9 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
     $scope.chooseAnswer = function(id) {
 
+      // As of 2016 A = 1, B = 2, ...
+      id++;
+
       var userAnswer = {};
       userAnswer.question = $scope.question;
       userAnswer.choice = id;
