@@ -1,7 +1,7 @@
 'use strict';
 
-frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService','readlingListSharedService','navigationService',
-  function($scope, $timeout, $http, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService, readlingListSharedService, navigationService) {
+frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService','readlingListSharedService','navigationService','authenticationService',
+  function($scope, $timeout, $http, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService, readlingListSharedService, navigationService, authenticationService) {
   
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
@@ -13,6 +13,8 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
     $scope.doneItems = [];
 
     $scope.percentCompleteTotals = remoteDataService.getPercentCompleteTotals();
+
+    $scope.userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
 
     $timeout(function() {
       navigationService.pageTransitionIn();

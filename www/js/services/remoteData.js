@@ -39,6 +39,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
               newLesson.readings = [];
               newLesson.readings.push(newItem);
+              newLesson.exam = item.exam;
               lessons.push(newLesson);
 
             } else {
@@ -46,7 +47,11 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
               found.readings.push(newItem);
             }
       }) 
-      return _.sortBy(lessons, function(item){ return parseInt(item.order); });
+      var pad = "0000";
+      return _.sortBy(lessons, function(item){ 
+        var str = "" + item.order;
+        return item.exam + pad.substring(0, pad.length - str.length) + str; 
+      });
     }
 
 
@@ -332,7 +337,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                             chapter: [{id:"", title:""},{id:"", title:""}],
                             section: { id:"", title:""},
                             desc: reading.Description__c,
-                            week: { id:week, order:week, title:"Week " + week + " - " + description},
+                            exam: reading.Study_App_Lesson_Plan__r.Exam__c,
+                            week: { id:reading.Study_App_Lesson_Plan__c, order:week, title:"Week " + week + " - " + description},
                             topic: { id:reading.Study_Guide_Domain__c, order:reading.Study_Guide_Domain__r.ID__c, title:reading.Study_Guide_Domain__r.Name},
                             attachment : {} 
                           }

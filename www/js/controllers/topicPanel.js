@@ -1,10 +1,12 @@
-frmControllers.controller('TopicPanelController', ['$scope', '$location', '$timeout', 'Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService',
-  function($scope, $location, $timeout, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService) {
+frmControllers.controller('TopicPanelController', ['$scope', '$location', '$timeout', 'Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService','authenticationService',
+  function($scope, $location, $timeout, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService, authenticationService) {
 
     $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;
     $scope.scrollIndex = 1;
     $scope.allMode = scheduleBarSharedService.allMode;
+
+    $scope.userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
 
     // init ScheduleBar
     var lesson = {id:'all', title:'All Readings'};

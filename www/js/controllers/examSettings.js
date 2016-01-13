@@ -1,7 +1,8 @@
-frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService','navigationService',
-  function($scope,$timeout,$location,examSharedService,remoteDataService,navigationService) {
+frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location','examSharedService','remoteDataService','navigationService','authenticationService',
+  function($scope,$timeout,$location,examSharedService,remoteDataService,navigationService,authenticationService) {
 
     $scope.lessons = remoteDataService.lessonData;
+    $scope.userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
 
     $scope.settings = {
       mode:0,
