@@ -18,6 +18,11 @@
     position: fixed;
 }
 
+.btn.active {
+  background-color: #9eb231;
+  color: white;
+}
+
 a {
   color: #00A2DD;
     cursor: pointer;
