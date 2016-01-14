@@ -11,7 +11,7 @@
           <li class="list-group-item" ng-repeat="lesson in lessons | filter:lessonInProgressMatch(true)" class="">
             <div class="row lesson-item">
                 <div class="col-xs-8 title"><b ng-if="userExam == 'FRM Part 1 & 2'">{{lesson.exam}}</b> {{lesson.title}}</div>
-                <div class="col-xs-4 buttons"><button type="button" ng-click="navToLessonReadings(lesson.id)" class="btn btn-success">Study</button></div>
+                <div class="col-xs-4 buttons"><button type="button" ng-click="navToLessonReadings(lesson.id)" class="btn btn-success">Continue Studying</button></div>
             </div>
           </li>
 

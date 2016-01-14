@@ -331,10 +331,14 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                             week = reading.Study_App_Lesson_Plan__r.Week__c;
                             description = reading.Study_App_Lesson_Plan__r.Description__c;
 
+                          var book = reading.Study_Guide_Domain__r.Name;
+                          if(defined(reading,"Book__c"))
+                            book = reading.Book__c;
+
                           var obj = {
                             id: reading.Id,
-                            book: { id:"01", title:"", "author":"", "publisher":""},
-                            chapter: [{id:"", title:""},{id:"", title:""}],
+                            book: { id:"01", title:book, "author":"", "publisher":""},
+                            chapter: {id:"", title:reading.Chapter__c, pages:reading.Pages__c},
                             section: { id:"", title:""},
                             desc: reading.Description__c,
                             exam: reading.Study_App_Lesson_Plan__r.Exam__c,
