@@ -5,12 +5,18 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
 
     $scope.userData = remoteDataService.userData;
 
+    if((!defined(examSharedService.questions) || examSharedService.questions.length < 1) && !defined(navigationService.currentNav)) {
+      navigationService.changeView('examsettings');
+      return;
+    }
+
     $scope.currentQuestion = $routeParams.questionIdx;
     $scope.settings = examSharedService.settings;
     $scope.questions = examSharedService.questions;
     $scope.question = examSharedService.questions[$scope.currentQuestion];
 
     $scope.htmlString = $sce.trustAsHtml($scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,+"/servlet"));
+    $scope.htmlStringExplaination = $sce.trustAsHtml($scope.question.reason.replace(/https:\/\/([^\/]*)\/servlet/,+"/servlet"));
     
     $scope.userAnswer = examSharedService.userAnswers[$routeParams.questionIdx];
 

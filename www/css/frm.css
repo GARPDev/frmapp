@@ -18,10 +18,26 @@
     position: fixed;
 }
 
+
+.btn-info {
+  background-color: #f05123;
+  border-color: #ea4110;
+}
+
 .btn.active {
   background-color: #9eb231;
   color: white;
 }
+
+
+label.active {
+  font-weight: bold;
+}
+
+span.active {
+  font-weight: bold;
+}
+
 
 a {
   color: #00A2DD;
@@ -647,8 +663,6 @@ a:hover {
 
 
 .exam-question-count-row {
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .exam-question-count {

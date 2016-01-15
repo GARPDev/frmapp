@@ -3,6 +3,12 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
 
     $scope.userData = remoteDataService.userData;
 
+    if((!defined(examSharedService.questions) || examSharedService.questions.length < 1) && !defined(navigationService.currentNav)) {
+      navigationService.changeView('examsettings');
+      return;
+    }
+
+
     $scope.userAnswers = examSharedService.userAnswers;
     $scope.correctAnswers = examSharedService.correctAnswers;
     $scope.wrongAnswers = examSharedService.wrongAnswers;

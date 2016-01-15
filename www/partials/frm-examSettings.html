@@ -13,7 +13,15 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-8">
-                            <span style="color: rgb(81, 68, 68);font-size: larger;">Select a Test Mode</span>
+                            <span style="color: rgb(81, 68, 68);font-size: larger;">Select a Test Mode:</span> <span style="color: rgb(81, 68, 68);font-size: larger;font-weight: bold;" ng-if="settings.mode==0">Study</span>
+                            <span  style="color: rgb(81, 68, 68);font-size: larger;font-weight: bold;" ng-if="settings.mode==1">Exam Prep</span>
+                            <div ng-if="settings.mode==0">
+                                Take your assesment at your own pace and see answers as you go. You can go back and forth through your questions and get a final progress report.
+                            </div>
+                            <div ng-if="settings.mode==1">
+                                This test simulation allows you to have a live test expience. All questions are given without any respose until the final test results.
+                            </div>
+
                         </div>
                         <div class="col-xs-4">
                             <div class="btn-group" data-toggle="buttons">
@@ -36,15 +44,15 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <div ng-repeat="lesson in lessons" class="checkbox examsettings-options-topics">
-                            <label>
-                                <input id="{{lesson.id}}" ng-model="lesson.checked" type="checkbox"><b ng-if="userExam == 'FRM Part 1 & 2'">{{lesson.exam}}</b> {{lesson.title}}
+                            <label ng-class="{'active' : lesson.checked}">
+                                <input id="{{lesson.id}}" ng-model="lesson.checked" type="checkbox"><i ng-if="userExam == 'FRM Part 1 & 2'">{{lesson.exam}} -</i> {{lesson.title}}
                             </label>
                         </div>
                     </div>
                     <div class="examsettings-options-topics-selectAll">
                         <p>
-                            <a ng-if="isAllSelected(lessons)" ng-click="selectAll()">Select All</a>
-                            <a ng-if="!isAllSelected(lessons)" ng-click="selectAll()">Deselect All</a>
+                            <a ng-if="!isAllSelected(lessons)" ng-click="selectAll()">Select All</a>
+                            <a ng-if="isAllSelected(lessons)" ng-click="deSelectAll()">Deselect All</a>
                         </p>
                     </div>
                 </div>
@@ -62,15 +70,16 @@
                         <li class="list-group-item nodivider">
                             <div class="row">
                                 <div class="col-xs-8">
-                                    What I’ve learned so far
+                                    <span ng-class="{'active' : isSettingOn('topics', 'learned')}">What I’ve learned so far</span>: 
+                                    <div>Only shows questions based on readings that you marked Done.</div>
                                 </div>
                                 <div class="col-xs-4">
                                     <div class="btn-group" data-toggle="buttons">
-                                        <label class="btn btn-info" ng-class="{'active' : isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
-                                            <input type="radio" name="options" id="option2"> <span class="glyphicon glyphicon-ok"></span>
+                                        <label class="btn btn-justify garp-btn-white" ng-class="{'active' : isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
+                                            <input type="radio" name="options" id="option2">On
                                         </label>
-                                        <label class="btn btn-danger" ng-class="{'active' : !isSettingOn('topics', 'learned')}">
-                                            <input type="radio" name="options" id="option3"> <span class="glyphicon glyphicon-remove" ng-click="toggelSetting('topics','learned')"></span>
+                                        <label class="btn btn-justify garp-btn-white" ng-class="{'active' : !isSettingOn('topics', 'learned')}" ng-click="toggelSetting('topics','learned')">
+                                            <input type="radio" name="options" id="option3"> Off
                                         </label>
                                     </div>
                                 </div>
@@ -78,15 +87,17 @@
                         <li class="list-group-item divider">
                             <div class="row">
                                 <div class="col-xs-8">
-                                    All of my trouble areas
+                                    <span ng-class="{'active' : isSettingOn('topics', 'flagged')}">All of my trouble areas</span>:
+                                    <div>Only shows questions based on readings that you marked as Flagged.</div>
                                 </div>
                                 <div class="col-xs-4">
+
                                     <div class="btn-group" data-toggle="buttons">
-                                        <label class="btn btn-info" ng-class="{'active' : isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
-                                            <input type="radio" name="options" id="option2" checked> <span class="glyphicon glyphicon-ok"></span>
+                                        <label class="btn btn-justify garp-btn-white" ng-class="{'active' : isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
+                                            <input type="radio" name="options" id="option2">On
                                         </label>
-                                        <label class="btn btn-danger" ng-class="{'active' : !isSettingOn('topics', 'flagged')}">
-                                            <input type="radio" name="options" id="option3"> <span class="glyphicon glyphicon-remove" ng-click="toggelSetting('topics','flagged')"></span>
+                                        <label class="btn btn-justify garp-btn-white" ng-class="{'active' : !isSettingOn('topics', 'flagged')}" ng-click="toggelSetting('topics','flagged')">
+                                            <input type="radio" name="options" id="option3"> Off
                                         </label>
                                     </div>
                                 </div>
