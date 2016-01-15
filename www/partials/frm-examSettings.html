@@ -11,8 +11,8 @@
                     <div class="panel-title">Exam Settings</div>
                 </div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-xs-8">
+                    <div class="row examSettings">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                             <span style="color: rgb(81, 68, 68);font-size: larger;">Select a Test Mode:</span> <span style="color: rgb(81, 68, 68);font-size: larger;font-weight: bold;" ng-if="settings.mode==0">Study</span>
                             <span  style="color: rgb(81, 68, 68);font-size: larger;font-weight: bold;" ng-if="settings.mode==1">Exam Prep</span>
                             <div ng-if="settings.mode==0">
@@ -23,7 +23,7 @@
                             </div>
 
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-justify garp-btn-white" ng-class="{'active' : isSettingOn('mode', 0)}" ng-click="settings.mode=0">
                                     <input type="radio" name="study" id="0">Study
