@@ -43,7 +43,8 @@
                     </div>
                     <div class="examsettings-options-topics-selectAll">
                         <p>
-                            <a ng-click="selectAll()">Select All</a>
+                            <a ng-if="isAllSelected(lessons)" ng-click="selectAll()">Select All</a>
+                            <a ng-if="!isAllSelected(lessons)" ng-click="selectAll()">Deselect All</a>
                         </p>
                     </div>
                 </div>

@@ -16,6 +16,23 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
       navigationService.pageTransitionIn();
     }, 0);
 
+
+    $scope.isAllSelected = function() {
+      for (index = 0; index < $scope.lessons.length; ++index) {
+        if($scope.lessons[index].checked==false)
+          return false;
+      }
+      return true;
+
+    }
+    $scope.deSelectAll = function() {
+      for (index = 0; index < $scope.lessons.length; ++index) {
+        $scope.lessons[index].checked=false;
+      }
+      return true;
+    }
+
+
     $scope.selectAll = function() {
       for (index = 0; index < $scope.lessons.length; ++index) {
         $scope.lessons[index].checked=true;
