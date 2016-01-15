@@ -52,8 +52,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
 
     $scope.login = function(remember) {
 
-      var userName = $('#userName').val();
-      var password = $('#password').val();
+      var userName = $('#userName').val().trim();
+      var password = $('#password').val().trim();
       //var remember = $('#remember').val();
 
       var selector = '.login-area';
