@@ -4,7 +4,7 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <div class="login-header-area">
-        <img src="img/GARP_Logo_160x40.png" title="GARP FRM App">
+        <img src="img/garp-exam-prep-beta.png" title="GARP FRM App">
           <div class="login-footer-area">
             <p>GARP is the only globally recognized leader in financial risk testing and certification programs, and educational and training activity.</p>
           </div>
@@ -23,18 +23,18 @@
             <div class="hoz-center login-area">
               <div class="input-group input-group-lg">
                 <span class="input-group-addon" style="padding-left:20px">@</span>
-                <input id="userName" ng-model='userName' type="text" class="form-control" placeholder="Username">
+                <input id="userName" ng-model='userName' type="text" class="form-control" placeholder="Your Email Address">
               </div>
               <div class="input-group input-group-lg">
                 <span class="input-group-addon">***</span>
                 <input id="password" ng-model='password' type="password" class="form-control" placeholder="Password">
               </div>
               <div class="login-buttons">
+                <p><div id="errormsg"></div></p>
                 <button type="button" ng-click="login(autologin)" class="btn garp-btn-blue btn-block">Login</button>
                 <div class="forget-password-area"><a href="">Forgot Password?</a></div>
                 <div class="forget-password-area"><input type="checkbox" ng-model="autologin"> Remember me?</div>
               </div>
-              <p><div id="errormsg"></div></p>
             </div>    
           </div>
         </div>
@@ -47,7 +47,7 @@
   </div>
   <div class="row">
     <div class="col-md-12 footer-area">
-      <a href="">Register Today. v0.23</a>
+      <a href="">Register Today.</a>
     </div>
   </div>
 </div>

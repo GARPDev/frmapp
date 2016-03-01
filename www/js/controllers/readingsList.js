@@ -1,5 +1,5 @@
-frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'scheduleBarSharedService','remoteDataService','readlingListSharedService',
-  function($scope, $timeout, scheduleBarSharedService, remoteDataService, readlingListSharedService) {
+frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'scheduleBarSharedService','remoteDataService','readlingListSharedService','$filter',
+  function($scope, $timeout, scheduleBarSharedService, remoteDataService, readlingListSharedService, $filter) {
   
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
@@ -66,9 +66,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
       }
     }
 
-    $scope.criteriaMatch = function(value) {
-      return function( item ) {
-
+    function matchItems(item) {
         // New Queue  
         var foundItem = _.findWhere(remoteDataService.metaData, {readingId: item.id});        
 
@@ -90,8 +88,21 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
             return 1;  
           }
           
-        }
-        
+        }      
+    }
+
+    $scope.isAnyCriteriaMatch = function() {    
+      for(var i=0; i<$scope.readings.length; i++) {
+        var ret = matchItems($scope.readings[i]);
+        if(ret == 1)
+          return 1;
+      }
+      return 0;
+    }
+
+    $scope.criteriaMatch = function(value) {
+      return function( item ) {
+        return matchItems(item);
       }
     }   
 

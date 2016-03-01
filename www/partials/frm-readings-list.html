@@ -15,9 +15,10 @@
     <div class="panel-heading">
         <div class="panel-title">{{currentLesson.title}}</div>
       </div>
-    <div class="panel-body nopadding">
+    <div class="panel-body nopadding" ng-controller="FRMAppReadingsListCtrl">
 
-			<ul class="list-group" ng-controller="FRMAppReadingsListCtrl">				
+      <div ng-if="!isAnyCriteriaMatch()" style="text-align:center;margin:20px">No Items</div>
+			<ul class="list-group">				
 				<li ng-repeat="reading in readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'done') }">
           <div class="reading-item">
 

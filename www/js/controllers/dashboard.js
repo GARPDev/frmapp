@@ -28,6 +28,29 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
       $scope.messages = msgs;
     });
 
+    $scope.isAnyFlagged = function() {
+      // find meta  
+      var foundItem = _.findWhere(remoteDataService.metaData, {flagged: true});        
+
+      if(foundItem !== null && typeof foundItem !== "undefined") {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+
+    $scope.isAnyInProgress = function() {
+      // find meta  
+      var foundItem = _.findWhere(remoteDataService.metaData, {done: true});        
+
+      if(foundItem !== null && typeof foundItem !== "undefined") {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+
+
     $scope.flaggedMatch = function(value) {
       return function( item ) {
 
