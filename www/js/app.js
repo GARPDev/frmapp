@@ -32,7 +32,7 @@ function defined(ref, strNames) {
 phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider','$compileProvider',
   function($routeProvider, $anchorScrollProvider, $locationProvider, $compileProvider) {
     
-    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(blob:|data:image)/);
+    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|blob:|data:image)/);
 
     $routeProvider.
       when('/dashboard', {

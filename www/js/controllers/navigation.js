@@ -9,6 +9,8 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.isMobile = isMobile();
     $scope.messages = null;
 
+    $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
+
     switch(document.location.hash) {
       case '#/readings':
         $scope.currentMenuItem = 'Readings';

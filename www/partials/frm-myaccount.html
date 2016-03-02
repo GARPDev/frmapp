@@ -13,7 +13,7 @@
                 <div class="panel-body">
 
                     <div class="photo">
-                        <img id="myAccountUserImage" src="img/user.png" width="230">
+                        <img ng-if="userData.FullPhotoUrl" id="myAccountUserImage" ng-src="{{userImage}}" width="230">
                     </div>
 
                     <p>

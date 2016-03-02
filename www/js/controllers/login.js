@@ -68,8 +68,11 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
 
       authenticationService.authenticateUser(userName, password, function(err, result) {
 
-        if(!defined(result,"contact.KPI_Current_Exam_Registration__c") || result.contact.KPI_Current_Exam_Registration__c.indexOf('FRM') == -1) {
+        if(!defined(result,"contact")) {
           err = 401;
+          errmsg = "Your Email Address and Password combonation is not correct.";
+        } else if(!defined(result,"contact.KPI_Current_Exam_Registration__c") || result.contact.KPI_Current_Exam_Registration__c.indexOf('FRM') == -1) {
+          err = 404;
           errmsg = "You are not registered for the current FRM exam.";
         }
 

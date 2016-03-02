@@ -25,6 +25,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
 
+    $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
+
     //$scope.opp = remoteDataService.getOppertunities();
 
     $scope.orgOptions = [{
