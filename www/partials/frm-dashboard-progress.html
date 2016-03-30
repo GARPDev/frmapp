@@ -5,7 +5,11 @@
         </div>
         <div class="panel-body" style="text-align:center;padding-left: 0;
 padding-right: 0;">
-            <img class="user-image" id="userImage" src="img/user.png" width="100">
+
+            <img ng-if="userData.FullPhotoUrl" class="user-image" id="userImage" ng-src="{{userImage}}">
+            <img ng-if="!userData.FullPhotoUrl" class="user-image" id="userImage" src="img/user.png">
+
+
             <p>{{userData.Name}}</p>
             <p>GARP ID: {{userData.contact.GARP_Member_ID__c}}</p>
 

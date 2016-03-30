@@ -1,3 +1,5 @@
+  width: 100px;
+  height: 100px;
 .page-container {
   display: none;
 }
@@ -177,7 +179,15 @@ a:hover {
 }
 
 #userImage{
-    border-radius: 50%;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;    
+}
+
+#userImageNav{
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;    
 }
 
 .correctAnswerText {
@@ -330,6 +340,8 @@ a:hover {
 
 .dashboard > .panel-body > .progress-header-area > .left > .user-image {
   float: left;
+  width: 100px;
+  height: 100px;
 }
 
 .dashboard-cal-icon {

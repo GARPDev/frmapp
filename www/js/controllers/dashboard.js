@@ -16,6 +16,8 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
 
     $scope.userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
 
+    $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
+
     var mdate = moment($scope.userData.contact.KPI_Current_Exam_Date__c);
     var now = moment();
     $scope.days = mdate.diff(now, 'days');
