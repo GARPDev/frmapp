@@ -115,11 +115,6 @@
             <td>Verify or aquire an approved Calculator</td>
             <td><span ng-if="isMobile" ng-click="copyToDevice(-3)" class="glyphicon glyphicon-share-alt"></span></td>
           </tr>
-          <tr>
-            <td><input type="checkbox"></td>
-            <td>Bring #2 or Hard Black (HB) pencils only</td>
-            <td><span ng-if="isMobile" ng-click="copyToDevice(-4)" class="glyphicon glyphicon-share-alt"></span></td>
-          </tr>
           <tr ng-repeat="rem in userSettings.reminders">
             <td><input type="checkbox"></td>
             <td>{{rem}}</td>
