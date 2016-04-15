@@ -8,7 +8,8 @@ var phonecatApp = angular.module('frmApp', [
   'frmAnimations',
   'frmControllers',
   'frmFilters',
-  'frmServices'
+  'frmServices',
+  'angulartics', 'angulartics.google.analytics','angulartics.debug'
 ]);
 
 
