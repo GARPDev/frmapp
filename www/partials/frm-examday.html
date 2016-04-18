@@ -102,17 +102,17 @@
         <table class="table table-condensed examday-reminder-area">
           <tr>
             <td><input type="checkbox" check="model" value="{{ value }}"></td>
-            <td>Download Exam Admission Ticket</td>
+            <td>Print and bring your admission ticket for entry on exam day</td>
             <td><span ng-if="isMobile" ng-click="copyToDevice(-1)" class="glyphicon glyphicon-share-alt"></span></td>
           </tr>
           <tr>
             <td><input type="checkbox"></td>
-            <td>Obtian and register your current non-expired Government Issued Photo ID</td>
+            <td>Be sure your registered name exactly matches your original not-expired, passport or drivers’ license, including a photo</td>
             <td><span ng-if="isMobile" ng-click="copyToDevice(-2)" class="glyphicon glyphicon-share-alt"></span></td>
           </tr>
           <tr>
             <td><input type="checkbox"></td>
-            <td>Verify or aquire an approved Calculator</td>
+            <td>Review GARPs approved calculators for exam day</td>
             <td><span ng-if="isMobile" ng-click="copyToDevice(-3)" class="glyphicon glyphicon-share-alt"></span></td>
           </tr>
           <tr ng-repeat="rem in userSettings.reminders">
