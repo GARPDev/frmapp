@@ -54,7 +54,7 @@
               <div class="exam-question-choices">
                 <table class="table table-condensed">
                   <tr ng-repeat="choice in choices">
-                    <td class="exam-question-choice">{{choice.id+1}}.</td>
+                    <td class="exam-question-choice">{{formatChoiceId(choice.id+1)}}.</td>
                     <td class="exam-question-choice-text">{{choice.description}}</td>
                   </tr>
                 </table>
@@ -63,7 +63,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <button type="button" class="btn btn-default exam-question-answer" ng-repeat="choice in choices" ng-click="chooseAnswer(choice.id)">{{choice.id+1}}</button>
+              <button type="button" class="btn btn-default exam-question-answer" ng-repeat="choice in choices" ng-click="chooseAnswer(choice.id)">{{formatChoiceId(choice.id+1)}}</button>
             </div>
           </div>
 

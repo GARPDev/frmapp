@@ -59,6 +59,23 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
     refreshImages();
 
+    $scope.formatChoiceId = function(strChoice) {
+      if(defined(strChoice)) {
+        if(strChoice == '1')
+          return 'A';
+        if(strChoice == '2')
+          return 'B';
+        if(strChoice == '3')
+          return 'C';
+        if(strChoice == '4')
+          return 'D';
+
+      } else {
+        return '';
+      }
+      return 
+    }
+
     $scope.exitExam = function() {
       $('body').removeClass("modal-open");
       //document.location.hash = '#/dash';

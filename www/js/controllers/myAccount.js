@@ -1,5 +1,5 @@
-frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService',
-  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService) {
+frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService','$sce',
+  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService,$sce) {
 
 
     if(remoteDataService.userData.registeredExam == null) {
@@ -28,6 +28,11 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
 
     //$scope.opp = remoteDataService.getOppertunities();
+    $scope.remoteDataService = remoteDataService;
+
+    $scope.displayAddress = $scope.userData.contact.KPI_Current_Exam_Location__c;
+
+
 
     $scope.orgOptions = [{
           name: 'Week',
@@ -48,6 +53,27 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       navigationService.pageTransitionIn();
       // registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
       var address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
+      if(defined($scope.regdata,"Room__r.Venue__r.Id")) {
+        var venue = $scope.regdata.Room__r.Venue__r;
+        var displayAddress = '';
+        if(defined(venue,"Institution_Name__c"))
+          displayAddress += venue.Institution_Name__c + "<br>";
+        if(defined(venue,"Building_Name__c"))
+          displayAddress += venue.Building_Name__c + "<br>";
+        if(defined(venue,"Address1__c"))
+          displayAddress += venue.Address1__c + "<br>";
+        if(defined(venue,"Address2__c"))
+          displayAddress += venue.Address2__c + "<br>";
+        if(defined(venue,"City__c"))
+          displayAddress += venue.City__c + ", ";
+        if(defined(venue,"State__c"))
+          displayAddress += venue.State__c + "<br>";
+        if(defined(venue,"Country__c"))
+          displayAddress += venue.Country__c;
+
+        $scope.displayAddress = $sce.trustAsHtml(displayAddress);
+        address = venue.Address1__c + ' ' + venue.City__c + ' ' + venue.State__c + ' ' + venue.Country__c;
+      }
 
       $('#map-debug').text($('#map-debug').text()+'Call Display Map');
 

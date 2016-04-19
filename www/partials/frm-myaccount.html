@@ -54,10 +54,10 @@
                     <div class="panel-title">Exam Information</div>
                 </div>
                 <div class="panel-body">
-                    <div class="panel-info">{{userData.contact.KPI_Current_Exam_Registration__c}}</div>
+                    <div class="panel-info">{{remoteDataService.formatExamName(userData.contact.KPI_Current_Exam_Registration__c)}}</div>
                     <div class="panel-info">{{userData.contact.KPI_Current_Exam_Date__c}}</div>
                     <div class="panel-info">{{userData.contact.time}}</div>
-                    <div class="panel-info">{{userData.contact.KPI_Current_Exam_Location__c}}</div>
+                    <div class="panel-info" data-ng-bind-html="displayAddress"></div>
                     <div id="map-canvas" class="myaccount-map-area"></div>
                 </div>
             </div>

@@ -55,6 +55,18 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     }
 
 
+    remoteDataService.formatExamName = function(examName) {
+      if(defined(examName)) {
+        if(examName == 'FRM Part 1')
+          return 'FRM Exam Part I';
+        if(examName == 'FRM Part 2')
+          return 'FRM Exam Part II';
+      } else {
+        return '';
+      }
+
+    }
+
     remoteDataService.changeOrgOption = function(org) {
       remoteDataService.userSettings.organizeBy = org;
       remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);

@@ -23,7 +23,7 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
     //$scope.userChoice = _.findWhere($scope.userAnswer.question.answers, {id: $scope.userAnswer.choice});        
     //$scope.correctChoice = _.findWhere($scope.userAnswer.question.answers, {id: $scope.userAnswer.question.answer});        
 
-    $scope.userChoice = $scope.userAnswer.question.answer;
+    $scope.userChoice = $scope.userAnswer.question.choice;
     $scope.correctChoice = $scope.userAnswer.question.answer;        
 
 
@@ -44,6 +44,23 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
     $timeout(function() {
       navigationService.pageTransitionIn();
     }, 0);
+
+    $scope.formatChoiceId = function(strChoice) {
+      if(defined(strChoice)) {
+        if(strChoice == '1')
+          return 'A';
+        if(strChoice == '2')
+          return 'B';
+        if(strChoice == '3')
+          return 'C';
+        if(strChoice == '4')
+          return 'D';
+
+      } else {
+        return '';
+      }
+      return 
+    }
 
     $scope.returnResults = function() {
       navigationService.changeView('examresults');
