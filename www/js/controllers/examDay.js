@@ -7,12 +7,24 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $scope.userSession = remoteDataService.userSession;
     $scope.userData = remoteDataService.userData;
     $scope.newReminder = "";
-    $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
     $scope.userSettings = remoteDataService.userSettings;
     $scope.remoteDataService = remoteDataService;
 
     $scope.isMobile = isMobile();
     $scope.displayAddress = $scope.userData.contact.KPI_Current_Exam_Location__c;
+
+    if($scope.userData.registeredExam.registrations.records.length == 1) {
+      $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
+    } else {
+      if($scope.userData.registeredExam.registrations.records[1].Section__c == 'FRM Part 1') {
+        $scope.regdata = $scope.userData.registeredExam.registrations.records[1];
+        $scope.regdata1 = $scope.userData.registeredExam.registrations.records[0];
+      } else {
+        $scope.regdata1 = $scope.userData.registeredExam.registrations.records[1];
+        $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
+      }
+
+    }
 
     $timeout(function() {
       navigationService.pageTransitionIn();

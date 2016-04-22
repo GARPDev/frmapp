@@ -14,7 +14,7 @@
               <div class="icon-area">
                 <div class="icon"><span class="glyphicon glyphicon-file"></span></div>
               </div>
-              <h2>{{remoteDataService.formatExamName(userData.registeredExam.name)}}</h2>
+              <h2>{{remoteDataService.formatExamName(regdata.Section__c)}}</h2>
             </div>
           </div>
           <div class="row">
@@ -43,13 +43,13 @@
             </div>
           </div>
 
-          <div ng-if="userData.registeredExam.registrations.records.length > 1">
-            <div class="row">
+          <div ng-if="regdata1">
+            <div class="row" style="margin-top:20px;">
               <div class="col-md-12 examday-info">
                 <div class="icon-area">
                   <div class="icon"><span class="glyphicon glyphicon-file"></span></div>
                 </div>
-                <h2>{{remoteDataService.formatExamName(userData.registeredExam.registrations.records[1].Section__c)}}</h2>
+                <h2>{{remoteDataService.formatExamName(regdata1.Section__c)}}</h2>
               </div>
             </div>
             <div class="row">
@@ -60,21 +60,21 @@
 
               <div class="col-md-6">
                 <span class="examday-info-label">Start Time:</span>
-                <p ng-if="userData.registeredExam.registrations.records[1].Session__c != 'AM'">2:00 pm</p>
-                <p ng-if="userData.registeredExam.registrations.records[1].Session__c == 'AM'">8:00 am</p>
+                <p ng-if="regdata1.Session__c != 'AM'">2:00 pm</p>
+                <p ng-if="regdata1.Session__c == 'AM'">8:00 am</p>
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-6">
                 <span class="examday-info-label">Location:</span><br>
-                <span>{{userData.contact.KPI_Current_Exam_Location__c}}</span>
+                <span data-ng-bind-html="displayAddress"></span>
               </div>
 
               <div class="col-md-6">
                 <span class="examday-info-label">End Time:</span>
-                <p ng-if="userData.registeredExam.registrations.records[1].Session__c != 'AM'">6:00pm</p>
-                <p ng-if="userData.registeredExam.registrations.records[1].Session__c == 'AM'">12:00pm</p>
+                <p ng-if="regdata1.Session__c != 'AM'">6:00pm</p>
+                <p ng-if="regdata1.Session__c == 'AM'">12:00pm</p>
               </div>
             </div>
           </div>
