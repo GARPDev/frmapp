@@ -72,8 +72,28 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
           err = 401;
           errmsg = "Your Email Address and Password combonation is not correct.";
         } else if(!defined(result,"contact.KPI_Current_Exam_Registration__c") || result.contact.KPI_Current_Exam_Registration__c.indexOf('FRM') == -1) {
-          err = 404;
-          errmsg = "You are not registered for the current FRM exam.";
+
+          if(defined(result,"contact.KPI_Last_Exam_Date__c") && defined(result,"contact.KPI_Last_Exam_Registration__c") && result.contact.KPI_Last_Exam_Registration__c.indexOf('FRM') > -1) {
+            var examDate = result.contact.KPI_Last_Exam_Date__c;
+            var splitDate = examDate.split(' ');
+            if(splitDate.length > 1) {
+              var mnow = moment();
+              var year = mnow.year().toString();
+              if(year == splitDate[1]) {
+                result.contact.KPI_Current_Exam_Registration__c = result.contact.KPI_Last_Exam_Registration__c;
+                result.contact.KPI_Current_Exam_Date__c = result.contact.KPI_Last_Exam_Date__c;
+                result.contact.KPI_Current_Exam_Location__c = result.contact.KPI_Last_Exam_Location__c;
+                result.contact.KPI_Current_Exam_Registration_Type__c = result.contact.KPI_Last_Exam_Registration_Type__c;
+              } else {
+                err = 404;
+                errmsg = "You are not registered for the current FRM exam.";                                            
+              }
+            }
+          } else {
+            err = 404;
+            errmsg = "You are not registered for the current FRM exam.";            
+          }
+
         }
 
         if(err) {

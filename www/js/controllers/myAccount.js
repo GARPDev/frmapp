@@ -32,6 +32,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $scope.displayAddress = $scope.userData.contact.KPI_Current_Exam_Location__c;
 
+    $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
+    $scope.examDate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
 
 
     $scope.orgOptions = [{

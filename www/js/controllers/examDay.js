@@ -26,6 +26,9 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
 
     }
 
+    $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
+    $scope.examDate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
+
     $timeout(function() {
       navigationService.pageTransitionIn();
       //$scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;      

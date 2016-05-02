@@ -9,16 +9,13 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
     $scope.allReadings = _.flatten(_.pluck($scope.lessons,'readings'));
     $scope.userData = remoteDataService.userData;
     $scope.metaData = remoteDataService.metaData;
-
     $scope.doneItems = [];
-
     $scope.percentCompleteTotals = remoteDataService.getPercentCompleteTotals();
-
     $scope.userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
-
     $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
+    $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
 
-    var mdate = moment($scope.userData.contact.KPI_Current_Exam_Date__c);
+    var mdate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c);
     var now = moment();
     $scope.days = mdate.diff(now, 'days');
 
