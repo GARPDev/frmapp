@@ -19,7 +19,7 @@
 
       <div ng-if="!isAnyCriteriaMatch()" style="text-align:center;margin:20px">No Items</div>
 			<ul class="list-group">				
-				<li ng-repeat="reading in readings | filter:criteriaMatch()" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'done') }">
+				<li ng-repeat="reading in readings | filter:criteriaMatch() | orderBy:['sortBook','sortChapter','sortPages']" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'done') }">
           <div class="reading-item">
 
             <div class="icon-area">

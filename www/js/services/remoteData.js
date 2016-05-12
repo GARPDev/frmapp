@@ -356,11 +356,12 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                             exam: reading.Study_App_Lesson_Plan__r.Exam__c,
                             week: { id:reading.Study_App_Lesson_Plan__c, order:week, title:"Week " + week + " - " + description},
                             topic: { id:reading.Study_Guide_Domain__c, order:reading.Study_Guide_Domain__r.ID__c, title:reading.Study_Guide_Domain__r.Name},
-                            attachment : {} 
+                            attachment : {},
+                            sortBook : book,
+                            sortChapter : reading.Chapter__c,
+                            sortPages : reading.Pages__c
                           }
                           readObj.readings.push(obj);
-
-
                         }
                       }
                     }
