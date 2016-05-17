@@ -335,8 +335,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
                         var userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
 
-                        if((reading.Study_App_Lesson_Plan__r.Exam__c == 'FRM Exam Part I' && (userExam == 'FRM Exam Part 1' || userExam == 'FRM Part 1' || userExam == 'FRM Exam Part 1 & 2' || userExam == 'FRM Part 1 & 2' )) ||
-                           (reading.Study_App_Lesson_Plan__r.Exam__c == 'FRM Exam Part II' && (userExam == 'FRM Exam Part 2' || userExam == 'FRM Part 2' || userExam == 'FRM Exam Part 1 & 2' || userExam == 'FRM Part 1 & 2' ))) {
+                        if((reading.Study_App_Lesson_Plan__r.Exam__c == 'FRM Exam Part I' && (userExam == 'FRM Exam Part 1' || userExam == 'FRM Part 1' || userExam == 'FRM Exam Part 1 & 2' || userExam == 'FRM Part 1 & 2' || userExam == 'FRM Exam Part I' || userExam == 'FRM Exam Part I & II' )) ||
+                           (reading.Study_App_Lesson_Plan__r.Exam__c == 'FRM Exam Part II' && (userExam == 'FRM Exam Part 2' || userExam == 'FRM Part 2' || userExam == 'FRM Exam Part 1 & 2' || userExam == 'FRM Part 1 & 2' || userExam == 'FRM Exam Part II' || userExam == 'FRM Exam Part I & II' ))) {
 
                           var week = 0;
                           var description = "No Topic";
