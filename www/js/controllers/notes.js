@@ -56,7 +56,7 @@ frmControllers.controller('FRMNotesCtrl', ['$scope','scheduleBarSharedService','
     $scope.deleteNote = function(note) {
       var foundItem = _.findWhere(remoteDataService.metaData, {readingId: readlingListSharedService.readingIndex});
       if(foundItem !== null && typeof foundItem !== "undefined") {
-        var foundNote = _.indexOf(foundItem.Notes, note);        
+        var foundNote = _.indexOf(foundItem.notes, note);        
         if(foundNote > -1) {
           foundItem.notes.splice(foundNote,1);
           $scope.notes = foundItem.notes;
