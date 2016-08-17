@@ -23,10 +23,8 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
         $scope.regdata1 = $scope.userData.registeredExam.registrations.records[1];
         $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
       }
-
     }
-
-    $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
+    //$scope.regdata = $scope.userData.registeredExam.registrations.records[0];
     $scope.examDate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
 
     $timeout(function() {
