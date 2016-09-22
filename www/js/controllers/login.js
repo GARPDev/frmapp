@@ -71,9 +71,9 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
         if(!defined(result,"contact")) {
           err = 401;
           errmsg = "Your Email Address and Password combonation is not correct.";
-        } else if(!defined(result,"contact.KPI_Current_Exam_Registration__c") || result.contact.KPI_Current_Exam_Registration__c.indexOf('FRM') == -1) {
+        } else if(!defined(result,"contact.KPI_Current_Exam_Registration__c") || (result.contact.KPI_Current_Exam_Registration__c.indexOf('FRM') == -1 && result.contact.KPI_Current_Exam_Registration__c.indexOf('ERP') == -1)) {
 
-          if(defined(result,"contact.KPI_Last_Exam_Date__c") && defined(result,"contact.KPI_Last_Exam_Registration__c") && result.contact.KPI_Last_Exam_Registration__c.indexOf('FRM') > -1) {
+          if(defined(result,"contact.KPI_Last_Exam_Date__c") && defined(result,"contact.KPI_Last_Exam_Registration__c") && (result.contact.KPI_Last_Exam_Registration__c.indexOf('FRM') > -1 || result.contact.KPI_Last_Exam_Registration__c.indexOf('ERP') > -1)) {
             var examDate = result.contact.KPI_Last_Exam_Date__c;
             var splitDate = examDate.split(' ');
             if(splitDate.length > 1) {
@@ -86,12 +86,12 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
                 result.contact.KPI_Current_Exam_Registration_Type__c = result.contact.KPI_Last_Exam_Registration_Type__c;
               } else {
                 err = 404;
-                errmsg = "You are not registered for the current FRM exam.";                                            
+                errmsg = "You are not currently enrolled for an exam.";
               }
             }
           } else {
             err = 404;
-            errmsg = "You are not registered for the current FRM exam.";            
+            errmsg = "You are not currently enrolled for an exam.";            
           }
 
         }

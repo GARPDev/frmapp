@@ -17,6 +17,8 @@
                     </div>
                     <div class="info">
                         <p><span ng-if="reading.desc">{{reading.desc}}</span></p>
+                        <p><span ng-if="reading.week.title && userSettings.organizeBy == 'week'" style='font-weight: bold;'>{{reading.week.title}}</span></p>
+                        <p><span ng-if="reading.topic.title && userSettings.organizeBy == 'topic'" style='font-weight: bold;'>{{reading.topic.title}}</span></p>
                     </div>
                     <div class="remove">
                         <a href ng-click="removeFlag(reading.id)"><span class="glyphicon glyphicon-remove"></span></a>

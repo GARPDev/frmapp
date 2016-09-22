@@ -45,7 +45,7 @@
                     <div class="form-group">
                         <div ng-repeat="lesson in lessons" class="checkbox examsettings-options-topics">
                             <label ng-class="{'active' : lesson.checked}">
-                                <input id="{{lesson.id}}" ng-model="lesson.checked" type="checkbox"><i ng-if="userExam == 'FRM Part 1 & 2'">{{lesson.exam}} -</i> {{lesson.title}}
+                                <input id="{{lesson.id}}" ng-model="lesson.checked" type="checkbox"><i ng-if="userExam == 'FRM Part 1 & 2' || userExam == 'ERP Exam Part I & II'">{{lesson.exam}} -</i> {{lesson.title}}
                             </label>
                         </div>
                     </div>

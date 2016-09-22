@@ -16,7 +16,8 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     if($scope.userData.registeredExam.registrations.records.length == 1) {
       $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
     } else {
-      if($scope.userData.registeredExam.registrations.records[1].Section__c == 'FRM Part 1') {
+      var section = $scope.userData.registeredExam.registrations.records[1].Section__c;
+      if(section.indexOf('1') > -1 || section .indexOf('Part I') > -1) {
         $scope.regdata = $scope.userData.registeredExam.registrations.records[1];
         $scope.regdata1 = $scope.userData.registeredExam.registrations.records[0];
       } else {

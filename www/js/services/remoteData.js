@@ -57,10 +57,14 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
     remoteDataService.formatExamName = function(examName) {
       if(defined(examName)) {
-        if(examName == 'FRM Part 1')
-          return 'FRM Exam Part I';
-        if(examName == 'FRM Part 2')
-          return 'FRM Exam Part II';
+        if(examName.indexOf('FRM') > -1) {
+          if(examName == 'FRM Part 1')
+            return 'FRM Exam Part I';
+          if(examName == 'FRM Part 2')
+            return 'FRM Exam Part II';
+        } else {
+          return examName;
+        }
       } else {
         return '';
       }
@@ -176,6 +180,12 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     remoteDataService.fetchData = function(q,$http) {
 
       //remoteDataService.clearData();
+      remoteDataService.exam = 'frm';
+      remoteDataService.EXAM = 'FRM';
+      if(defined(authenticationService,"user.contact.KPI_Current_Exam_Registration__c") && authenticationService.user.contact.KPI_Current_Exam_Registration__c.indexOf('ERP') > -1) {
+        remoteDataService.exam = 'erp';
+        remoteDataService.EXAM = 'ERP';
+      }
 
       if(authenticationService.user === null || typeof authenticationService.user === "undefined") {
           return null;
@@ -234,7 +244,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var readingsDataFetch = {
         //url : '/frmapp/www/data/readings.json', 
-        url : '/frmApp/readings/frm/' + year, 
+        url : '/frmApp/readings/' + remoteDataService.exam + '/' + year, 
         propertyName: 'readingData',
         remotePropertyName: null
       }
@@ -242,7 +252,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/questions/frm/' + year, 
+        url : '/frmApp/questions/' + remoteDataService.exam + '/' + year, 
         propertyName: 'questionData',
         remotePropertyName: null
       }
@@ -250,7 +260,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsReadingsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/questionsReadings/frm/' + year, 
+        url : '/frmApp/questionsReadings/' + remoteDataService.exam + '/' + year, 
         propertyName: 'questionsReadingsData',
         remotePropertyName: null
       }
@@ -335,8 +345,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
                         var userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
 
-                        if((reading.Study_App_Lesson_Plan__r.Exam__c == 'FRM Exam Part I' && (userExam == 'FRM Exam Part 1' || userExam == 'FRM Part 1' || userExam == 'FRM Exam Part 1 & 2' || userExam == 'FRM Part 1 & 2' || userExam == 'FRM Exam Part I' || userExam == 'FRM Exam Part I & II' )) ||
-                           (reading.Study_App_Lesson_Plan__r.Exam__c == 'FRM Exam Part II' && (userExam == 'FRM Exam Part 2' || userExam == 'FRM Part 2' || userExam == 'FRM Exam Part 1 & 2' || userExam == 'FRM Part 1 & 2' || userExam == 'FRM Exam Part II' || userExam == 'FRM Exam Part I & II' ))) {
+                        if((reading.Study_App_Lesson_Plan__r.Exam__c == remoteDataService.EXAM + ' Exam Part I' && (userExam.indexOf(remoteDataService.EXAM) > -1 && (userExam.indexOf('1') > -1 || userExam.indexOf('Part I') > -1))) ||
+                           (reading.Study_App_Lesson_Plan__r.Exam__c == remoteDataService.EXAM + ' Exam Part II' && (userExam.indexOf(remoteDataService.EXAM) > -1 && (userExam.indexOf('2') > -1 || userExam.indexOf('II') > -1)))) {
 
                           var week = 0;
                           var description = "No Topic";

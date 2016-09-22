@@ -75,7 +75,7 @@ frmServices.factory('mapService', ['$resource', '$http',
                 try {
                     map = new google.maps.Map(document.getElementById(selector), mapOptions);
                     //just added
-                    var contentString = "Location of your FRM Exam.";
+                    var contentString = "Location of your exam.";
                     var infowindow = new google.maps.InfoWindow({
                         content: contentString
                     });
@@ -97,7 +97,7 @@ frmServices.factory('mapService', ['$resource', '$http',
                         var marker = new google.maps.Marker({
                             map: map,
                             icon: 'img/garp_marker.png',
-                            title: 'FRM Exam',
+                            title: 'Exam',
                             animation: google.maps.Animation.DROP,
                             position: results[0].geometry.location
                         });

@@ -14,6 +14,8 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
     $scope.userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
     $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
     $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
+    $scope.userSettings = remoteDataService.userSettings;
+    
     for(var i=0; i<$scope.userData.registeredExam.registrations.records.length; i++) {
       if($scope.userData.registeredExam.registrations.records[i] != 'Pending')
           $scope.regdata = $scope.userData.registeredExam.registrations.records[i];
