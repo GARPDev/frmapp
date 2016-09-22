@@ -55,8 +55,8 @@
     
     <gap:plugin name="nl.x-services.plugins.calendar" />
     <gap:plugin name="org.apache.cordova.camera" />
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.15" />
-    <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.5.0" />
+    <gap:plugin name="org.apache.cordova.network-information" />
+    <gap:plugin name="com.phonegap.plugins.pushplugin" />
     <access origin="*" />
     
 </widget>
