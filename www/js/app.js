@@ -30,6 +30,20 @@ function defined(ref, strNames) {
     return true;
 }
 
+
+angular.module('ErrorCatcher', [])
+    .factory('$exceptionHandler', ['$injector', function ($injector) {
+        return function errorCatcherHandler(exception, cause) {
+            console.error(exception.stack);
+            var msg = '';
+            var file = '';
+            var method = '';
+            if(defined(exception,"stack") && (!defined(exception,"message") || exception.message.length == 0 )) {
+              alert(exception.message);
+            }
+        };
+    }]);
+
 phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider','$compileProvider',
   function($routeProvider, $anchorScrollProvider, $locationProvider, $compileProvider) {
     

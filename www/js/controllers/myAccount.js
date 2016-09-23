@@ -6,6 +6,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       navigationService.changeView('login');
     }
 
+alert('My Account');
 
     $scope.nav = navigator.appCodeName;
     $scope.camera =  navigator.camera;

@@ -28,6 +28,9 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
       }
 
 
+      alert('Hello');
+
+
     $("video").bind("ended", function() {
        $('.videoplayer').hide("slow");
        $('.videoimage').show("slow");
