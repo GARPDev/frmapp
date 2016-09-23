@@ -27,10 +27,6 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
         $('.login-area').find('div').removeClass('input-group')
       }
 
-
-      alert('Hello');
-
-
     $("video").bind("ended", function() {
        $('.videoplayer').hide("slow");
        $('.videoimage').show("slow");
