@@ -1,10 +1,10 @@
   width: 100px;
   height: 100px;
-.page-container {
-  display: none;
-}
+  .page-container {
+    display: none;
+  }
 
-#background {
+  #background {
     width: 100%; 
     height: 100%; 
     position: absolute; 
@@ -12,170 +12,203 @@
     top: 0px; 
     z-index: 0;
     opacity:0.3;
-}
+  }
 
-.stretch {
+  .stretch {
     width:100%;
     height:100%;
     position: fixed;
-}
+  }
 
 
-.btn-info {
-  background-color: #f05123;
-  border-color: #ea4110;
-}
+  .btn-info {
+    background-color: #f05123;
+    border-color: #ea4110;
+  }
 
-.btn.active {
-  background-color: #9eb231;
-  color: white;
-}
-
-
-label.active {
-  font-weight: bold;
-}
-
-span.active {
-  font-weight: bold;
-}
+  .btn.active {
+    background-color: #9eb231;
+    color: white;
+  }
 
 
-a {
-  color: #00A2DD;
+  label.active {
+    font-weight: bold;
+  }
+
+  span.active {
+    font-weight: bold;
+  }
+
+
+  a {
+    color: #00A2DD;
     cursor: pointer;
-}
+  }
 
-a:hover {
-  color: #006C99;
-  text-decoration: none;
-}
+  a:hover {
+    color: #006C99;
+    text-decoration: none;
+  }
 
-/*  mobile nav */
+  /*  mobile nav */
 
-@media (min-width:990px){
+  @media (min-width:990px){
     .mobileIcons{
-        display: none;       
+      display: none;       
     }
     
     .mobileSearch{
-        display: none;
+      display: none;
     }
     
     .nav-item-area:hover{
-        background: #e7e7e7;
+      background: #e7e7e7;
     }
     
     .mobileUserAccount{
-        display: none;
+      display: none;
     }
     
     .myMessage{
-        display: none;
+      display: none;
     }
     
     .marginForPanelsProg{
-        margin-bottom:325px;
+      margin-bottom:325px;
     }
+  }
+
+  @media (max-width:500px){
+
+    #mobileNavBar{
+      display: none;       
+    }
+
+    #lowerNav {
+      display: inline-flex;
+      padding: 10px;
+      margin-left: 30%;
+    }
+
+    .view-container {
+      margin-top: 140px;
+    }
+
+    #logo {
+      padding-left: 20%;
+    }
+
+  }
+
+  @media (min-width:500px){
+
+   #lowerNav {
+    display: none;
+  }
+
+  .view-container {
+    margin-top: 100px;
+  }
+
 }
 
-
 @media (max-width: 991px) {
-    .navbar-header {
-        float: none;
-    }
-    .navbar-toggle {
-        display: block;
-    }
-    .navbar-collapse {
-        border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-    .navbar-collapse.collapse {
-        display: none!important;
-    }
-    .navbar-nav {
-        float: none!important;
-        margin: 7.5px -15px;
-    }
-    .navbar-nav>li {
-        float: none;
-    }
-    .navbar-nav>li>a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    
-    .mobileIcons{
-        display: block;
-        display: inline-flex;
-        float: right;
-        margin-top: -32px;
-    }
-    
-    .nav-item-icon{
-        color: black;
-        margin-right: 20px;
-    }
-    
-    .nav-item-area:hover{
-        background: white;
-    }
-    
-    .mobileSearch{
-        display: block;
-    }
-    
-    .myMessage{
-        display: block;
-        word-wrap: break-word;
-    }
-    
-    .marginForPanelsProg{
-        margin-bottom: 60px;
-    }
+  .navbar-header {
+    float: none;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-collapse.collapse {
+    display: none!important;
+  }
+  .navbar-nav {
+    float: none!important;
+    margin: 7.5px -15px;
+  }
+  .navbar-nav>li {
+    float: none;
+  }
+  .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .mobileIcons{
+    display: block;
+    display: inline-flex;
+    float: right;
+    margin-top: -32px;
+  }
+
+  .nav-item-icon{
+    color: black;
+    margin-right: 20px;
+  }
+
+  .nav-item-area:hover{
+    background: white;
+  }
+
+  .mobileSearch{
+    display: block;
+  }
+
+  .myMessage{
+    display: block;
+    word-wrap: break-word;
+  }
+
+  .marginForPanelsProg{
+    margin-bottom: 60px;
+  }
 }
 
 /* custom panels*/
 .panel{
-    webkit-box-shadow: 0 3px 3px #cbd5d6 !important;
-    -moz-box-shadow: 0 3px 3px #cbd5d6 !important;
-    -ms-box-shadow: 0 3px 3px #cbd5d6 !important;
-    -o-box-shadow: 0 3px 3px #cbd5d6 !important;
-    box-shadow: 0 3px 3px #cbd5d6 !important;
-    border: 0!important;
+  webkit-box-shadow: 0 3px 3px #cbd5d6 !important;
+  -moz-box-shadow: 0 3px 3px #cbd5d6 !important;
+  -ms-box-shadow: 0 3px 3px #cbd5d6 !important;
+  -o-box-shadow: 0 3px 3px #cbd5d6 !important;
+  box-shadow: 0 3px 3px #cbd5d6 !important;
+  border: 0!important;
 }
 
 .panel-title {
-    font-family: 'robotoslab_light', sans-serif!important;
+  font-family: 'robotoslab_light', sans-serif!important;
 }
 
 .panel-primary >
 .panel-heading {
-    padding-bottom: 10px;
-    padding-top: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .columnsSplit{
-    text-align:center;
-    cursor: pointer;
-    color: white!important;
-    background: black;
-    height: 30px;
-    font-family: 'robotoslab_light', sans-serif!important;
-    font-size: 18px;
+  text-align:center;
+  cursor: pointer;
+  color: white!important;
+  background: black;
+  height: 30px;
+  font-family: 'robotoslab_light', sans-serif!important;
+  font-size: 18px;
 }
 
 .columnsSplit:hover{
-    cursor: pointer;
-    color: black!important;
-    background: white;
+  cursor: pointer;
+  color: black!important;
+  background: white;
 }
 
 /* Custom Classes */
 
 #myAccountUserImage{
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 #userImage{
@@ -252,10 +285,6 @@ a:hover {
 
 .examSiteSelected {
   background-color: #006C99;
-}
-
-.view-container {
-  margin-top: 100px;
 }
 
 .view-frame {
@@ -353,7 +382,7 @@ a:hover {
 }
 
 .dashboard > .panel-body > .progress-progress-area > .text-area {
-   height: 25px;
+ height: 25px;
 }
 
 .dashboard > .panel-body > .progress-progress-area > .text-area > .text-left {
@@ -515,11 +544,11 @@ a:hover {
 }
 
 .dashButtons {
-    display: inherit;
+  display: inherit;
 }
 
 .headerRowCol1 {
-    display: none;
+  display: none;
 }
 
 .large-glyphicon {
@@ -592,9 +621,9 @@ a:hover {
 }
 
 @media(max-width: 991px){
-    .examday-info > .icon-area {
-        padding-top: 0px;
-    }
+  .examday-info > .icon-area {
+    padding-top: 0px;
+  }
 }
 
 .examday-tabs {
@@ -700,29 +729,29 @@ a:hover {
 }
 
 .daysUntilHeader{
-    background:#006c99;
-    color: white;
-    text-align: center;
-    height: 45px;
-    font-size: 25px;
+  background:#006c99;
+  color: white;
+  text-align: center;
+  height: 45px;
+  font-size: 25px;
 }
 
 .calDaysBody {
-    padding-top:0px;
-    padding-left:0px;
-    padding-right:0px;
-    height: 225px;
+  padding-top:0px;
+  padding-left:0px;
+  padding-right:0px;
+  height: 225px;
 }
 
 .days{
-    font-size: 100px;
-    text-align: center;
+  font-size: 100px;
+  text-align: center;
 }
 
 .dayText{
-    text-align: center;
-    color: rgb(145, 144, 144);
-    font-family: monospace; 
+  text-align: center;
+  color: rgb(145, 144, 144);
+  font-family: monospace; 
 }
 
 .myaccount-map-area {
@@ -987,9 +1016,9 @@ a:hover {
 }
 
 .schedulebar-area {
-    height: 60px;
-    margin: 0 auto;
-    overflow: hidden;
+  height: 60px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .schedulebar-block {
@@ -998,21 +1027,21 @@ a:hover {
 }
 
 .schedulebar-item {
-  	width: 45px;
-    height: 45px;
-    float: left;    
-    margin-bottom: 15px;
-    text-align: center;
+ width: 45px;
+ height: 45px;
+ float: left;    
+ margin-bottom: 15px;
+ text-align: center;
 }
 
 .schedule-item-area {
-  	background-color: #000000;
-    margin-top: 10px;
-    height: 30px;
-    padding: 5px;
-    border: 1px solid;
-    margin-right: 5px;
-    margin-left: 5px;    
+ background-color: #000000;
+ margin-top: 10px;
+ height: 30px;
+ padding: 5px;
+ border: 1px solid;
+ margin-right: 5px;
+ margin-left: 5px;    
 }
 
 .schedulebar-item-done {
@@ -1020,7 +1049,7 @@ a:hover {
 }
 
 .schedulebar-item-inProgress {
-    background-color: #dddddd;
+  background-color: #dddddd;
 }
 
 .schedulebar-item-selected {
@@ -1029,19 +1058,19 @@ a:hover {
 }
 
 .schedule-item-area:hover{
-   background-color:gold
+ background-color:gold
 }
 
 
 .schedulebar-item-active {
-    background-color: green;
+  background-color: green;
 }
 
 .schedulebar-item-text {
 }
 
 .schedulebar-path-area {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .schedulebar-scroll-area {
@@ -1121,8 +1150,8 @@ a:hover {
 }
 
 .login-buttons {
-    width: 290px;
-    margin: 0 auto;
+  width: 290px;
+  margin: 0 auto;
 }
 
 .login-header-area {
@@ -1217,17 +1246,17 @@ a:hover {
 
 .flagarea {
   background-color: #006385;
-	float: left;
-	width: 47%;
-	margin: 5px;
+  float: left;
+  width: 47%;
+  margin: 5px;
   color: #FFFFFF;
 }
 
 .testarea {
-    background-color: #006385;
-	float: right;
-	width: 47%;
-	margin: 5px;
+  background-color: #006385;
+  float: right;
+  width: 47%;
+  margin: 5px;
   color: #FFFFFF;
 }
 
@@ -1238,7 +1267,7 @@ a:hover {
 
 .daysarea {
   background-color: #006385;
-	height: 100px;
+  height: 100px;
   color: #FFFFFF;
 }
 
@@ -1247,21 +1276,21 @@ a:hover {
 }  
 
 .daysleft {
-	  float: left;
-    padding: 10px;
+ float: left;
+ padding: 10px;
 }
 
 .daysright {
   margin-right: 15px;
   margin-top: 35px;
   background-color: #006385;
-	float: right;
+  float: right;
   color: #FFFFFF;
 }
 
 .workhead {
   background-color: #006385;
-	padding: 5px;
+  padding: 5px;
   text-align: center;
   color: #FFFFFF;
 }
@@ -1270,19 +1299,19 @@ a:hover {
 .workarea {
   background-color: #006385;
   height: 300px;
-	padding: 5px;
+  padding: 5px;
   color: #FFFFFF;
 }
 
 .centerhead {
-    text-align: center;
+  text-align: center;
 }
 
 .readingscrollregion {
   height: 415px;
-	border-bottom: 1px solid;
-	border-left: 1px solid;
-	border-color: #dddddd;		
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-color: #dddddd;		
 }
 
 .msgscrollregion {
@@ -1305,7 +1334,7 @@ a:hover {
 #style-2::-webkit-scrollbar-track
 {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+  background-color: #F5F5F5;
 }
 
 #style-2::-webkit-scrollbar
@@ -1324,27 +1353,27 @@ a:hover {
 .animate-enter, 
 .animate-leave
 { 
-    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    position: relative;
-    display: block;
+  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
 } 
 
 .animate-enter.animate-enter-active, 
 .animate-leave {
-    opacity: 1;
-    top: 0;
-    height: 30px;
+  opacity: 1;
+  top: 0;
+  height: 30px;
 }
 
 .animate-leave.animate-leave-active,
 .animate-enter {
-    opacity: 0;
-    top: -50px;
-    height: 0px;
+  opacity: 0;
+  top: -50px;
+  height: 0px;
 }
 
 @media (max-height: 750px  ) {
@@ -1395,15 +1424,15 @@ a:hover {
 
 
 .moveIcon{
-    margin-top: 6px;
+  margin-top: 6px;
 }
 
 .inboxIcon, .glyphicon-inbox {   
-    color:red;
+  color:red;
 }
 
 .inboxIcon, .glyphicon-inbox:hover {
-    color: black;
+  color: black;
 }
 
 @media (max-width: 400px  ) {
@@ -1462,11 +1491,11 @@ a:hover {
 
 
   .dashButtons {
-      display: none;
+    display: none;
   }
 
   .headerRowCol1 {
-      display: inherit;
+    display: inherit;
   }
 
   .examday-map-area {
