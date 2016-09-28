@@ -1,7 +1,6 @@
 frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService','$sce',
   function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService,$sce) {
 
-
     if(remoteDataService.userData.registeredExam == null) {
       navigationService.changeView('login');
     }

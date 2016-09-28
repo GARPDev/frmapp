@@ -22,18 +22,18 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
 
     $scope.userAgent = navigator.userAgent;
 
-      if( /Android/i.test(navigator.userAgent) ) {
-        $('.input-group-addon').hide();
-        $('.login-area').find('div').removeClass('input-group')
-      }
+    if( /Android/i.test(navigator.userAgent) ) {
+      $('.input-group-addon').hide();
+      $('.login-area').find('div').removeClass('input-group')
+    }
 
     $("video").bind("ended", function() {
-       $('.videoplayer').hide("slow");
-       $('.videoimage').show("slow");
-       $timeout(function() {
-          $('.videoplaybutton').show("slow");
-       }, 3000);
-    });
+     $('.videoplayer').hide("slow");
+     $('.videoimage').show("slow");
+     $timeout(function() {
+      $('.videoplaybutton').show("slow");
+    }, 3000);
+   });
 
     $scope.playVideo=function() {
       $('.videoplaybutton').hide("slow");
@@ -44,7 +44,7 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
     }
 
     $scope.isActive = function (viewLocation) { 
-        return viewLocation === $location.path();
+      return viewLocation === $location.path();
     };
 
 
@@ -109,31 +109,35 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
               // Ask User to overwrite server or not!
               if (confirm("You were offline last time you logged in. Do you want this device's changes to be saved? Click OK to save this devices changes to all devices or click Cancel to used changes from last time you were online.")) {
                   // will save data on next commit.
-              } else {
+                } else {
                   // Clear local device data
                   remoteDataService.clearData();
+                }
+                localStorage.removeItem('wasOffLine');   
+              } else {
+                remoteDataService.clearData();
               }
-              localStorage.removeItem('wasOffLine');   
-            } else {
-              remoteDataService.clearData();
-            }
 
-            if(remember) {
-              localStorage[localPropRemember] = true;
-              localStorage[localPropUserName] = userName;
-              localStorage[localPropUserPassword] = password;
-            } else {
-              localStorage.removeItem(localPropRemember);
-              localStorage.removeItem(localPropUserName);
-              localStorage.removeItem(localPropUserPassword);
+              if(remember) {
+                localStorage[localPropRemember] = true;
+                localStorage[localPropUserName] = userName;
+                localStorage[localPropUserPassword] = password;
+              } else {
+                localStorage.removeItem(localPropRemember);
+                localStorage.removeItem(localPropUserName);
+                localStorage.removeItem(localPropUserPassword);
+              }
             }
+            if((defined(result, "contact.KPI_ERP_Candidate_Payment_Status__c") && (result.contact.KPI_ERP_Candidate_Payment_Status__c == "In Good Standing")) && (defined(result, "contact.KPI_FRM_Candidate_Payment_Status__c") && (result.contact.KPI_FRM_Candidate_Payment_Status__c == "In Good Standing"))){
+              navigationService.changeView('pickexam'); 
+            } else {
+              navigationService.changeView('myaccount'); 
+            }; 
           }
-          navigationService.changeView('myaccount');  
-        }
 
-      })
-     
+        })
+      
     }
 
   }
-]);
+  ]);
