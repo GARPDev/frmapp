@@ -179,6 +179,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
 
+      console.log(authenticationService.user);
+
       //remoteDataService.clearData();
       remoteDataService.exam = 'frm';
       remoteDataService.EXAM = 'FRM';
