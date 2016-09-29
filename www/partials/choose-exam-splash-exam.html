@@ -1,21 +1,52 @@
-<div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div> 
+<div>
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img id="logo" class="img-responsive" title='FRM App' style="height:40px;margin-top: 10px" src="img/garp-frm-study-center-blue.png">
 
-<div class="panel panel-primary app-panel">
-	<div class="panel-heading">
-		<h1>Please Choose your exam</h1>
+				<!-- mobile nav-->
+				<div id="mobileNavBar" class="mobileIcons">
+
+					<div ng-if="isOnline() && userData.contact.Mobile_App_Administration && !isMobile" id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}" title="Messages"><a href ng-click="changeView('alerts')"><span class="glyphicon glyphicon-comment nav-item-icon"></span></a>
+					</div>
+
+					<div id="mainnav-examday" class="nav-item-area">
+						<a href ng-click="userAccount = !userAccount"><span class="glyphicon glyphicon-user nav-item-icon" title="My Account"></span></a>
+					</div>
+
+				</div>
+				<div ng-show="userAccount" class="mobileUserAccount">
+				<a class="col-xs-6 col-sm-6 columnsSplit" href="" style="color: black !important;" ng-click="changeView('myaccount')">
+						My Account
+					</a>
+					<a class="col-xs-6 col-sm-6 columnsSplit" href='' ng-click="changeView('login')">
+						Logout
+					</a>
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 
-	<div class="panel-body">
+<div class="container page-container">
 
-		<div ng-click="selectExam('erp')">
-			<img src="img/erp.png" alt="erp" style="height: 100px; width: auto; margin-bottom: 120px; margin-top: 75px; margin-left: 50px;" />
+	<div class="panel panel-primary app-panel">
+		<div class="panel-heading">
+			<h1>Please Choose your exam</h1>
 		</div>
 
-		<div ng-click="selectExam('frm')">
-			<img src="img/frm.png" alt="frm" style="height: 100px; width: auto; margin-bottom: 120px; margin-top: 75px; margin-left: 50px;" />
+		<div class="panel-body">
+
+			<div ng-click="selectExam('erp')">
+				<img src="img/erp.png" alt="erp" style="height: 100px; width: auto; margin-bottom: 120px; margin-top: 75px; margin-left: 25px;" />
+			</div>
+
+			<div ng-click="selectExam('frm')">
+				<img src="img/frm.png" alt="frm" style="height: 100px; width: auto; margin-bottom: 120px; margin-top: 75px; margin-left: 25px;" />
+			</div>
+
 		</div>
-
-
-
 	</div>
+	
+
 </div>

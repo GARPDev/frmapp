@@ -12,5 +12,9 @@ frmControllers.controller('ChooseExamCtrl', ['$scope','$timeout','$location','re
 			navigationService.changeView('myaccount');
 		};
 
+		$scope.changeView = function(view) {
+			navigationService.changeView(view);
+		}
+
 	}
 	]);
