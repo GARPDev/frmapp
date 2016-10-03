@@ -31,7 +31,6 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $timeout(function() {
       navigationService.pageTransitionIn();
       //$scope.userData.registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;      
-      var address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
       if(defined($scope.regdata,"Room__r.Venue__r.Id")) {
         var venue = $scope.regdata.Room__r.Venue__r;
         var displayAddress = '';
@@ -51,9 +50,23 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
           displayAddress += venue.Country__c;
 
         $scope.displayAddress = $sce.trustAsHtml(displayAddress);
-        address = venue.Address1__c + ' ' + venue.City__c + ' ' + venue.State__c + ' ' + venue.Country__c;
+        var address = venue.Address1__c + ' ' + venue.City__c + ' ' + venue.State__c + ' ' + venue.Country__c;
+      } else if (defined($scope.userData.registeredExam.registrations.venue.records[0])){
+        var venue = $scope.userData.registeredExam.registrations.venue.records[0];
+        var displayAddress = '';
+        if(defined(venue,"Address1__c"))
+          displayAddress += venue.Address1__c + "<br>";
+        if(defined(venue,"Address2__c"))
+          displayAddress += venue.Address2__c + "<br>";
+        if(defined(venue,"City__c"))
+          displayAddress += venue.City__c + "<br>";
+        if(defined(venue,"Country__c"))
+          displayAddress += venue.Country__c + "<br>";
+        $scope.displayAddress = $sce.trustAsHtml(displayAddress);
+        var address = venue.Address1__c + ' ' + venue.Address2__c + ' ' + venue.City__c + ' ' + venue.Country__c;
+      } else {
+        var address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
       }
-
       mapService.displayMap('map-canvas',address, function(err, status) {
       });
     }, 0);
@@ -76,26 +89,26 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     }
 
     $scope.copyToDevice =function(idx) {
-    
+
       var reminder= {};
       if(idx > -1) {
         reminder.text = remoteDataService.userSettings.reminders[idx];
         reminder.startDate = new Date(remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__r.Exam__r.Exam_Date__c);
       } else {
-        
+
         switch(idx) {
           case -1:
-            reminder.text = 'Download Exam Admission Ticket';
-            break;
+          reminder.text = 'Download Exam Admission Ticket';
+          break;
           case -2:
-            reminder.text = 'Obtian and register your current non-expired Government Issued Photo ID';
-            break;
+          reminder.text = 'Obtian and register your current non-expired Government Issued Photo ID';
+          break;
           case -3:
-            reminder.text = 'Verify or aquire an approved Calculator';
-            break;
+          reminder.text = 'Verify or aquire an approved Calculator';
+          break;
           case -4:
-            reminder.text = 'Bring #2 or Hard Black (HB) pencils only';
-            break;
+          reminder.text = 'Bring #2 or Hard Black (HB) pencils only';
+          break;
         }
       }
 
@@ -117,7 +130,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
         }
       }
       catch(err) {
-          alert("Excpetion: " + err.message);
+        alert("Excpetion: " + err.message);
       }
 
     }
@@ -130,4 +143,4 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     }
 
   }
-]);
+  ]);
