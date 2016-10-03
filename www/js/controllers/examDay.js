@@ -48,12 +48,15 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
           displayAddress += venue.State__c + "<br>";
         if(defined(venue,"Country__c"))
           displayAddress += venue.Country__c;
-
         $scope.displayAddress = $sce.trustAsHtml(displayAddress);
         var address = venue.Address1__c + ' ' + venue.City__c + ' ' + venue.State__c + ' ' + venue.Country__c;
       } else if (defined($scope.userData.registeredExam.registrations.venue.records[0])){
         var venue = $scope.userData.registeredExam.registrations.venue.records[0];
         var displayAddress = '';
+        if(defined(venue,"Institution_Name__c"))
+          displayAddress += venue.Institution_Name__c + "<br>";
+        if(defined(venue,"Building_Name__c"))
+          displayAddress += venue.Building_Name__c + "<br>";
         if(defined(venue,"Address1__c"))
           displayAddress += venue.Address1__c + "<br>";
         if(defined(venue,"Address2__c"))
