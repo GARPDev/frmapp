@@ -144,6 +144,5 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
       $('#' + item).show();
       $('#tab_' + item).addClass('active');
     }
-
   }
   ]);
