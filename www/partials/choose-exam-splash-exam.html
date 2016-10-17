@@ -16,7 +16,7 @@
 
 				</div>
 				<div ng-show="userAccount" class="mobileUserAccount">
-				<a class="col-xs-6 col-sm-6 columnsSplit" href="" style="color: black !important;" ng-click="changeView('myaccount')">
+					<a class="col-xs-6 col-sm-6 columnsSplit" href="" style="color: black !important;" ng-click="changeView('myaccount')">
 						My Account
 					</a>
 					<a class="col-xs-6 col-sm-6 columnsSplit" href='' ng-click="changeView('login')">
@@ -36,17 +36,23 @@
 		</div>
 
 		<div class="panel-body">
+			<div class="col-md-12">
+				<div class="col-md-6" style="padding:5%;" ng-click="selectExam('erp')">
+					<img src="img/erp.png" alt="erp" class="img-responsive" style="margin: 0 auto;"/>
+					<div class="text-center"><h1>FRM</h1></div>
+					<div class="text-center"><p>Financial Risk Manager</p></div>
+				</div>
 
-			<div ng-click="selectExam('erp')">
-				<img src="img/erp.png" alt="erp" style="height: 100px; width: auto; margin-bottom: 120px; margin-top: 75px; margin-left: 25px;" />
-			</div>
+				<div class="col-md-6" style="padding:5%;" class="text-center" ng-click="selectExam('frm')">
+					<img src="img/frm.png" alt="frm" class="img-responsive" style="margin: 0 auto;"/>
+					<div class="text-center"><h1>ERP</h1></div>
+					<div class="text-center"><p>Energy Risk Professional</p></div>
+				</div>
 
-			<div ng-click="selectExam('frm')">
-				<img src="img/frm.png" alt="frm" style="height: 100px; width: auto; margin-bottom: 120px; margin-top: 75px; margin-left: 25px;" />
 			</div>
 
 		</div>
 	</div>
-	
+
 
 </div>
