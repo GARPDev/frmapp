@@ -179,7 +179,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
 
-      remoteDataService.clearData();
+      //remoteDataService.clearData();
       // remoteDataService.exam = 'frm';
       // remoteDataService.EXAM = 'FRM';
       // if(defined(authenticationService,"user.contact.KPI_ERP_Candidate_Payment_Status__c") && (authenticationService.user.contact.KPI_ERP_Candidate_Payment_Status__c == "In Good Standing")) {

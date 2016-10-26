@@ -70,29 +70,23 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
         if(!defined(result,"contact")) {
           err = 401;
           errmsg = "Your Email Address and Password combonation is not correct.";
-        } else if(!defined(result,"contact.KPI_Current_Exam_Registration__c") || (result.contact.KPI_Current_Exam_Registration__c.indexOf('FRM') == -1 && result.contact.KPI_Current_Exam_Registration__c.indexOf('ERP') == -1)) {
 
-          if(defined(result,"contact.KPI_Last_Exam_Date__c") && defined(result,"contact.KPI_Last_Exam_Registration__c") && (result.contact.KPI_Last_Exam_Registration__c.indexOf('FRM') > -1 || result.contact.KPI_Last_Exam_Registration__c.indexOf('ERP') > -1)) {
-            var examDate = result.contact.KPI_Last_Exam_Date__c;
-            var splitDate = examDate.split(' ');
-            if(splitDate.length > 1) {
-              var mnow = moment();
-              var year = mnow.year().toString();
-              if(year == splitDate[1]) {
-                result.contact.KPI_Current_Exam_Registration__c = result.contact.KPI_Last_Exam_Registration__c;
-                result.contact.KPI_Current_Exam_Date__c = result.contact.KPI_Last_Exam_Date__c;
-                result.contact.KPI_Current_Exam_Location__c = result.contact.KPI_Last_Exam_Location__c;
-                result.contact.KPI_Current_Exam_Registration_Type__c = result.contact.KPI_Last_Exam_Registration_Type__c;
-              } else {
-                err = 404;
-                errmsg = "You are not currently enrolled for an exam.";
-              }
-            }
-          } else {
-            err = 404;
-            errmsg = "You are not currently enrolled for an exam.";            
+        } else if((defined(result,"contact.KPI_FRM_Candidate_Payment_Status__c") && result.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing') ||
+                  (defined(result,"contact.KPI_ERP_Candidate_Payment_Status__c") && result.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing')) {
+
+
+          if(defined(result,"contact.KPI_Current_Exam_Registration__c") && result.contact.KPI_Current_Exam_Registration__c.indexOf('FRM') > -1) {
+            remoteDataService.exam = 'frm';
+            remoteDataService.EXAM = 'FRM';            
+          }
+          if(defined(result,"contact.KPI_Current_Exam_Registration__c") && result.contact.KPI_Current_Exam_Registration__c.indexOf('ERP') > -1) {
+            remoteDataService.exam = 'erp';
+            remoteDataService.EXAM = 'ERP';            
           }
 
+        } else {
+          err = 404;
+          errmsg = "You are not currently enrolled for an exam.";            
         }
 
         if(err) {
@@ -128,7 +122,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
                 localStorage.removeItem(localPropUserPassword);
               }
             }
-            if((defined(result, "contact.KPI_ERP_Candidate_Payment_Status__c") && (result.contact.KPI_ERP_Candidate_Payment_Status__c == "In Good Standing")) && (defined(result, "contact.KPI_FRM_Candidate_Payment_Status__c") && (result.contact.KPI_FRM_Candidate_Payment_Status__c == "In Good Standing"))){
+            if(defined(result,"contact.KPI_FRM_Candidate_Payment_Status__c") && result.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing' &&
+               defined(result,"contact.KPI_ERP_Candidate_Payment_Status__c") && result.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing') {
               navigationService.changeView('pickexam'); 
             } else {
               navigationService.changeView('myaccount'); 
