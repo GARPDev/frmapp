@@ -15,28 +15,14 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.userData = remoteDataService.userData;
     $scope.lessons = remoteDataService.lessonData;
     $scope.userSettings = remoteDataService.userSettings;
-
+    $scope.examInfo = remoteDataService.examInfo;
     $scope.lessonIndex = 0;
     $scope.currentLesson = {};
-
     $scope.mapStatus = "";
-
-    $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
-
     $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
-
-    //$scope.opp = remoteDataService.getOppertunities();
     $scope.remoteDataService = remoteDataService;
-
-    $scope.displayAddress = $scope.userData.contact.KPI_Current_Exam_Location__c;
-
-    $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
-    for(var i=0; i<$scope.userData.registeredExam.registrations.records.length; i++) {
-      if($scope.userData.registeredExam.registrations.records[i] != 'Pending')
-          $scope.regdata = $scope.userData.registeredExam.registrations.records[i];
-    }
-    
-    $scope.examDate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
+    $scope.displayAddress = $scope.userData.contact.KPI_Current_Exam_Location__c;    
+    $scope.examDate = moment(remoteDataService.examInfo.userExam.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
 
 
     $scope.orgOptions = [{
@@ -57,9 +43,9 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
       navigationService.pageTransitionIn();
       // registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
-      var address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
-      if(defined($scope.regdata,"Room__r.Venue__r.Id")) {
-        var venue = $scope.regdata.Room__r.Venue__r;
+      var address = remoteDataService.examInfo.userExam.Exam_Site__r.Site__r.Display_Address__c;
+      if(defined(remoteDataService.examInfo.userExam,"Room__r.Venue__r.Id")) {
+        var venue = remoteDataService.examInfo.userExam.Room__r.Venue__r;
         var displayAddress = '';
         if(defined(venue,"Institution_Name__c"))
           displayAddress += venue.Institution_Name__c + "<br>";

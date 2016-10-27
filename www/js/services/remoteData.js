@@ -7,6 +7,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
     remoteDataService.$http = $http;
     remoteDataService.userInfo = {};
+    remoteDataService.examInfo = {};
     remoteDataService.showFooter = true;
     remoteDataService.searchTerms = "";
 
@@ -148,6 +149,24 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
     }
 
+    remoteDataService.getExamRegistrations = function(contactId, callback) {
+      var url ='/frmApp/user/' + contactId + '/exam';
+      if(navigator.camera) {
+        url = serverURL + url;
+      }    
+
+      $http({
+        url: url,
+        method: "GET",
+        headers: {'Content-Type': 'application/json'}
+      }).success(function (data, status, headers, config) {
+        callback(status, data);
+      }).error(function (data, status, headers, config) {
+       callback(status, data);
+     });
+    }
+
+
 
     remoteDataService.sendMsg = function(title, msg, sound, sites, callback) {
 
@@ -178,22 +197,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     //our service accepts a promise object which 
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
-
-      //remoteDataService.clearData();
-      // remoteDataService.exam = 'frm';
-      // remoteDataService.EXAM = 'FRM';
-      // if(defined(authenticationService,"user.contact.KPI_ERP_Candidate_Payment_Status__c") && (authenticationService.user.contact.KPI_ERP_Candidate_Payment_Status__c == "In Good Standing")) {
-      //   remoteDataService.exam = 'erp';
-      //   remoteDataService.EXAM = 'ERP';
-      // }
-
-      if(defined(authenticationService,"user.contact.KPI_ERP_Candidate_Payment_Status__c") && (authenticationService.user.contact.KPI_ERP_Candidate_Payment_Status__c == "In Good Standing")) {
-        remoteDataService.exam = 'erp';
-        remoteDataService.EXAM = 'ERP';
-      } else if(defined(authenticationService,"user.contact.KPI_FRM_Candidate_Payment_Status__c") && (authenticationService.user.contact.KPI_FRM_Candidate_Payment_Status__c == "In Good Standing")){
-        remoteDataService.exam = 'frm';
-        remoteDataService.EXAM = 'FRM';
-      };
 
       if(authenticationService.user === null || typeof authenticationService.user === "undefined") {
         return null;
@@ -252,7 +255,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var readingsDataFetch = {
         //url : '/frmapp/www/data/readings.json', 
-        url : '/frmApp/readings/' + remoteDataService.exam + '/' + year, 
+        url : '/frmApp/readings/' + remoteDataService.examInfo.exam + '/' + year, 
         propertyName: 'readingData',
         remotePropertyName: null
       }
@@ -260,7 +263,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/questions/' + remoteDataService.exam + '/' + year, 
+        url : '/frmApp/questions/' + remoteDataService.examInfo.exam + '/' + year, 
         propertyName: 'questionData',
         remotePropertyName: null
       }
@@ -268,7 +271,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsReadingsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/questionsReadings/' + remoteDataService.exam + '/' + year, 
+        url : '/frmApp/questionsReadings/' + remoteDataService.examInfo.exam + '/' + year, 
         propertyName: 'questionsReadingsData',
         remotePropertyName: null
       }
@@ -283,172 +286,168 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       async.map(reqs, fetchDataObj, function(err, results){
 
-          // results is now an array of stats for each file
-          for(var i=0; i<results.length; i++) {
+        // results is now an array of stats for each file
+        for(var i=0; i<results.length; i++) {
 
-            var data = results[i].data;
-            var err = results[i].err;
-            var propertyName = results[i].propertyName;
+          var data = results[i].data;
+          var err = results[i].err;
+          var propertyName = results[i].propertyName;
 
-            if(err == 401) {
-              q.resolve();
-              return;
+          if(err == 401) {
+            q.resolve();
+            return;
+          }
+
+          switch(propertyName) {
+            case 'metaData':
+            if(err != NO_FETCH) {
+              if(err == 404 || data === null || typeof data === 'undefined') {
+                data = [];
+                localStorage.metaData = JSON.stringify(data);
+                remoteDataService.metaData = data;
+              }
+              remoteDataService.userData.metaData = data;
             }
-
-            switch(propertyName) {
-              case 'metaData':
-              if(err != NO_FETCH) {
-                if(err == 404 || data === null || typeof data === 'undefined') {
-                  data = [];
-                  localStorage.metaData = JSON.stringify(data);
-                  remoteDataService.metaData = data;
-                }
-                remoteDataService.userData.metaData = data;
-              }
-              break;
-              case 'userSettings':
-              if(err != NO_FETCH) {
-                if(err == 404) {
-                  data = {
-                    organizeBy:"topic"
-                  };
-                  localStorage.userSettings = JSON.stringify(data);
-                  remoteDataService.userSettings = data;
-                }
+            break;
+            case 'userSettings':
+            if(err != NO_FETCH) {
+              if(err == 404) {
+                data = {
+                  organizeBy:"topic"
+                };
+                localStorage.userSettings = JSON.stringify(data);
                 remoteDataService.userSettings = data;
-                localStorage.userData = JSON.stringify(remoteDataService.userData);
-                if(gcmId != '') {       
-                  remoteDataService.userSettings.gcmId = gcmId;
-                }
-                if(apnId != '') {       
-                  remoteDataService.userSettings.apnId = apnId;
-                }
-                if(remoteDataService.userData.registeredExam.registrations.records.length > 0) {
-                  remoteDataService.userSettings.examId = remoteDataService.userData.registeredExam.registrations.records[0].Exam_Site__c; 
-                }
               }
-              break;
-
-              case 'examSites':
-              if(err != NO_FETCH) {
-                for(var j=0; j<data.length; j++) {
-                  data[j].selected=0;
-                }
-                remoteDataService.examSites = data;
+              remoteDataService.userSettings = data;
+              localStorage.userData = JSON.stringify(remoteDataService.userData);
+              if(gcmId != '') {       
+                remoteDataService.userSettings.gcmId = gcmId;
               }
-              break;
+              if(apnId != '') {       
+                remoteDataService.userSettings.apnId = apnId;
+              }
+              if(remoteDataService.examInfo.regdata.length > 0) {
+                remoteDataService.userSettings.examId = remoteDataService.examInfo.regdata[0].Exam_Site__c; 
+              }
+            }
+            break;
 
-              case 'readingData':
-              if(err != NO_FETCH) {
+            case 'examSites':
+            if(err != NO_FETCH) {
+              for(var j=0; j<data.length; j++) {
+                data[j].selected=0;
+              }
+              remoteDataService.examSites = data;
+            }
+            break;
 
-                var readObj = {
-                  id: 'frm' + year,
-                  readings: []
-                }
-                for(var j=0; j<data.records.length; j++) {
-                  var reading = data.records[j];
+            case 'readingData':
+            if(err != NO_FETCH) {
 
-                  if(defined(reading,"Study_App_Lesson_Plan__r.Week__c") && 
-                   defined(reading,"Study_App_Lesson_Plan__r.Description__c") &&
-                   defined(reading,"Study_App_Lesson_Plan__r.Exam__c")) {
+              var readObj = {
+                id: 'frm' + year,
+                readings: []
+              }
+              for(var j=0; j<data.records.length; j++) {
+                var reading = data.records[j];
 
-                    var userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
+                if(defined(reading,"Study_App_Lesson_Plan__r.Week__c") && 
+                 defined(reading,"Study_App_Lesson_Plan__r.Description__c") &&
+                 defined(reading,"Study_App_Lesson_Plan__r.Exam__c")) {
 
-                  if((reading.Study_App_Lesson_Plan__r.Exam__c == remoteDataService.EXAM + ' Exam Part I' && (userExam.indexOf(remoteDataService.EXAM) > -1 && (userExam.indexOf('1') > -1 || userExam.indexOf('Part I') > -1))) ||
-                   (reading.Study_App_Lesson_Plan__r.Exam__c == remoteDataService.EXAM + ' Exam Part II' && (userExam.indexOf(remoteDataService.EXAM) > -1 && (userExam.indexOf('2') > -1 || userExam.indexOf('II') > -1)))) {
+                  if((reading.Study_App_Lesson_Plan__r.Exam__c == remoteDataService.examInfo.EXAM + ' Exam Part I' && (remoteDataService.examInfo.userExamPart == 1 || remoteDataService.examInfo.userExamPart == 3)) ||
+                     (reading.Study_App_Lesson_Plan__r.Exam__c == remoteDataService.examInfo.EXAM + ' Exam Part II' && (remoteDataService.examInfo.userExamPart == 2 || remoteDataService.examInfo.userExamPart == 3))) {
 
                     var week = 0;
-                  var description = "No Topic";
-                  week = reading.Study_App_Lesson_Plan__r.Week__c;
-                  description = reading.Study_App_Lesson_Plan__r.Description__c;
+                    var description = "No Topic";
+                    week = reading.Study_App_Lesson_Plan__r.Week__c;
+                    description = reading.Study_App_Lesson_Plan__r.Description__c;
 
-                  var book = reading.Study_Guide_Domain__r.Name;
-                  if(defined(reading,"Book__c"))
-                    book = reading.Book__c;
+                    var book = reading.Study_Guide_Domain__r.Name;
+                    if(defined(reading,"Book__c"))
+                      book = reading.Book__c;
 
-                  var obj = {
-                    id: reading.Id,
-                    book: { id:"01", title:book, "author":"", "publisher":""},
-                    chapter: {id:"", title:reading.Chapter__c, pages:reading.Pages__c},
-                    section: { id:"", title:""},
-                    desc: reading.Description__c,
-                    exam: reading.Study_App_Lesson_Plan__r.Exam__c,
-                    week: { id:reading.Study_App_Lesson_Plan__c, order:week, title:"Week " + week + " - " + description},
-                    topic: { id:reading.Study_Guide_Domain__c, order:reading.Study_Guide_Domain__r.ID__c, title:reading.Study_Guide_Domain__r.Name},
-                    attachment : {},
-                    sortBook : book,
-                    sortChapter : reading.Chapter__c,
-                    sortPages : reading.Pages__c
-                  }
-                  readObj.readings.push(obj);
-                }
-              }
-            }
-
-            remoteDataService.readingData.readings = readObj.readings;
-            remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
-          }
-          break;
-
-          case 'questionData':
-          if(err != NO_FETCH) {
-
-            var questionObj = {
-              id: 'frm' + year,
-              questions: []
-            }
-            for(var j=0; j<data.records.length; j++) {
-              var question = data.records[j];
-
-              var choices = question.Choices__c.split("\n");
-
-              var obj = {
-                id: question.Id,
-                question:question.Question__c, 
-                reason:question.Rationale__c, 
-                choices:[], 
-                answer: question.Answer__c, 
-                answers : [], 
-                readings : [] 
-              }
-              for(var k=0; k<choices.length; k++) {
-                var choice = choices[k].replace("\r","");
-                var cobj = {
-                  id: k,
-                  description: choice
-                }
-                obj.choices.push(cobj);
-              }
-              questionObj.questions.push(obj);
-            }
-            remoteDataService.questionData.questions = questionObj.questions;
-                    //remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
-                  }
-                  break;
-
-                  case 'questionsReadingsData':
-                  if(err != NO_FETCH) {
-                    for(var j=0; j<data.records.length; j++) {
-                      var qr = data.records[j];
-
-                      var match = _.findWhere(remoteDataService.questionData.questions, {id: qr.Practice_Exam_Question__c});
-                      if(match !== null || typeof match !== "undefined") {
-                        match.readings.push(qr.Study_Guide_Reading__c);
-                      }
+                    var obj = {
+                      id: reading.Id,
+                      book: { id:"01", title:book, "author":"", "publisher":""},
+                      chapter: {id:"", title:reading.Chapter__c, pages:reading.Pages__c},
+                      section: { id:"", title:""},
+                      desc: reading.Description__c,
+                      exam: reading.Study_App_Lesson_Plan__r.Exam__c,
+                      week: { id:reading.Study_App_Lesson_Plan__c, order:week, title:"Week " + week + " - " + description},
+                      topic: { id:reading.Study_Guide_Domain__c, order:reading.Study_Guide_Domain__r.ID__c, title:reading.Study_Guide_Domain__r.Name},
+                      attachment : {},
+                      sortBook : book,
+                      sortChapter : reading.Chapter__c,
+                      sortPages : reading.Pages__c
                     }
+                    readObj.readings.push(obj);
                   }
-                  break;
-
-                  default:
-                  if(err != NO_FETCH) {
-                    remoteDataService.userData[propertyName] = data;
-                  }
-                  break;
                 }
               }
-          //remoteDataService.commitData();
-          q.resolve();
-        });
+              remoteDataService.readingData.readings = readObj.readings;
+              remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
+            }
+            break;
+
+            case 'questionData':
+            if(err != NO_FETCH) {
+
+              var questionObj = {
+                id: 'frm' + year,
+                questions: []
+              }
+              for(var j=0; j<data.records.length; j++) {
+                var question = data.records[j];
+
+                var choices = question.Choices__c.split("\n");
+
+                var obj = {
+                  id: question.Id,
+                  question:question.Question__c, 
+                  reason:question.Rationale__c, 
+                  choices:[], 
+                  answer: question.Answer__c, 
+                  answers : [], 
+                  readings : [] 
+                }
+                for(var k=0; k<choices.length; k++) {
+                  var choice = choices[k].replace("\r","");
+                  var cobj = {
+                    id: k,
+                    description: choice
+                  }
+                  obj.choices.push(cobj);
+                }
+                questionObj.questions.push(obj);
+              }
+              remoteDataService.questionData.questions = questionObj.questions;
+            }
+            break;
+
+            case 'questionsReadingsData':
+            if(err != NO_FETCH) {
+              for(var j=0; j<data.records.length; j++) {
+                var qr = data.records[j];
+
+                var match = _.findWhere(remoteDataService.questionData.questions, {id: qr.Practice_Exam_Question__c});
+                if(match !== null || typeof match !== "undefined") {
+                  match.readings.push(qr.Study_Guide_Reading__c);
+                }
+              }
+            }
+            break;
+
+            default:
+            if(err != NO_FETCH) {
+              remoteDataService.userData[propertyName] = data;
+            }
+            break;
+          }
+        }
+    //remoteDataService.commitData();
+    q.resolve();
+  });
 };
 
 

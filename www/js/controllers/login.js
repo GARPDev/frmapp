@@ -65,43 +65,91 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
       var localPropUserPassword = 'frmAppLoginPassword';
       var errmsg = "Cannot login";
 
+      remoteDataService.examInfo={};
+      remoteDataService.examInfo.userExam=null;
+      remoteDataService.examInfo.userIsExamCurrent=false;
+      remoteDataService.examInfo.examPart=null;
+      remoteDataService.examInfo.exam=null;
+      remoteDataService.examInfo.EXAM=null;
+
       authenticationService.authenticateUser(userName, password, function(err, result) {
 
         if(!defined(result,"contact")) {
-          err = 401;
-          errmsg = "Your Email Address and Password combonation is not correct.";
-
-        } else if((defined(result,"contact.KPI_FRM_Candidate_Payment_Status__c") && result.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing') ||
-                  (defined(result,"contact.KPI_ERP_Candidate_Payment_Status__c") && result.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing')) {
-
-
-          if(defined(result,"contact.KPI_Current_Exam_Registration__c") && result.contact.KPI_Current_Exam_Registration__c.indexOf('FRM') > -1) {
-            remoteDataService.exam = 'frm';
-            remoteDataService.EXAM = 'FRM';            
-          }
-          if(defined(result,"contact.KPI_Current_Exam_Registration__c") && result.contact.KPI_Current_Exam_Registration__c.indexOf('ERP') > -1) {
-            remoteDataService.exam = 'erp';
-            remoteDataService.EXAM = 'ERP';            
-          }
-
-        } else {
-          err = 404;
-          errmsg = "You are not currently enrolled for an exam.";            
-        }
-
-        if(err) {
-          if(defined(spinner)) {
+          if(defined(spinner))
             spinner.stop();  
+          $('#errormsg').html("Your Email Address and Password combonation is not correct.");          
+          return;
+        }
+        var authResult = result;
+
+        remoteDataService.getExamRegistrations(result.contact.Id, function(err, result) {
+
+          if(!defined(result,"registrations")) {
+            if(defined(spinner))
+              spinner.stop();  
+            $('#errormsg').html("You are not currently enrolled for an exam.");          
+            return;
           }
-          $('#errormsg').html(errmsg);
-        } else {
+          var examResult = result;
 
-          // On Web OR Mobile Online
-          if(isOnline()) {
+          remoteDataService.examInfo.regdata = null;
+          remoteDataService.examInfo.regdata=[];
+          remoteDataService.examInfo.regdataFRM=null;
+          remoteDataService.examInfo.regdataERP=null;
+          remoteDataService.examInfo.userExamPart=null;
+          for(var i=0; i< examResult.registrations.records.length; i++) {
+            var examReg = examResult.registrations.records[i];
 
-            if(defined(localStorage,"wasOffLine")) {
-              // Ask User to overwrite server or not!
-              if (confirm("You were offline last time you logged in. Do you want this device's changes to be saved? Click OK to save this devices changes to all devices or click Cancel to used changes from last time you were online.")) {
+            if(defined(examReg,"Section__c")) {
+
+              if(examReg.Section__c.indexOf('FRM') > -1) {
+                remoteDataService.examInfo.regdataFRM = examReg;
+                remoteDataService.examInfo.userIsExamCurrent=true;
+                remoteDataService.examInfo.userIsExamCurrentFRM=true;
+                remoteDataService.examInfo.userExam = remoteDataService.examInfo.regdataFRM;
+
+              } else if(examReg.Section__c.indexOf('ERP') > -1 ) {
+                remoteDataService.examInfo.regdataERP = examReg;
+                remoteDataService.examInfo.userIsExamCurrent=true;
+                remoteDataService.examInfo.userIsExamCurrentERP=true;
+                remoteDataService.examInfo.userExam = remoteDataService.examInfo.regdataERP;                
+              }
+
+              remoteDataService.examInfo.regdata.push(examReg);
+              if(examReg.Section__c.indexOf('1') > -1 || examReg.Section__c.indexOf('Part I') > -1) {
+                if(remoteDataService.examInfo.userExamPart == null)
+                  remoteDataService.examInfo.userExamPart = 1;
+                else remoteDataService.examInfo.userExamPart = 3;
+              }
+              if(examReg.Section__c.indexOf('2') > -1 || examReg.Section__c.indexOf('Part II') > -1) {
+                if(remoteDataService.examInfo.userExamPart == null)
+                  remoteDataService.examInfo.userExamPart = 2;
+                else remoteDataService.examInfo.userExamPart = 3;
+              }
+            }
+          }
+
+          if((defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c") && authResult.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing') ||
+             (defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c") && authResult.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing')) {
+
+            if(remoteDataService.examInfo.userIsExamCurrentFRM == true) {
+              remoteDataService.examInfo.exam = 'frm';
+              remoteDataService.examInfo.EXAM = 'FRM';              
+            } else if(remoteDataService.examInfo.userIsExamCurrentERP == true) {
+              remoteDataService.examInfo.exam = 'erp';
+              remoteDataService.examInfo.EXAM = 'ERP';
+            } else if(defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c") && authResult.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing' && !defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c")) {
+              remoteDataService.examInfo.exam = 'frm';
+              remoteDataService.examInfo.EXAM = 'FRM';              
+            } else if(defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c") && authResult.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing' && !defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c")) {
+              remoteDataService.examInfo.exam = 'erp';
+              remoteDataService.examInfo.EXAM = 'ERP';
+            }
+
+            if(isOnline()) {
+              if(defined(localStorage,"wasOffLine")) {
+                // Ask User to overwrite server or not!
+                if (confirm("You were offline last time you logged in. Do you want this device's changes to be saved? Click OK to save this devices changes to all devices or click Cancel to used changes from last time you were online.")) {
                   // will save data on next commit.
                 } else {
                   // Clear local device data
@@ -122,17 +170,22 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$timeout','$location','
                 localStorage.removeItem(localPropUserPassword);
               }
             }
-            if(defined(result,"contact.KPI_FRM_Candidate_Payment_Status__c") && result.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing' &&
-               defined(result,"contact.KPI_ERP_Candidate_Payment_Status__c") && result.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing') {
+            if(remoteDataService.examInfo.userExam==null) {
               navigationService.changeView('pickexam'); 
             } else {
               navigationService.changeView('myaccount'); 
-            }; 
+            }
+
+          } else {
+            if(defined(spinner))
+              spinner.stop();  
+            $('#errormsg').html("You are not currently enrolled for an exam.");          
+            return;            
           }
 
-        })
-      
-    }
 
-  }
-  ]);
+        });
+
+      });
+    }
+}]);
