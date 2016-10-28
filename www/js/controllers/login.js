@@ -201,6 +201,9 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
                 navigationService.changeView('pickexam'); 
               } else {
                 navigationService.changeView('myaccount'); 
+                var obj = $('.spin')
+                opts.top = '50px'
+                remoteDataService.spinner = new Spinner(opts).spin(obj[0]);
               }
               $rootScope.$broadcast('updateNav', true);
             } else {
