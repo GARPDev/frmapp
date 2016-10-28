@@ -14,53 +14,32 @@ frmServices.factory('authenticationService', ['$resource','$http',
     
     // On Web OR Mobile Online
     if(isOnline()) {
-
-      // try legacy first
-      // var authReq = {
-      //   userName: userName,
-      //   password: 'xxx'
-      // };
-
-      // var url = '/legacy/auth/user';
-      // if(navigator.camera) {
-      //   url = 'http://ec2-54-186-51-192.us-west-2.compute.amazonaws.com:3000' + url;
-      // }
-      
-      // $http({
-      //     url: url,
-      //     method: "POST",
-      //     data: authReq,
-      //     headers: {'Content-Type': 'application/json'}
-      // }).success(function (data, status, headers, config) {
-      //   authenticationService.user = data;
-      //   localStorage.authUser = JSON.stringify(authenticationService.user);
-      //   callback(null, authenticationService.user);
-      // }).error(function (data, status, headers, config) {
            
-        var authReq = {
-          userName: userName,
-          password: password
-        };
+      var authReq = {
+        userName: userName,
+        password: password
+      };
+      
+      // DEBUG ONLY!
+      authReq.debug = 'w77';
 
-        var url = '/sfdc/auth/user';
-        if(navigator.camera) {
-          url = serverURL + url;
-        }
-        
-        $http({
-            url: url,
-            method: "POST",
-            data: authReq,
-            headers: {'Content-Type': 'application/json'}
-        }).success(function (data, status, headers, config) {
-          authenticationService.user = data;
-          localStorage.authUser = JSON.stringify(authenticationService.user);
-          callback(null, authenticationService.user);
-        }).error(function (data, status, headers, config) {
-             callback(status, data);
-        });
-
-      //});
+      var url = '/sfdc/auth/user';
+      if(navigator.camera) {
+        url = serverURL + url;
+      }
+      
+      $http({
+          url: url,
+          method: "POST",
+          data: authReq,
+          headers: {'Content-Type': 'application/json'}
+      }).success(function (data, status, headers, config) {
+        authenticationService.user = data;
+        localStorage.authUser = JSON.stringify(authenticationService.user);
+        callback(null, authenticationService.user);
+      }).error(function (data, status, headers, config) {
+           callback(status, data);
+      });
       
     } else {
 

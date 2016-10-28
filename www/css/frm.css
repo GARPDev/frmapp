@@ -768,7 +768,6 @@
 
 
 .myaccount-continue {
-  float: right;
   margin-right: 10px;
   margin-top: 10px;
 }
@@ -778,6 +777,10 @@
   margin-left: 10px;
   height: 50px;
   margin-top: 10px;
+}
+
+.grey-image {
+  opacity: 0.4;  
 }
 
 

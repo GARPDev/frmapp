@@ -1,43 +1,31 @@
-frmControllers.controller('ChooseExamCtrl', ['$scope','$timeout','$location','remoteDataService','navigationService', 'authenticationService',
-	function($scope,$timeout,$location,remoteDataService,navigationService, authenticationService) {
+frmControllers.controller('ChooseExamCtrl', ['$scope','$timeout','$location','remoteDataService','navigationService', 'authenticationService','$rootScope',
+	function($scope,$timeout,$location,remoteDataService,navigationService, authenticationService, $rootScope) {
 
 		$scope.selectExam = function(exam) {
 			if(exam == "erp"){
 				remoteDataService.examInfo.exam = 'erp';
 				remoteDataService.examInfo.EXAM = 'ERP';
-
-				remoteDataService.examInfo.userIsExamCurrent=false;
-				if(defined(result,"contact.KPI_Current_Exam_Registration__c") && result.contact.KPI_Current_Exam_Registration__c.indexOf('ERP') > -1) {
-					remoteDataService.examInfo.userExam = result.contact.KPI_Current_Exam_Registration__c;
-					remoteDataService.examInfo.userIsExamCurrent=true;
-				} else if(defined(result,"contact.KPI_Last_Exam_Registration__c") && result.contact.KPI_Last_Exam_Registration__c.indexOf('ERP') > -1) {
-					remoteDataService.examInfo.userExam = result.contact.KPI_Last_Exam_Registration__c;
-				}
-
-
 			} else if("frm"){
 				remoteDataService.examInfo.exam = 'frm';
 				remoteDataService.examInfo.EXAM = 'FRM';
-
-				remoteDataService.examInfo.userIsExamCurrent=false;
-				if(defined(result,"contact.KPI_Current_Exam_Registration__c") && result.contact.KPI_Current_Exam_Registration__c.indexOf('FRM') > -1) {
-					remoteDataService.examInfo.userExam = result.contact.KPI_Current_Exam_Registration__c;
-					remoteDataService.examInfo.userIsExamCurrent=true;
-				} else if(defined(result,"contact.KPI_Last_Exam_Registration__c") && result.contact.KPI_Last_Exam_Registration__c.indexOf('FRM') > -1) {
-					remoteDataService.examInfo.userExam = result.contact.KPI_Last_Exam_Registration__c;
-				}
-			};
-
-			if((remoteDataService.examInfo.userExam.indexOf('1') > -1 || remoteDataService.examInfo.userExam.indexOf('Part I') > -1) &&
-	  		   (remoteDataService.examInfo.userExam.indexOf('2') > -1 || remoteDataService.examInfo.userExam.indexOf('Part II') > -1)) {
-				remoteDataService.examInfo.examPart = 3;
-			} else if(remoteDataService.examInfo.userExam.indexOf('1') > -1 || remoteDataService.examInfo.userExam.indexOf('Part I') > -1) {
-				remoteDataService.examInfo.examPart = 1;
-			} else if(remoteDataService.examInfo.userExam.indexOf('2') > -1 || remoteDataService.examInfo.userExam.indexOf('Part II') > -1) {
-				remoteDataService.examInfo.examPart = 2;
 			}
 
+			remoteDataService.examInfo.userExamPart = 3;
+
+			localStorage.removeItem('readingData');
+			remoteDataService.readingData = null;
+
+			localStorage.removeItem('questionsReadingsData');
+			remoteDataService.questionsReadingsData = null;
+
+			localStorage.removeItem('questionData');
+			remoteDataService.questionData = null;
+
+			localStorage.removeItem('glossaryData');
+			remoteDataService.glossaryData = null;
+			
 			navigationService.changeView('myaccount');
+			$rootScope.$broadcast('updateNav', true);
 		};
 
 		$scope.changeView = function(view) {

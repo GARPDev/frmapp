@@ -15,7 +15,7 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
     $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
     $scope.userSettings = remoteDataService.userSettings;
     
-    if(remoteDataService.examInfo.userExam.Defered__c != 'Pending') {
+    if(defined(remoteDataService,"examInfo.userExam.Defered__c") && remoteDataService.examInfo.userExam.Defered__c != 'Pending') {
       var mdate = moment(remoteDataService.examInfo.userExam.Exam_Site__r.Exam__r.Exam_Date__c);
       var now = moment();
       $scope.days = mdate.diff(now, 'days');      

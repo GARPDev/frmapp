@@ -55,23 +55,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       });
     }
 
-
-    remoteDataService.formatExamName = function(examName) {
-      if(defined(examName)) {
-        if(examName.indexOf('FRM') > -1) {
-          if(examName == 'FRM Part 1')
-            return 'FRM Exam Part I';
-          if(examName == 'FRM Part 2')
-            return 'FRM Exam Part II';
-        } else {
-          return examName;
-        }
-      } else {
-        return '';
-      }
-
-    }
-
     remoteDataService.changeOrgOption = function(org) {
       remoteDataService.userSettings.organizeBy = org;
       remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
@@ -202,32 +185,28 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
         return null;
       }
 
-      if(remoteDataService.userData === null || typeof remoteDataService.userData === "undefined") {
-        remoteDataService.userData = authenticationService.user;
-      }
-
       if(localStorage["userData"] == 'null' || typeof localStorage["userData"] === "undefined" || localStorage["userData"] === null) {
         localStorage["userData"] = JSON.stringify(authenticationService.user);
       }
 
       var reqs = [];
 
-      if(defined(remoteDataService,"userData.contact.examRegistrations")) {
+      // if(defined(remoteDataService,"userData.contact.examRegistrations")) {
 
-        var data = remoteDataService.userData.contact.examRegistrations;
-        remoteDataService.registeredExam = data;
-        remoteDataService.userData.registeredExam = data;
-        localStorage.registeredExam = JSON.stringify(data);
+      //   var data = remoteDataService.userData.contact.examRegistrations;
+      //   remoteDataService.registeredExam = data;
+      //   remoteDataService.userData.registeredExam = data;
+      //   localStorage.registeredExam = JSON.stringify(data);
 
-      } else {
+      // } else {
 
-        var examFetch = {
-          url : '/frmApp/user/' + authenticationService.user.contact.Id + '/exam', 
-          propertyName: 'registeredExam',
-          remotePropertyName: null
-        }
-        reqs.push(examFetch);
-      }
+      //   var examFetch = {
+      //     url : '/frmApp/user/' + authenticationService.user.contact.Id + '/exam', 
+      //     propertyName: 'registeredExam',
+      //     remotePropertyName: null
+      //   }
+      //   reqs.push(examFetch);
+      // }
 
       var metaDataFetch = {
         url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData', 
@@ -556,9 +535,6 @@ remoteDataService.setMetaData = function(metaItem) {
 
       localStorage.removeItem('userSettings');
       remoteDataService.userSettings = null;
-
-      localStorage.removeItem('registeredExam');
-      remoteDataService.registeredExam = null;
 
       localStorage.removeItem('readingData');
       remoteDataService.readingData = null;

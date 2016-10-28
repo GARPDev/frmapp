@@ -1,50 +1,20 @@
-<div>
-	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<img id="logo" class="img-responsive" title='FRM App' style="height:40px;margin-top: 10px" src="img/garp-frm-study-center-blue.png">
-
-				<!-- mobile nav-->
-				<div id="mobileNavBar" class="mobileIcons">
-
-					<div ng-if="isOnline() && userData.contact.Mobile_App_Administration && !isMobile" id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}" title="Messages"><a href ng-click="changeView('alerts')"><span class="glyphicon glyphicon-comment nav-item-icon"></span></a>
-					</div>
-
-					<div id="mainnav-examday" class="nav-item-area">
-						<a href ng-click="userAccount = !userAccount"><span class="glyphicon glyphicon-user nav-item-icon" title="My Account"></span></a>
-					</div>
-
-				</div>
-				<div ng-show="userAccount" class="mobileUserAccount">
-					<a class="col-xs-6 col-sm-6 columnsSplit" href="" style="color: black !important;" ng-click="changeView('myaccount')">
-						My Account
-					</a>
-					<a class="col-xs-6 col-sm-6 columnsSplit" href='' ng-click="changeView('login')">
-						Logout
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div class="container page-container">
 
 	<div class="panel panel-primary app-panel">
 		<div class="panel-heading">
-			<h1>Please Choose your exam</h1>
+			<h2>Please Choose your exam</h2>
 		</div>
 
 		<div class="panel-body">
 			<div class="col-md-12">
-				<div class="col-md-6" style="padding:5%;" ng-click="selectExam('erp')">
-					<img src="img/erp.png" alt="erp" class="img-responsive" style="margin: 0 auto;"/>
+				<div class="col-md-6" style="padding:5%;" ng-click="selectExam('frm')">
+					<img src="img/frm.png" alt="FRM" class="img-responsive" style="margin: 0 auto;"/>
 					<div class="text-center"><h1>FRM</h1></div>
 					<div class="text-center"><p>Financial Risk Manager</p></div>
 				</div>
 
-				<div class="col-md-6" style="padding:5%;" class="text-center" ng-click="selectExam('frm')">
-					<img src="img/frm.png" alt="frm" class="img-responsive" style="margin: 0 auto;"/>
+				<div class="col-md-6" style="padding:5%;" class="text-center" ng-click="selectExam('erp')">
+					<img src="img/erp.png" alt="ERP" class="img-responsive" style="margin: 0 auto;"/>
 					<div class="text-center"><h1>ERP</h1></div>
 					<div class="text-center"><p>Energy Risk Professional</p></div>
 				</div>
