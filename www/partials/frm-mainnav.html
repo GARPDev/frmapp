@@ -1,140 +1,136 @@
 <!-- Fixed navbar -->
 <div ng-controller="NavController">
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div ng-if="loggedIn" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-                <img class="img-responsive" title='FRM App' style="height:40px;margin-top: 10px" src="img/garp-frm-study-center-blue.png">
+                <img id="logo" class="img-responsive" title='FRM App' style="height:40px;margin-top: 10px" src="img/garp-frm-study-center-blue.png">
 
                 <!-- mobile nav-->
-                <div class="mobileIcons">
+                <div id="mobileNavBar" class="mobileIcons">
 
+                    <div ng-if="examInfo.exam" id="mainnav-dashboard" class="nav-item-area" ng-class="{ active: isActive('/dashboard')}"><a href ng-click="changeView('dashboard')"><span class="glyphicon glyphicon-tasks nav-item-icon" title="Dashboard"></span></a>
+                    </div>
+                    <div ng-if="examInfo.exam" id="mainnav-readings" class="nav-item-area" ng-class="{ active: isActive('/readings')}"><a href ng-click="changeView('readings')"><span class="glyphicon glyphicon-book nav-item-icon" title="Study Guide"></span></a>
+                    </div>
+                    <div ng-if="examInfo.exam" id="mainnav-tests" class="nav-item-area" ng-class="{ active: isActive('/examsettings')}"><a href ng-click="changeView('examsettings')"><span class="glyphicon glyphicon-pencil nav-item-icon" title="Tests"></span></a>
+                    </div>
+                    <div ng-if="examInfo.userExam" id="mainnav-examday" class="nav-item-area" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')"><span class="glyphicon glyphicon-calendar nav-item-icon" title="Exam Day"></span></a>
 
-                    <div id="mainnav-dashboard" class="nav-item-area" ng-class="{ active: isActive('/dashboard')}"><a href ng-click="changeView('dashboard')"><span class="glyphicon glyphicon-tasks nav-item-icon" title="Dashboard"></span></a>
-                    </div>
-                    <div id="mainnav-readings" class="nav-item-area" ng-class="{ active: isActive('/readings')}"><a href ng-click="changeView('readings')"><span class="glyphicon glyphicon-book nav-item-icon" title="Study Guide"></span></a>
-                    </div>
-                    <div id="mainnav-tests" class="nav-item-area" ng-class="{ active: isActive('/examsettings')}"><a href ng-click="changeView('examsettings')"><span class="glyphicon glyphicon-pencil nav-item-icon" title="Tests"></span></a>
-                    </div>
-                    <div id="mainnav-examday" class="nav-item-area" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')"><span class="glyphicon glyphicon-calendar nav-item-icon" title="Exam Day"></span></a>
-
                     </div>
 
-                    <div ng-if="isOnline() && userData.contact.Mobile_App_Administration && !isMobile" id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}" title="Messages"><a href ng-click="changeView('alerts')"><span class="glyphicon glyphicon-comment nav-item-icon"></span></a>
-                    </div>
+                    <!-- div ng-if="isOnline() && userData.contact.Mobile_App_Administration && !isMobile" id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}" title="Messages"><a href ng-click="changeView('alerts')"><span class="glyphicon glyphicon-comment nav-item-icon"></span></a>
+                    </div -->
                     
-                    <div id="mainnav-examday" class="nav-item-area">
+                    <div ng-if="examInfo.exam" id="mainnav-examday" class="nav-item-area">
                         <a href ng-click="userAccount = !userAccount"><span class="glyphicon glyphicon-user nav-item-icon" title="My Account"></span></a>
                     </div>
 
                 </div>
-                <div ng-if="messages" class='myMessage'  ng-repeat="message in messages"> <!-- ng-if="messages" -->
-                    <li id="mainnav-readings">
-                        <a class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-inbox nav-item-icon"></span>
-                        </a>
-                        <ul class="dropdown-menu list-group">
-                            <li class="list-group-item" ng-repeat="message in messages">
-                                <div class="message-item">
-                                    <div class="subject">
-                                        <a href="" ng-click="openMessage(message)">{{message.title}}</a>
-                                    </div>
-                                    <div class="date">
-                                        {{getEpochDateShortText(message.date)}}
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </div>
-                <div ng-show="userAccount" class="mobileUserAccount">
-                    <a class="col-xs-6 col-sm-6 columnsSplit" href="" ng-click="changeView('myaccount')">
-                       My Account
-                    </a>
-                    <a class="col-xs-6 col-sm-6 columnsSplit" href='' ng-click="changeView('login')">
-                        Logout
-                    </a>
-                </div>
-                <!-- test  ng-if="currentMenuItem != 'Glossary'" -->
-                <form role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch" ng-if='!showGlossarySearch'>
-                    <div>
-                        <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary" style="border-radius:0px;">
-                    </div>
+                <div id="lowerNav" class="navbar-lower">
+                  <div ng-if="examInfo.exam" id="mainnav-dashboard" class="nav-item-area" ng-class="{ active: isActive('/dashboard')}"><a href ng-click="changeView('dashboard')"><span class="glyphicon glyphicon-tasks nav-item-icon" title="Dashboard"></span></a>
+                  </div>
+                  <div ng-if="examInfo.exam" id="mainnav-readings" class="nav-item-area" ng-class="{ active: isActive('/readings')}"><a href ng-click="changeView('readings')"><span class="glyphicon glyphicon-book nav-item-icon" title="Study Guide"></span></a>
+                  </div>
+                  <div ng-if="examInfo.exam" id="mainnav-tests" class="nav-item-area" ng-class="{ active: isActive('/examsettings')}"><a href ng-click="changeView('examsettings')"><span class="glyphicon glyphicon-pencil nav-item-icon" title="Tests"></span></a>
+                  </div>
+                  <div ng-if="examInfo.userExam" id="mainnav-examday" class="nav-item-area" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')"><span class="glyphicon glyphicon-calendar nav-item-icon" title="Exam Day"></span></a>
 
-                </form>
-               
+                  </div>
+
+                  <!-- div ng-if="isOnline() && userData.contact.Mobile_App_Administration && !isMobile" id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}" title="Messages"><a href ng-click="changeView('alerts')"><span class="glyphicon glyphicon-comment nav-item-icon"></span></a>
+                  </div -->
+
+                  <div ng-if="examInfo.exam" id="mainnav-examday" class="nav-item-area">
+                    <a href ng-click="userAccount = !userAccount"><span class="glyphicon glyphicon-user nav-item-icon" title="My Account"></span></a>
+                </div>
             </div>
-            <!-- end of mobile nav-->
-            
-            
-            <!-- main nav-->
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-
-                    <li id="mainnav-dashboard" class="nav-item-area" ng-class="{ active: isActive('/dashboard')}"><a href ng-click="changeView('dashboard')"><span class="glyphicon glyphicon-tasks nav-item-icon"></span><br>Dashboard</a>
-                    </li>
-                    <li id="mainnav-readings" class="nav-item-area" ng-class="{ active: isActive('/readings')}"><a href ng-click="changeView('readings')"><span class="glyphicon glyphicon-book nav-item-icon"></span><br>Study Guide</a>
-                    </li>
-                    <li id="mainnav-tests" class="nav-item-area" ng-class="{ active: isActive('/examsettings')}"><a href ng-click="changeView('examsettings')"><span class="glyphicon glyphicon-pencil nav-item-icon"></span><br>Tests</a>
-                    </li>
-                    <li id="mainnav-examday" class="nav-item-area" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')"><span class="glyphicon glyphicon-calendar nav-item-icon"></span><br>Exam Day</a>
-                    </li>
-                    </li>
-
-                    <li ng-if="isOnline() && userData.contact.Mobile_App_Administration && !isMobile" id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}"><a href ng-click="changeView('alerts')"><span class="glyphicon glyphicon-comment nav-item-icon"></span><br>Messages</a>
-                    </li>
-
-                    <li id="mainnav-glossary" class="nav-item-area" ng-class="{ active: isActive('/glossary')}"><a href ng-click="searchGlossary(searchTerms)"><span class="glyphicon glyphicon-search nav-item-icon"></span><br>Glossary</a>
-                    </li>
-                    </li>
-                </ul>
-
-                <div class="nav navbar-nav navbar-right nav-right-area">
-                    <form ng-if="currentMenuItem != 'Glossary'" class="navbar-form navbar-left" role="search" ng-submit="searchGlossary(searchTerms)">
-                        <div class="form-group nav-glossary-input">
-                            <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary">
-                        </div>
-                        <span ng-click="searchGlossary(searchTerms)" class="glyphicon glyphicon-search nav-icon-search"></span>
-                        <input type="submit" style="display:none" />
-                    </form>
-                    <!--test -->
-
-                    <li id="mainnav-readings">
-                        <a class="dropdown-toggle" data-toggle="dropdown" tabbed>
-                            <img id="userImageNav" ng-src="{{userImage}}" width="30">
-                        </a>
-                        <ul class="dropdown-menu list-group">
-                            <li>
-                                <a href="" ng-click="changeView('myaccount')">My Account</a>
-                            </li>
-                            <li>
-                                <a href='' ng-click="changeView('login')">Logout</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li ng-if="messages" id="mainnav-readings" class="moveIcon"><!-- ng-if="messages" -->
-                        <a class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-inbox nav-item-icon" class="inboxIcon" title="Read Messages"></span>
-                        </a>
-                        <ul class="dropdown-menu list-group">
-                            <li class="list-group-item" ng-repeat="message in messages">
-                                <div class="message-item">
-                                    <div class="subject">
-                                        <a href="" ng-click="openMessage(message)">{{message.title}}</a>
-                                    </div>
-                                    <div class="date">
-                                        {{getEpochDateShortText(message.date)}}
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </div>
-                </ul>
-            </div>
-            <!--end of main nav-->
-
-
+            <!-- div ng-if="messages" class='myMessage'>
+                <li id="mainnav-readings">
+                    <a class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-inbox nav-item-icon"></span>
+                    </a>
+                    <ul class="dropdown-menu list-group">
+                    </ul>
+                </li>
+            </div -->
+            <div ng-if="examInfo.exam" ng-show="userAccount" class="mobileUserAccount">
+                <a class="col-xs-6 col-sm-6 columnsSplit" href="" ng-click="changeView('myaccount')">
+                 My Account
+             </a>
+             <a class="col-xs-6 col-sm-6 columnsSplit" href='' ng-click="changeView('login')">
+                Logout
+            </a>
         </div>
+        <!-- test  ng-if="currentMenuItem != 'Glossary'" -->
+        <form ng-if="examInfo.exam" role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch" ng-if='!showGlossarySearch'>
+            <div>
+                <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary" style="border-radius:0px;">
+            </div>
+
+        </form>
+
     </div>
+    <!-- end of mobile nav-->
+
+
+    <!-- main nav-->
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li ng-if="examInfo.exam" id="mainnav-dashboard" class="nav-item-area" ng-class="{ active: isActive('/dashboard')}"><a href ng-click="changeView('dashboard')"><span class="glyphicon glyphicon-tasks nav-item-icon"></span><br>Dashboard</a>
+            </li>
+            <li ng-if="examInfo.exam" id="mainnav-readings" class="nav-item-area" ng-class="{ active: isActive('/readings')}"><a href ng-click="changeView('readings')"><span class="glyphicon glyphicon-book nav-item-icon"></span><br>Study Guide</a>
+            </li>
+            <li ng-if="examInfo.exam" id="mainnav-tests" class="nav-item-area" ng-class="{ active: isActive('/examsettings')}"><a href ng-click="changeView('examsettings')"><span class="glyphicon glyphicon-pencil nav-item-icon"></span><br>Tests</a>
+            </li>
+            <li ng-if="examInfo.userExam" id="mainnav-examday" class="nav-item-area" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')"><span class="glyphicon glyphicon-calendar nav-item-icon"></span><br>Exam Day</a>
+            </li>
+        </li>
+
+        <!-- li ng-if="isOnline() && userData.contact.Mobile_App_Administration && !isMobile" id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}"><a href ng-click="changeView('alerts')"><span class="glyphicon glyphicon-comment nav-item-icon"></span><br>Messages</a>
+        </li -->
+
+        <li ng-if="examInfo.exam" id="mainnav-glossary" class="nav-item-area" ng-class="{ active: isActive('/glossary')}"><a href ng-click="searchGlossary(searchTerms)"><span class="glyphicon glyphicon-search nav-item-icon"></span><br>Glossary</a>
+        </li>
+    </li>
+</ul>
+
+<div class="nav navbar-nav navbar-right nav-right-area">
+    <form ng-if="currentMenuItem != 'Glossary'" class="navbar-form navbar-left" role="search" ng-submit="searchGlossary(searchTerms)">
+        <div ng-if="examInfo.exam" class="form-group nav-glossary-input">
+            <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary">
+        </div>
+        <span ng-click="searchGlossary(searchTerms)" class="glyphicon glyphicon-search nav-icon-search"></span>
+        <input type="submit" style="display:none" />
+    </form>
+    <!--test -->
+
+    <li id="mainnav-readings">
+        <a class="dropdown-toggle" data-toggle="dropdown" tabbed>
+            <img id="userImageNav" ng-src="{{userImage}}" width="30">
+        </a>
+        <ul class="dropdown-menu list-group">
+            <li ng-if="examInfo.exam">
+                <a href="" ng-click="changeView('myaccount')">My Account</a>
+            </li>
+            <li>
+                <a href='' ng-click="logout()">Logout</a>
+            </li>
+        </ul>
+    </li>
+
+    <!-- li ng-if="messages" id="mainnav-readings" class="moveIcon">
+        <a class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-inbox nav-item-icon" class="inboxIcon" title="Read Messages"></span>
+        </a>
+        <ul class="dropdown-menu list-group">
+        </ul>
+    </li -->
+</div>
+</ul>
+</div>
+<!--end of main nav-->
+
+
+</div>
+</div>
 </div>
 
 

@@ -1,0 +1,17 @@
+
+<div id="mainnav-dashboard" class="nav-item-area" ng-class="{ active: isActive('/dashboard')}"><a href ng-click="changeView('dashboard')"><span class="glyphicon glyphicon-tasks nav-item-icon" title="Dashboard"></span></a>
+</div>
+<div id="mainnav-readings" class="nav-item-area" ng-class="{ active: isActive('/readings')}"><a href ng-click="changeView('readings')"><span class="glyphicon glyphicon-book nav-item-icon" title="Study Guide"></span></a>
+</div>
+<div id="mainnav-tests" class="nav-item-area" ng-class="{ active: isActive('/examsettings')}"><a href ng-click="changeView('examsettings')"><span class="glyphicon glyphicon-pencil nav-item-icon" title="Tests"></span></a>
+</div>
+<div id="mainnav-examday" class="nav-item-area" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')"><span class="glyphicon glyphicon-calendar nav-item-icon" title="Exam Day"></span></a>
+
+</div>
+
+<div ng-if="isOnline() && userData.contact.Mobile_App_Administration && !isMobile" id="mainnav-messages" class="nav-item-area" ng-class="{ active: isActive('/messages')}" title="Messages"><a href ng-click="changeView('alerts')"><span class="glyphicon glyphicon-comment nav-item-icon"></span></a>
+</div>
+
+<div id="mainnav-examday" class="nav-item-area">
+    <a href ng-click="userAccount = !userAccount"><span class="glyphicon glyphicon-user nav-item-icon" title="My Account"></span></a>
+</div>

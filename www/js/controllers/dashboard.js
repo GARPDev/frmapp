@@ -13,16 +13,10 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
     $scope.percentCompleteTotals = remoteDataService.getPercentCompleteTotals();
     $scope.userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
     $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
-    $scope.regdata = $scope.userData.registeredExam.registrations.records[0];
     $scope.userSettings = remoteDataService.userSettings;
     
-    for(var i=0; i<$scope.userData.registeredExam.registrations.records.length; i++) {
-      if($scope.userData.registeredExam.registrations.records[i] != 'Pending')
-          $scope.regdata = $scope.userData.registeredExam.registrations.records[i];
-    }
-
-    if($scope.regdata.Defered__c != 'Pending') {
-      var mdate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c);
+    if(defined(remoteDataService,"examInfo.userExam.Defered__c") && remoteDataService.examInfo.userExam.Defered__c != 'Pending') {
+      var mdate = moment(remoteDataService.examInfo.userExam.Exam_Site__r.Exam__r.Exam_Date__c);
       var now = moment();
       $scope.days = mdate.diff(now, 'days');      
     }

@@ -45,6 +45,7 @@
     <script src="js/filters.js"></script>
 
     <script src="js/services.js"></script>
+    <script src="js/services/utilities.js"></script>
     <script src="js/services/exam.js"></script>
     <script src="js/services/map.js"></script>
     <script src="js/services/navigation.js"></script>
@@ -73,6 +74,7 @@
     <script src="js/controllers/topicPanel.js"></script>
     <script src="js/controllers/topicPanelFilters.js"></script>
     <script src="js/controllers/alerts.js"></script>
+    <script src="js/controllers/chooseExamSplashScreen.js"></script>
 
 		<!-- Bootstrap core CSS -->
 		<link href="lib/bootstrap/css/bootstrap.garp.css" rel="stylesheet">
@@ -88,6 +90,7 @@
         <!-- div id="background" -->
             <!-- img src="img/plus.png" class="stretch" alt="" / -->
         <!-- /div -->
+        <div class="view-container" ng-include="'partials/frm-mainnav.html'"></div>
 		<div id="view-container" class="view-container">
 			<div ng-view class="view-frame"></div>
 		</div>

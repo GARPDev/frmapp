@@ -176,7 +176,19 @@ phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider'
             return defer.promise;
           }
         }
-      }).      
+      }). 
+       when('/pickexam', {
+        templateUrl: 'partials/choose-exam-splash-exam.html',
+        controller: 'ChooseExamCtrl',
+        resolve: {
+          myVar: function($q,$http,remoteDataService){
+            //code to be executed before route change goes here
+            // var defer = $q.defer();
+            // remoteDataService.fetchData(defer, $http);
+            // return defer.promise;
+          }
+        }
+      }).     
       when('/alerts', {
         templateUrl: 'partials/frm-alerts.html',
         controller: 'FRMAppAlertsCtrl',
