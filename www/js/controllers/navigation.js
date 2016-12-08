@@ -62,7 +62,8 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       if(isOnline()) {
         remoteDataService.clearData(); 
       }
-       navigationService.changeView('login');
+      $rootScope.$broadcast('enableNav', false);
+      navigationService.changeView('login');
     }
 
 
