@@ -39,6 +39,11 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     }
     setState();
 
+    $scope.enableNav = false;
+    $scope.$on("enableNav", function (event, loggedIn) {
+      $scope.enableNav = loggedIn;
+    });
+
     $scope.$on("updateNav", function (event, loggedIn) {
       setState();
       $scope.loggedIn = loggedIn;

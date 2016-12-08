@@ -107,7 +107,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       if(isOnline()) {
         remoteDataService.clearData(); 
       }
-       navigationService.changeView('login');
+      $rootScope.$broadcast('enableNav', false);
+      navigationService.changeView('login');
     }
 
     $scope.takePhoto = function () { 
