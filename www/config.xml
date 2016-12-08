@@ -53,9 +53,9 @@
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg"      gap:platform="winphone" />
 
     
-    <gap:plugin name="nl.x-services.plugins.calendar" />
-    <gap:plugin name="org.apache.cordova.camera" />
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
+    <!-- gap:plugin name="nl.x-services.plugins.calendar" / -->
+    <!-- gap:plugin name="org.apache.cordova.camera" / -->
+    <!-- gap:plugin name="org.apache.cordova.network-information" version="0.2.7" / -->
     <!-- gap:plugin name="com.phonegap.plugins.pushplugin" version="2.1.1" / -->
     <access origin="*" />
     
