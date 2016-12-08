@@ -43,3 +43,15 @@ var minWidth = 400; // Min width before we remove text
 
 /* Controllers */
 var frmControllers = angular.module('frmControllers', []);
+
+frmControllers.controller('mainCtrl', ['$scope', '$rootScope','$timeout','$location','remoteDataService','navigationService','authenticationService',
+  function($scope, $rootScope, $timeout, $location, remoteDataService, navigationService, authenticationService) {
+
+    $scope.loggedIn = false;
+    $scope.$on("updateNav", function (event, loggedIn) {
+      $scope.loggedIn = remoteDataService.loggedIn = loggedIn;
+    });    
+
+  }
+]);
+
