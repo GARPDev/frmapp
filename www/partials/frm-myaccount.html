@@ -48,6 +48,8 @@
                             <img src="img/frm.png" alt="FRM" ng-click="changeExam('frm')" class="img-responsive" ng-class="{'grey-image' : examInfo.exam == 'erp'}" style="margin: 10px; width:50px; float: left; "/>
                             <img src="img/erp.png" alt="ERP" ng-click="changeExam('erp')" class="img-responsive" ng-class="{'grey-image' : examInfo.exam == 'frm'}" style="margin: 10px; width:50px; float: left;"/>
                         </div>
+                    </div>
+                    <div class="row">
                         <div ng-if="!examInfo.canPick" class="col-md-12">
                             <div class="org">
                                 Organize Work By:
@@ -56,37 +58,39 @@
                                     <label ng-repeat="org in orgOptions" class="btn btn-justify garp-btn-white" ng-class="{'active' : userSettings.organizeBy == org.value}" ng-click="changeOrgOption(org.value)">
                                         <input type="radio" name="{{org.value}}" id="{{org.value}}">{{org.name}}
                                     </label>
-                                </div>
-                                <div class="other">
-                                    <button type="button" class="btn garp-btn-white" ng-click="clearData()">Reset Progress</button>
-                                </div>
-                                
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="other" style="float:left">
+                                <button type="button" class="btn garp-btn-white" ng-click="clearData()">Reset Progress</button> 
+                            </div>
+                            <div style="float:right">
+                                <button type="button" class="btn garp-btn-blue" ng-click="logout()">Logout</button> <button type="button" class="btn garp-btn-green" ng-click="changeView('dashboard')">Continue</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="col-md-6">
-            <div ng-if="examInfo.userExam" class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="panel-title">Exam Information</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div ng-if="examInfo.userExam" class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="panel-title">Exam Information</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-info">{{util.formatExamName(userData.contact.KPI_Current_Exam_Registration__c)}}</div>
+                            <div class="panel-info">{{examDate}}</div>
+                            <div class="panel-info">{{userData.contact.time}}</div>
+                            <div class="panel-info" data-ng-bind-html="displayAddress"></div>
+                            <div id="map-canvas" class="myaccount-map-area"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <div class="panel-info">{{util.formatExamName(userData.contact.KPI_Current_Exam_Registration__c)}}</div>
-                    <div class="panel-info">{{examDate}}</div>
-                    <div class="panel-info">{{userData.contact.time}}</div>
-                    <div class="panel-info" data-ng-bind-html="displayAddress"></div>
-                    <div id="map-canvas" class="myaccount-map-area"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="myaccount-continue">
-                <button type="button" class="btn garp-btn-green" ng-click="changeView('dashboard')">Continue</button>
             </div>
         </div>
     </div>
