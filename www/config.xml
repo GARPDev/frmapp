@@ -4,7 +4,7 @@
     <description>
         This is the offical GARP study application.
     </description>
-    <author email="support@garp.com" href="http://phonegap.com">
+    <author email="support@garp.com" href="http://www.garp.com">
         GARP
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
@@ -64,6 +64,19 @@
     <gap:plugin name="org.apache.cordova.camera" source="npm" />
     <gap:plugin name="org.apache.cordova.network-information" source="npm" />
     <!-- gap:plugin name="com.phonegap.plugins.pushplugin" / -->
+
+    <gap:config-file platform="ios" parent="NSCalendarsUsageDescription" overwrite="true">
+    <array>
+        <string>GARP does not access your calendar. It simply allow you to create a reminder of when GARP events happen.</string>
+    </array>
+    </gap:config-file>
+
+    <gap:config-file platform="ios" parent="NSPhotoLibraryUsageDescription" overwrite="true">
+    <array>
+        <string>GARP does not access your photos. It simply allow you to add a photo so we can identify you.</string>
+    </array>
+    </gap:config-file>
+
     <access origin="*" />
     
 </widget>
