@@ -20,9 +20,6 @@ frmServices.factory('authenticationService', ['$resource','$http',
         password: password
       };
       
-      // DEBUG ONLY!
-      authReq.debug = 'w77';
-
       var url = '/sfdc/auth/user';
       if(navigator.camera) {
         url = serverURL + url;
