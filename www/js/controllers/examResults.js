@@ -23,10 +23,14 @@ frmControllers.controller('FRMExamResultsCtrl', ['$scope','$timeout','$location'
     $scope.wrongAnswers = ($scope.totalQuestions-$scope.correctAnswers-$scope.skipQuestions);
 
     $scope.totalTime=0;
+    var questionsCnt = 0;
     for(var i=0; i<$scope.userAnswers.length; i++) {
-      $scope.totalTime+=$scope.userAnswers[i].elapsedTime;
+      if(defined($scope.userAnswers[i],"elapsedTime")) {
+        questionsCnt++;
+        $scope.totalTime+=$scope.userAnswers[i].elapsedTime;
+      }        
     }
-    $scope.avgTime = $scope.userAnswers.length/($scope.totalTime/1000/60);
+    $scope.avgTime = questionsCnt/($scope.totalTime/1000/60);
 
 
     $timeout(function() {

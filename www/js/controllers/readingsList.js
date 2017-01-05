@@ -72,23 +72,19 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 
         if(foundItem !== null && typeof foundItem !== "undefined") {
 
-          if(readlingListSharedService.filters.flagged && readlingListSharedService.filters.done) {
-            return (foundItem.flagged === true && foundItem.done === true);
-          } else if(readlingListSharedService.filters.flagged) {
-            return foundItem.flagged === true;
-          } else if(readlingListSharedService.filters.done) {
-            return foundItem.done === true;
-          } else {
-            return 1;  
-          }
-        } else {
-          if(readlingListSharedService.filters.flagged || readlingListSharedService.filters.done) {
-            return false;
-          } else {
-            return 1;  
-          }
-          
-        }      
+          var show = true;
+          if(readlingListSharedService.filters.flagged && !foundItem.flagged)
+            show = false;
+
+          if(show == true && readlingListSharedService.filters.done && !foundItem.done)
+            show = false;
+
+          if(show == true && readlingListSharedService.filters.notes && (!defined(foundItem,"notes") || foundItem.notes.length ==0))
+            show = false;
+
+          return show;
+
+        }
     }
 
     $scope.isAnyCriteriaMatch = function() {    
