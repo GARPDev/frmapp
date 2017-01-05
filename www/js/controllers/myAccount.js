@@ -1,5 +1,5 @@
-frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService','$sce','utilitiesService',
-  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService,$sce,utilitiesService) {
+frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService','$sce','utilitiesService','$rootScope',
+  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService,$sce,utilitiesService,$rootScope) {
 
     $scope.nav = navigator.appCodeName;
     $scope.camera =  navigator.camera;
@@ -100,6 +100,15 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     if(navigator.camera === null || typeof navigator.camera === "undefined") {
       $('#takePhoto').hide();
+    }
+
+    $scope.logout = function() {
+      $rootScope.$broadcast('updateNav', false);
+      if(isOnline()) {
+        remoteDataService.clearData(); 
+      }
+      $rootScope.$broadcast('enableNav', false);
+      navigationService.changeView('login');
     }
 
     $scope.takePhoto = function () { 

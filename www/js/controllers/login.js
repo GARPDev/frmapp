@@ -205,7 +205,14 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
                 opts.top = '50px'
                 remoteDataService.spinner = new Spinner(opts).spin(obj[0]);
               }
+
+              
+              $('.main-container').fadeOut(function() {
+                document.location.hash = '#!/myaccount';
+              });
+
               $rootScope.$broadcast('updateNav', true);
+              $rootScope.$broadcast('enableNav', true);
             } else {
               if(defined(spinner))
                 spinner.stop();  
@@ -216,7 +223,7 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
         });
       } else {
         navigationService.changeView('myaccount');
-        $rootScope.$broadcast('enableNav');
+        $rootScope.$broadcast('enableNav', true);
       }
     }
 }]);

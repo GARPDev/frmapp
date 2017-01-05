@@ -96,7 +96,7 @@
     }
 
     #logo {
-      padding-left: 20%;
+      padding-left: 36%;
     }
 
   }
@@ -144,6 +144,7 @@
     display: inline-flex;
     float: right;
     margin-top: -32px;
+    padding: 5px;
   }
 
   .nav-item-icon{
@@ -300,6 +301,7 @@
 }
 .nav-item-icon {
   font-size: 18px;
+  margin-top: 9px;
 }
 
 .nav-icon-search {

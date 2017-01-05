@@ -87,14 +87,12 @@
         <title>GARP Study Center</title>
     </head>
     <body style="background: #FFFFFF url(img/light_noise_diagonal.png) repeat;">
-        <!-- div id="background" -->
-            <!-- img src="img/plus.png" class="stretch" alt="" / -->
-        <!-- /div -->
-        <div class="view-container" ng-include="'partials/frm-mainnav.html'"></div>
-		<div id="view-container" class="view-container">
-			<div ng-view class="view-frame"></div>
-		</div>
-		
+        <div id="main-container">
+            <div class="view-container" ng-include="'partials/frm-mainnav.html'"></div>
+    		<div id="view-container" class="view-container">
+    			<div ng-view class="view-frame"></div>
+    		</div>
+        </div>		
 		<!-- Bootstrap core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
