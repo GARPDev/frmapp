@@ -27,7 +27,7 @@
             </div>
             <div class="info">
 
-              <p ng-if="reading.book">{{reading.book.title}}, Chapter {{reading.chapter.title}}, pages {{reading.chapter.pages}}</p>
+              <p ng-if="reading.book">{{reading.book.title}} <span ng-if="reading.chapter.title && reading.chapter.title!='0'">, Chapter {{reading.chapter.title}}</span><span ng-if="reading.chapter.pages">, pages {{reading.chapter.pages}}</span></p>
 
               <p>{{reading.desc}}</p>
 
