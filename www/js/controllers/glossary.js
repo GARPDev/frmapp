@@ -3,12 +3,11 @@ frmControllers.controller('FRMGlossaryCtrl', ['$scope','$timeout', '$location', 
 
     $scope.searchTerms = remoteDataService.searchTerms;
     $scope.glossaryData = remoteDataService.glossaryData;
-      
-    $scope.showGlossarySearch = $location.path() === '/glossary';
 
     $timeout(function() {
       navigationService.pageTransitionIn();
-      $('body').removeClass("modal-open")
-    }, 0);
+        $('body').removeClass("modal-open")
+    }, 0);  
+
   }
 ]);

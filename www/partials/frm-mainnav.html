@@ -48,13 +48,11 @@
             </a>
         </div>
         <!-- test  ng-if="currentMenuItem != 'Glossary'" -->
-        <form ng-if="examInfo.exam" role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch" ng-if='!showGlossarySearch'>
+        <form ng-hide="location.current === '/glossary'" ng-if="examInfo.exam" role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch">
             <div>
                 <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary" style="border-radius:0px;">
             </div>
-
         </form>
-
     </div>
     <!-- end of mobile nav-->
 
@@ -81,7 +79,7 @@
 </ul>
 
 <div class="nav navbar-nav navbar-right nav-right-area">
-    <form ng-if="currentMenuItem != 'Glossary'" class="navbar-form navbar-left" role="search" ng-submit="searchGlossary(searchTerms)">
+    <form class="navbar-form navbar-left" role="search" ng-submit="searchGlossary(searchTerms)">
         <div ng-if="examInfo.exam" class="form-group nav-glossary-input">
             <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary">
         </div>
