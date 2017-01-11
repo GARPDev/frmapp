@@ -3,11 +3,11 @@
     <div ng-if="enableNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
+
                 <img id="logo" class="img-responsive" title='FRM App' style="height:40px;margin-top: 20px" src="img/garp-frm-study-center-blue.png">
-
-                <!-- mobile nav-->
+                Exam: {{examInfo.exam}}
+                User: {{examInfo.userExam}}
                 <div id="mobileNavBar" class="mobileIcons">
-
                     <div ng-if="examInfo.exam" id="mainnav-dashboard" class="nav-item-area" ng-class="{ active: isActive('/dashboard')}"><a href ng-click="changeView('dashboard')"><span class="glyphicon glyphicon-tasks nav-item-icon" title="Dashboard"></span></a>
                     </div>
                     <div ng-if="examInfo.exam" id="mainnav-readings" class="nav-item-area" ng-class="{ active: isActive('/readings')}"><a href ng-click="changeView('readings')"><span class="glyphicon glyphicon-book nav-item-icon" title="Study Guide"></span></a>
@@ -19,26 +19,20 @@
                     <div ng-if="examInfo.userExam" id="mainnav-myaccount" class="nav-item-area" ng-class="{ active: isActive('/myaccount')}"><a href ng-click="changeView('myaccount')"><img id="userImageNav" ng-src="{{userImage}}" width="30"></a>
                     </div>
                 </div>
+
                 <div id="lowerNav" class="navbar-lower">
-                  <div ng-if="examInfo.exam" id="mainnav-dashboard" class="nav-item-area" ng-class="{ active: isActive('/dashboard')}"><a href ng-click="changeView('dashboard')"><span class="glyphicon glyphicon-tasks nav-item-icon" title="Dashboard"></span></a>
-                  </div>
-                  <div ng-if="examInfo.exam" id="mainnav-readings" class="nav-item-area" ng-class="{ active: isActive('/readings')}"><a href ng-click="changeView('readings')"><span class="glyphicon glyphicon-book nav-item-icon" title="Study Guide"></span></a>
-                  </div>
-                  <div ng-if="examInfo.exam" id="mainnav-tests" class="nav-item-area" ng-class="{ active: isActive('/examsettings')}"><a href ng-click="changeView('examsettings')"><span class="glyphicon glyphicon-pencil nav-item-icon" title="Tests"></span></a>
-                  </div>
-                  <div ng-if="examInfo.userExam" id="mainnav-examday" class="nav-item-area" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')"><span class="glyphicon glyphicon-calendar nav-item-icon" title="Exam Day"></span></a>
-                  </div>
-                <div ng-if="examInfo.userExam" id="mainnav-myaccount" class="nav-item-area" ng-class="{ active: isActive('/myaccount')}"><a href ng-click="changeView('myaccount')"><img id="userImageNav" ng-src="{{userImage}}" width="30"></a>
+                    <div ng-if="examInfo.exam" id="mainnav-dashboard" class="nav-item-area" ng-class="{ active: isActive('/dashboard')}"><a href ng-click="changeView('dashboard')"><span class="glyphicon glyphicon-tasks nav-item-icon" title="Dashboard"></span></a>
+                    </div>
+                    <div ng-if="examInfo.exam" id="mainnav-readings" class="nav-item-area" ng-class="{ active: isActive('/readings')}"><a href ng-click="changeView('readings')"><span class="glyphicon glyphicon-book nav-item-icon" title="Study Guide"></span></a>
+                    </div>
+                    <div ng-if="examInfo.exam" id="mainnav-tests" class="nav-item-area" ng-class="{ active: isActive('/examsettings')}"><a href ng-click="changeView('examsettings')"><span class="glyphicon glyphicon-pencil nav-item-icon" title="Tests"></span></a>
+                    </div>
+                    <div ng-if="examInfo.userExam" id="mainnav-examday" class="nav-item-area" ng-class="{ active: isActive('/examday')}"><a href ng-click="changeView('examday')"><span class="glyphicon glyphicon-calendar nav-item-icon" title="Exam Day"></span></a>
+                    </div>
+                    <div ng-if="examInfo.userExam" id="mainnav-myaccount" class="nav-item-area" ng-class="{ active: isActive('/myaccount')}"><a href ng-click="changeView('myaccount')"><img id="userImageNav" ng-src="{{userImage}}" width="30"></a>
                 </div>
             </div>
-            <!-- div ng-if="messages" class='myMessage'>
-                <li id="mainnav-readings">
-                    <a class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-inbox nav-item-icon"></span>
-                    </a>
-                    <ul class="dropdown-menu list-group">
-                    </ul>
-                </li>
-            </div -->
+        
             <div ng-if="examInfo.exam" ng-show="userAccount" class="mobileUserAccount">
                 <a class="col-xs-6 col-sm-6 columnsSplit" href="" ng-click="changeView('myaccount')">
                  My Account
@@ -46,6 +40,7 @@
              <a class="col-xs-6 col-sm-6 columnsSplit" href='' ng-click="changeView('login')">
                 Logout
             </a>
+
         </div>
         <!-- test  ng-if="currentMenuItem != 'Glossary'" -->
         <form ng-hide="location.current === '/glossary'" ng-if="examInfo.exam" role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch">
