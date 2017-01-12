@@ -11,6 +11,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.messages = null;
     $scope.loggedIn = false;
 
+    $scope.user = {}
     $scope.location = {}
 
     $scope.$on('$routeChangeSuccess', function(event, current, previous){
@@ -59,8 +60,10 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       setState();
       $scope.loggedIn = loggedIn;
       $scope.userData = remoteDataService.userData;
-      $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
       $scope.examInfo = remoteDataService.examInfo;
+      if($scope.user.image === undefined){
+         $scope.user.image = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken
+      }
     });    
 
     $scope.$on('browserResize', function() {

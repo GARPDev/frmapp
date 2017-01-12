@@ -1,9 +1,3 @@
-  width: 100px;
-  height: 100px;
-  .page-container {
-    display: none;
-  }
-
   #background {
     width: 100%; 
     height: 100%; 
@@ -31,6 +25,13 @@
     color: white;
   }
 
+  .readings-sample-btn{
+    padding: 5px; 
+    background: #fff; 
+    border: 1px solid #ccc; 
+    border-radius: 3px; 
+    color: #333; text-decoration: none;
+  }
 
   label.active {
     font-weight: bold;
@@ -104,12 +105,8 @@
       margin-top: 8.5px;
     }
 
-    .navbar-header a:first-child{
-      margin-right: 10px;
-    }
-
-    .navbar-header a:last-child{
-      margin-left: 10px;
+    .navbar-header span{
+      padding: 0 12px;
     }
 
     #logo {
@@ -1477,6 +1474,12 @@
   .btn .badge {
     top: -4px;
   }
+}
+
+.flex{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;  
 }
 
 @media (max-width: 330px) {

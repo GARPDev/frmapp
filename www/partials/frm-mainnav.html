@@ -43,7 +43,9 @@
                         </div>
                         <div ng-if="examInfo.userExam" id="mainnav-myaccount" class="nav-item-area" ng-class="{ active: isActive('/myaccount')}">
                             <a href ng-click="changeView('myaccount')">
-                                <img id="userImageNav" ng-src="{{userImage}}" width="30">
+                                <span>
+                                    <img id="userImageNav" ng-src="{{user.image}}" width="30">
+                                </span>
                             </a>
                         </div>
 
@@ -73,7 +75,9 @@
                         </li>
                         <li ng-if="examInfo.userExam" id="mainnav-myaccount" class="nav-item-area" ng-class="{ active: isActive('/myaccount')}">
                             <a href ng-click="changeView('myaccount')">
-                                <img id="userImageNav" ng-src="{{userImage}}" width="30">
+                                <span>
+                                    <img id="userImageNav" ng-src="{{user.image}}" width="30">
+                                </span>
                             </a>
                         </li>
 
@@ -91,7 +95,7 @@
                     </div>
 
                     <form ng-if="location.current !== '/glossary'" role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch">
-                        <input ng-if="active.menuItem != 'Glossary'" type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary" style="border-radius:0px;">
+                        <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary" style="border-radius:0px;">
                     </form>
             
                 </div>
@@ -142,7 +146,7 @@
 
                         <li id="mainnav-readings">
                             <a class="dropdown-toggle" data-toggle="dropdown" tabbed>
-                                <img id="userImageNav" ng-src="{{userImage}}" width="30">
+                                <img id="userImageNav" ng-src="{{user.image}}" width="30">
                             </a>
                             <ul class="dropdown-menu list-group">
                                 <li ng-if="examInfo.exam">
