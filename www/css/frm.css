@@ -88,15 +88,33 @@
     #lowerNav {
       display: inline-flex;
       padding: 10px;
-      margin-left: 30%;
+      margin-left: 50%;
+      transform: translateX(-50%)
     }
 
     .view-container {
-      margin-top: 140px;
+      margin-top: 165px;
+    }
+
+    .navbar-header .nav-item-icon{
+      margin: 0;
+    }
+
+    .navbar-header .glyphicon{
+      margin-top: 8.5px;
+    }
+
+    .navbar-header a:first-child{
+      margin-right: 10px;
+    }
+
+    .navbar-header a:last-child{
+      margin-left: 10px;
     }
 
     #logo {
-      padding-left: 36%;
+      margin-left: 50%;
+      transform: translateX(-50%)
     }
 
   }
@@ -108,7 +126,7 @@
   }
 
   .view-container {
-    margin-top: 100px;
+    margin-top: 115px;
   }
 
 }
@@ -1427,6 +1445,15 @@
 
 }
 
+.exam-question img{
+  max-width: 100%;
+  height: auto;
+}
+
+#exam-modal-reason img{
+  max-width: 100%;
+  height: auto;
+}
 
 .moveIcon{
   margin-top: 6px;

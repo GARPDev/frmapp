@@ -4,6 +4,8 @@ frmControllers.controller('FRMGlossaryCtrl', ['$scope','$timeout', '$location', 
     $scope.searchTerms = remoteDataService.searchTerms;
     $scope.glossaryData = remoteDataService.glossaryData;
 
+    $scope.glossary = { hideSearch : true }
+
     $timeout(function() {
       navigationService.pageTransitionIn();
         $('body').removeClass("modal-open")
