@@ -1,7 +1,119 @@
-<!-- Fixed navbar -->
-<div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>    
+<div class="container page-container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary app-panel dashboard">
+        <div class="panel-heading exam-question-heading">
+          <div class="row">
+            <div style="float:left;color:black;margin-left:10px;font-weight:bold;font-size:20px;">{{userData.registeredExam.name}}</div>
+            <div style="float:right;margin-right:10px;margin-left:10px;color:black;">
+              <div ng-click="reTake()" style="float:left;margin-right:30px"><span class="glyphicon glyphicon-pencil"></span> Retake Exam</div>
+              <div ng-click="exitExam()" style="float:left;margin-right:10px"><span class="glyphicon glyphicon-share-alt"></span> Exit Exam</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">  
+
+          <!-- SCORE -->
+          <div class="row" style="border-bottom: 1px solid #ddd; padding-bottom: 20px;">
+
+            <div class="col-xs-12">
+              <p style="font-size:20px;margin-bottom:20px">Final Score: <span style="font-weight:bold;font-size:25px">{{calcCorrect()}} /</span> <span style="font-size:25px">100</span></p>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+              <p style="font-weight:bold">Average Questions per minute: {{formatNumber(avgTime,2)}}</p>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <p style="font-weight:bold">Total Time Spent: {{formatTime(totalTime)}}</p>
+            </div>
+
+            <hr />
+
+          </div>
+          <!-- ./SCORE -->
+
+          <!-- ANSWER STATS -->
+          <div class="row" style="border-bottom: 1px solid #ddd; padding-bottom: 20px;">
+
+            <div class="col-md-12">
+              <p style="font-size:20px;margin-bottom:20px">Answer Stats:</p>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+
+                  <span class="glyphicon glyphicon-ok"></span> 
+                  Correct Answers:
+                  <span class="exam-results-correct">{{correctAnswers}}</span>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <span class="glyphicon glyphicon-remove"></span> 
+                  Incorrect Answers: 
+                  <span class="exam-results-incorrect">{{wrongAnswers}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  Skipped Questions:                   
+                  <span class="exam-results-skipped">{{skipQuestions}}</span>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <span class="glyphicon glyphicon-flag"></span> 
+                  Flagged Questions: 
+                  <span class="exam-results-flagged">{{flaggedQuestions}}</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- ./ANSWER STATS -->
+
+          <!-- QUESTION LINKS -->
+          <div class="row">
+
+            <div class="col-xs-12">
+              <p style="font-size:20px;margin-bottom:20px">Question Links:</p>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                  <div ng-repeat="userAnswer in userAnswers" class="examsettings-options-topics">
+
+                    <div ng-if="userAnswer.flagged" 
+                      style="border:1px solid #000000;border-bottom: 5px solid #00A2DD;width:30px;height:30px;padding-left:10px;padding-top:5px;" 
+                      ng-class="{correctAnswer: (userAnswer.question.answer == userAnswer.choice), incorrectAnswer: (userAnswer.question.answer != userAnswer.choice), skippedQuestion: !userAnswer.choice}" 
+                      ng-click="gotoQuestion($index)"
+                    >
+                      {{$index+1}}
+                    </div>
+
+                    <div ng-if="!userAnswer.flagged" 
+                      style="border:1px solid #000000;width:30px;height:30px;padding-left:10px;padding-top:5px;" 
+                      ng-class="{correctAnswer: (userAnswer.question.answer == userAnswer.choice), incorrectAnswer: (userAnswer.question.answer != userAnswer.choice), skippedQuestion: !userAnswer.choice}" 
+                      ng-click="gotoQuestion($index)"
+                    >
+                      {{$index+1}}
+                    </div>
+
+                  </div>
+                </div>              
+            </div>
+
+            <hr />
+
+          </div>
+          <!-- ./QUESTION LINKS -->
+
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
 
 
+<!--
 <div class="container page-container">
 
   <div class="row">
@@ -65,3 +177,4 @@
     </div>
   </div>
 </div>
+-->

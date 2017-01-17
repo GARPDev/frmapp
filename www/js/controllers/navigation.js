@@ -1,5 +1,5 @@
-frmControllers.controller('NavController', ['$scope', '$location','remoteDataService','navigationService','$rootScope',
-  function($scope, $location,remoteDataService,navigationService,$rootScope) {
+frmControllers.controller('NavController', ['$scope', '$location','remoteDataService','navigationService','$rootScope', '$q', '$timeout',
+  function($scope, $location, remoteDataService, navigationService, $rootScope, $q, $timeout) {
 
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
@@ -11,31 +11,43 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.messages = null;
     $scope.loggedIn = false;
 
+    $scope.user = {}
+    $scope.location = {}
+
+    $scope.$on('$routeChangeSuccess', function(event, current, previous){
+      $scope.location.current = current.$$route.originalPath
+    })
+
     function setState() {
 
+      var currentMenuItem
+
       switch(document.location.hash) {
-        case '#/readings':
-          $scope.currentMenuItem = 'Readings';
+        case '#!/readings':
+          currentMenuItem = 'Readings';
           break;
-        case '#/examsettings':
-          $scope.currentMenuItem = 'Tests';
+        case '#!/examsettings':
+          currentMenuItem = 'Tests';
           break;
-        case '#/dashboard':
-          $scope.currentMenuItem = 'Dashboard';
+        case '#!/dashboard':
+          currentMenuItem = 'Dashboard';
           break;
-        case '#/examday':
-          $scope.currentMenuItem = 'Exam Details';
+        case '#!/examday':
+          currentMenuItem = 'Exam Details';
           break;
-        case '#/messages':
-          $scope.currentMenuItem = 'Messages';
+        case '#!/messages':
+          currentMenuItem = 'Messages';
           break;
-        case '#/glossary':
-          $scope.currentMenuItem = 'Glossary';
+        case '#!/glossary':
+          currentMenuItem = 'Glossary';
           break;
         default:
-          $scope.currentMenuItem = 'Dashboard';
+          currentMenuItem = 'Dashboard';
           break;
       }
+
+      $scope.active = { menuItem: currentMenuItem }
+
     }
     setState();
 
@@ -48,8 +60,10 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       setState();
       $scope.loggedIn = loggedIn;
       $scope.userData = remoteDataService.userData;
-      $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
       $scope.examInfo = remoteDataService.examInfo;
+      if($scope.user.image === undefined){
+         $scope.user.image = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken
+      }
     });    
 
     $scope.$on('browserResize', function() {

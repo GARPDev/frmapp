@@ -1,6 +1,3 @@
-<!-- Fixed navbar -->
-<div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>
-
 <div class="container page-container">
 
   <div class="row">
@@ -84,7 +81,7 @@
       </div>
       <div class="modal-body">
       	<p ng-if="correctAnswer">The correct answer is {{formatChoiceId(correctAnswer)}}</p>
-        <div ng-bind-html="getCurrentReason()"></div>
+        <div id="exam-modal-reason" ng-bind-html="getCurrentReason()"></div>
       </div>
       <div class="modal-footer">
       	<div ng-if="currentQuestion == totalQuestions-1">
