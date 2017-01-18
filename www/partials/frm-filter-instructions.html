@@ -1,6 +1,18 @@
-<div class="panel panel-primary">
-    <div class="panel-heading">Filter Instructions</div>
-    <div class="panel-body">
+<div ng-controller="filterInstructionsCtrl" class="panel panel-primary">
+
+    <div class="panel-heading">
+        <span>Filter Instructions</span>
+        <span style="float: right;">
+            <a style="color: #006c99; text-decoration: none;" ng-if="!state.show" ng-click="state.show = true">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+            <a style="color: #006c99; text-decoration: none;" ng-if="state.show" ng-click="state.show = false">
+                <span class="glyphicon glyphicon-minus"></span>
+            </a>
+        </span>
+    </div>
+
+    <div class="panel-body" ng-if="state.show">
 
         <p>Read the following selections. As you go mark each one as 
             <button class="readings-sample-btn">
