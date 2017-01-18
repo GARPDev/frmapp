@@ -70,9 +70,10 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
         // New Queue  
         var foundItem = _.findWhere(remoteDataService.metaData, {readingId: item.id});        
 
+        var show = true;
         if(foundItem !== null && typeof foundItem !== "undefined") {
 
-          var show = true;
+          
           if(readlingListSharedService.filters.flagged && !foundItem.flagged)
             show = false;
 
@@ -81,10 +82,8 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 
           if(show == true && readlingListSharedService.filters.notes && (!defined(foundItem,"notes") || foundItem.notes.length ==0))
             show = false;
-
-          return show;
-
         }
+        return show;
     }
 
     $scope.isAnyCriteriaMatch = function() {    
