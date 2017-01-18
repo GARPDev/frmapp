@@ -1,6 +1,8 @@
 frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'scheduleBarSharedService','remoteDataService','readlingListSharedService','$filter',
-  function($scope, $timeout, scheduleBarSharedService, remoteDataService, readlingListSharedService, $filter) {
+  function($scope, $timeout, scheduleBarSharedService, remoteDataService, readingListSharedService, $filter) {
   
+    $scope.readingsList = readingListSharedService
+
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
     $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
@@ -36,7 +38,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 
     // Readings List
     $scope.itemClicked = function (id, type) {
-      readlingListSharedService.setReadingIndex(id);
+      readingListSharedService.setReadingIndex(id);
       remoteDataService.toggelReadingAttribute(id, type);
     };
   
@@ -66,40 +68,35 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
       }
     }
 
-    function matchItems(item) {
-        // New Queue  
-        var foundItem = _.findWhere(remoteDataService.metaData, {readingId: item.id});        
-
-        var show = true;
-        if(foundItem !== null && typeof foundItem !== "undefined") {
-
-          
-          if(readlingListSharedService.filters.flagged && !foundItem.flagged)
-            show = false;
-
-          if(show == true && readlingListSharedService.filters.done && !foundItem.done)
-            show = false;
-
-          if(show == true && readlingListSharedService.filters.notes && (!defined(foundItem,"notes") || foundItem.notes.length ==0))
-            show = false;
-        }
-        return show;
-    }
-
-    $scope.isAnyCriteriaMatch = function() {    
-      for(var i=0; i<$scope.readings.length; i++) {
-        var ret = matchItems($scope.readings[i]);
-        if(ret == 1)
-          return 1;
-      }
-      return 0;
-    }
-
-    $scope.criteriaMatch = function(value) {
-      return function( item ) {
-        return matchItems(item);
-      }
-    }   
-
   }
-]);
+])
+
+frmControllers.filter('filterByReadingListProps', ['remoteDataService', function(remoteDataService){
+    return function(input, filter, property){
+
+        var output = []
+
+        if(filter !== undefined && filter){
+
+            angular.forEach(input, function(item){
+              angular.forEach(remoteDataService.metaData, function(metadata){
+
+                if(metadata.readingId == item.id && !Array.isArray(metadata[property]) && metadata[property]){
+                  output.push(item)
+                }else if(metadata.readingId == item.id && Array.isArray(metadata[property]) && metadata[property].length){
+                  output.push(item)
+                }
+
+              })
+            })
+
+        }else{
+
+            output = input
+
+        }
+
+        return output
+
+    }
+}])
