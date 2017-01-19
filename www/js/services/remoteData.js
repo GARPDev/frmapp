@@ -734,6 +734,10 @@ remoteDataService.setMetaData = function(metaItem) {
 
   }
 
+  remoteDataService.resetPassword = function(email){
+    var baseUrl = window.location.host
+    return $http.get(`//${baseUrl}/frmApp/customer/${email}/password`)
+  }
 
   return remoteDataService;
 
