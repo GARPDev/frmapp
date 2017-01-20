@@ -333,7 +333,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                 if(defined(reading,"Study_App_Lesson_Plan__r.Week__c") && 
                  defined(reading,"Study_App_Lesson_Plan__r.Description__c") &&
                  defined(reading,"Study_App_Lesson_Plan__r.Exam__c")) {
-
+                   
                   if((reading.Study_App_Lesson_Plan__r.Exam__c == remoteDataService.examInfo.EXAM + ' Exam Part I' && (remoteDataService.examInfo.userExamPart == 1 || remoteDataService.examInfo.userExamPart == 3)) ||
                      (reading.Study_App_Lesson_Plan__r.Exam__c == remoteDataService.examInfo.EXAM + ' Exam Part II' && (remoteDataService.examInfo.userExamPart == 2 || remoteDataService.examInfo.userExamPart == 3))) {
 
@@ -734,6 +734,10 @@ remoteDataService.setMetaData = function(metaItem) {
 
   }
 
+  remoteDataService.resetPassword = function(email){
+    var baseUrl = window.location.host
+    return $http.delete(`//${baseUrl}/frmApp/customer/${email}/password`)
+  }
 
   return remoteDataService;
 

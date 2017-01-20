@@ -96,7 +96,7 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
           if(!defined(result,"contact")) {
             if(defined(spinner))
               spinner.stop();  
-            $('#errormsg').html("Your Email Address and Password combonation is not correct.");          
+            $('#errormsg').html("Your Email Address and Password combination is not correct.");          
             return;
           }
           var authResult = result;
