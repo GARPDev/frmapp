@@ -65,46 +65,36 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
         return 0;
       }
     }
-
-    function matchItems(item) {
-        // New Queue  
-        var foundItem = _.findWhere(remoteDataService.metaData, {readingId: item.id});        
-
-        if(foundItem !== null && typeof foundItem !== "undefined") {
-
-          if(readlingListSharedService.filters.flagged && readlingListSharedService.filters.done) {
-            return (foundItem.flagged === true && foundItem.done === true);
-          } else if(readlingListSharedService.filters.flagged) {
-            return foundItem.flagged === true;
-          } else if(readlingListSharedService.filters.done) {
-            return foundItem.done === true;
-          } else {
-            return 1;  
-          }
-        } else {
-          if(readlingListSharedService.filters.flagged || readlingListSharedService.filters.done) {
-            return false;
-          } else {
-            return 1;  
-          }
-          
-        }      
-    }
-
-    $scope.isAnyCriteriaMatch = function() {    
-      for(var i=0; i<$scope.readings.length; i++) {
-        var ret = matchItems($scope.readings[i]);
-        if(ret == 1)
-          return 1;
-      }
-      return 0;
-    }
-
-    $scope.criteriaMatch = function(value) {
-      return function( item ) {
-        return matchItems(item);
-      }
-    }   
-
   }
+
 ]);
+
+frmControllers.filter('filterByReadingListProps', ['remoteDataService', function(remoteDataService){
+    return function(input, filter, property){
+
+        var output = []
+
+        if(filter !== undefined && filter){
+
+            angular.forEach(input, function(item){
+              angular.forEach(remoteDataService.metaData, function(metadata){
+
+                if(metadata.readingId == item.id && !Array.isArray(metadata[property]) && metadata[property]){
+                  output.push(item)
+                }else if(metadata.readingId == item.id && Array.isArray(metadata[property]) && metadata[property].length){
+                  output.push(item)
+                }
+
+              })
+            })
+
+        }else{
+
+            output = input
+
+        }
+
+        return output
+
+    }
+}])

@@ -1,5 +1,5 @@
-frmControllers.controller('NavController', ['$scope', '$location','remoteDataService','navigationService','$rootScope',
-  function($scope, $location,remoteDataService,navigationService,$rootScope) {
+frmControllers.controller('NavController', ['$scope', '$location','remoteDataService','navigationService','$rootScope', '$q', '$timeout',
+  function($scope, $location, remoteDataService, navigationService, $rootScope, $q, $timeout) {
 
     $scope.innerWidth = window.innerWidth;
     $scope.innerHeight = window.innerHeight;
@@ -10,6 +10,11 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.isMobile = isMobile();
     $scope.messages = null;
     $scope.loggedIn = false;
+
+    $scope.$on('$routeChangeSuccess', function(event, current, previous){
+      console.log(current)
+      $scope.location = { current : current.$$route.originalPath }
+    })
 
     function setState() {
 

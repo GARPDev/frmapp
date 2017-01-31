@@ -1,77 +1,74 @@
-<!-- Fixed navbar -->
-<div class="slide-animate" ng-include="'partials/frm-mainnav.html'"></div>
+<div class="container page-container">
+
+	<div id="headerRow" class="row">
+		<div class="col-md-12 dash-alt-buttons-area headerRowCol1">
+			<div class="slide-animate" ng-include="'partials/frm-dashButtons.html'"></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-10">
+			<div class="schedulebar-area" ng-include="'partials/frm-schedularbar.html'"></div>
+		</div>
+		<div class="col-md-1">
+		</div>
+	</div>
 	
-    <div class="container page-container">
+	<div class="row">
+		<div class="col-md-6">
+		<div class="workhead">
+			<h3 class="centerhead">{{currentLesson.title}}</h3>
+		</div>
+		<div class="readingscrollregion scrollbar" id="style-2">
+			<div class="readings-area" ng-include="'partials/frm-readings-list.html'"></div>
+		</div>
+		</div>
+		<div id="daysAreaCol" class="col-md-6">
+		<div class="slide-animate dashButtons" ng-include="'partials/frm-dashButtons.html'"></div>
 
-		<div id="headerRow" class="row">
-			<div class="col-md-12 dash-alt-buttons-area headerRowCol1">
-				<div class="slide-animate" ng-include="'partials/frm-dashButtons.html'"></div>
+		<div class="messagearea">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#">Messages</a></li>
+				<li><a href="#">Twitter</a></li>
+				<li><a href="#">Facebook</a></li>
+			</ul>				
+			<div class="msgscrollregion scrollbar" id="style-2">
+				<ul class="list-group">
+					<li ng-repeat="message in messages" class="list-group-item">
+					
+						<div class="msg-header">
+							<div  ng-if="message.urgent" class="msg-urgent">
+								<div><span class="glyphicon glyphicon-exclamation-sign"></span></div>
+							</div>
+							<div>
+								<div>{{message.subject}}</div>
+								<div>{{message.dateTime}}</div>
+							</div>
+						</div>
+						<div ng-if="message.body && isItemClicked($index, selectedMessageArray) == -1" id="more" class="centerhead">
+							<span ng-click="itemClicked($index, selectedMessageArray)">more...</span>
+						</div>
+						<div ng-class="{ 'msg-body-open': isItemClicked($index, selectedMessageArray) > -1 }" class="msg-body-closed">
+							<div>{{message.body}}</div>
+							<div ng-if="message.attachmentURL">
+								<span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{message.attachmentName}}</span>
+							</div>
+						</div>
+						<div ng-if="message.body && isItemClicked($index, selectedMessageArray) > -1" id="less" class="centerhead">
+							<span ng-click="itemClicked($index, selectedMessageArray)">less...</span>
+						</div>
+
+					</li>				
+				</ul>
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="col-md-1">
-			</div>
-			<div class="col-md-10">
-				<div class="schedulebar-area" ng-include="'partials/frm-schedularbar.html'"></div>
-			</div>
-			<div class="col-md-1">
-			</div>
 		</div>
-	  
-		<div class="row">
-		  <div class="col-md-6">
-			<div class="workhead">
-				<h3 class="centerhead">{{currentLesson.title}}</h3>
-			</div>
-			<div class="readingscrollregion scrollbar" id="style-2">
-				<div class="readings-area" ng-include="'partials/frm-readings-list.html'"></div>
-			</div>
-		  </div>
-		  <div id="daysAreaCol" class="col-md-6">
-		  	<div class="slide-animate dashButtons" ng-include="'partials/frm-dashButtons.html'"></div>
+	</div>
+</div> <!-- /container -->
 
-			<div class="messagearea">
-				<ul class="nav nav-tabs">
-					<li class="active"><a href="#">Messages</a></li>
-					<li><a href="#">Twitter</a></li>
-					<li><a href="#">Facebook</a></li>
-				</ul>				
-				<div class="msgscrollregion scrollbar" id="style-2">
-					<ul class="list-group">
-						<li ng-repeat="message in messages" class="list-group-item">
-						
-							<div class="msg-header">
-								<div  ng-if="message.urgent" class="msg-urgent">
-									<div><span class="glyphicon glyphicon-exclamation-sign"></span></div>
-								</div>
-								<div>
-									<div>{{message.subject}}</div>
-									<div>{{message.dateTime}}</div>
-								</div>
-							</div>
-							<div ng-if="message.body && isItemClicked($index, selectedMessageArray) == -1" id="more" class="centerhead">
-								<span ng-click="itemClicked($index, selectedMessageArray)">more...</span>
-							</div>
-							<div ng-class="{ 'msg-body-open': isItemClicked($index, selectedMessageArray) > -1 }" class="msg-body-closed">
-								<div>{{message.body}}</div>
-								<div ng-if="message.attachmentURL">
-									<span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{message.attachmentName}}</span>
-								</div>
-							</div>
-							<div ng-if="message.body && isItemClicked($index, selectedMessageArray) > -1" id="less" class="centerhead">
-								<span ng-click="itemClicked($index, selectedMessageArray)">less...</span>
-							</div>
-
-						</li>				
-					</ul>
-				</div>
-			</div>
-		  </div>
-		</div>
-    </div> <!-- /container -->
-
-    <div ng-include="'partials/frm-navFooter.html'"></div>
+<div ng-include="'partials/frm-navFooter.html'"></div>
 
 
 <div ng-include="'partials/frm-notes.html'"></div>

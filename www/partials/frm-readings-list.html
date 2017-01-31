@@ -1,61 +1,40 @@
 <div class="spin-area"></div>
 
-
 <div ng-controller="TopicPanelController">
 
-
-  <div class="row">
-    <div class="col-md-12">
-      <p>Read the following selections. As you go mark each one as <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-check"></span> <span class="reading-list-button">Done</span></button>. If you are having trouble you may <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-flag"></span> <span class="reading-list-button">Flag</span></button> items or add <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-list-alt"></span> <span class="reading-list-button">Notes</span></button>.
-      </p>
-    </div>
-  </div>
-
   <div class="panel panel-primary">
+
     <div class="panel-heading">
         <div class="panel-title">{{currentLesson.title}}</div>
       </div>
     <div class="panel-body nopadding" ng-controller="FRMAppReadingsListCtrl">
+      
+			<ul class="list-group">		
+        <li ng-if="!filtered.length" style="padding: 20px; text-align: center;">No Items</li>	
 
-      <div ng-if="!isAnyCriteriaMatch()" style="text-align:center;margin:20px">No Items</div>
-			<ul class="list-group">				
-				<li ng-repeat="reading in readings | filter:criteriaMatch() | orderBy:['sortBook','sortChapter','sortPages']" class="list-group-item" ng-class="{ 'reading-done': isItemClicked(reading.id, 'done') }">
+				<li ng-repeat="reading in filtered = ( readings | filterByReadingListProps:readingsList.filters.done:'done' | filterByReadingListProps:readingsList.filters.notes:'notes' | filterByReadingListProps:readingsList.filters.flagged:'flagged' ) | orderBy:['sortBook','sortChapter','sortPages']" 
+          class="list-group-item" 
+          ng-class="{ 'reading-done': isItemClicked(reading.id, 'done') }">
+
           <div class="reading-item">
-
             <div class="icon-area">
               <div class="icon"><span class="glyphicon" ng-class="{ 'glyphicon-file': reading.attachment.url, 'glyphicon-book': !reading.attachment.url }"  ></span></div>
             </div>
             <div class="info">
-
-              <p ng-if="reading.book">{{reading.book.title}}, Chapter {{reading.chapter.title}}, pages {{reading.chapter.pages}}</p>
-
+              <p ng-if="reading.book">{{reading.book.title}} <span ng-if="reading.chapter.title && reading.chapter.title!='0'">, Chapter {{reading.chapter.title}}</span><span ng-if="reading.chapter.pages">, pages {{reading.chapter.pages}}</span></p>
               <p>{{reading.desc}}</p>
-
-              <!-- p ng-if="reading.book.title">{{reading.id}} - {{reading.book.title}} by <span ng-if="reading.book.author">{{reading.book.author}}</span></p> 
-  						
-              <p ng-if="!reading.chapter.length"><span ng-if="reading.chapter.title">Chapter {{reading.chapter.id}}: {{reading.chapter.title}}</span> <span ng-if="reading.section.title">, {{reading.section.title}}</span> </p>
-
-              <p ng-if="reading.chapter.length">
-                <div ng-repeat="chap in reading.chapter" ng-if="chap.title">Chapter {{chap.id}}: {{chap.title}}</span> <span ng-if="chap.section.title">, {{chap.section.title}}</div>
-              </p>
-
-  						<p ng-if="reading.book.publisher">({{reading.book.publisher}})</span></p -->
-
   						<div ng-if="reading.attachment.url">
   							<span class="glyphicon glyphicon-file"></span> <span class="sectiontext">{{reading.attachment.name}}</span> <span>{{reading.attachment.description}}</span>
   						</div>
-
               <div class="readings-list-button-area" ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
-
   					</div>
-
           </div>
+
 				</li>				
 			</ul>    			
 
     </div>
+
   </div>
 
 </div>
-
-

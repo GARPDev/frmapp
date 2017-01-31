@@ -47,8 +47,8 @@
                 Logout
             </a>
         </div>
-        <!-- test  ng-if="currentMenuItem != 'Glossary'" -->
-        <form ng-if="examInfo.exam" role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch" ng-if='!showGlossarySearch'>
+
+        <form ng-if="location.current !== '/glossary'" role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch" ng-if='!showGlossarySearch'>
             <div>
                 <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary" style="border-radius:0px;">
             </div>
