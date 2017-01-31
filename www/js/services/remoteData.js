@@ -354,6 +354,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       desc: reading.Description__c,
                       exam: reading.Study_App_Lesson_Plan__r.Exam__c,
                       week: { id:reading.Study_App_Lesson_Plan__c, order:week, title:"Week " + week + " - " + description},
+                      year: reading.Year__c,
                       topic: { id:reading.Study_Guide_Domain__c, order:reading.Study_Guide_Domain__r.ID__c, title:reading.Study_Guide_Domain__r.Name},
                       attachment : {},
                       sortBook : book,
