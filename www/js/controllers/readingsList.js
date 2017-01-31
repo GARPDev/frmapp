@@ -1,6 +1,9 @@
+
 frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'scheduleBarSharedService','remoteDataService','readlingListSharedService','$filter',
-  function($scope, $timeout, scheduleBarSharedService, remoteDataService, readlingListSharedService, $filter) {
+  function($scope, $timeout, scheduleBarSharedService, remoteDataService, readingListSharedService, $filter) {
   
+    $scope.readingsList = readingListSharedService
+
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
     $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
@@ -36,7 +39,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 
     // Readings List
     $scope.itemClicked = function (id, type) {
-      readlingListSharedService.setReadingIndex(id);
+      readingListSharedService.setReadingIndex(id);
       remoteDataService.toggelReadingAttribute(id, type);
     };
   
@@ -65,9 +68,9 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
         return 0;
       }
     }
-  }
 
-]);
+  }
+])
 
 frmControllers.filter('filterByReadingListProps', ['remoteDataService', function(remoteDataService){
     return function(input, filter, property){
