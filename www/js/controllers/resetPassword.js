@@ -25,7 +25,7 @@ frmControllers.controller('resetPasswordCtrl', ['$scope', 'remoteDataService', f
 
         }else{
 
-            $scope.model.data = { success : false,  messages : `The email address you have entered is invalid: "${$scope.model.email}"` }
+            $scope.model.data = { success : false,  messages : "The email address you have entered is invalid: " + $scope.model.email }
 
         }
 
