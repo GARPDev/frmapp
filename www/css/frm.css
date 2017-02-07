@@ -545,7 +545,7 @@
 }
 
 .forget-password-area {
-  margin: 10px;
+  padding-left: 0 !important;
 }
 
 .app-panel {
