@@ -57,6 +57,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
     remoteDataService.changeOrgOption = function(org) {
       remoteDataService.userSettings.organizeBy = org;
+      console.log(remoteDataService.readingData)
       remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
     }
 

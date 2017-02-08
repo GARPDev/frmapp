@@ -43,11 +43,6 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     }
     setState();
 
-    $scope.enableNav = false;
-    $scope.$on("enableNav", function (event, loggedIn) {
-      $scope.enableNav = loggedIn;
-    });
-
     $scope.$on("updateNav", function (event, loggedIn) {
       setState();
       $scope.loggedIn = loggedIn;
@@ -66,7 +61,6 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       if(isOnline()) {
         remoteDataService.clearData(); 
       }
-      $rootScope.$broadcast('enableNav', false);
       navigationService.changeView('login');
     }
 
