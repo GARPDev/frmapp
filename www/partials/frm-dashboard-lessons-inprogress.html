@@ -1,21 +1,24 @@
-    <div ng-if="isAnyInProgress()" class="panel panel-primary app-panel">
-      <div class="panel-heading">
-          <div class="panel-title">
-            In Progress
-          </div>
-        </div>
-      <div class="panel-body nopadding">
+<div class="col-md-12">
 
-        <ul class="list-group list-group nopadding">
+  <div ng-if="isAnyInProgress()" class="panel panel-primary app-panel">
 
-          <li class="list-group-item" ng-repeat="lesson in lessons | filter:lessonInProgressMatch(true)" class="">
-            <div class="row lesson-item">
-                <div class="col-xs-8 title"><b ng-if="userExam == 'FRM Part 1 & 2' || userExam == 'ERP Exam Part I & II'">{{lesson.exam}}</b> {{lesson.title}}</div>
-                <div class="col-xs-4 buttons"><button type="button" ng-click="navToLessonReadings(lesson.id)" class="btn btn-success studyBtn">Continue</button></div>
-            </div>
-          </li>
-
-        </ul>
-
+    <div class="panel-heading">
+      <div class="panel-title">
+        In Progress
       </div>
     </div>
+
+    <div class="panel-body nopadding">
+      <ul class="list-group list-group nopadding">
+        <li class="list-group-item" ng-repeat="lesson in lessons | filter:lessonInProgressMatch(true)" class="">
+          <div class="row lesson-item">
+              <div class="col-xs-8 title"><b ng-if="userExam == 'FRM Part 1 & 2' || userExam == 'ERP Exam Part I & II'">{{lesson.exam}}</b> {{lesson.title}}</div>
+              <div class="col-xs-4 buttons"><button type="button" ng-click="navToLessonReadings(lesson.id)" class="btn btn-success studyBtn">Continue</button></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  
+</div>

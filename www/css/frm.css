@@ -17,8 +17,11 @@
       border-color: #ea4110;
   }
   .btn.active {
-      background-color: #9eb231;
+      background-color: #9caf61;
       color: white;
+  }
+  .btn.active:hover{
+      background-color: #849c3a
   }
   .readings-sample-btn {
       padding: 5px;
