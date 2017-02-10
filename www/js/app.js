@@ -101,11 +101,11 @@ phonecatApp.config(['$routeProvider','$anchorScrollProvider','$locationProvider'
           }
         }
       }).      
-      when('/glossary', {
+      when('/glossary/:searchString?', {
         templateUrl: 'partials/frm-glossary.html',
         controller: 'FRMGlossaryCtrl',
         resolve: {
-          myVar: function($q,$http,remoteDataService){
+          myVar: function($q, $http, remoteDataService){
             //code to be executed before route change goes here
             var defer = $q.defer();
             remoteDataService.fetchData(defer, $http);

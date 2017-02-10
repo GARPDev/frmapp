@@ -1,21 +1,33 @@
 <div class="container page-container">
+
   <div class="row">
+
     <div class="col-md-12 ">
-      <div>
-        <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search">
-      </div>
+      <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search">
     </div>
+
   </div>
+
   <div class="row">
+
     <div class="col-md-12 ">
-      <ul class="list-group">        
-        <li ng-repeat="term in glossaryData | filter:searchTerms" class="list-group-item">
+      <ul class="list-group">
+
+        <li ng-if="!filtered.length">
+          <h3>We could not find any results containing the word <i>{{searchTerms}}</i></h3>
+          <p>Please try broadening your search.</p>
+        </li> 
+
+        <li ng-repeat="term in filtered = (glossaryData | filter:searchTerms)" class="list-group-item">
           <h3>{{term.term}}</h3>
-          <span>{{term.definition}}</span>
+          <p>{{term.definition}}</p>
         </li>       
+
       </ul>         
     </div>
+    
   </div>
+
 </div>
 
 <div ng-include="'partials/frm-navFooter.html'"></div>

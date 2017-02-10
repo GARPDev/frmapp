@@ -7,35 +7,44 @@ frmServices.factory('navigationService', ['$resource','$http',
 
     navigationService.pageTransitionOut = function(view) {
 
+      console.log(view)
+
       var currentLoc = document.location.hash;
       var route = null;
+
       if(currentLoc.indexOf('#!/') > -1) {
+
         var route = currentLoc.substring(3);
+
         if(route.indexOf('/') > -1) {
+
           route = route.substring(0,route.indexOf('?'));
+
         } else if(route.indexOf('?') > -1) {
+
           route = route.substring(0,route.indexOf('?'));
+
         }
 
       }
 
-      if(route != null && route == view) {
+      if(route != view){
 
-        //document.location.href = 
-
-      } else {
         navigationService.currentNav = view;
+
         $('.page-container').fadeOut(function() {
           if(view !== null && typeof view !== "undefined") {
+            console.log(view)
             document.location.hash = '#!/' + view;
           }
         });
+
       }
+
     }
 
     navigationService.pageTransitionIn = function() {
       $('.page-container').fadeIn();
-      //$('.page-container').show("slide", { direction: "left" }, 500); 
     }
 
     navigationService.changeView = function(view) {
