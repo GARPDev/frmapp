@@ -90,25 +90,11 @@
     <!--test -->
 
     <li id="mainnav-readings">
-        <a class="dropdown-toggle" data-toggle="dropdown" tabbed>
+        <a tabbed ng-click="changeView('myaccount')">
             <img id="userImageNav" ng-src="{{userImage}}" width="30">
         </a>
-        <ul class="dropdown-menu list-group">
-            <li ng-if="examInfo.exam">
-                <a href="" ng-click="changeView('myaccount')">My Account</a>
-            </li>
-            <li>
-                <a href='' ng-click="logout()">Logout</a>
-            </li>
-        </ul>
     </li>
-
-    <!-- li ng-if="messages" id="mainnav-readings" class="moveIcon">
-        <a class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-inbox nav-item-icon" class="inboxIcon" title="Read Messages"></span>
-        </a>
-        <ul class="dropdown-menu list-group">
-        </ul>
-    </li -->
+    
 </div>
 </ul>
 </div>
