@@ -57,7 +57,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
     remoteDataService.changeOrgOption = function(org) {
       remoteDataService.userSettings.organizeBy = org;
-      console.log(remoteDataService.readingData)
       remoteDataService.lessonData = getLessons(remoteDataService.readingData.readings);
     }
 
@@ -96,7 +95,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
     var fetchDataObj=function(obj, callback) {
       fetchData(obj.url,obj.propertyName, obj.remotePropertyName, function(err, data) {
-
         callback(null, {propertyName: obj.propertyName, data: data, err: err});
 
       });
@@ -323,14 +321,12 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
             case 'readingData':
             if(err != NO_FETCH) {
-
               var readObj = {
-                id: 'frm' + year,
+                id: remoteDataService.examInfo.EXAM + year,
                 readings: []
               }
               for(var j=0; j<data.records.length; j++) {
                 var reading = data.records[j];
-
                 if(defined(reading,"Study_App_Lesson_Plan__r.Week__c") && 
                  defined(reading,"Study_App_Lesson_Plan__r.Description__c") &&
                  defined(reading,"Study_App_Lesson_Plan__r.Exam__c")) {

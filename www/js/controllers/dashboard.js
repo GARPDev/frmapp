@@ -2,7 +2,7 @@
 
 frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','Readings', 'Messages','Lessons','scheduleBarSharedService','remoteDataService','readlingListSharedService','navigationService','authenticationService',
   function($scope, $timeout, $http, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService, readlingListSharedService, navigationService, authenticationService) {
-  
+    console.log(remoteDataService)
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
     $scope.readings = $scope.lessons[0].readings;

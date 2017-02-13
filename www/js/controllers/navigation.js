@@ -11,10 +11,6 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.messages = null;
     $scope.loggedIn = false;
 
-    $scope.$on('$routeChangeSuccess', function(event, current, previous){
-      $scope.location = { current : current.$$route.originalPath }
-    })
-
     function setState() {
 
       switch(document.location.hash) {
@@ -75,8 +71,8 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     }
 
     $scope.searchGlossary = function(terms) {
-      remoteDataService.searchTerms = terms;
-      $scope.changeView('glossary');
+      console.log($scope.searchTerms)
+      navigationService.changeView('glossary/' + terms)
     }
 
     $scope.changeView = function(view) {

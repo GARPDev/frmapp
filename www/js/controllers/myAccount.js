@@ -132,7 +132,6 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     }
 
     $scope.changeOrgOption = function(value) {
-      console.log(value)
       remoteDataService.changeOrgOption(value);
       $scope.$broadcast('changeOrgOption');
 
@@ -151,11 +150,11 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       if(examType == "erp"){
         remoteDataService.examInfo.exam = 'erp';
         remoteDataService.examInfo.EXAM = 'ERP';
-      } else if("frm"){
+      } else if(examType == "frm"){
         remoteDataService.examInfo.exam = 'frm';
         remoteDataService.examInfo.EXAM = 'FRM';
       }
-      console.log(remoteDataService.examInfo)
+      
       remoteDataService.examInfo.userExamPart = 3;
 
       localStorage.removeItem('readingData');

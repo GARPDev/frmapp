@@ -5,7 +5,7 @@ frmControllers.controller('ChooseExamCtrl', ['$scope','$timeout','$location','re
 			if(exam == "erp"){
 				remoteDataService.examInfo.exam = 'erp';
 				remoteDataService.examInfo.EXAM = 'ERP';
-			} else if("frm"){
+			} else if(exam == "frm"){
 				remoteDataService.examInfo.exam = 'frm';
 				remoteDataService.examInfo.EXAM = 'FRM';
 			}
