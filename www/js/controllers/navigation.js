@@ -11,11 +11,6 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.messages = null;
     $scope.loggedIn = false;
 
-    $scope.$on('$routeChangeSuccess', function(event, current, previous){
-      console.log(current)
-      $scope.location = { current : current.$$route.originalPath }
-    })
-
     function setState() {
 
       switch(document.location.hash) {
