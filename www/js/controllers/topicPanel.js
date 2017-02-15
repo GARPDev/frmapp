@@ -11,13 +11,13 @@ frmControllers.controller('TopicPanelController', ['$scope', '$location', '$time
     // init ScheduleBar
     var lesson = {id:'all', title:'All Readings'};
     if(scheduleBarSharedService.lessonIndex != 'all') {
-      if(scheduleBarSharedService.lessonIndex !== null && typeof scheduleBarSharedService.lessonIndex !== "undefined") {
-        lesson = remoteDataService.getLessonByID(scheduleBarSharedService.lessonIndex);
+      if(scheduleBarSharedService.lessonIndex !== null && scheduleBarSharedService.lessonIndex !== undefined && remoteDataService.getLessonByID(scheduleBarSharedService.lessonIndex) !== undefined) {
+        lesson = remoteDataService.getLessonByID(scheduleBarSharedService.lessonIndex)
       } else {
-        lesson = remoteDataService.getFirstLesson();
+        lesson = remoteDataService.getFirstLesson() 
       }      
     }
-
+    
     scheduleBarSharedService.lessonIndex = lesson.id;
     $scope.selected = lesson.id;
     scheduleBarSharedService.selectItem(lesson.id);

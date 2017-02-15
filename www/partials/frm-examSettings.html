@@ -1,7 +1,19 @@
 <div class="container page-container">
     <div class="row">
-        <div class="col-md-12">
-            
+
+        <div ng-if="!isQuestions" class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">We're working hard!</div>
+                </div> 
+                <div class="panel-body">
+                    <p>We are in the processes of finalizing practice test questions for the {{ year }} FRM and ERP exams.  Thank you for your patience, we hope to have the questions completed very soon.</p>
+                </div>
+            </div>           
+        </div>
+
+        <div ng-if="isQuestions" class="col-md-12">
+
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <div class="panel-title">Exam Settings</div>
@@ -34,15 +46,18 @@
                 </div>
             </div>
 
-
             <div class="panel panel-primary">
                 <div class="panel-heading">Choose Topics</div>
                 <div class="panel-body">
                     <div class="form-group">
                         <div ng-repeat="lesson in lessons" class="checkbox examsettings-options-topics">
+
+                            <h6>{{lesson.exam}}</h6>
+
                             <label ng-class="{'active' : lesson.checked}">
-                                <input id="{{lesson.id}}" ng-model="lesson.checked" type="checkbox"><i ng-if="userExam == 'FRM Part 1 & 2' || userExam == 'ERP Exam Part I & II'">{{lesson.exam}} -</i> {{lesson.title}}
+                                <input id="{{lesson.id}}" ng-model="lesson.checked" type="checkbox">{{lesson.title}}
                             </label>
+                            
                         </div>
                     </div>
                     <div class="examsettings-options-topics-selectAll">

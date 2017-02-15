@@ -11,59 +11,40 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.messages = null;
     $scope.loggedIn = false;
 
-    $scope.user = {}
-    $scope.location = {}
-
-    $scope.$on('$routeChangeSuccess', function(event, current, previous){
-      $scope.location.current = current.$$route.originalPath
-    })
-
     function setState() {
 
-      var currentMenuItem
-
       switch(document.location.hash) {
-        case '#!/readings':
-          currentMenuItem = 'Readings';
+        case '#/readings':
+          $scope.currentMenuItem = 'Readings';
           break;
-        case '#!/examsettings':
-          currentMenuItem = 'Tests';
+        case '#/examsettings':
+          $scope.currentMenuItem = 'Tests';
           break;
-        case '#!/dashboard':
-          currentMenuItem = 'Dashboard';
+        case '#/dashboard':
+          $scope.currentMenuItem = 'Dashboard';
           break;
-        case '#!/examday':
-          currentMenuItem = 'Exam Details';
+        case '#/examday':
+          $scope.currentMenuItem = 'Exam Details';
           break;
-        case '#!/messages':
-          currentMenuItem = 'Messages';
+        case '#/messages':
+          $scope.currentMenuItem = 'Messages';
           break;
-        case '#!/glossary':
-          currentMenuItem = 'Glossary';
+        case '#/glossary':
+          $scope.currentMenuItem = 'Glossary';
           break;
         default:
-          currentMenuItem = 'Dashboard';
+          $scope.currentMenuItem = 'Dashboard';
           break;
       }
-
-      $scope.active = { menuItem: currentMenuItem }
-
     }
     setState();
-
-    $scope.enableNav = false;
-    $scope.$on("enableNav", function (event, loggedIn) {
-      $scope.enableNav = loggedIn;
-    });
 
     $scope.$on("updateNav", function (event, loggedIn) {
       setState();
       $scope.loggedIn = loggedIn;
       $scope.userData = remoteDataService.userData;
+      $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
       $scope.examInfo = remoteDataService.examInfo;
-      if($scope.user.image === undefined){
-         $scope.user.image = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken
-      }
     });    
 
     $scope.$on('browserResize', function() {
@@ -76,7 +57,6 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       if(isOnline()) {
         remoteDataService.clearData(); 
       }
-      $rootScope.$broadcast('enableNav', false);
       navigationService.changeView('login');
     }
 
@@ -91,8 +71,8 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     }
 
     $scope.searchGlossary = function(terms) {
-      remoteDataService.searchTerms = terms;
-      $scope.changeView('glossary');
+      console.log($scope.searchTerms)
+      navigationService.changeView('glossary/' + terms)
     }
 
     $scope.changeView = function(view) {

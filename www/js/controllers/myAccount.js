@@ -1,5 +1,5 @@
-frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService','$sce','utilitiesService','$rootScope',
-  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService,$sce,utilitiesService,$rootScope) {
+frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService','$sce','utilitiesService','$rootScope', '$q',
+  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService,$sce,utilitiesService,$rootScope, $q) {
 
     $scope.nav = navigator.appCodeName;
     $scope.camera =  navigator.camera;
@@ -107,7 +107,6 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       if(isOnline()) {
         remoteDataService.clearData(); 
       }
-      $rootScope.$broadcast('enableNav', false);
       navigationService.changeView('login');
     }
 
@@ -115,9 +114,6 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       if(navigator.camera !== null && typeof navigator.camera !== "undefined") {
         navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 20, destinationType: Camera.DestinationType.FILE_URI, correctOrientation: true });
       }
-      // else {
-      //   onFail('navigator.camera not defined!');
-      // }
     };
 
     function onPhotoFileSuccess(imageData) {
@@ -150,14 +146,15 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     }
 
     $scope.changeExam = function(examType) {
+      
       if(examType == "erp"){
         remoteDataService.examInfo.exam = 'erp';
         remoteDataService.examInfo.EXAM = 'ERP';
-      } else if("frm"){
+      } else if(examType == "frm"){
         remoteDataService.examInfo.exam = 'frm';
         remoteDataService.examInfo.EXAM = 'FRM';
       }
-
+      
       remoteDataService.examInfo.userExamPart = 3;
 
       localStorage.removeItem('readingData');
@@ -171,6 +168,8 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
       localStorage.removeItem('glossaryData');
       remoteDataService.glossaryData = null;
+
+      remoteDataService.fetchData($q.defer())
       
     }
 

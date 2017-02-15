@@ -3,6 +3,41 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
 
     $scope.lessons = remoteDataService.lessonData;
     $scope.userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
+    $scope.year = new Date().getFullYear()
+
+    var retrieveQuestions = function(questionsArr, readings){
+
+      var readingIds = _.pluck(readings, 'id')
+
+      var questions  = _.reject(questionsArr, function(question) {  
+
+        return !_.intersection(readingIds, question.readings).length
+
+      })
+
+      return questions
+
+    }
+
+    var retrieveNumOfQuestions = function(){
+
+      var year = new Date().getFullYear()
+
+      var readings = []
+
+      for(var lesson in remoteDataService.lessonData){
+        if(remoteDataService.lessonData[lesson].readings.length){
+          for(var reading in remoteDataService.lessonData[lesson].readings){
+            readings.push(remoteDataService.lessonData[lesson].readings[reading].year)
+          }
+        }
+      }
+
+      return readings.length
+
+    }
+
+    $scope.isQuestions = retrieveNumOfQuestions()
 
     $scope.settings = {
       mode:0,
@@ -15,7 +50,6 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
     $timeout(function() {
       navigationService.pageTransitionIn();
     }, 0);
-
 
     $scope.isAllSelected = function() {
       for (index = 0; index < $scope.lessons.length; ++index) {
@@ -63,8 +97,7 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
     $scope.saveSettings = function() {
       examSharedService.settings = $scope.settings;
 
-
-      // Complie Questions
+      // Compile Questions
       var finalQuestions = [];
       var readingQuestions = [];
 
@@ -103,15 +136,12 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
             }
 
             readingQuestions = _.union(readingQuestions, finalReadings);
+
           }
 
       }
 
-      var readingsIds = _.pluck(readingQuestions, 'id');
-      var questions = _.reject(remoteDataService.questionData.questions, function(question) { 
-        var inter = _.intersection(readingsIds, question.readings)
-        return inter.length == 0; 
-      });
+      var questions = retrieveQuestions(remoteDataService.questionData.questions, readingQuestions)
 
       var maxQuestions = $scope.settings.questions;
       if(questions.length < maxQuestions)
@@ -123,7 +153,7 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
         questions.splice(index,1);
       }
 
-      examSharedService.questions = finalQuestions;                        
+      examSharedService.questions = finalQuestions;                    
 
       if(examSharedService.questions.length == 0) {
         $("#myModal").modal();

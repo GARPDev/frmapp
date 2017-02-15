@@ -95,7 +95,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
     var fetchDataObj=function(obj, callback) {
       fetchData(obj.url,obj.propertyName, obj.remotePropertyName, function(err, data) {
-
         callback(null, {propertyName: obj.propertyName, data: data, err: err});
 
       });
@@ -322,18 +321,16 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
             case 'readingData':
             if(err != NO_FETCH) {
-
               var readObj = {
-                id: 'frm' + year,
+                id: remoteDataService.examInfo.EXAM + year,
                 readings: []
               }
               for(var j=0; j<data.records.length; j++) {
                 var reading = data.records[j];
-
                 if(defined(reading,"Study_App_Lesson_Plan__r.Week__c") && 
                  defined(reading,"Study_App_Lesson_Plan__r.Description__c") &&
                  defined(reading,"Study_App_Lesson_Plan__r.Exam__c")) {
-                   
+
                   if((reading.Study_App_Lesson_Plan__r.Exam__c == remoteDataService.examInfo.EXAM + ' Exam Part I' && (remoteDataService.examInfo.userExamPart == 1 || remoteDataService.examInfo.userExamPart == 3)) ||
                      (reading.Study_App_Lesson_Plan__r.Exam__c == remoteDataService.examInfo.EXAM + ' Exam Part II' && (remoteDataService.examInfo.userExamPart == 2 || remoteDataService.examInfo.userExamPart == 3))) {
 
@@ -354,6 +351,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       desc: reading.Description__c,
                       exam: reading.Study_App_Lesson_Plan__r.Exam__c,
                       week: { id:reading.Study_App_Lesson_Plan__c, order:week, title:"Week " + week + " - " + description},
+                      year: reading.Year__c,
                       topic: { id:reading.Study_Guide_Domain__c, order:reading.Study_Guide_Domain__r.ID__c, title:reading.Study_Guide_Domain__r.Name},
                       attachment : {},
                       sortBook : book,
@@ -410,7 +408,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                 var qr = data.records[j];
 
                 var match = _.findWhere(remoteDataService.questionData.questions, {id: qr.Practice_Exam_Question__c});
-                if(defined(match,"readings") && defined(qr,"Study_Guide_Reading__c")) {
+                if(match !== null || typeof match !== "undefined") {
                   match.readings.push(qr.Study_Guide_Reading__c);
                 }
               }
@@ -735,8 +733,7 @@ remoteDataService.setMetaData = function(metaItem) {
   }
 
   remoteDataService.resetPassword = function(email){
-    var baseUrl = window.location.host
-    return $http.delete(`//${baseUrl}/frmApp/customer/${email}/password`)
+    return $http.delete("//" + window.location.host + "/frmApp/customer/" + email + "/password")
   }
 
   return remoteDataService;
