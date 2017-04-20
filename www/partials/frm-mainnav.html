@@ -68,7 +68,7 @@
 
                 </div>
 
-                <form ng-show="location.current !== '/glossary/:searchString?'" role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch">
+                <form ng-show="currentMenuItem != 'Glossary'" role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch">
                     <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary" style="border-radius:0px;">
                 </form>
 
@@ -103,7 +103,7 @@
                             <br>Exam Day
                         </a>
                     </li>
-                    <li ng-if="examInfo.exam" id="mainnav-glossary" class="nav-item-area" ng-class="{ active: isActive('/glossary')}">
+                    <li ng-if="examInfo.exam && currentMenuItem != 'Glossary'" id="mainnav-glossary" class="nav-item-area" ng-class="{ active: isActive('/glossary')}">
                         <a href ng-click="searchGlossary(searchTerms)">
                             <span class="glyphicon glyphicon-search nav-item-icon"></span>
                             <br>Glossary
@@ -112,7 +112,7 @@
                 </ul>
 
                 <div class="nav navbar-nav navbar-right nav-right-area">
-                    <form ng-show="location.current !== '/glossary/:searchString?' && examInfo.exam" role="search" ng-submit="searchGlossary(searchTerms)" class="navbar-form navbar-left" >
+                    <form ng-show="currentMenuItem != 'Glossary' && examInfo.exam" role="search" ng-submit="searchGlossary(searchTerms)" class="navbar-form navbar-left" >
                         <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary">
                     </form>
                     <li id="mainnav-readings">
