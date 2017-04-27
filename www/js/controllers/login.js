@@ -48,6 +48,7 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
     };
 
 
+    alert('hi');
 
     $scope.login = function(remember) {
 

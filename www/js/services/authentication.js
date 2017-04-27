@@ -25,6 +25,8 @@ frmServices.factory('authenticationService', ['$resource','$http',
         url = serverURL + url;
       }
       
+      alert('url:' + url);
+
       $http({
           url: url,
           method: "POST",
