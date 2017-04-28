@@ -388,7 +388,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                   answers : [], 
                   readings : [] 
                 }
-                for(var k=0; k<choices.length; k++) {
+                for(var k=0; k<choices.length && k<4; k++) {
                   var choice = choices[k].replace("\r","");
                   var cobj = {
                     id: k,

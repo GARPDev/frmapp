@@ -11,25 +11,30 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.messages = null;
     $scope.loggedIn = false;
 
-    function setState() {
+    function setState(view) {
 
-      switch(document.location.hash) {
-        case '#/readings':
+      if(!defined(view)) {
+        var hash = document.location.hash;
+        view = hash.substring(3,hash.length)
+      }
+
+      switch(view) {
+        case 'readings':
           $scope.currentMenuItem = 'Readings';
           break;
-        case '#/examsettings':
+        case 'examsettings':
           $scope.currentMenuItem = 'Tests';
           break;
-        case '#/dashboard':
+        case 'dashboard':
           $scope.currentMenuItem = 'Dashboard';
           break;
-        case '#/examday':
+        case 'examday':
           $scope.currentMenuItem = 'Exam Details';
           break;
-        case '#/messages':
+        case 'messages':
           $scope.currentMenuItem = 'Messages';
           break;
-        case '#/glossary':
+        case 'glossary':
           $scope.currentMenuItem = 'Glossary';
           break;
         default:
@@ -71,11 +76,13 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     }
 
     $scope.searchGlossary = function(terms) {
+      setState('glossary');
       console.log($scope.searchTerms)
       navigationService.changeView('glossary/' + terms)
     }
 
     $scope.changeView = function(view) {
+      setState(view);
       navigationService.changeView(view);
     }
 

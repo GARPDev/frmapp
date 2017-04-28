@@ -1,6 +1,7 @@
 
 
-var serverURL = "http://ec2-54-191-42-178.us-west-2.compute.amazonaws.com";
+//var serverURL = "http://ec2-54-191-42-178.us-west-2.compute.amazonaws.com";
+var serverURL = "http://www.garp.org";
 var salesForcePublicURL = "http://mygarp.force.com";
 
 var localPropRemember = 'frmAppLoginRemember';

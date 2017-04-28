@@ -41,6 +41,10 @@ frmControllers.controller('FRMNotesCtrl', ['$scope','scheduleBarSharedService','
 
     $scope.addNote = function(note) {
       //$scope.notes.push(note);
+
+      if(!defined(note))
+        return;
+
       var foundItem = _.findWhere(remoteDataService.metaData, {readingId: readlingListSharedService.readingIndex});
       if(foundItem !== null && typeof foundItem !== "undefined") {
         if(foundItem.notes === null || typeof foundItem.notes === "undefined") {

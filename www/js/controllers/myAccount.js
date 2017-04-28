@@ -36,6 +36,10 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
          value: 'topic'
       }];
 
+    if(defined($scope,"userSettings.organizeBy") && $scope.userSettings.organizeBy == "") {
+      $scope.userSettings.organizeBy = 'week';
+    }
+
     $scope.orgOption = _.findWhere($scope.orgOptions, {value: $scope.userSettings.organizeBy })
 
     $('#map-debug').text($('#map-debug').text()+'Start');
