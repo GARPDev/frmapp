@@ -47,9 +47,6 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
       return viewLocation === $location.path();
     };
 
-
-    alert('hi');
-
     $scope.login = function(remember) {
 
       var userName = $('#userName').val().trim();
