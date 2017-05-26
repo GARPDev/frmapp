@@ -15,8 +15,8 @@ frmControllers.controller('FRMExamResultsQuestionCtrl', ['$scope','$timeout','$l
     $scope.questions = examSharedService.questions;
     $scope.question = examSharedService.questions[$scope.currentQuestion];
 
-    $scope.htmlString = $sce.trustAsHtml($scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,+"/servlet"));
-    $scope.htmlStringExplaination = $sce.trustAsHtml($scope.question.reason.replace(/https:\/\/([^\/]*)\/servlet/,+"/servlet"));
+    $scope.htmlString = $sce.trustAsHtml($scope.question.question.replace(/https:\/\/([^\/]*)\/servlet/,salesForcePublicURL+"/servlet"););
+    $scope.htmlStringExplaination = $sce.trustAsHtml($scope.question.reason.replace(/https:\/\/([^\/]*)\/servlet/,salesForcePublicURL+"/servlet"););
     
     $scope.userAnswer = examSharedService.userAnswers[$routeParams.questionIdx];
 
