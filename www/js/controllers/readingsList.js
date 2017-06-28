@@ -1,6 +1,6 @@
 
-frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'scheduleBarSharedService','remoteDataService','readlingListSharedService','$filter',
-  function($scope, $timeout, scheduleBarSharedService, remoteDataService, readingListSharedService, $filter) {
+frmControllers.controller('FRMAppReadingsListCtrl', ['$scope', '$window', '$timeout', 'scheduleBarSharedService','remoteDataService','readlingListSharedService','$filter',
+  function($scope, $window, $timeout, scheduleBarSharedService, remoteDataService, readingListSharedService, $filter) {
   
     $scope.readingsList = readingListSharedService
     $scope.isMobile = isMobile();
@@ -46,6 +46,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
 
     $scope.openReading = function(src){
       console.log(src);
+      console.log($scope.isMobile);
       if($scope.isMobile){
         console.log("Mobile");
         var ref = cordova.InAppBrowser.open(src, '_blank', 'location=yes'); 

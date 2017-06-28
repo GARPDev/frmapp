@@ -3,7 +3,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
     var remoteDataService = {};
 
-    var serverURL = "http://www.garp.org";
+    // var serverURL = "http://www.garp.org";
+    var serverURL = "http://preprod.garp.org:8080"
 
     remoteDataService.$http = $http;
     remoteDataService.userInfo = {};
