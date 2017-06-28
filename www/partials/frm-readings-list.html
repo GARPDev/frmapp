@@ -5,36 +5,44 @@
   <div class="panel panel-primary">
 
     <div class="panel-heading">
-        <div class="panel-title">{{currentLesson.title}}</div>
-      </div>
-    <div class="panel-body nopadding" ng-controller="FRMAppReadingsListCtrl">
-      
-			<ul class="list-group">		
-        <li ng-if="!filtered.length" style="padding: 20px; text-align: center;">No Items</li>	
-
-				<li ng-repeat="reading in filtered = ( readings | filterByReadingListProps:readingsList.filters.done:'done' | filterByReadingListProps:readingsList.filters.notes:'notes' | filterByReadingListProps:readingsList.filters.flagged:'flagged' ) | orderBy:['sortBook','sortChapter','sortPages']" 
-          class="list-group-item" 
-          ng-class="{ 'reading-done': isItemClicked(reading.id, 'done') }">
-
-          <div class="reading-item">
-            <div class="icon-area">
-              <div class="icon"><span class="glyphicon" ng-class="{ 'glyphicon-file': reading.attachment.url, 'glyphicon-book': !reading.attachment.url }"  ></span></div>
-            </div>
-            <div class="info">
-              <p ng-if="reading.book">{{reading.book.title}} <span ng-if="reading.chapter.title && reading.chapter.title!='0'">, Chapter {{reading.chapter.title}}</span><span ng-if="reading.chapter.pages">, pages {{reading.chapter.pages}}</span></p>
-              <p>{{reading.desc}}</p>
-  						<div ng-if="reading.attachment.url">
-  							<span class="glyphicon glyphicon-file"></span> <span class="sectiontext">{{reading.attachment.name}}</span> <span>{{reading.attachment.description}}</span>
-  						</div>
-              <div class="readings-list-button-area" ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
-  					</div>
-          </div>
-
-				</li>				
-			</ul>    			
-
+      <div class="panel-title">{{currentLesson.title}}</div>
     </div>
+    <div class="panel-body nopadding" ng-controller="FRMAppReadingsListCtrl">
 
-  </div>
+     <ul class="list-group">    
+      <li ng-if="!filtered.length" style="padding: 20px; text-align: center;">No Items</li> 
+
+      <li ng-repeat="reading in filtered = ( readings | filterByReadingListProps:readingsList.filters.done:'done' | filterByReadingListProps:readingsList.filters.notes:'notes' | filterByReadingListProps:readingsList.filters.flagged:'flagged' ) | orderBy:['sortBook','sortChapter','sortPages']" 
+      class="list-group-item" 
+      ng-class="{ 'reading-done': isItemClicked(reading.id, 'done') }">
+
+      <div class="reading-item">
+        <div class="icon-area">
+          <div class="icon">
+          <a ng-if="reading.url" ng-click="openReading(reading.url)">
+              <span class="glyphicon" ng-class="{ 'glyphicon-file': reading.attachment.url, 'glyphicon-book': !reading.attachment.url }"  ></span>
+          </a>
+            <span ng-if="!reading.url" class="glyphicon" ng-class="{ 'glyphicon-file': reading.attachment.url, 'glyphicon-book': !reading.attachment.url }"  ></span>
+          </div>
+        </div>
+        <div class="info">
+
+          <p ng-if="reading.book">{{reading.book.title}} <span ng-if="reading.chapter.title && reading.chapter.title!='0'">, Chapter {{reading.chapter.title}}</span><span ng-if="reading.chapter.pages">, pages {{reading.chapter.pages}}</span></p>
+          <p>{{reading.desc}}</p>
+
+          <div ng-if="reading.attachment.url">
+           <span class="glyphicon glyphicon-file"></span> <span class="sectiontext">{{reading.attachment.name}}</span> <span>{{reading.attachment.description}}</span>
+         </div>
+
+         <div class="readings-list-button-area" ng-include="'partials/frm-control-readings-items-buttons.html'"></div>
+       </div>
+     </div>
+
+   </li>        
+ </ul>          
+
+</div>
+
+</div>
 
 </div>

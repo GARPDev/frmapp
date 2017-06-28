@@ -3,6 +3,7 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
   function($scope, $timeout, scheduleBarSharedService, remoteDataService, readingListSharedService, $filter) {
   
     $scope.readingsList = readingListSharedService
+    $scope.isMobile = isMobile();
 
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
@@ -42,6 +43,17 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope','$timeout', 'sched
       readingListSharedService.setReadingIndex(id);
       remoteDataService.toggelReadingAttribute(id, type);
     };
+
+    $scope.openReading = function(src){
+      console.log(src);
+      if($scope.isMobile){
+        console.log("Mobile");
+        var ref = cordova.InAppBrowser.open(src, '_blank', 'location=yes'); 
+      } else {
+        console.log("NOT Mobile");
+        $window.open(src);
+      }
+    }
   
     $scope.isItemClicked = function (id, type) { 
 
