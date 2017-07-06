@@ -19,7 +19,7 @@
       <div class="reading-item">
         <div class="icon-area">
           <div class="icon">
-          <a ng-if="reading.url" ng-click="openReading(reading.url)">
+          <a ng-if="reading.url" ng-click="openReading(reading)">
               <span class="glyphicon" ng-class="{ 'glyphicon-file': reading.attachment.url, 'glyphicon-book': !reading.attachment.url }"  ></span>
           </a>
             <span ng-if="!reading.url" class="glyphicon" ng-class="{ 'glyphicon-file': reading.attachment.url, 'glyphicon-book': !reading.attachment.url }"  ></span>

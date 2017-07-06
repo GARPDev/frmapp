@@ -44,16 +44,28 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope', '$window', '$time
       remoteDataService.toggelReadingAttribute(id, type);
     };
 
-    $scope.openReading = function(src){
+    $scope.openReading = function(reading){
+      console.log("reading");
+      console.log(reading);
+      var src = reading.src;
+
       console.log(src);
       console.log($scope.isMobile);
+
+
+
       if($scope.isMobile){
         console.log("Mobile");
+        console.log(src);
         var ref = cordova.InAppBrowser.open(src, '_blank', 'location=yes'); 
       } else {
         console.log("NOT Mobile");
+        console.log(src);
         $window.open(src);
       }
+
+
+
     }
   
     $scope.isItemClicked = function (id, type) { 
