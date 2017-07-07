@@ -47,10 +47,6 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope', '$window', '$time
             }
         });
 
-        function onConfirm() {
-            console.log("confirm");
-        }
-
         // Readings List
         $scope.itemClicked = function(id, type) {
             readingListSharedService.setReadingIndex(id);
@@ -74,17 +70,8 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope', '$window', '$time
                 var ref = cordova.InAppBrowser.open(src, '_blank', 'location=yes');
             } else if ((!$scope.isMobile && isERP)) {
                 $window.open(src);
-            } else if (($scope.isMobile && isFRM)) {
-                // Prompt that this feature is NOT available on MOBILE.
-                $window.open(src);
-
-                // navigator.notification.confirm(
-                //     'This feature is currenlty disabled on Mobile.', // message
-                //     onConfirm, // callback to invoke with index of button pressed
-                //     'Feature Disabled', // title
-                //     ['ok'] // buttonLabels
-                // );
-
+            } else if (($scope.isMobile && isFRM && reading.is_An_Online_Reading)) {
+                var ref = cordova.InAppBrowser.open(src, '_blank', 'location=yes');
             } else if ((!$scope.isMobile && isFRM)) {
                 $window.open(src);
             } else if (($scope.isMobile && reading.is_An_Online_Reading)) {

@@ -19,10 +19,10 @@
       <div class="reading-item">
         <div class="icon-area">
           <div class="icon">
-          <a ng-if="reading.url" ng-click="openReading(reading)">
+          <a ng-if="(reading.url && (reading.exam.indexOf('ERP') > -1)) || (reading.url && reading.is_An_Online_Reading)" ng-click="openReading(reading)">
               <span class="glyphicon" ng-class="{ 'glyphicon-file': reading.attachment.url, 'glyphicon-book': !reading.attachment.url }"  ></span>
           </a>
-            <span ng-if="!reading.url" class="glyphicon" ng-class="{ 'glyphicon-file': reading.attachment.url, 'glyphicon-book': !reading.attachment.url }"  ></span>
+            <span ng-if="(!reading.url) || (reading.url && !reading.is_An_Online_Reading && (reading.exam.indexOf('FRM') > -1))" class="glyphicon" ng-class="{ 'glyphicon-file': reading.attachment.url, 'glyphicon-book': !reading.attachment.url }"  ></span>
           </div>
         </div>
         <div class="info">
