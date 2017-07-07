@@ -76,14 +76,14 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope', '$window', '$time
                 $window.open(src);
             } else if (($scope.isMobile && isFRM)) {
                 // Prompt that this feature is NOT available on MOBILE.
-                // $window.open(src);
+                $window.open(src);
 
-                navigator.notification.confirm(
-                    'This feature is currenlty disabled on Mobile.', // message
-                    onConfirm, // callback to invoke with index of button pressed
-                    'Feature Disabled', // title
-                    ['ok'] // buttonLabels
-                );
+                // navigator.notification.confirm(
+                //     'This feature is currenlty disabled on Mobile.', // message
+                //     onConfirm, // callback to invoke with index of button pressed
+                //     'Feature Disabled', // title
+                //     ['ok'] // buttonLabels
+                // );
 
             } else if ((!$scope.isMobile && isFRM)) {
                 $window.open(src);
