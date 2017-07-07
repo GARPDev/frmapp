@@ -358,7 +358,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       attachment : {},
                       sortBook : book,
                       sortChapter : reading.Chapter__c,
-                      sortPages : reading.Pages__c
+                      sortPages : reading.Pages__c,
+                      is_An_Online_Reading : reading.Is_Online__c
                     }
                     readObj.readings.push(obj);
                   }

@@ -45,27 +45,34 @@ frmControllers.controller('FRMAppReadingsListCtrl', ['$scope', '$window', '$time
     };
 
     $scope.openReading = function(reading){
-      console.log("reading");
-      console.log(reading);
-      var src = reading.src;
+      var isFRM = false;
+      var isERP = false;
+      var src = reading.url;
 
       console.log(src);
       console.log($scope.isMobile);
 
+      // 1. check if its FRM or ERP
+      if(reading.exam.indexOf("FRM") > -1){
+        isFRM = true;
+      } else if(reading.exam.indexOf("ERP") > -1){
+        isERP = true;
+      };
 
-
-      if($scope.isMobile){
-        console.log("Mobile");
-        console.log(src);
+      // 2. only OPEN ERPs and online reading
+      if(($scope.isMobile && isERP)){
+        var ref = cordova.InAppBrowser.open(src, '_blank', 'location=yes'); 
+      } else if((!$scope.isMobile && isERP)){
+        $window.open(src);
+      } else if(($scope.isMobile && isFRM)){
+        $window.open(src);
+      } else if((!$scope.isMobile && isFRM)){
+        $window.open(src);
+      } else if(($scope.isMobile && reading.is_An_Online_Reading)){
         var ref = cordova.InAppBrowser.open(src, '_blank', 'location=yes'); 
       } else {
-        console.log("NOT Mobile");
-        console.log(src);
         $window.open(src);
       }
-
-
-
     }
   
     $scope.isItemClicked = function (id, type) { 
