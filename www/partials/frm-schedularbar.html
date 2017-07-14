@@ -8,21 +8,21 @@
 
 <div class="schedulebar-item" ng-if="allMode">
 	<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected('all') }" ng-click="itemSelect('all')"></div>
-	<span class="schedulebar-item-label">All</span>		
+	<span class="schedulebar-item-label">All</span>
 </div>
 
 
-	<div ng-repeat="lesson in lessons | filter:filterMatch()" class="schedulebar">     
+	<div ng-repeat="lesson in lessons | filter:filterMatch()" class="schedulebar">
 		<div class="schedulebar-item">
-			<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected(lesson.id), 
+			<div class="schedule-item-area" ng-class="{ 'schedulebar-item-selected': isItemSelected(lesson.id),
 														'schedulebar-item-inProgress': isItemInProgress(lesson.id),
 														'schedulebar-item-done': isItemDone(lesson.id)}" ng-click="itemSelect(lesson.id)">
-			<span ng-class="{ 'glyphicon glyphicon-check schedulebar-item-text': isItemDone(lesson.id)}"></span>	
+			<span ng-class="{ 'nc-icon nc-ic_check_box_48px schedulebar-item-text': isItemDone(lesson.id)}"></span>
 			</div>
 			<span class="schedulebar-item-label">{{lesson.order}}</span>
 			<!--ng-if="lesson.order == 1 || (lesson.order)%5 == 0" -->
-			
-		</div>		
-	</div>	
+
+		</div>
+	</div>
 
 </div>
