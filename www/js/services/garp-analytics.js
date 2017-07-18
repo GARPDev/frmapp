@@ -1,4 +1,5 @@
-phonecattApp.service('garpAnalytics', ['$rootScope', '$analytics', 'remoteDataService', '$location', function ($rootScope, $analytics, remoteDataService, $location){
+phonecatApp.service('GarpAnalytics', ['$rootScope', '$analytics', 'remoteDataService', '$location', '$window', 
+function ($rootScope, $analytics, remoteDataService, $location, $window){
 
     var submitPage = function(url){
         $analytics.pageTrack(url, $location)
@@ -6,14 +7,12 @@ phonecattApp.service('garpAnalytics', ['$rootScope', '$analytics', 'remoteDataSe
 
     var setPageDimensions = function(){
 
-
-
     }
 
     $rootScope.$on('$routeChangeSuccess', function (event, current) {
         if (current && (current.$$route||current).redirectTo) return;
-        var url = $analytics.settings.pageTracking.basePath + $location.url();
-        console.log()
+        var url = $window.location.pathname + $location.url();
+        console.log(url)
     })
 
 }])
