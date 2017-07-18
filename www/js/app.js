@@ -200,7 +200,7 @@ function($routeProvider, $anchorScrollProvider, $locationProvider, $compileProvi
 	  
 }]);
 
-phonecatApp.run(['configuration', '$analytics', function(configuration, $analytics){
+phonecatApp.run(['configuration', '$analytics', 'GarpAnalytics', function(configuration, $analytics, GarpAnalytics){
 
   //Vendor Script to include GA
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
