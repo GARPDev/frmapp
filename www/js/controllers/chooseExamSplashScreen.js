@@ -24,12 +24,12 @@ frmControllers.controller('ChooseExamCtrl', ['$scope','$timeout','$location','re
 			localStorage.removeItem('glossaryData');
 			remoteDataService.glossaryData = null;
 			
-			navigationService.changeView('myaccount');
+			navigationService.pageTransitionOut('myaccount');
 			$rootScope.$broadcast('updateNav', true);
 		};
 
 		$scope.changeView = function(view) {
-			navigationService.changeView(view);
+			navigationService.pageTransitionOut(view)
 		}
 
 	}

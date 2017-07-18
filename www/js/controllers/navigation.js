@@ -62,7 +62,7 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
       if(isOnline()) {
         remoteDataService.clearData(); 
       }
-      navigationService.changeView('login');
+      navigationService.pageTransitionOut('login');
     }
 
 
@@ -78,12 +78,12 @@ frmControllers.controller('NavController', ['$scope', '$location','remoteDataSer
     $scope.searchGlossary = function(terms) {
       setState('glossary');
       console.log($scope.searchTerms)
-      navigationService.changeView('glossary/' + terms)
+      navigationService.pageTransitionOut('glossary/' + terms)
     }
 
     $scope.changeView = function(view) {
       setState(view);
-      navigationService.changeView(view);
+      navigationService.pageTransitionOut(view);
     }
 
     $scope.isActive = function (viewLocation) { 
