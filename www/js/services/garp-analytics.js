@@ -3,12 +3,21 @@ function ($rootScope, $analytics, remoteDataService, $location, $window){
 
     var PageTracking = this.PageTracking = {
 
+        loadTimeStartTimestamp: null,
+
         /**
-         * Can be set to false explicitly in the resolve function 
-         * associated with a given route to turn off automatic page tracking
-         * @param {boolean} autoPageTrackingOn 
+         * Can be set to true/false explicitly in the resolve function 
+         * associated with a given route to turn on/off automatic page tracking
+         * @param {boolean} autoRouteTrackingOn 
          */
-        autoPageTrackingOn: true,
+        autoRouteTrackingOn: false,
+
+        /**
+         * Can be set to true/false explicitly prior to calling a transition
+         * associated with a given route to turn on/off automatic page tracking
+         * @param {boolean} autoRouteTrackingOn 
+         */
+        autoTransitionTrackingOn: true,
 
         /**
          * Sends the page information to GA
@@ -17,6 +26,8 @@ function ($rootScope, $analytics, remoteDataService, $location, $window){
          */
         doPageTrack: function(url){
             $analytics.pageTrack(url, $location)
+            this.autoRouteTrackingOn = true
+            this.autoTransitionTrackingOn = true
         },
 
         /**
@@ -41,8 +52,18 @@ function ($rootScope, $analytics, remoteDataService, $location, $window){
             if(remoteDataService.examInfo !== undefined && remoteDataService.examInfo.EXAM){
                 dimensions['Content-Type'].value = remoteDataService.examInfo.EXAM
             }
-            if(remoteDataService.userData !== undefined && remoteDataService.userData.contact !== undefined && remoteDataService.userData.contact.Membership_Type__c){
+            if(
+                remoteDataService.userData !== undefined && 
+                remoteDataService.userData && 
+                remoteDataService.userData.contact !== undefined && 
+                remoteDataService.userData.contact.Membership_Type__c
+            ){
                 dimensions['User-Type'].value = remoteDataService.userData.contact.Membership_Type__c
+            }
+            if(this.loadTimeStartTimestamp){
+                var then = moment(this.loadTimeStartTimestamp)
+                var duration = moment.duration(moment().diff(then))
+                dimensions['Load Time'].value = duration.asSeconds() + ' Seconds'
             }
 
             //Overrides
@@ -74,11 +95,22 @@ function ($rootScope, $analytics, remoteDataService, $location, $window){
 
     }
 
-    /**
-     * Tracks route changes automatically
-     */
+
     $rootScope.$on('$routeChangeSuccess', function (event, current){
         if(PageTracking.autoPageTrackingOn){
+            PageTracking.setPageDimensions(PageTracking.definePageDimensions())
+            PageTracking.doPageTrack($location.absUrl())
+        }
+    })
+
+    $rootScope.$on('pageTransitionOut', function (event, current){
+        if(PageTracking.autoTransitionTrackingOn){
+            PageTracking.loadTimeStartTimestamp = moment()
+        }
+    })
+
+    $rootScope.$on('pageTransitionIn', function (event, current){
+        if(PageTracking.autoTransitionTrackingOn){
             PageTracking.setPageDimensions(PageTracking.definePageDimensions())
             PageTracking.doPageTrack($location.absUrl())
         }
