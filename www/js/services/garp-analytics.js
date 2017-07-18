@@ -1,8 +1,22 @@
-phonecatApp.service('GarpAnalyticsService', ['$rootScope', '$analytics', 'remoteDataService', '$location', '$window', 
-function ($rootScope, $analytics, remoteDataService, $location, $window){
+phonecatApp.service('GarpAnalyticsService', ['$rootScope', '$analytics', 'remoteDataService', '$location', '$window', '$http',
+function ($rootScope, $analytics, remoteDataService, $location, $window, $http){
 
     var SalesforceActivityTracking = this.SalesforceActivityTracking = {
 
+        insertMetadata: function(contactId, questionId, answerIndex){
+
+            var kwargs = {
+                Practice_Exam_Question__c: questionId,
+                Practice_Exam_Answer_Selected__c: answerIndex
+            }
+
+            $http.post('/frmapp/user/metadata', kwargs)
+            .catch(function(error){
+                console.log(error)
+            })
+
+        }
+        
     }
 
     var PageTracking = this.PageTracking = {

@@ -1,7 +1,7 @@
 'use strict';
 
-frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce','examSharedService','remoteDataService','navigationService',
-  function($scope,$timeout,$location,$sce,examSharedService,remoteDataService,navigationService) {
+frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce','examSharedService','remoteDataService','navigationService','GarpAnalyticsService', 
+  function($scope,$timeout,$location,$sce,examSharedService,remoteDataService,navigationService,GarpAnalyticsService) {
 
     $scope.userData = remoteDataService.userData;
 
@@ -86,6 +86,8 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
 
       // As of 2016 A = 1, B = 2, ...
       id++;
+
+      GarpAnalyticsService.SalesforceActivityTracking.insertMetadata(remoteDataService.userData.contact.Id, $scope.question.id, id)
 
       var userAnswer = {};
       userAnswer.question = $scope.question;
