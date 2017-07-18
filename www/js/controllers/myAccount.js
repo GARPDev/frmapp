@@ -1,5 +1,5 @@
-frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService','$sce','utilitiesService','$rootScope', '$q',
-  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService,$sce,utilitiesService,$rootScope, $q) {
+frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService','$sce','utilitiesService','$rootScope', '$q', 'GarpAnalyticsService',
+  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService,$sce,utilitiesService,$rootScope, $q, GarpAnalyticsService) {
 
     $scope.nav = navigator.appCodeName;
     $scope.camera =  navigator.camera;

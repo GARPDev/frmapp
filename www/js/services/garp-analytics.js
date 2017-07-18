@@ -1,65 +1,87 @@
-phonecatApp.service('GarpAnalytics', ['$rootScope', '$analytics', 'remoteDataService', '$location', '$window', 
+phonecatApp.service('GarpAnalyticsService', ['$rootScope', '$analytics', 'remoteDataService', '$location', '$window', 
 function ($rootScope, $analytics, remoteDataService, $location, $window){
 
-    this.autoTrackingOn = true
+    var PageTracking = this.PageTracking = {
 
-    var dimensions = {
-        'Content-Type' : { index: 1, value: null },
-        'User-Type'    : { index: 3, value: null },
-        'Load Time'    : { index: 4, value: null },
-        'URL'          : { index: 8, value: null },
-        'App'          : { index: 8, value: 'Study Center App' }
-    }
+        /**
+         * Can be set to false explicitly in the resolve function 
+         * associated with a given route to turn off automatic page tracking
+         * @param {boolean} autoPageTrackingOn 
+         */
+        autoPageTrackingOn: true,
 
-    var pageTracking = {}
+        /**
+         * Sends the page information to GA
+         * @param {string} url
+         * @function
+         */
+        doPageTrack: function(url){
+            $analytics.pageTrack(url, $location)
+        },
 
-    pageTracking.trackPage = function(url){
-        $analytics.pageTrack(url, $location)
-    }
+        /**
+         * Defines the dimensions object and provides a means for overriding
+         * hardcoded dimensions
+         * @param {kwargs} overrides e.g. { 'Content-Type' : 'Custom Content Type Value' }
+         * @function
+         * @return {kwargs}
+         */
+        definePageDimensions: function(overrides){
 
-    /**
-     * Defines the 
-     */
-    pageTracking.definePageDimensions = function(overrides){
-
-
-
-        if(overrides){
-            for(var property in overrides){
-                if(dimensions.hasOwnProperty(property)) dimensions[property].value = overrides[property]
+            //Model definition with hardcoded dimension
+            var dimensions = {
+                'Content-Type'  : { dimensionIndex: 1, value: null },
+                'User-Type'     : { dimensionIndex: 3, value: null },
+                'Load Time'     : { dimensionIndex: 4, value: null },
+                'URL'           : { dimensionIndex: 8, value: $location.absUrl() },
+                'App'           : { dimensionIndex: 9, value: 'Study Center App' }
             }
+
+            //Computed dimensions
+            if(remoteDataService.examInfo !== undefined && remoteDataService.examInfo.EXAM){
+                dimensions['Content-Type'].value = remoteDataService.examInfo.EXAM
+            }
+            if(remoteDataService.userData !== undefined && remoteDataService.userData.contact !== undefined && remoteDataService.userData.contact.Membership_Type__c){
+                dimensions['User-Type'].value = remoteDataService.userData.contact.Membership_Type__c
+            }
+
+            //Overrides
+            if(overrides){
+                for(var property in overrides){
+                    if(dimensions.hasOwnProperty(property)) dimensions[property].value = overrides[property]
+                }
+            }
+
+            return dimensions
+
+        },
+
+        /**
+         * Iterates over dimensions and sets them on the $analytics service
+         * Using the $analytics.setUserProperties function
+         * @param {kwargs} dimensions
+         * @function
+         */
+        setPageDimensions: function(dimensions){
+
+            for(var key in dimensions){
+                if(dimensions[key]){
+                    $analytics.setUserProperties({ ['dimension' + dimensions[key].dimensionIndex] : dimensions[key].value })
+                }
+            }
+
         }
-
-        if(remoteDataService.examInfo !== undefined && remoteDataService.examInfo.EXAM){
-            dimensions['Content-Type'].value = remoteDataService.examInfo.EXAM
-        }
-
-        return dimensions
-
-    }
-
-    var setPageDimensions = function(dimensions){
-        
-        $analytics.setUserProperties({ 'dimension1' : dimensions['Content-Type']    })
-        $analytics.setUserProperties({ 'dimension3' : dimensions['User-Type']       })
-        $analytics.setUserProperties({ 'dimension4' : dimensions['Load Time']       })
-        $analytics.setUserProperties({ 'dimension8' : dimensions['URL']             })
-        $analytics.setUserProperties({ 'dimension9' : dimensions['App']             })
 
     }
 
     /**
-     * When route changes
-     * configure custom dimensions
-     * then track page
-     * @function
+     * Tracks route changes automatically
      */
-    $rootScope.$on('$routeChangeSuccess', function (event, current) {
-        var customDimensions = definePageDimensions()
-        setPageDimensions(customDimensions)
-        pageTracking.trackPage($location.absUrl())
+    $rootScope.$on('$routeChangeSuccess', function (event, current){
+        if(PageTracking.autoPageTrackingOn){
+            PageTracking.setPageDimensions(PageTracking.definePageDimensions())
+            PageTracking.doPageTrack($location.absUrl())
+        }
     })
-
-    this.pageTracking = pageTracking
 
 }])

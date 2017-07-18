@@ -168,7 +168,7 @@ function($routeProvider, $anchorScrollProvider, $locationProvider, $compileProvi
     templateUrl: 'partials/frm-myaccount.html',
     controller: 'FRMAppMyAccountCtrl',
     resolve: {
-      myVar: function($q,$http,remoteDataService){
+      myVar: function($q, $http, remoteDataService, GarpAnalyticsService){
         //code to be executed before route change goes here
         var defer = $q.defer();
         remoteDataService.fetchData(defer, $http);
@@ -200,7 +200,7 @@ function($routeProvider, $anchorScrollProvider, $locationProvider, $compileProvi
 	  
 }]);
 
-phonecatApp.run(['configuration', '$analytics', 'GarpAnalytics', function(configuration, $analytics, GarpAnalytics){
+phonecatApp.run(['configuration', '$analytics', 'GarpAnalyticsService', function(configuration, $analytics, GarpAnalyticsService){
 
   //Vendor Script to include GA
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
