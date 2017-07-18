@@ -6,6 +6,7 @@ function ($rootScope, $analytics, remoteDataService, $location, $window, $http){
         insertMetadata: function(contactId, questionId, answerIndex){
 
             var kwargs = {
+                Contact__c: contactId,
                 Practice_Exam_Question__c: questionId,
                 Practice_Exam_Answer_Selected__c: answerIndex
             }
