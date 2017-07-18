@@ -68,7 +68,16 @@
 
                 </div>
 
-                <form ng-show="currentMenuItem != 'Glossary'" role="search" ng-submit="searchGlossary(searchTerms)" class="mobileSearch">
+                <form 
+                    analytics-on="submit" 
+                    analytics-event="Search" 
+                    analytics-category="Glossary" 
+                    analytics-label="{{searchTerms}}"
+                    ng-show="currentMenuItem != 'Glossary'" 
+                    role="search" 
+                    ng-submit="searchGlossary(searchTerms)" 
+                    class="mobileSearch"
+                >
                     <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary" style="border-radius:0px;">
                 </form>
 
@@ -112,7 +121,16 @@
                 </ul>
 
                 <div class="nav navbar-nav navbar-right nav-right-area">
-                    <form ng-show="currentMenuItem != 'Glossary' && examInfo.exam" role="search" ng-submit="searchGlossary(searchTerms)" class="navbar-form navbar-left" >
+                    <form 
+                        analytics-on="submit" 
+                        analytics-event="Search" 
+                        analytics-category="Glossary" 
+                        analytics-label="{{searchTerms}}"
+                        ng-show="currentMenuItem != 'Glossary' && examInfo.exam" 
+                        role="search" 
+                        ng-submit="searchGlossary(searchTerms)" 
+                        class="navbar-form navbar-left"
+                    >
                         <input type="text" class="form-control" ng-model="searchTerms" placeholder="Search Glossary">
                     </form>
                     <li id="mainnav-readings">

@@ -1,6 +1,10 @@
 phonecatApp.service('GarpAnalyticsService', ['$rootScope', '$analytics', 'remoteDataService', '$location', '$window', 
 function ($rootScope, $analytics, remoteDataService, $location, $window){
 
+    var SalesforceActivityTracking = this.SalesforceActivityTracking = {
+
+    }
+
     var PageTracking = this.PageTracking = {
 
         loadTimeStartTimestamp: null,
@@ -94,7 +98,6 @@ function ($rootScope, $analytics, remoteDataService, $location, $window){
         }
 
     }
-
 
     $rootScope.$on('$routeChangeSuccess', function (event, current){
         if(PageTracking.autoPageTrackingOn){
