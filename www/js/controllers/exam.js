@@ -1,14 +1,14 @@
 'use strict';
 
-frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce','examSharedService','remoteDataService','navigationService',
-  function($scope,$timeout,$location,$sce,examSharedService,remoteDataService,navigationService) {
+frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce','examSharedService','remoteDataService','navigationService','GarpAnalyticsService', 
+  function($scope,$timeout,$location,$sce,examSharedService,remoteDataService,navigationService,GarpAnalyticsService) {
 
     $scope.userData = remoteDataService.userData;
 
     $scope.currentQuestion = 0;
 
     if((!defined(examSharedService.questions) || examSharedService.questions.length < 1) && !defined(navigationService.currentNav)) {
-      navigationService.changeView('examsettings');
+      navigationService.pageTransitionOut('examsettings');
       return;
     }
 
@@ -79,13 +79,15 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $scope.exitExam = function() {
       $('body').removeClass("modal-open");
       //document.location.hash = '#/dash';
-      navigationService.changeView('dashboard');
+      navigationService.pageTransitionOut('dashboard');
     }
 
     $scope.chooseAnswer = function(id) {
 
       // As of 2016 A = 1, B = 2, ...
       id++;
+
+      GarpAnalyticsService.SalesforceActivityTracking.insertMetadata(remoteDataService.userData.contact.Id, $scope.question.id, id)
 
       var userAnswer = {};
       userAnswer.question = $scope.question;
@@ -190,13 +192,13 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
     $('#myModal').on('hidden.bs.modal', function (e) {
       // do something...
       if($scope.currentQuestion == $scope.totalQuestions) {
-         navigationService.changeView('examresults');
+         navigationService.pageTransitionOut('examresults');
       }
     })
 
 
     $scope.changeView = function(view) {
-      navigationService.changeView(view);
+      navigationService.pageTransitionOut(view);
     }
 
     var gotoQuestion=function() {
@@ -207,7 +209,7 @@ frmControllers.controller('FRMExamCtrl', ['$scope','$timeout','$location','$sce'
         examSharedService.correctAnswers = $scope.correctAnswers;
 
         if(examSharedService.settings.mode == 1) {
-          navigationService.changeView('examresults');
+          navigationService.pageTransitionOut('examresults');
         } else {
           $scope.currentQuestion++;  
         }

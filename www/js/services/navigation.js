@@ -1,58 +1,60 @@
-frmServices.factory('navigationService', ['$resource','$http',
-  function($resource, $http){
+frmServices.factory('navigationService', ['$rootScope', '$resource', '$http',
+function($rootScope, $resource, $http){
 
+  var navigationService = {};
+  navigationService.currentNav = null;
 
-    var navigationService = {};
-    navigationService.currentNav = null;
+  navigationService.pageTransitionOut = function(view) {
 
-    navigationService.pageTransitionOut = function(view) {
+    console.log(view)
 
-      console.log(view)
+    $rootScope.$emit('pageTransitionOut')
 
-      var currentLoc = document.location.hash;
-      var route = null;
+    var currentLoc = document.location.hash;
+    var route = null;
 
-      if(currentLoc.indexOf('#!/') > -1) {
+    if(currentLoc.indexOf('#!/') > -1) {
 
-        var route = currentLoc.substring(3);
+      var route = currentLoc.substring(3);
 
-        if(route.indexOf('/') > -1) {
+      if(route.indexOf('/') > -1) {
 
-          route = route.substring(0,route.indexOf('?'));
+        route = route.substring(0,route.indexOf('?'));
 
-        } else if(route.indexOf('?') > -1) {
+      } else if(route.indexOf('?') > -1) {
 
-          route = route.substring(0,route.indexOf('?'));
+        route = route.substring(0,route.indexOf('?'));
 
+      }
+
+    }
+
+    if(route != view){
+
+      navigationService.currentNav = view;
+
+      $('.page-container').fadeOut(function() {
+        if(view !== null && typeof view !== "undefined") {
+          console.log(view)
+          document.location.hash = '#!/' + view;
         }
-
-      }
-
-      if(route != view){
-
-        navigationService.currentNav = view;
-
-        $('.page-container').fadeOut(function() {
-          if(view !== null && typeof view !== "undefined") {
-            console.log(view)
-            document.location.hash = '#!/' + view;
-          }
-        });
-
-      }
+      });
 
     }
-
-    navigationService.pageTransitionIn = function() {
-      $('.page-container').fadeIn();
-    }
-
-    navigationService.changeView = function(view) {
-      navigationService.pageTransitionOut(view);
-    }
-
-
-    return navigationService;
 
   }
+
+  navigationService.pageTransitionIn = function() {
+    $('.page-container').fadeIn()
+    $rootScope.$emit('pageTransitionIn')
+  }
+
+  navigationService.changeView = function(view) {
+    navigationService.pageTransitionOut(view);
+  }
+
+
+  return navigationService;
+
+}
 ]);

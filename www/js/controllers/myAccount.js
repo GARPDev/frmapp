@@ -1,5 +1,5 @@
-frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService','$sce','utilitiesService','$rootScope', '$q',
-  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService,$sce,utilitiesService,$rootScope, $q) {
+frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$location','remoteDataService','scheduleBarSharedService','navigationService','mapService','$sce','utilitiesService','$rootScope', '$q', 'GarpAnalyticsService',
+  function($scope, $timeout, $location, remoteDataService, scheduleBarSharedService, navigationService,mapService,$sce,utilitiesService,$rootScope, $q, GarpAnalyticsService) {
 
     $scope.nav = navigator.appCodeName;
     $scope.camera =  navigator.camera;
@@ -111,7 +111,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       if(isOnline()) {
         remoteDataService.clearData(); 
       }
-      navigationService.changeView('login');
+      navigationService.pageTransitionOut('login');
     }
 
     $scope.takePhoto = function () { 
@@ -132,7 +132,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $scope.clearData = function() {
       remoteDataService.clearData();
-      navigationService.changeView('login');
+      navigationService.pageTransitionOut('login');
     }
 
     $scope.changeOrgOption = function(value) {
@@ -146,7 +146,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
 
     $scope.changeView=function(view) {
       remoteDataService.commitData();
-      navigationService.changeView(view);
+      navigationService.pageTransitionOut(view);
     }
 
     $scope.changeExam = function(examType) {
