@@ -49,7 +49,7 @@
       text-decoration: none;
   }
   /*  mobile nav */
-  
+
   @media (min-width: 990px) {
       .mobileIcons {
           display: none;
@@ -156,7 +156,7 @@
       }
   }
   /* custom panels*/
-  
+
   .panel {
       webkit-box-shadow: 0 3px 3px #cbd5d6 !important;
       -moz-box-shadow: 0 3px 3px #cbd5d6 !important;
@@ -187,7 +187,7 @@
       background: white;
   }
   /* Custom Classes */
-  
+
   #myAccountUserImage {
       border-radius: 50%;
   }
@@ -269,7 +269,7 @@
       margin-top: 5px;
   }
   .nav-item-icon {
-      font-size: 18px;
+      font-size: 24px !important;
       margin-top: 9px;
   }
   .nav-icon-search {
@@ -442,7 +442,7 @@
       color: #081A31 !important;
   }
   /* --- older --*/
-  
+
   .footer-area {
       text-align: center;
   }
@@ -1761,6 +1761,12 @@
       padding: 4em 0;
       border-top: 1px solid #cbd5d6
   }
+
+
+.nc-icon, .reading-list-button{
+  vertical-align: middle;
+}
+
   @media (max-width: 1199px) {
       #assoc_main span.lg-quote {
           display: none

@@ -7,7 +7,7 @@
           <div>
             <div class="row">
               <div class="col-md-2  exam-question-heading-left">
-                
+
               </div>
 
               <div class="col-md-5 exam-question-heading-center">
@@ -25,7 +25,7 @@
 
                 <span id="mainnav-dashboard" class="exam-question-heading-item"><span class="glyphicon glyphicon-share-alt"/> <a href ng-click="exitExam()" class="exam-question-heading-link">Exit Test</a></span>
 
-                
+
                 <span ng-if="currentQuestion < (totalQuestions-1)  && settings.mode == 0" id="mainnav-dashboard" class="exam-question-heading-item"><a href ng-click="skipQuestion()" class="exam-question-heading-link">Next <span class="glyphicon glyphicon-chevron-right"/></a></span>
 
               </div>
@@ -40,7 +40,7 @@
                 <span class="exam-question-count">Question {{currentQuestion+1}}</span>
             </div>
             <div class="col-md-6 exam-question-heading-right">
-                <span id="mainnav-dashboard" class=""><a ng-click="flagQuestion()"> <span class="glyphicon glyphicon-flag"></span> <span class="reading-list-button">Flag</span></a></span>
+                <span id="mainnav-dashboard" class=""><a ng-click="flagQuestion()"> <span class="nc-icon nc-flag-points-32"></span> <span class="reading-list-button">Flag</span></a></span>
             </div>
           </div>
           <div class="row">
