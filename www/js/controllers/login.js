@@ -193,9 +193,9 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
 
               if(remoteDataService.examInfo.userExam==null) {
                 remoteDataService.examInfo.canPick = true;
-                navigationService.changeView('pickexam'); 
+                navigationService.pageTransitionOut('pickexam'); 
               } else {
-                navigationService.changeView('myaccount'); 
+                navigationService.pageTransitionOut('myaccount'); 
                 var obj = $('.spin')
                 opts.top = '50px'
                 remoteDataService.spinner = new Spinner(opts).spin(obj[0]);
@@ -215,7 +215,7 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
           });
         });
       } else {
-        navigationService.changeView('myaccount');
+        navigationService.pageTransitionOut('myaccount');
       }
     }
 }]);

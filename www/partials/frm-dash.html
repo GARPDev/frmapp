@@ -15,7 +15,7 @@
 		<div class="col-md-1">
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-md-6">
 		<div class="workhead">
@@ -33,11 +33,11 @@
 				<li class="active"><a href="#">Messages</a></li>
 				<li><a href="#">Twitter</a></li>
 				<li><a href="#">Facebook</a></li>
-			</ul>				
+			</ul>
 			<div class="msgscrollregion scrollbar" id="style-2">
 				<ul class="list-group">
 					<li ng-repeat="message in messages" class="list-group-item">
-					
+
 						<div class="msg-header">
 							<div  ng-if="message.urgent" class="msg-urgent">
 								<div><span class="glyphicon glyphicon-exclamation-sign"></span></div>
@@ -53,14 +53,14 @@
 						<div ng-class="{ 'msg-body-open': isItemClicked($index, selectedMessageArray) > -1 }" class="msg-body-closed">
 							<div>{{message.body}}</div>
 							<div ng-if="message.attachmentURL">
-								<span class="glyphicon glyphicon-book"></span> <span class="sectiontext">{{message.attachmentName}}</span>
+								<span class="nc-icon nc-book-bookmark-2"></span> <span class="sectiontext">{{message.attachmentName}}</span>
 							</div>
 						</div>
 						<div ng-if="message.body && isItemClicked($index, selectedMessageArray) > -1" id="less" class="centerhead">
 							<span ng-click="itemClicked($index, selectedMessageArray)">less...</span>
 						</div>
 
-					</li>				
+					</li>
 				</ul>
 			</div>
 		</div>

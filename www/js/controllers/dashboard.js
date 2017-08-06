@@ -75,7 +75,7 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
 
     $scope.navToLessonReadings = function(id) {
       scheduleBarSharedService.selectItem(id);
-      navigationService.changeView('readings');
+      navigationService.pageTransitionOut('readings');
     }
 
     $scope.removeFlag = function(id) {
