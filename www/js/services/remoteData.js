@@ -229,7 +229,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       reqs.push(examSitesDataFetch);
 
       var now = new Date()
-      var year = now.getYear() + 1900;
+      //var year = now.getYear() + 1900;
+      var year = 2017;
 
       var readingsDataFetch = {
         //url : '/frmapp/www/data/readings.json', 
