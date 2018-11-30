@@ -10,12 +10,26 @@
 
     <div class="panel-body nopadding">
       <ul class="list-group list-group nopadding">
-        <li class="list-group-item" ng-repeat="lesson in lessons | filter:lessonInProgressMatch(fasle)" class="">
-          <div class="row lesson-item">
-              <div class="col-xs-8 title"><b ng-if="userExam == 'FRM Part 1 & 2' || userExam == 'ERP Exam Part I & II'">{{lesson.exam}}</b> {{lesson.title}}</div>
-              <div class="col-xs-4 buttons"><button type="button" ng-click="navToLessonReadings(lesson.id)" class="btn btn-success">Start</button></div>
-          </div>
-        </li>
+
+        <div ng-if="lessons.length == 0" class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">We're working hard!</div>
+                </div> 
+                <div class="panel-body">
+                    <p>We are in the processes of finalizing readings for the 2019 FRM and ERP exams. Thank you for your patience, we hope to have them completed very soon.</p>
+                </div>
+            </div>           
+        </div>
+
+        <div ng-if="lessons.length > 0">
+          <li class="list-group-item" ng-repeat="lesson in lessons | filter:lessonInProgressMatch(fasle)" class="">
+              <div class="row lesson-item">
+                  <div class="col-xs-8 title"><b ng-if="userExam == 'FRM Part 1 & 2' || userExam == 'ERP Exam Part I & II'">{{lesson.exam}}</b> {{lesson.title}}</div>
+                  <div class="col-xs-4 buttons"><button type="button" ng-click="navToLessonReadings(lesson.id)" class="btn btn-success">Start</button></div>
+              </div>
+            </li>    
+        </div>
       </ul>
     </div>
 

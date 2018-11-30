@@ -2,7 +2,10 @@ frmControllers.controller('TopicPanelController', ['$scope', '$location', '$time
   function($scope, $location, $timeout, Readings, Messages, Lessons, scheduleBarSharedService, remoteDataService, authenticationService) {
 
     $scope.lessons = remoteDataService.lessonData;
-    $scope.readings = $scope.lessons[0].readings;
+    $scope.readings = [];
+    if(defined($scope,"lessons.length") && $scope.lessons.length > 0) {
+      $scope.readings = $scope.lessons[0].readings;
+    }
     $scope.scrollIndex = 1;
     $scope.allMode = scheduleBarSharedService.allMode;
 
@@ -13,7 +16,7 @@ frmControllers.controller('TopicPanelController', ['$scope', '$location', '$time
     if(scheduleBarSharedService.lessonIndex != 'all') {
       if(scheduleBarSharedService.lessonIndex !== null && scheduleBarSharedService.lessonIndex !== undefined && remoteDataService.getLessonByID(scheduleBarSharedService.lessonIndex) !== undefined) {
         lesson = remoteDataService.getLessonByID(scheduleBarSharedService.lessonIndex)
-      } else {
+      } else if($scope.lessons.length > 0) {
         lesson = remoteDataService.getFirstLesson() 
       }      
     }

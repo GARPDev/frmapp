@@ -5,8 +5,14 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
     console.log(remoteDataService)
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
-    $scope.readings = $scope.lessons[0].readings;
-    $scope.allReadings = _.flatten(_.pluck($scope.lessons,'readings'));
+
+    $scope.readings = [];
+    $scope.allReadings = [];
+    if(defined($scope,"lessons.length") && $scope.lessons.length > 0) {
+      $scope.readings = $scope.lessons[0].readings;
+      $scope.allReadings = _.flatten(_.pluck($scope.lessons,'readings'));  
+    }
+
     $scope.userData = remoteDataService.userData;
     $scope.metaData = remoteDataService.metaData;
     $scope.doneItems = [];

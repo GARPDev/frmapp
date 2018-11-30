@@ -8,9 +8,23 @@
         <div class="panel-title">{{currentLesson.title}}</div>
       </div>
     <div class="panel-body nopadding" ng-controller="FRMAppReadingsListCtrl">
+
       
+
 			<ul class="list-group">		
-        <li ng-if="!filtered.length" style="padding: 20px; text-align: center;">No Items</li>	
+
+        <div ng-if="readings.length == 0" class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">We're working hard!</div>
+                </div> 
+                <div class="panel-body">
+                    <p>We are in the processes of finalizing readings for the 2019 FRM and ERP exams. Thank you for your patience, we hope to have them completed very soon.</p>
+                </div>
+            </div>           
+        </div>
+
+        <li ng-if="readings.length > 0 && !filtered.length" style="padding: 20px; text-align: center;">No Items</li>	
 
 				<li ng-repeat="reading in filtered = ( readings | filterByReadingListProps:readingsList.filters.done:'done' | filterByReadingListProps:readingsList.filters.notes:'notes' | filterByReadingListProps:readingsList.filters.flagged:'flagged' ) | orderBy:['sortBook','sortChapter','sortPages']" 
           class="list-group-item" 
