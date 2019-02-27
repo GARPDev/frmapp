@@ -230,7 +230,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var now = new Date()
       //var year = now.getYear() + 1900;
-      var year = 2020;
+      var year = 2019;
 
       var readingsDataFetch = {
         //url : '/frmapp/www/data/readings.json', 
