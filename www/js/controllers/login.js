@@ -89,6 +89,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
         remoteDataService.examInfo.exam=null;
         remoteDataService.examInfo.EXAM=null;      
 
+        alert(userName);
+
         authenticationService.authenticateUser(userName, password, function(err, result) {
 
           if(!defined(result,"contact")) {

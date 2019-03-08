@@ -19,6 +19,8 @@ frmServices.factory('authenticationService', ['$resource','$http',
         userName: userName,
         password: password
       };
+
+      alert(authReq);
       
       var url = '/sfdc/auth/user';
       if(navigator.camera) {

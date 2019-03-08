@@ -70,8 +70,10 @@ function isMobile() {
 function checkConnection() {
 
     if(defined(navigator,"connection") && defined(Connection)) {
+      alert('Is Online');
         return navigator.connection.type;
     } else {
+      alert('Not Online');
         return null;
     }
 }
