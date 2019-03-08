@@ -23,7 +23,7 @@ frmServices.factory('authenticationService', ['$resource','$http',
       alert(JSON.stringify(authReq));
       
       var url = '/sfdc/auth/user';
-      if(navigator.camera) {
+      if(defined(navigator,"connection") && defined(Connection)) {
         url = serverURL + url;
       }
       
@@ -39,7 +39,7 @@ frmServices.factory('authenticationService', ['$resource','$http',
       }).error(function (data, status, headers, config) {
         alert(JSON.stringify(data));
         alert(JSON.stringify(status));
-        
+
            callback(status, data);
       });
       
