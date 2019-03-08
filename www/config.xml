@@ -64,7 +64,7 @@
     
     <!-- gap:plugin name="nl.x-services.plugins.calendar" source="npm" / -->
     <!-- gap:plugin name="org.apache.cordova.camera" source="npm" / -->
-    <gap:plugin name="org.apache.cordova.network-information" source="npm" />
+    <!-- gap:plugin name="org.apache.cordova.network-information" source="npm" / -->
     <!-- gap:plugin name="com.phonegap.plugins.pushplugin" / -->
 
     <gap:config-file platform="ios" parent="NSCalendarsUsageDescription" overwrite="true">
