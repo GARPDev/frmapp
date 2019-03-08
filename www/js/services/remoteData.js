@@ -71,7 +71,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       } else {
 
-        if(navigator.camera) {
+        if(util.isOnMobileDevice()) {
           url = serverURL + url;
         }    
         $http({method:'GET',url:url}).success(function(data){
@@ -133,7 +133,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
     remoteDataService.getExamRegistrations = function(contactId, callback) {
       var url ='/frmApp/user/' + contactId + '/exam';
-      if(navigator.camera) {
+      if(util.isOnMobileDevice()) {
         url = serverURL + url;
       }    
 
@@ -160,7 +160,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       }
 
       var url = '/frmApp/user/'
-      if(navigator.camera) {
+      if(util.isOnMobileDevice()) {
         url = serverURL + url;
       }    
 
@@ -453,7 +453,7 @@ remoteDataService.setMetaData = function(metaItem) {
         }
 
         var url = '';
-        if(navigator.camera) {
+        if(util.isOnMobileDevice()) {
           url = serverURL + url;
         }    
 
@@ -498,7 +498,7 @@ remoteDataService.setMetaData = function(metaItem) {
 
 
         var url = '';
-        if(navigator.camera) {
+        if(util.isOnMobileDevice()) {
           url = serverURL + url;
         }    
 
@@ -563,7 +563,7 @@ remoteDataService.setMetaData = function(metaItem) {
 
       var url = '/sfdc/exam/' + remoteDataService.userSettings.examId + '/alerts';
 
-      if(navigator.camera) {
+      if(util.isOnMobileDevice()) {
         url = serverURL + url;
       }    
 

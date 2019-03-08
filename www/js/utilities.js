@@ -67,6 +67,14 @@ function isMobile() {
   return defined(navigator,"connection");
 }
 
+function isOnMobileDevice() {
+  if(defined(navigator,"connection") && defined(Connection)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function checkConnection() {
 
     if(defined(navigator,"connection") && defined(Connection)) {
