@@ -20,7 +20,7 @@ frmServices.factory('authenticationService', ['$resource','$http',
         password: password
       };
 
-      alert(authReq);
+      alert(JSON.stringify(authReq));
       
       var url = '/sfdc/auth/user';
       if(navigator.camera) {
@@ -37,6 +37,9 @@ frmServices.factory('authenticationService', ['$resource','$http',
         localStorage.authUser = JSON.stringify(authenticationService.user);
         callback(null, authenticationService.user);
       }).error(function (data, status, headers, config) {
+        alert(JSON.stringify(data));
+        alert(JSON.stringify(status));
+        
            callback(status, data);
       });
       
