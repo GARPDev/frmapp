@@ -23,7 +23,7 @@ frmServices.factory('authenticationService', ['$resource','$http',
       alert(JSON.stringify(authReq));
       
       var url = '/sfdc/auth/user';
-      if(util.isOnMobileDevice()) {
+      if(isOnMobileDevice()) {
         url = serverURL + url;
       }
       
