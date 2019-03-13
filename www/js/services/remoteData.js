@@ -207,6 +207,11 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       //   reqs.push(examFetch);
       // }
 
+      var now = new Date()
+      //var year = now.getYear() + 1900;
+      var year = 2019;
+
+
       var metaDataFetch = {
         url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData/' + remoteDataService.examInfo.exam + '/' + year, 
         propertyName: 'metaData',
@@ -227,10 +232,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
         remotePropertyName: 'records'
       }
       reqs.push(examSitesDataFetch);
-
-      var now = new Date()
-      //var year = now.getYear() + 1900;
-      var year = 2019;
 
       var readingsDataFetch = {
         //url : '/frmapp/www/data/readings.json', 
