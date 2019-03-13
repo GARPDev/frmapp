@@ -208,7 +208,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       // }
 
       var metaDataFetch = {
-        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData', 
+        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData/' + remoteDataService.examInfo.exam + '/' + year, 
         propertyName: 'metaData',
         remotePropertyName: 'metaData'
       }
