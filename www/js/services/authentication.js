@@ -20,7 +20,7 @@ frmServices.factory('authenticationService', ['$resource','$http',
         password: password
       };
 
-      alert(JSON.stringify(authReq));
+      //alert(JSON.stringify(authReq));
       
       var url = '/sfdc/auth/user';
       if(isOnMobileDevice()) {
@@ -34,14 +34,14 @@ frmServices.factory('authenticationService', ['$resource','$http',
           headers: {'Content-Type': 'application/json'}
       }).success(function (data, status, headers, config) {
         
-        alert(JSON.stringify(data));
+        //alert(JSON.stringify(data));
 
         authenticationService.user = data;
         localStorage.authUser = JSON.stringify(authenticationService.user);
         callback(null, authenticationService.user);
       }).error(function (data, status, headers, config) {
-        alert(JSON.stringify(data));
-        alert(JSON.stringify(status));
+        //alert(JSON.stringify(data));
+        //alert(JSON.stringify(status));
 
            callback(status, data);
       });
