@@ -11,6 +11,9 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     remoteDataService.showFooter = true;
     remoteDataService.searchTerms = "";
 
+    // Set By Hand as we release materials
+    remoteDataService.examYear = 2019;
+
     remoteDataService.opp = [];
 
     // localStorage.readingData = null;
@@ -207,13 +210,13 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       //   reqs.push(examFetch);
       // }
 
-      var now = new Date()
-      //var year = now.getYear() + 1900;
-      var year = 2019;
+      // var now = new Date()
+      // //var year = now.getYear() + 1900;
+      // var year = 2019;
 
 
       var metaDataFetch = {
-        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData/' + remoteDataService.examInfo.exam + '/' + year, 
+        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData/' + remoteDataService.examInfo.exam + '/' + remoteDataService.examYear, 
         propertyName: 'metaData',
         remotePropertyName: 'metaData'
       }
@@ -235,7 +238,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var readingsDataFetch = {
         //url : '/frmapp/www/data/readings.json', 
-        url : '/frmApp/readings/' + remoteDataService.examInfo.exam + '/' + year, 
+        url : '/frmApp/readings/' + remoteDataService.examInfo.exam + '/' + remoteDataService.examYear, 
         propertyName: 'readingData',
         remotePropertyName: null
       }
@@ -243,7 +246,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/questions/' + remoteDataService.examInfo.exam + '/' + year, 
+        url : '/frmApp/questions/' + remoteDataService.examInfo.exam + '/' + remoteDataService.examYear, 
         propertyName: 'questionData',
         remotePropertyName: null
       }
@@ -251,7 +254,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       var questionsReadingsDataFetch = {
         //url : '/frmapp/www/data/questions.json', 
-        url : '/frmApp/questionsReadings/' + remoteDataService.examInfo.exam + '/' + year, 
+        url : '/frmApp/questionsReadings/' + remoteDataService.examInfo.exam + '/' + remoteDataService.examYear, 
         propertyName: 'questionsReadingsData',
         remotePropertyName: null
       }
@@ -324,7 +327,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
             case 'readingData':
             if(err != NO_FETCH) {
               var readObj = {
-                id: remoteDataService.examInfo.EXAM + year,
+                id: remoteDataService.examInfo.EXAM + remoteDataService.examYear,
                 readings: []
               }
               for(var j=0; j<data.records.length; j++) {
@@ -373,7 +376,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
             if(err != NO_FETCH) {
 
               var questionObj = {
-                id: 'frm' + year,
+                id: 'frm' + remoteDataService.examYear,
                 questions: []
               }
               for(var j=0; j<data.records.length; j++) {
@@ -458,7 +461,7 @@ remoteDataService.setMetaData = function(metaItem) {
           url = serverURL + url;
         }    
 
-        $http.put(url + '/frmApp/user/' + authenticationService.user.contact.Id + '/metaDataItem', metaItem).success(function(data){
+        $http.put(url + '/frmApp/user/' + authenticationService.user.contact.Id + '/metaDataItem/' + remoteDataService.examInfo.exam + '/' + remoteDataService.examYear, metaItem).success(function(data){
           if(defined(data,"Id")) {
             var foundItem = remoteDataService.getReadingByID(data.ReadingId__c);
             if(defined(foundItem) && !defined(foundItem,"id")) {
@@ -510,7 +513,7 @@ remoteDataService.setMetaData = function(metaItem) {
 
           localStorage.userSettings = JSON.stringify(remoteDataService.userSettings);
 
-          $http.put(url + '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData', remoteDataService.metaData).success(function(data){
+          $http.put(url + '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData/' + remoteDataService.examInfo.exam + '/' + remoteDataService.examYear, remoteDataService.metaData).success(function(data){
 
           //remoteDataService.metaData = data;
           localStorage.metaData = JSON.stringify(remoteDataService.metaData);
