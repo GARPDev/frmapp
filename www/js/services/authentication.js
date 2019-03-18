@@ -19,9 +19,11 @@ frmServices.factory('authenticationService', ['$resource','$http',
         userName: userName,
         password: password
       };
+
+      //alert(JSON.stringify(authReq));
       
       var url = '/sfdc/auth/user';
-      if(navigator.camera) {
+      if(isOnMobileDevice()) {
         url = serverURL + url;
       }
       
@@ -31,10 +33,16 @@ frmServices.factory('authenticationService', ['$resource','$http',
           data: authReq,
           headers: {'Content-Type': 'application/json'}
       }).success(function (data, status, headers, config) {
+        
+        //alert(JSON.stringify(data));
+
         authenticationService.user = data;
         localStorage.authUser = JSON.stringify(authenticationService.user);
         callback(null, authenticationService.user);
       }).error(function (data, status, headers, config) {
+        //alert(JSON.stringify(data));
+        //alert(JSON.stringify(status));
+
            callback(status, data);
       });
       

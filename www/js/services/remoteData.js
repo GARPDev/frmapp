@@ -71,7 +71,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
       } else {
 
-        if(navigator.camera) {
+        if(isOnMobileDevice()) {
           url = serverURL + url;
         }    
         $http({method:'GET',url:url}).success(function(data){
@@ -133,7 +133,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
     remoteDataService.getExamRegistrations = function(contactId, callback) {
       var url ='/frmApp/user/' + contactId + '/exam';
-      if(navigator.camera) {
+      if(isOnMobileDevice()) {
         url = serverURL + url;
       }    
 
@@ -160,7 +160,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       }
 
       var url = '/frmApp/user/'
-      if(navigator.camera) {
+      if(isOnMobileDevice()) {
         url = serverURL + url;
       }    
 
@@ -207,8 +207,13 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       //   reqs.push(examFetch);
       // }
 
+      var now = new Date()
+      //var year = now.getYear() + 1900;
+      var year = 2019;
+
+
       var metaDataFetch = {
-        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData', 
+        url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData/' + remoteDataService.examInfo.exam + '/' + year, 
         propertyName: 'metaData',
         remotePropertyName: 'metaData'
       }
@@ -227,10 +232,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
         remotePropertyName: 'records'
       }
       reqs.push(examSitesDataFetch);
-
-      var now = new Date()
-      //var year = now.getYear() + 1900;
-      var year = 2019;
 
       var readingsDataFetch = {
         //url : '/frmapp/www/data/readings.json', 
@@ -453,7 +454,7 @@ remoteDataService.setMetaData = function(metaItem) {
         }
 
         var url = '';
-        if(navigator.camera) {
+        if(isOnMobileDevice()) {
           url = serverURL + url;
         }    
 
@@ -498,7 +499,7 @@ remoteDataService.setMetaData = function(metaItem) {
 
 
         var url = '';
-        if(navigator.camera) {
+        if(isOnMobileDevice()) {
           url = serverURL + url;
         }    
 
@@ -563,7 +564,7 @@ remoteDataService.setMetaData = function(metaItem) {
 
       var url = '/sfdc/exam/' + remoteDataService.userSettings.examId + '/alerts';
 
-      if(navigator.camera) {
+      if(isOnMobileDevice()) {
         url = serverURL + url;
       }    
 
