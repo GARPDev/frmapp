@@ -12,7 +12,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     remoteDataService.searchTerms = "";
 
     // Set By Hand as we release materials
-    remoteDataService.examYear = 2019;
+    remoteDataService.examYear = 2020;
 
     remoteDataService.opp = [];
 
@@ -192,28 +192,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
       }
 
       var reqs = [];
-
-      // if(defined(remoteDataService,"userData.contact.examRegistrations")) {
-
-      //   var data = remoteDataService.userData.contact.examRegistrations;
-      //   remoteDataService.registeredExam = data;
-      //   remoteDataService.userData.registeredExam = data;
-      //   localStorage.registeredExam = JSON.stringify(data);
-
-      // } else {
-
-      //   var examFetch = {
-      //     url : '/frmApp/user/' + authenticationService.user.contact.Id + '/exam', 
-      //     propertyName: 'registeredExam',
-      //     remotePropertyName: null
-      //   }
-      //   reqs.push(examFetch);
-      // }
-
-      // var now = new Date()
-      // //var year = now.getYear() + 1900;
-      // var year = 2019;
-
 
       var metaDataFetch = {
         url : '/frmApp/user/' + authenticationService.user.contact.Id + '/metaData/' + remoteDataService.examInfo.exam + '/' + remoteDataService.examYear, 
