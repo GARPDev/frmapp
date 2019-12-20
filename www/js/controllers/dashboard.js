@@ -5,7 +5,7 @@ frmControllers.controller('FRMAppDashboardCtrl', ['$scope', '$timeout','$http','
     console.log(remoteDataService)
     //$scope.lessons = Lessons.query();
     $scope.lessons = remoteDataService.lessonData;
-    $scope.year = remoteDataService.year;
+    $scope.year = remoteDataService.examYear;
 
     $scope.readings = [];
     $scope.allReadings = [];
