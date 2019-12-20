@@ -310,6 +310,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
               }
               for(var j=0; j<data.records.length; j++) {
                 var reading = data.records[j];
+                remoteDataService.examYear = reading.Year__c;
                 if(defined(reading,"Study_App_Lesson_Plan__r.Week__c") && 
                  defined(reading,"Study_App_Lesson_Plan__r.Description__c") &&
                  defined(reading,"Study_App_Lesson_Plan__r.Exam__c")) {

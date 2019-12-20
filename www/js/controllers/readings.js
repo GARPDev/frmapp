@@ -1,6 +1,7 @@
 frmControllers.controller('FRMReadingsCtrl', ['$scope','$timeout','scheduleBarSharedService','remoteDataService','readlingListSharedService','navigationService',
   function($scope, $timeout, scheduleBarSharedService, remoteDataService, readlingListSharedService, navigationService) {
   
+    $scope.year = remoteDataService.examYear;
     $scope.lessons = remoteDataService.lessonData;
     $scope.lessonIndex = scheduleBarSharedService.lessonIndex;
     if($scope.lessonIndex == 'all') {

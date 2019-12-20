@@ -3,7 +3,7 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
 
     $scope.lessons = remoteDataService.lessonData;
     $scope.userExam = authenticationService.user.contact.KPI_Current_Exam_Registration__c;
-    $scope.year = new Date().getFullYear()
+    $scope.year = remoteDataService.examYear;
 
     if(!defined(remoteDataService,"questionData.questions") || remoteDataService.questionData.questions.length == 0 ||
         !defined(remoteDataService,"questionsReadingsData.records") || remoteDataService.questionsReadingsData.records.length == 0) {
@@ -25,8 +25,6 @@ frmControllers.controller('FRMExamSettingsCtrl', ['$scope','$timeout','$location
     }
 
     var retrieveNumOfQuestions = function(){
-
-      var year = new Date().getFullYear()
 
       var readings = []
 
