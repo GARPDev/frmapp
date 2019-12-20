@@ -327,6 +327,15 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                     if(defined(reading,"Book__c"))
                       book = reading.Book__c;
 
+                    var sortNum;
+                    if(defined(reading,"Name")) {
+                      var x = parseFloat(reading.Name);
+                      if(!isNaN(x)) {
+                        sortNum = x;
+                      }
+                    }
+                    
+
                     var obj = {
                       id: reading.Id,
                       book: { id:"01", title:book, "author":"", "publisher":""},
@@ -340,7 +349,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
                       attachment : {},
                       sortBook : book,
                       sortChapter : reading.Chapter__c,
-                      sortPages : reading.Pages__c
+                      sortPages : reading.Pages__c,
+                      sortNum : sortNum
                     }
                     readObj.readings.push(obj);
                   }
