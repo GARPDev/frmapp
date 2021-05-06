@@ -467,6 +467,10 @@
   .large-glyphicon {
       font-size: 28px;
   }
+  .selMap {
+      color:#006C99;
+  }
+
   .examday-map-area {
       height: 500px;
   }

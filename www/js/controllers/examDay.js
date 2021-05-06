@@ -91,6 +91,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
       } else {
         address = $scope.displayAddress1;
       }
+      $scope.selectedReg = sel;
       mapService.displayMap('map-canvas',address, function(err, status) {
       });      
     }
