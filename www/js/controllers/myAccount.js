@@ -21,21 +21,21 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
 
 
-    if(defined($scope,"regdata.Integration_Data_Exam_Scheduled_Date__c")) {
-      $scope.examDate = moment($scope.regdata.Integration_Data_Exam_Scheduled_Date__c).format('MMMM D, YYYY');
-    } else if(defined($scope,"regdata.RPT_Administration_Month__c")) {
-      $scope.examDate = $scope.regdata.RPT_Administration_Month__c + " " + $scope.regdata.RPT_Administration_Year__c;
+    if(defined(remoteDataService,"examInfo.userExam.Integration_Data_Exam_Scheduled_Date__c")) {
+      $scope.examDate = moment(remoteDataService.examInfo.userExam.Integration_Data_Exam_Scheduled_Date__c).format('MMMM D, YYYY');
+    } else if(defined(remoteDataService,"examInfo.userExam.RPT_Administration_Month__c")) {
+      $scope.examDate = remoteDataService.examInfo.userExam.RPT_Administration_Month__c + " " + remoteDataService.examInfo.userExam.RPT_Administration_Year__c;
     } else {
-      $scope.examDate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
+      $scope.examDate = moment(remoteDataService.examInfo.userExam.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
     }
 
     var address;
-    if(defined($scope.regdata,"Integration_Data_Exam_Location__c")) {
-      address = $scope.regdata.Integration_Data_Exam_Location__c
-    } else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
-      address = Integration_Data_Exam_Location_City__c + ", " + Integration_Data_Exam_Location_Country__c;
-    }  else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
-      address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
+    if(defined(remoteDataService,"examInfo.userExam.Integration_Data_Exam_Location__c")) {
+      address = remoteDataService.examInfo.userExam.Integration_Data_Exam_Location__c
+    } else if(defined(remoteDataService,"examInfo.userExam.Integration_Data_Exam_Location_Country__c")) {
+      address = remoteDataService.examInfo.userExam.Integration_Data_Exam_Location_City__c + ", " + remoteDataService.examInfo.userExam.Integration_Data_Exam_Location_Country__c;
+    }  else if(defined(remoteDataService,"examInfo.userExam.Exam_Site__r.Site__r.Display_Address__c")) {
+      address = remoteDataService.examInfo.userExam.Exam_Site__r.Site__r.Display_Address__c;
     }    
     $scope.displayAddress = address;
 

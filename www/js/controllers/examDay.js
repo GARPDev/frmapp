@@ -11,7 +11,9 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
     $scope.remoteDataService = remoteDataService;
 
     $scope.isMobile = isMobile();
-    $scope.displayAddress = $scope.userData.contact.KPI_Current_Exam_Location__c;
+    $scope.regdata1 = null;
+    $scope.selectedReg;
+
 
     if(remoteDataService.examInfo.regdata.length > 0) {
       if(remoteDataService.examInfo.regdata.length == 1) {
@@ -26,24 +28,52 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
           $scope.regdata = remoteDataService.examInfo.regdata[0];
         }
       }
+      $scope.selectedReg = 0;
 
       if(defined($scope,"regdata.Integration_Data_Exam_Scheduled_Date__c")) {
         $scope.examDate = moment($scope.regdata.Integration_Data_Exam_Scheduled_Date__c).format('MMMM D, YYYY');
+        $scope.examTime = moment($scope.regdata.Integration_Data_Exam_Scheduled_Date__c).format('hh:mm A');
       } else if(defined($scope,"regdata.RPT_Administration_Month__c")) {
         $scope.examDate = $scope.regdata.RPT_Administration_Month__c + " " + $scope.regdata.RPT_Administration_Year__c;
       } else {
         $scope.examDate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
       }
 
+      if(defined($scope,"regdata1")) {
+        if(defined($scope,"regdata1.Integration_Data_Exam_Scheduled_Date__c")) {
+          $scope.examDate1 = moment($scope.regdata1.Integration_Data_Exam_Scheduled_Date__c).format('MMMM D, YYYY');
+          $scope.examTime1 = moment($scope.regdata1.Integration_Data_Exam_Scheduled_Date__c).format('hh:mm A');
+        } else if(defined($scope,"regdata.RPT_Administration_Month__c")) {
+          $scope.examDate1 = $scope.regdata1.RPT_Administration_Month__c + " " + $scope.regdata1.RPT_Administration_Year__c;
+        } else {
+          $scope.examDate1 = moment($scope.regdata1.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
+        }
+      }
+
       $timeout(function() {
         navigationService.pageTransitionIn();
+        var address;
         if(defined($scope.regdata,"Integration_Data_Exam_Location__c")) {
-          var address = $scope.regdata.Integration_Data_Exam_Location__c
+          address = $scope.regdata.Integration_Data_Exam_Location__c
         } else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
-          var address = Integration_Data_Exam_Location_City__c + ", " + Integration_Data_Exam_Location_Country__c;
+          address = $scope.regdata.Integration_Data_Exam_Location_City__c + ", " + $scope.regdata.Integration_Data_Exam_Location_Country__c;
         }  else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
-          var address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
+          address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
         }
+        $scope.displayAddress = address;
+
+        if(defined($scope,"regdata1")) {
+          var address1;
+          if(defined($scope.regdata1,"Integration_Data_Exam_Location__c")) {
+            address1 = $scope.regdata1.Integration_Data_Exam_Location__c
+          } else if(defined($scope.regdata1,"Integration_Data_Exam_Location_Country__c")) {
+            address1 = $scope.regdata1.Integration_Data_Exam_Location_City__c + ", " + $scope.regdata1.Integration_Data_Exam_Location_Country__c;
+          }  else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
+            address1 = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
+          }
+          $scope.displayAddress1 = address;
+        }
+
         mapService.displayMap('map-canvas',address, function(err, status) {
         });
       }, 0);
