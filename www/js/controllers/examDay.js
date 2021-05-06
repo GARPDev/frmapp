@@ -71,7 +71,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
           }  else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
             address1 = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
           }
-          $scope.displayAddress1 = address;
+          $scope.displayAddress1 = address1;
         }
 
         mapService.displayMap('map-canvas',address, function(err, status) {
@@ -84,6 +84,17 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
       $('.add-reminder-area').hide();
     }
     
+    $scope.selectedRegMap = function(sel) {
+      var address;
+      if(sel == 0) {
+        address = $scope.displayAddress;
+      } else {
+        address = $scope.displayAddress1;
+      }
+      mapService.displayMap('map-canvas',address, function(err, status) {
+      });      
+    }
+
     $scope.addMyReminder=function() {
       if(!defined(remoteDataService,"userSettings.reminders"))
         remoteDataService.userSettings.reminders = [];
