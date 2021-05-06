@@ -57,7 +57,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
           address = $scope.regdata.Integration_Data_Exam_Location__c
         } else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
           address = $scope.regdata.Integration_Data_Exam_Location_City__c + ", " + $scope.regdata.Integration_Data_Exam_Location_Country__c;
-        }  else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
+        }  else {
           address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
         }
         $scope.displayAddress = address;
@@ -68,7 +68,7 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
             address1 = $scope.regdata1.Integration_Data_Exam_Location__c
           } else if(defined($scope.regdata1,"Integration_Data_Exam_Location_Country__c")) {
             address1 = $scope.regdata1.Integration_Data_Exam_Location_City__c + ", " + $scope.regdata1.Integration_Data_Exam_Location_Country__c;
-          }  else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
+          }  else {
             address1 = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
           }
           $scope.displayAddress1 = address1;
