@@ -21,12 +21,23 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
     $scope.userImage = $scope.userData.FullPhotoUrl + '?oauth_token=' + $scope.userData.accessToken;
 
 
-    if(defined($scope,"userData.contact.KPI_Current_Exam_Location__c"))
-      $scope.displayAddress = $scope.userData.contact.KPI_Current_Exam_Location__c;    
+    if(defined($scope,"regdata.Integration_Data_Exam_Scheduled_Date__c")) {
+      $scope.examDate = moment($scope.regdata.Integration_Data_Exam_Scheduled_Date__c).format('MMMM D, YYYY');
+    } else if(defined($scope,"regdata.RPT_Administration_Month__c")) {
+      $scope.examDate = $scope.regdata.RPT_Administration_Month__c + " " + $scope.regdata.RPT_Administration_Year__c;
+    } else {
+      $scope.examDate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
+    }
 
-    if(defined(remoteDataService,"examInfo.userExam.Exam_Site__r.Exam__r.Exam_Date__c"))
-      $scope.examDate = moment(remoteDataService.examInfo.userExam.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
-
+    var address;
+    if(defined($scope.regdata,"Integration_Data_Exam_Location__c")) {
+      address = $scope.regdata.Integration_Data_Exam_Location__c
+    } else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
+      address = Integration_Data_Exam_Location_City__c + ", " + Integration_Data_Exam_Location_Country__c;
+    }  else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
+      address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
+    }    
+    $scope.displayAddress = address;
 
     $scope.orgOptions = [{
           name: 'Week',
@@ -51,29 +62,7 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
       navigationService.pageTransitionIn();
       // registeredExam.address + " " + $scope.userData.registeredExam.city + ", " + $scope.userData.registeredExam.state + " " + $scope.userData.registeredExam.zip;    
 
-      if(defined(remoteDataService,"examInfo.userExam.Exam_Site__r")) {
-        var address = remoteDataService.examInfo.userExam.Exam_Site__r.Site__r.Display_Address__c;
-        if(defined(remoteDataService.examInfo.userExam,"Room__r.Venue__r.Id")) {
-          var venue = remoteDataService.examInfo.userExam.Room__r.Venue__r;
-          var displayAddress = '';
-          if(defined(venue,"Institution_Name__c"))
-          displayAddress += venue.Institution_Name__c + "<br>";
-          if(defined(venue,"Building_Name__c"))
-          displayAddress += venue.Building_Name__c + "<br>";
-          if(defined(venue,"Address1__c"))
-          displayAddress += venue.Address1__c + "<br>";
-          if(defined(venue,"Address2__c"))
-          displayAddress += venue.Address2__c + "<br>";
-          if(defined(venue,"City__c"))
-          displayAddress += venue.City__c + ", ";
-          if(defined(venue,"State__c"))
-          displayAddress += venue.State__c + "<br>";
-          if(defined(venue,"Country__c"))
-          displayAddress += venue.Country__c;
-
-          $scope.displayAddress = $sce.trustAsHtml(displayAddress);
-          address = venue.Address1__c + ' ' + venue.City__c + ' ' + venue.State__c + ' ' + venue.Country__c;
-        }
+      if(defined(address)) {
         $('#map-debug').text($('#map-debug').text()+'Call Display Map');
 
         mapService.displayMap('map-canvas',address, function(err, data) {
@@ -84,7 +73,6 @@ frmControllers.controller('FRMAppMyAccountCtrl', ['$scope', '$timeout', '$locati
         });
 
       }
-
       
     }, 0);
 

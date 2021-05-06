@@ -26,30 +26,22 @@ frmControllers.controller('FRMExamDayCtrl', ['$scope','$timeout','$location','ex
           $scope.regdata = remoteDataService.examInfo.regdata[0];
         }
       }
-      $scope.examDate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
+
+      if(defined($scope,"regdata.Integration_Data_Exam_Scheduled_Date__c")) {
+        $scope.examDate = moment($scope.regdata.Integration_Data_Exam_Scheduled_Date__c).format('MMMM D, YYYY');
+      } else if(defined($scope,"regdata.RPT_Administration_Month__c")) {
+        $scope.examDate = $scope.regdata.RPT_Administration_Month__c + " " + $scope.regdata.RPT_Administration_Year__c;
+      } else {
+        $scope.examDate = moment($scope.regdata.Exam_Site__r.Exam__r.Exam_Date__c).format('MMMM D, YYYY');
+      }
 
       $timeout(function() {
         navigationService.pageTransitionIn();
-        if(defined($scope.regdata,"Room__r.Venue__r.Id")) {
-          var venue = $scope.regdata.Room__r.Venue__r;
-          var displayAddress = '';
-          if(defined(venue,"Institution_Name__c"))
-            displayAddress += venue.Institution_Name__c + "<br>";
-          if(defined(venue,"Building_Name__c"))
-            displayAddress += venue.Building_Name__c + "<br>";
-          if(defined(venue,"Address1__c"))
-            displayAddress += venue.Address1__c + "<br>";
-          if(defined(venue,"Address2__c"))
-            displayAddress += venue.Address2__c + "<br>";
-          if(defined(venue,"City__c"))
-            displayAddress += venue.City__c + ", ";
-          if(defined(venue,"State__c"))
-            displayAddress += venue.State__c + "<br>";
-          if(defined(venue,"Country__c"))
-            displayAddress += venue.Country__c;
-          $scope.displayAddress = $sce.trustAsHtml(displayAddress);
-          var address = venue.Address1__c + ' ' + venue.City__c + ' ' + venue.State__c + ' ' + venue.Country__c;
-        } else {
+        if(defined($scope.regdata,"Integration_Data_Exam_Location__c")) {
+          var address = $scope.regdata.Integration_Data_Exam_Location__c
+        } else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
+          var address = Integration_Data_Exam_Location_City__c + ", " + Integration_Data_Exam_Location_Country__c;
+        }  else if(defined($scope.regdata,"Integration_Data_Exam_Location_Country__c")) {
           var address = $scope.regdata.Exam_Site__r.Site__r.Display_Address__c;
         }
         mapService.displayMap('map-canvas',address, function(err, status) {
