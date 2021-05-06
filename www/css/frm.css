@@ -468,7 +468,7 @@
       font-size: 28px;
   }
   .selMap {
-      color:#006C99;
+      color:#006C99 !important;
   }
 
   .examday-map-area {
