@@ -12,7 +12,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     remoteDataService.searchTerms = "";
 
     // Set By Hand as we release materials
-    remoteDataService.examYear = 2021;
+    remoteDataService.examYear = 2022;
 
     remoteDataService.opp = [];
 
