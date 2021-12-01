@@ -11,7 +11,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     remoteDataService.showFooter = true;
     remoteDataService.searchTerms = "";
 
-    // Set By Hand as we release materials
+    // AG 12/1/2022 - Set in webserver config
     remoteDataService.examYear = 2022;
 
     remoteDataService.opp = [];
@@ -182,8 +182,6 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     //our service accepts a promise object which 
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
-
-      remoteDataService.examYear = 2022;
 
       if(authenticationService.user === null || typeof authenticationService.user === "undefined") {
         return null;
