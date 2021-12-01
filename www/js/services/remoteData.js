@@ -65,7 +65,7 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
 
 
     var fetchRemoteData=function(url,propertyName,remotePropertyName,callback) {
-
+      
       // Offline
       if(!isOnline()) {
 
@@ -182,6 +182,8 @@ frmServices.factory('remoteDataService', ['$resource','$http','$q','authenticati
     //our service accepts a promise object which 
     //it will resolve on behalf of the calling function
     remoteDataService.fetchData = function(q,$http) {
+
+      remoteDataService.examYear = 2022;
 
       if(authenticationService.user === null || typeof authenticationService.user === "undefined") {
         return null;
