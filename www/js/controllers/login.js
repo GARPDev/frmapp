@@ -154,70 +154,64 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
                   }
                 }
               }            
-
-
-              if((defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c") && authResult.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing') ||
-                (defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c") && authResult.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing')) {
-
-                if(remoteDataService.examInfo.userIsExamCurrentFRM == true) {
-                  remoteDataService.examInfo.exam = 'frm';
-                  remoteDataService.examInfo.EXAM = 'FRM';              
-                } else if(remoteDataService.examInfo.userIsExamCurrentERP == true) {
-                  remoteDataService.examInfo.exam = 'erp';
-                  remoteDataService.examInfo.EXAM = 'ERP';
-                } else if(defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c") && authResult.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing' && !defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c")) {
-                  remoteDataService.examInfo.exam = 'frm';
-                  remoteDataService.examInfo.EXAM = 'FRM';
-                  if(defined(result,"contact.KPI_Last_Exam_Registration__c") && result.contact.KPI_Last_Exam_Registration__c.indexOf('FRM') > -1)
-                    remoteDataService.examInfo.userExamKPI = result.contact.KPI_Last_Exam_Registration__c;
-                } else if(defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c") && authResult.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing' && !defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c")) {
-                  remoteDataService.examInfo.exam = 'erp';
-                  remoteDataService.examInfo.EXAM = 'ERP';
-                  if(defined(result,"contact.KPI_Last_Exam_Registration__c") && result.contact.KPI_Last_Exam_Registration__c.indexOf('ERP') > -1)
-                    remoteDataService.examInfo.userExamKPI = result.contact.KPI_Last_Exam_Registration__c;
-                }
-
-                if(remoteDataService.examInfo.userExamKPI != null && remoteDataService.examInfo.userExamPart == null) {
-                  remoteDataService.examInfo.examPart = 3;
-                }
-
-                if(remember) {
-                  localStorage[localPropRemember] = true;
-                  localStorage[localPropUserName] = userName;
-                  localStorage[localPropUserPassword] = password;
-                } else {
-                  localStorage.removeItem(localPropRemember);
-                  localStorage.removeItem(localPropUserName);
-                  localStorage.removeItem(localPropUserPassword);
-                }
-
-                if(remoteDataService.examInfo.userExam==null) {
-                  remoteDataService.examInfo.canPick = true;
-                  navigationService.pageTransitionOut('pickexam'); 
-                } else {
-                  navigationService.pageTransitionOut('myaccount'); 
-                  var obj = $('.spin')
-                  opts.top = '50px'
-                  remoteDataService.spinner = new Spinner(opts).spin(obj[0]);
-                }
-                
-                $('.main-container').fadeOut(function() {
-                  document.location.hash = '#!/myaccount';
-                });
-
-                $rootScope.$broadcast('updateNav', true);
-              } else {
-                if(defined(spinner))
-                  spinner.stop();  
-                $('#errormsg').html("You are not currently enrolled for an exam.");          
-                return;            
-              }
-            } else {
-              if(defined(spinner))
-                spinner.stop();  
-              $('#errormsg').html("You are not currently enrolled for an exam.");          
-              return;            
             }
+
+            //if((defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c") && authResult.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing') ||
+            //   (defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c") && authResult.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing')) {
+
+              if(remoteDataService.examInfo.userIsExamCurrentFRM == true) {
+                remoteDataService.examInfo.exam = 'frm';
+                remoteDataService.examInfo.EXAM = 'FRM';              
+              } else if(remoteDataService.examInfo.userIsExamCurrentERP == true) {
+                remoteDataService.examInfo.exam = 'erp';
+                remoteDataService.examInfo.EXAM = 'ERP';
+              } else if(defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c") && authResult.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing' && !defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c")) {
+                remoteDataService.examInfo.exam = 'frm';
+                remoteDataService.examInfo.EXAM = 'FRM';
+                if(defined(result,"contact.KPI_Last_Exam_Registration__c") && result.contact.KPI_Last_Exam_Registration__c.indexOf('FRM') > -1)
+                  remoteDataService.examInfo.userExamKPI = result.contact.KPI_Last_Exam_Registration__c;
+              } else if(defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c") && authResult.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing' && !defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c")) {
+                remoteDataService.examInfo.exam = 'erp';
+                remoteDataService.examInfo.EXAM = 'ERP';
+                if(defined(result,"contact.KPI_Last_Exam_Registration__c") && result.contact.KPI_Last_Exam_Registration__c.indexOf('ERP') > -1)
+                  remoteDataService.examInfo.userExamKPI = result.contact.KPI_Last_Exam_Registration__c;
+              }
+
+              if(remoteDataService.examInfo.userExamKPI != null && remoteDataService.examInfo.userExamPart == null) {
+                remoteDataService.examInfo.examPart = 3;
+              }
+
+              if(remember) {
+                localStorage[localPropRemember] = true;
+                localStorage[localPropUserName] = userName;
+                localStorage[localPropUserPassword] = password;
+              } else {
+                localStorage.removeItem(localPropRemember);
+                localStorage.removeItem(localPropUserName);
+                localStorage.removeItem(localPropUserPassword);
+              }
+
+              if(remoteDataService.examInfo.userExam==null) {
+                remoteDataService.examInfo.canPick = true;
+                navigationService.pageTransitionOut('pickexam'); 
+              } else {
+                navigationService.pageTransitionOut('myaccount'); 
+                var obj = $('.spin')
+                opts.top = '50px'
+                remoteDataService.spinner = new Spinner(opts).spin(obj[0]);
+              }
+              
+              $('.main-container').fadeOut(function() {
+                document.location.hash = '#!/myaccount';
+              });
+
+              $rootScope.$broadcast('updateNav', true);
+            //} else {
+            //  if(defined(spinner))
+            //    spinner.stop();  
+            //  $('#errormsg').html("You are not currently enrolled for an exam.");          
+            //  return;            
+            //}
           });
         });
       } else {
