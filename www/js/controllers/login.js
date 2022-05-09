@@ -156,8 +156,8 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
               }            
             }
 
-            if((defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c") && authResult.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing') ||
-               (defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c") && authResult.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing')) {
+            //if((defined(authResult,"contact.KPI_FRM_Candidate_Payment_Status__c") && authResult.contact.KPI_FRM_Candidate_Payment_Status__c == 'In Good Standing') ||
+            //   (defined(authResult,"contact.KPI_ERP_Candidate_Payment_Status__c") && authResult.contact.KPI_ERP_Candidate_Payment_Status__c == 'In Good Standing')) {
 
               if(remoteDataService.examInfo.userIsExamCurrentFRM == true) {
                 remoteDataService.examInfo.exam = 'frm';
@@ -206,12 +206,12 @@ frmControllers.controller('FRMAppLoginCtrl', ['$scope', '$rootScope','$timeout',
               });
 
               $rootScope.$broadcast('updateNav', true);
-            } else {
-              if(defined(spinner))
-                spinner.stop();  
-              $('#errormsg').html("You are not currently enrolled for an exam.");          
-              return;            
-            }
+            //} else {
+            //  if(defined(spinner))
+            //    spinner.stop();  
+            //  $('#errormsg').html("You are not currently enrolled for an exam.");          
+            //  return;            
+            //}
           });
         });
       } else {
